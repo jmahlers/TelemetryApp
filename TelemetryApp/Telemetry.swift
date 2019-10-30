@@ -12,16 +12,27 @@ protocol TelemetryDelegate{
     func manageEvent(_ event: Sensor)
     func manageToText(_ text: String)
     func manageOnOpen()
+    func manageOnClose()
 }
 
 //All the commented out code is code that was for testing the SSE test. Will delete - JA 10/30
 
 class Telemetry: EventSource {
     
-    var delegate:TelemetryDelegate?
-    var console = ""
+    //Instance variables
     
-    init(){
+    
+    
+    //Initialize telemetry singleton
+    static let shared = Telemetry()
+ 
+    var isInBackground:Bool
+    var console:String
+    var delegate:TelemetryDelegate?
+    
+    private init(){
+        self.console = ""
+        self.isInBackground = false
         let urlString =  "https://api.data.wuracing.com/api/telemetry"
         let url = URL(string: urlString)
         super.init(url: url!)
@@ -38,12 +49,12 @@ class Telemetry: EventSource {
             do {
                 let sensor = try decoder.decode(Sensor.self, from: jsonData!)
                 self.delegate?.manageEvent(sensor)
-                /*
+                
                 self.toText("Key is")
                 self.toText(sensor.key)
                 self.toText("Value is")
                 self.toText(String(sensor.value))
-                */
+                
                 
             } catch {
                 //self.toText("Boogaloo3")
@@ -58,7 +69,7 @@ class Telemetry: EventSource {
         
     }
     
-    func toText(_ text: String){
+    private func toText(_ text: String){
         print(text)
         /*self.console.append("\n"+text)
         self.delegate?.manageToText(text)
