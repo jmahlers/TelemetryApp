@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9FCF394612F0A8E42E27A9CB /* Pods_TelemetryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B22950E09878D842173933E /* Pods_TelemetryApp.framework */; };
 		A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA521236A3D02007B6713 /* AppDelegate.swift */; };
 		A01CA524236A3D02007B6713 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA523236A3D02007B6713 /* ViewController.swift */; };
 		A01CA527236A3D02007B6713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01CA525236A3D02007B6713 /* Main.storyboard */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		144BD5E6415349B6695AAAEF /* Pods-TelemetryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelemetryApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp.debug.xcconfig"; sourceTree = "<group>"; };
+		6B22950E09878D842173933E /* Pods_TelemetryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TelemetryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01CA51E236A3D02007B6713 /* TelemetryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelemetryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01CA521236A3D02007B6713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A01CA523236A3D02007B6713 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		A01CA53D236A3D03007B6713 /* TelemetryAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelemetryAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01CA541236A3D03007B6713 /* TelemetryAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryAppUITests.swift; sourceTree = "<group>"; };
 		A01CA543236A3D03007B6713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C38FE4A35ABDC7E96FFAB128 /* Pods-TelemetryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelemetryApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FCF394612F0A8E42E27A9CB /* Pods_TelemetryApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69FC17B818426CF39FED3FDC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				144BD5E6415349B6695AAAEF /* Pods-TelemetryApp.debug.xcconfig */,
+				C38FE4A35ABDC7E96FFAB128 /* Pods-TelemetryApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		72B096A68E3FC05641DA99CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B22950E09878D842173933E /* Pods_TelemetryApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A01CA515236A3D02007B6713 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +103,8 @@
 				A01CA535236A3D03007B6713 /* TelemetryAppTests */,
 				A01CA540236A3D03007B6713 /* TelemetryAppUITests */,
 				A01CA51F236A3D02007B6713 /* Products */,
+				69FC17B818426CF39FED3FDC /* Pods */,
+				72B096A68E3FC05641DA99CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A01CA546236A3D03007B6713 /* Build configuration list for PBXNativeTarget "TelemetryApp" */;
 			buildPhases = (
+				4C1754689566A76EF692634F /* [CP] Check Pods Manifest.lock */,
 				A01CA51A236A3D02007B6713 /* Sources */,
 				A01CA51B236A3D02007B6713 /* Frameworks */,
 				A01CA51C236A3D02007B6713 /* Resources */,
+				75A90B1FA7D352775B17FF51 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -250,6 +276,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4C1754689566A76EF692634F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TelemetryApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75A90B1FA7D352775B17FF51 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IKEventSource/IKEventSource.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IKEventSource.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A01CA51A236A3D02007B6713 /* Sources */ = {
@@ -430,6 +495,7 @@
 		};
 		A01CA547236A3D03007B6713 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 144BD5E6415349B6695AAAEF /* Pods-TelemetryApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,6 +514,7 @@
 		};
 		A01CA548236A3D03007B6713 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C38FE4A35ABDC7E96FFAB128 /* Pods-TelemetryApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
