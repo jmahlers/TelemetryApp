@@ -14,8 +14,6 @@
 		A01CA527236A3D02007B6713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01CA525236A3D02007B6713 /* Main.storyboard */; };
 		A01CA529236A3D03007B6713 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A01CA528236A3D03007B6713 /* Assets.xcassets */; };
 		A01CA52C236A3D03007B6713 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */; };
-		A01CA537236A3D03007B6713 /* TelemetryAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA536236A3D03007B6713 /* TelemetryAppTests.swift */; };
-		A01CA542236A3D03007B6713 /* TelemetryAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA541236A3D03007B6713 /* TelemetryAppUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,11 +45,7 @@
 		A01CA52B236A3D03007B6713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A01CA52D236A3D03007B6713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A01CA532236A3D03007B6713 /* TelemetryAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelemetryAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A01CA536236A3D03007B6713 /* TelemetryAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryAppTests.swift; sourceTree = "<group>"; };
-		A01CA538236A3D03007B6713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A01CA53D236A3D03007B6713 /* TelemetryAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelemetryAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A01CA541236A3D03007B6713 /* TelemetryAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryAppUITests.swift; sourceTree = "<group>"; };
-		A01CA543236A3D03007B6713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C38FE4A35ABDC7E96FFAB128 /* Pods-TelemetryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelemetryApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,8 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				A01CA520236A3D02007B6713 /* TelemetryApp */,
-				A01CA535236A3D03007B6713 /* TelemetryAppTests */,
-				A01CA540236A3D03007B6713 /* TelemetryAppUITests */,
 				A01CA51F236A3D02007B6713 /* Products */,
 				69FC17B818426CF39FED3FDC /* Pods */,
 				72B096A68E3FC05641DA99CA /* Frameworks */,
@@ -132,24 +124,6 @@
 				A01CA52D236A3D03007B6713 /* Info.plist */,
 			);
 			path = TelemetryApp;
-			sourceTree = "<group>";
-		};
-		A01CA535236A3D03007B6713 /* TelemetryAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				A01CA536236A3D03007B6713 /* TelemetryAppTests.swift */,
-				A01CA538236A3D03007B6713 /* Info.plist */,
-			);
-			path = TelemetryAppTests;
-			sourceTree = "<group>";
-		};
-		A01CA540236A3D03007B6713 /* TelemetryAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				A01CA541236A3D03007B6713 /* TelemetryAppUITests.swift */,
-				A01CA543236A3D03007B6713 /* Info.plist */,
-			);
-			path = TelemetryAppUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,7 +308,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A01CA537236A3D03007B6713 /* TelemetryAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +315,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A01CA542236A3D03007B6713 /* TelemetryAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
