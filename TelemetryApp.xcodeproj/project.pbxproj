@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9FCF394612F0A8E42E27A9CB /* Pods_TelemetryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B22950E09878D842173933E /* Pods_TelemetryApp.framework */; };
+		A01C1E49236A47770026D76F /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C1E48236A47770026D76F /* Telemetry.swift */; };
 		A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA521236A3D02007B6713 /* AppDelegate.swift */; };
 		A01CA524236A3D02007B6713 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA523236A3D02007B6713 /* ViewController.swift */; };
 		A01CA527236A3D02007B6713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01CA525236A3D02007B6713 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		144BD5E6415349B6695AAAEF /* Pods-TelemetryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelemetryApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6B22950E09878D842173933E /* Pods_TelemetryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TelemetryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A01C1E48236A47770026D76F /* Telemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
 		A01CA51E236A3D02007B6713 /* TelemetryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelemetryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01CA521236A3D02007B6713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A01CA523236A3D02007B6713 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				A01CA521236A3D02007B6713 /* AppDelegate.swift */,
 				A01CA523236A3D02007B6713 /* ViewController.swift */,
 				A01CA525236A3D02007B6713 /* Main.storyboard */,
+				A01C1E48236A47770026D76F /* Telemetry.swift */,
 				A01CA528236A3D03007B6713 /* Assets.xcassets */,
 				A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */,
 				A01CA52D236A3D03007B6713 /* Info.plist */,
@@ -322,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A01CA524236A3D02007B6713 /* ViewController.swift in Sources */,
+				A01C1E49236A47770026D76F /* Telemetry.swift in Sources */,
 				A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
