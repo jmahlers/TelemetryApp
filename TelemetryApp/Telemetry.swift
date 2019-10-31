@@ -6,6 +6,7 @@
 //  Copyright © 2019 Jeff Ahlers. All rights reserved.
 //
 
+
 import IKEventSource
 
 protocol TelemetryDelegate{
@@ -15,20 +16,21 @@ protocol TelemetryDelegate{
     func manageOnClose()
 }
 
-//All the commented out code is code that was for testing the SSE test. Will delete - JA 10/30
-
+//Most of the commented out code is code that was for testing the SSE test. Will delete - JA 10/30
+//Any use of Telemetry must use the formate Telemetry.shared._
+//It is a singleton to ensure there is only ever one Telemetry object
+//As a singleton, Telemetry.shared has global scope.
 class Telemetry: EventSource {
     
     //Instance variables
-    
+    var isInBackground:Bool
+    var console:String
+    var delegate:TelemetryDelegate?
     
     
     //Initialize telemetry singleton
     static let shared = Telemetry()
  
-    var isInBackground:Bool
-    var console:String
-    var delegate:TelemetryDelegate?
     
     private init(){
         self.console = ""
@@ -54,8 +56,6 @@ class Telemetry: EventSource {
                 self.toText(sensor.key)
                 self.toText("Value is")
                 self.toText(String(sensor.value))
-                
-                
             } catch {
                 //self.toText("Boogaloo3")
             }
