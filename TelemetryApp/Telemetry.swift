@@ -8,9 +8,9 @@
 
 import IKEventSource
 
-protocol TelemetryDelegate{
+protocol TelemetryDelegate {
     
-    func manageMessage(_ event: Sensor)
+    func manageMessage(_ event: SensorReading)
     func manageOpen()
     func manageComplete()
     
@@ -49,16 +49,13 @@ class Telemetry: EventSource {
             let decoder = JSONDecoder()
             
             do {
-                let sensor = try decoder.decode(Sensor.self, from: jsonData!)
-                self.delegate?.manageMessage(sensor)
+                let sensorReading = try decoder.decode(SensorReading.self, from: jsonData!)
+                self.delegate?.manageMessage(sensorReading)
                 
-                self.toText("Key is")
-                self.toText(sensor.key)
-                self.toText("Value is")
-                self.toText(String(sensor.value))
+                sensorReading.toText()
                 
             } catch {
-                //self.toText("Boogaloo3")
+                print("Sensor reading could not be decoded from JSON data")
             }
         }
         
@@ -67,19 +64,5 @@ class Telemetry: EventSource {
         }
         
     }
-    
-    private func toText(_ text: String){
-        print(text)
-        //self.console.append("\n"+text)
-        //self.delegate?.manageToText(text)
-    }
-}
-    
-    
-    
 
-
-struct Sensor: Decodable {
-    let key: String
-    let value: Float
 }

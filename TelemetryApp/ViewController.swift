@@ -17,13 +17,11 @@ class ViewController: UIViewController, TelemetryDelegate {
         //This is the format any view should use to interact with the EventSource
         Telemetry.shared.delegate = self
         
+        
     }
 
-    
-    
-    
     //Triggers on received  message
-    func manageMessage(_ event: Sensor) {
+    func manageMessage(_ event: SensorReading) {
         //Todo
     }
     
