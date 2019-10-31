@@ -8,12 +8,34 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, TelemetryDelegate {
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        //This is the format any view should use to interact with the EventSource
+        Telemetry.shared.delegate = self
+        
     }
 
+    
+    
+    
+    //Triggers on received  message
+    func manageMessage(_ event: Sensor) {
+        //Todo
+    }
+    
+    //Triggers when the connection opens
+    func manageOpen() {
+        //Todo
+    }
+    
+    //Triggers when the connection closes
+    func manageComplete() {
+        //Todo
+    }
+    
 }
 
