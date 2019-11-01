@@ -9,8 +9,11 @@
 import IKEventSource
 
 protocol TelemetryDelegate{
+    ///Triggers upon incoming event
     func manageMessage(_ event: Sensor)
+    ///Triggers upon opening server connection
     func manageOpen()
+    ///Triggers upon closing server connection
     func manageComplete()
 }
 
@@ -18,20 +21,20 @@ protocol TelemetryDelegate{
 //It is a singleton to ensure there is only ever one Telemetry object
 //As a singleton, Telemetry.shared has global scope
 
+///Class of type EventSource that contains a singleton instance of itself
 class Telemetry: EventSource {
     
-    //Instance variables
     var isInBackground:Bool
-    var console:String
+    ///Delegate to process protocol methods
     var delegate:TelemetryDelegate?
+    ///Dictionary of recieved messages
     var dataSource:[String: [Float]] = [:]
     
-    //Initialize telemetry singleton
+    ///Singleton of Telemetry that connects to the telemetry server
     static let shared = Telemetry()
     
     private init(){
         //Initializing instance variables
-        self.console = ""
         self.isInBackground = false
         let urlString =  "https://api.data.wuracing.com/api/telemetry"
         let url = URL(string: urlString)
