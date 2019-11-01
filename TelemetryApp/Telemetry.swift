@@ -45,21 +45,19 @@ class Telemetry: EventSource {
         }
         
         self.onMessage{ (id, event, data) in
+            print("Recieved message")
             let jsonData = data!.data(using: .utf8)
             let decoder = JSONDecoder()
             do {
                 let sensor = try decoder.decode(Sensor.self, from: jsonData!)
-                
                 if(self.dataSource[sensor.key] != nil){
                     self.dataSource[sensor.key]!.append(sensor.value)
                 }else{
                     self.dataSource[sensor.key] = [sensor.value]
                 }
-                
                 self.delegate?.manageMessage(sensor)
-                
             } catch {
-                //self.toText("Boogaloo3")
+                print("Message decoded to an error")
             }
         }
         
@@ -67,10 +65,6 @@ class Telemetry: EventSource {
             print(self.dataSource)
             self.delegate?.manageComplete()
         }
-        
-    }
-    
-    private func toText(_ text: String){
     }
 }
 
