@@ -19,11 +19,9 @@ class ViewController: UIViewController, TelemetryDelegate {
         Telemetry.shared.delegate = self
         
     }
-
     
     
-    
-    //Triggers on received  message
+    //Triggers on received message
     func manageMessage(_ event: Sensor) {
         let consoleString = "Key is: "+event.key+" \nValue is: "+String(event.value)
         console.text = consoleString
