@@ -8,7 +8,8 @@
 
 import IKEventSource
 
-protocol TelemetryDelegate{
+///Protocol to proccess messages, and connection actions
+protocol TelemetryDelegate: AnyObject{
     ///Triggers upon incoming event
     func manageMessage(_ event: Sensor)
     ///Triggers upon opening server connection
@@ -26,8 +27,8 @@ class Telemetry: EventSource {
     
     var isInBackground:Bool
     ///Delegate to process protocol methods
-    var delegate:TelemetryDelegate?
-    ///Dictionary of recieved messages
+    weak var delegate:TelemetryDelegate?
+    ///Dictionary of received messages
     var dataSource:[String: [Float]] = [:]
     
     ///Singleton of Telemetry that connects to the telemetry server
@@ -65,8 +66,10 @@ class Telemetry: EventSource {
         }
         
         self.onComplete{ (status, shouldReconnect, netLayer) in
-            print("Data source at connection closing was:")
+            
+            print("Data source at connection close was:")
             print(self.dataSource)
+            
             self.delegate?.manageComplete()
         }
     }
