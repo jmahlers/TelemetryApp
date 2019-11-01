@@ -37,5 +37,8 @@ class ViewController: UIViewController, TelemetryDelegate {
         //Todo
     }
     
+    @IBAction func disconnectButton(_ sender: Any) {
+        Telemetry.shared.disconnect()
+    }
 }
 
