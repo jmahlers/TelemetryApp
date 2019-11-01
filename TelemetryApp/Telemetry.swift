@@ -48,7 +48,7 @@ class Telemetry: EventSource {
         }
         
         self.onMessage{ (id, event, data) in
-            print("Recieved message")
+            print("Received message")
             let jsonData = data!.data(using: .utf8)
             let decoder = JSONDecoder()
             do {
@@ -65,6 +65,7 @@ class Telemetry: EventSource {
         }
         
         self.onComplete{ (status, shouldReconnect, netLayer) in
+            print("Data source at connection closing was:")
             print(self.dataSource)
             self.delegate?.manageComplete()
         }

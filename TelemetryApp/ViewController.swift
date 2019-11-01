@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, TelemetryDelegate {
 
-
+    @IBOutlet weak var console: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,17 +25,18 @@ class ViewController: UIViewController, TelemetryDelegate {
     
     //Triggers on received  message
     func manageMessage(_ event: Sensor) {
-        //Todo
+        let consoleString = "Key is: "+event.key+" \nValue is: "+String(event.value)
+        console.text = consoleString
     }
     
     //Triggers when the connection opens
     func manageOpen() {
-        //Todo
+       console.text = "Open"
     }
     
     //Triggers when the connection closes
     func manageComplete() {
-        //Todo
+        console.text = "Disconnected"
     }
     
     @IBAction func disconnectButton(_ sender: Any) {
