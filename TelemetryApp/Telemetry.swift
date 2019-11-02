@@ -25,18 +25,18 @@ protocol TelemetryDelegate: AnyObject{
 ///Class of type EventSource that contains a singleton instance of itself
 class Telemetry: EventSource {
     
-    var isInBackground:Bool
     ///Delegate to process protocol methods
     weak var delegate:TelemetryDelegate?
     ///Dictionary of received messages
     var dataSource:[String: [Float]] = [:]
+    ///Alphabetically sorted array of dataSource keys
+    var sortedKeys:[String] = []
     
     ///Singleton of Telemetry that connects to the telemetry server
     static let shared = Telemetry()
     
     private init(){
         //Initializing instance variables
-        self.isInBackground = false
         let urlString =  "https://api.data.wuracing.com/api/telemetry"
         let url = URL(string: urlString)
         
@@ -58,6 +58,7 @@ class Telemetry: EventSource {
                     self.dataSource[sensor.key]!.append(sensor.value)
                 }else{
                     self.dataSource[sensor.key] = [sensor.value]
+                    self.sortedKeys = Array(self.dataSource.keys).sorted(by: <)
                 }
                 self.delegate?.manageMessage(sensor)
             } catch {
