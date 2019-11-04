@@ -61,11 +61,13 @@ class Telemetry: EventSource {
                 }else{
                     self.dataSource[sensor.key] = [sensor.value]
                     self.sortedKeys.append(sensor.key)
-                    self.sortedKeys.sort()
                     self.sortedUnits.append(sensor.unit ?? "N/A")
-                    self.sortedUnits.sort()
                     self.sortedSystems.append(sensor.system ?? "N/A")
-                    self.sortedSystems.sort()
+                    //Creates a map so that the unit and system arrays can be sorted according to the keys array
+                    let offsets = self.sortedKeys.enumerated().sorted(by: {$0.element < $1.element}).map {$0.offset}
+                    self.sortedKeys = offsets.map {self.sortedKeys[$0]}
+                    self.sortedUnits = offsets.map {self.sortedUnits[$0]}
+                    self.sortedSystems = offsets.map {self.sortedSystems[$0]}
                 }
                 self.delegate?.manageMessage(sensor)
             } catch {
