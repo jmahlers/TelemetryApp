@@ -35,6 +35,8 @@ class Telemetry: EventSource {
     var sortedKeys:[String] = []
     ///Array of units sorted according to sortedKeys
     var sortedUnits:[String] = []
+    ///Array of descriptions sorted according to sortedKeys
+    var sortedDescription:[String] = []
     ///Array of system identifiers sorted according to sortedKeys
     var sortedSystems:[String] = []
     ///Singleton of Telemetry that connects to the telemetry server
@@ -65,11 +67,13 @@ class Telemetry: EventSource {
                     self.sortedKeys.append(sensor.key)
                     self.sortedUnits.append(sensor.unit ?? "N/A")
                     self.sortedSystems.append(sensor.system ?? "N/A")
+                    self.sortedDescription.append(sensor.description ?? "N/A")
                     //Creates a map so that the unit and system arrays can be sorted according to the keys array
                     let offsets = self.sortedKeys.enumerated().sorted(by: {$0.element < $1.element}).map {$0.offset}
                     self.sortedKeys = offsets.map {self.sortedKeys[$0]}
                     self.sortedUnits = offsets.map {self.sortedUnits[$0]}
                     self.sortedSystems = offsets.map {self.sortedSystems[$0]}
+                    self.sortedDescription = offsets.map {self.sortedDescription[$0]}
                 }
                 self.delegate?.manageMessage(sensor)
             } catch {
@@ -91,5 +95,7 @@ struct Sensor: Decodable {
     let key: String
     let value: Float
     let unit: String?
+    let description: String?
+    //Connor has not implimented system yet
     let system: String?
 }
