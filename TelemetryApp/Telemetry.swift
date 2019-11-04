@@ -31,7 +31,10 @@ class Telemetry: EventSource {
     var dataSource:[String: [Float]] = [:]
     ///Alphabetically sorted array of dataSource keys
     var sortedKeys:[String] = []
-    
+    ///Array of units sorted according to sortedKeys
+    var sortedUnits:[String] = []
+    ///Array of system identifiers sorted according to sortedKeys
+    var sortedSystems:[String] = []
     ///Singleton of Telemetry that connects to the telemetry server
     static let shared = Telemetry()
     
@@ -51,14 +54,18 @@ class Telemetry: EventSource {
         self.onMessage{ (id, event, data) in
             print("Received message")
             let jsonData = data!.data(using: .utf8)
-            let decoder = JSONDecoder()
             do {
-                let sensor = try decoder.decode(Sensor.self, from: jsonData!)
+                let sensor = try JSONDecoder().decode(Sensor.self, from: jsonData!)
                 if(self.dataSource[sensor.key] != nil){
                     self.dataSource[sensor.key]!.append(sensor.value)
                 }else{
                     self.dataSource[sensor.key] = [sensor.value]
-                    self.sortedKeys = Array(self.dataSource.keys).sorted(by: <)
+                    self.sortedKeys.append(sensor.key)
+                    self.sortedKeys.sort()
+                    self.sortedUnits.append(sensor.unit ?? "N/A")
+                    self.sortedUnits.sort()
+                    self.sortedSystems.append(sensor.system ?? "N/A")
+                    self.sortedSystems.sort()
                 }
                 self.delegate?.manageMessage(sensor)
             } catch {
@@ -67,16 +74,18 @@ class Telemetry: EventSource {
         }
         
         self.onComplete{ (status, shouldReconnect, netLayer) in
-            
             print("Data source at connection close was:")
             print(self.dataSource)
-            
+            print(self.sortedKeys)
+            print(self.sortedUnits)
             self.delegate?.manageComplete()
         }
     }
 }
-
+///Struct for json data from the telemetry server
 struct Sensor: Decodable {
     let key: String
     let value: Float
+    let unit: String?
+    let system: String?
 }
