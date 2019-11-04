@@ -16,23 +16,6 @@
 		A01CA52C236A3D03007B6713 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		A01CA533236A3D03007B6713 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A01CA516236A3D02007B6713 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A01CA51D236A3D02007B6713;
-			remoteInfo = TelemetryApp;
-		};
-		A01CA53E236A3D03007B6713 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A01CA516236A3D02007B6713 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A01CA51D236A3D02007B6713;
-			remoteInfo = TelemetryApp;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		144BD5E6415349B6695AAAEF /* Pods-TelemetryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelemetryApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6B22950E09878D842173933E /* Pods_TelemetryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TelemetryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,8 +27,6 @@
 		A01CA528236A3D03007B6713 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A01CA52B236A3D03007B6713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A01CA52D236A3D03007B6713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A01CA532236A3D03007B6713 /* TelemetryAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelemetryAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A01CA53D236A3D03007B6713 /* TelemetryAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelemetryAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38FE4A35ABDC7E96FFAB128 /* Pods-TelemetryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelemetryApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,20 +36,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FCF394612F0A8E42E27A9CB /* Pods_TelemetryApp.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A01CA52F236A3D03007B6713 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A01CA53A236A3D03007B6713 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,8 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				A01CA51E236A3D02007B6713 /* TelemetryApp.app */,
-				A01CA532236A3D03007B6713 /* TelemetryAppTests.xctest */,
-				A01CA53D236A3D03007B6713 /* TelemetryAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,42 +113,6 @@
 			productReference = A01CA51E236A3D02007B6713 /* TelemetryApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A01CA531236A3D03007B6713 /* TelemetryAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A01CA549236A3D03007B6713 /* Build configuration list for PBXNativeTarget "TelemetryAppTests" */;
-			buildPhases = (
-				A01CA52E236A3D03007B6713 /* Sources */,
-				A01CA52F236A3D03007B6713 /* Frameworks */,
-				A01CA530236A3D03007B6713 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A01CA534236A3D03007B6713 /* PBXTargetDependency */,
-			);
-			name = TelemetryAppTests;
-			productName = TelemetryAppTests;
-			productReference = A01CA532236A3D03007B6713 /* TelemetryAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		A01CA53C236A3D03007B6713 /* TelemetryAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A01CA54C236A3D03007B6713 /* Build configuration list for PBXNativeTarget "TelemetryAppUITests" */;
-			buildPhases = (
-				A01CA539236A3D03007B6713 /* Sources */,
-				A01CA53A236A3D03007B6713 /* Frameworks */,
-				A01CA53B236A3D03007B6713 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A01CA53F236A3D03007B6713 /* PBXTargetDependency */,
-			);
-			name = TelemetryAppUITests;
-			productName = TelemetryAppUITests;
-			productReference = A01CA53D236A3D03007B6713 /* TelemetryAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -196,14 +125,6 @@
 				TargetAttributes = {
 					A01CA51D236A3D02007B6713 = {
 						CreatedOnToolsVersion = 10.2.1;
-					};
-					A01CA531236A3D03007B6713 = {
-						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = A01CA51D236A3D02007B6713;
-					};
-					A01CA53C236A3D03007B6713 = {
-						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = A01CA51D236A3D02007B6713;
 					};
 				};
 			};
@@ -221,8 +142,6 @@
 			projectRoot = "";
 			targets = (
 				A01CA51D236A3D02007B6713 /* TelemetryApp */,
-				A01CA531236A3D03007B6713 /* TelemetryAppTests */,
-				A01CA53C236A3D03007B6713 /* TelemetryAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -235,20 +154,6 @@
 				A01CA52C236A3D03007B6713 /* LaunchScreen.storyboard in Resources */,
 				A01CA529236A3D03007B6713 /* Assets.xcassets in Resources */,
 				A01CA527236A3D02007B6713 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A01CA530236A3D03007B6713 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A01CA53B236A3D03007B6713 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,34 +209,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A01CA52E236A3D03007B6713 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A01CA539236A3D03007B6713 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A01CA534236A3D03007B6713 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A01CA51D236A3D02007B6713 /* TelemetryApp */;
-			targetProxy = A01CA533236A3D03007B6713 /* PBXContainerItemProxy */;
-		};
-		A01CA53F236A3D03007B6713 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A01CA51D236A3D02007B6713 /* TelemetryApp */;
-			targetProxy = A01CA53E236A3D03007B6713 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A01CA525236A3D02007B6713 /* Main.storyboard */ = {
@@ -507,88 +385,6 @@
 			};
 			name = Release;
 		};
-		A01CA54A236A3D03007B6713 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LVD3AQD899;
-				INFOPLIST_FILE = TelemetryAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "CSE-438.TelemetryAppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TelemetryApp.app/TelemetryApp";
-			};
-			name = Debug;
-		};
-		A01CA54B236A3D03007B6713 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LVD3AQD899;
-				INFOPLIST_FILE = TelemetryAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "CSE-438.TelemetryAppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TelemetryApp.app/TelemetryApp";
-			};
-			name = Release;
-		};
-		A01CA54D236A3D03007B6713 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LVD3AQD899;
-				INFOPLIST_FILE = TelemetryAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "CSE-438.TelemetryAppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TelemetryApp;
-			};
-			name = Debug;
-		};
-		A01CA54E236A3D03007B6713 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LVD3AQD899;
-				INFOPLIST_FILE = TelemetryAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "CSE-438.TelemetryAppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TelemetryApp;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -606,24 +402,6 @@
 			buildConfigurations = (
 				A01CA547236A3D03007B6713 /* Debug */,
 				A01CA548236A3D03007B6713 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A01CA549236A3D03007B6713 /* Build configuration list for PBXNativeTarget "TelemetryAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A01CA54A236A3D03007B6713 /* Debug */,
-				A01CA54B236A3D03007B6713 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A01CA54C236A3D03007B6713 /* Build configuration list for PBXNativeTarget "TelemetryAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A01CA54D236A3D03007B6713 /* Debug */,
-				A01CA54E236A3D03007B6713 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
