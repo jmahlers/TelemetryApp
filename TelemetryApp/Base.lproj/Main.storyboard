@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Console-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,7 +41,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="N7Q-8k-OF7"/>
+                    <tabBarItem key="tabBarItem" title="Console" id="N7Q-8k-OF7"/>
                     <connections>
                         <outlet property="console" destination="bnQ-8I-ZFE" id="KoR-9s-2Eo"/>
                     </connections>
@@ -60,10 +60,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="aWA-H4-cYT" kind="relationship" relationship="viewControllers" id="HOf-uT-z0s"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="unJ-Vw-QSm"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="MVX-3v-Bt9"/>
                         <segue destination="Ys6-4b-QNE" kind="relationship" relationship="viewControllers" id="fLe-1b-8QI"/>
-                        <segue destination="Me1-g1-aXF" kind="relationship" relationship="viewControllers" id="2ka-eS-kfy"/>
+                        <segue destination="aWA-H4-cYT" kind="relationship" relationship="viewControllers" id="bT6-ex-fdb"/>
+                        <segue destination="Me1-g1-aXF" kind="relationship" relationship="viewControllers" id="9oX-Ss-ecH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fit-s0-Obn" userLabel="First Responder" sceneMemberID="firstResponder"/>
