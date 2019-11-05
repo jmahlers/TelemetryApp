@@ -7,6 +7,7 @@
 //
 
 extension String{
+    ///Returns whether a string is less than the rhs by keyPriority and then by alphabetical order
     func lessThan(_ rhs: String)->Bool{
         let lhs = self
         if(Telemetry.shared.keyPriority[lhs] != nil){
@@ -25,8 +26,9 @@ extension String{
     }
 }
 extension Telemetry{
-    ///Assigns and updates the priority dictionary. Index's start at 0.
-    func assignPriority(sensorKey: String, index: Int){
+    ///Sets and updates the priority dictionary. Index's start at 0.
+    //This code is just a bunch of logic to decide which elements to increase and decrease as keys are set.
+    func setPriority(sensorKey: String, index: Int){
         if(self.keyPriority[sensorKey] != nil){
             let formerPriority = self.keyPriority[sensorKey]!
             //Moving an element to higher priority
@@ -66,7 +68,7 @@ extension Telemetry{
             return -1
         }
     }
-    func deletePriority(sensorKey: String){
+    func removePriority(sensorKey: String){
         guard let formerKey = self.keyPriority[sensorKey] else{
             return
         }
@@ -76,6 +78,7 @@ extension Telemetry{
             }
         }
         self.keyPriority.removeValue(forKey: sensorKey)
+        self.sortTelemetry()
     }
     ///Sorts all field arrays according to the priority and then alphabetical order of sortedKeys
     func sortTelemetry(){

@@ -6,8 +6,6 @@
 //  Copyright © 2019 Jeff Ahlers. All rights reserved.
 //
 
-//test commit
-
 import IKEventSource
 
 ///Protocol to proccess messages, and connection actions
@@ -23,6 +21,7 @@ protocol TelemetryDelegate: AnyObject{
 //Any use of Telemetry must use the format Telemetry.shared._
 //It is a singleton to ensure there is only ever one Telemetry object
 //As a singleton, Telemetry.shared has global scope
+//This class is extended within KeySorter.swift which deals with the sorting of keys by priority and alphabetical order
 
 ///Class of type EventSource that contains a singleton instance of itself
 class Telemetry: EventSource {
