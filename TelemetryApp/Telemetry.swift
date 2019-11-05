@@ -32,7 +32,7 @@ class Telemetry: EventSource {
     ///Priority & alphabetically sorted array of sensors
     var sortedSensors:[Sensor] = []
     ///Dictionary to assign higher sorting priority to specific keys
-    internal var keyPriority:[String:Int] = [:]
+    internal var sensorPriority:[Sensor:Int] = [:]
     ///Singleton of Telemetry that connects to the telemetry server
     static let shared = Telemetry()
     
@@ -72,7 +72,7 @@ class Telemetry: EventSource {
             print("Data source at connection close was:")
             print(self.dataSource)
             print(self.sortedSensors)
-            print(self.keyPriority)
+            print(self.sensorPriority)
             self.delegate?.manageComplete()
         }
     }

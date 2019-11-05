@@ -8,12 +8,10 @@
 
 ///Struct for json data from the telemetry server
 struct SensorReading: Decodable {
-    //Whenever a new <field> is added, a sortedField array must be added and it must be added to sortTelemetry()
     let key: String
     let value: Float
     let unit: String?
     let description: String?
-    //Connor has not implimented system yet
     let system: String?
 }
 
@@ -22,8 +20,8 @@ struct Sensor: Comparable, Hashable{
     let key: String
     let unit: String
     let description: String
-    //Connor has not implimented system yet
     let system: String
+    
     init(key: String, unit:String?, description:String?, system:String?){
         self.key = key
         self.unit = unit ?? "N/A"
@@ -41,20 +39,21 @@ struct Sensor: Comparable, Hashable{
     static func < (lhs: Sensor, rhs: Sensor) -> Bool {
         let lhsKey = lhs.key
         let rhsKey = rhs.key
-        if(Telemetry.shared.keyPriority[lhsKey] != nil){
-            if(Telemetry.shared.keyPriority[rhsKey] != nil){
-                return Telemetry.shared.keyPriority[lhsKey]! < Telemetry.shared.keyPriority[rhsKey]!
+        if(Telemetry.shared.sensorPriority[lhsKey] != nil){
+            if(Telemetry.shared.sensorPriority[rhsKey] != nil){
+                return Telemetry.shared.sensorPriority[lhsKey]! < Telemetry.shared.sensorPriority[rhsKey]!
             }else{
                 return true
             }
         }else{
-            if(Telemetry.shared.keyPriority[rhsKey] != nil){
+            if(Telemetry.shared.sensorPriority[rhsKey] != nil){
                 return false
             }else{
                 return lhsKey<rhsKey
             }
         }
     }
+    
     static func == (lhs: Sensor, rhs: Sensor)-> Bool {
         if(lhs.key == rhs.key && lhs.unit == rhs.unit && lhs.description == rhs.description && lhs.system == rhs.system){
             return true
