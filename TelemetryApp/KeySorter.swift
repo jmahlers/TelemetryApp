@@ -26,8 +26,8 @@ extension String{
     }
 }
 extension Telemetry{
-    ///Sets and updates the priority dictionary. Index's start at 0.
     //This code is just a bunch of logic to decide which elements to increase and decrease as keys are set.
+    ///Sets the given sensorKey to have priority index and adjusts other priorities to maintain that a given index is guranteed to have only one sensorKey.
     func setPriority(sensorKey: String, index: Int){
         if(self.keyPriority[sensorKey] != nil){
             let formerPriority = self.keyPriority[sensorKey]!
