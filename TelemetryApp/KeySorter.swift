@@ -1,10 +1,12 @@
 //
-//  StringSorter.swift
+//  KeySorter.swift
 //  TelemetryApp
 //
 //  Created by Jeff Ahlers on 11/4/19.
 //  Copyright © 2019 Jeff Ahlers. All rights reserved.
 //
+
+//All of this code relates to sorting the keys and other fields of Telemetry.shared
 
 extension String{
     ///Returns whether a string is less than the rhs by keyPriority and then by alphabetical order
@@ -80,7 +82,7 @@ extension Telemetry{
         self.keyPriority.removeValue(forKey: sensorKey)
         self.sortTelemetry()
     }
-    ///Sorts all field arrays according to the priority and then alphabetical order of sortedKeys
+    ///Sorts sortedKeys according to priority and then alphabetical order and changes other fields to match
     func sortTelemetry(){
         let offsets = self.sortedKeys.enumerated().sorted(by: {$0.element.lessThan($1.element) }).map {$0.offset}
         self.sortedKeys = offsets.map {self.sortedKeys[$0]}
