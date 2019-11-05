@@ -38,6 +38,8 @@ class Telemetry: EventSource {
     var sortedDescription:[String] = []
     ///Array of system identifiers sorted according to sortedKeys
     var sortedSystems:[String] = []
+    ///Dictionary to assign higher sorting priority to specific keys
+    internal var keyPriority:[String:Int] = [:]
     ///Singleton of Telemetry that connects to the telemetry server
     static let shared = Telemetry()
     
@@ -68,7 +70,7 @@ class Telemetry: EventSource {
                     self.sortedSystems.append(sensor.system ?? "N/A")
                     self.sortedDescription.append(sensor.description ?? "N/A")
                     //Creates a map so that the unit and system arrays can be sorted according to the keys array
-                    let offsets = self.sortedKeys.enumerated().sorted(by: {$0.element < $1.element}).map {$0.offset}
+                    let offsets = self.sortedKeys.enumerated().sorted(by: {$0.element.lessThan($1.element) }).map {$0.offset}
                     self.sortedKeys = offsets.map {self.sortedKeys[$0]}
                     self.sortedUnits = offsets.map {self.sortedUnits[$0]}
                     self.sortedSystems = offsets.map {self.sortedSystems[$0]}

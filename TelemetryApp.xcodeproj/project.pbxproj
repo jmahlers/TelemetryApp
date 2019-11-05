@@ -14,6 +14,7 @@
 		A01CA527236A3D02007B6713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01CA525236A3D02007B6713 /* Main.storyboard */; };
 		A01CA529236A3D03007B6713 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A01CA528236A3D03007B6713 /* Assets.xcassets */; };
 		A01CA52C236A3D03007B6713 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */; };
+		A03FB88D2371079C00AF75A8 /* StringSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03FB88C2371079C00AF75A8 /* StringSorter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		A01CA528236A3D03007B6713 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A01CA52B236A3D03007B6713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A01CA52D236A3D03007B6713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A03FB88C2371079C00AF75A8 /* StringSorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSorter.swift; sourceTree = "<group>"; };
 		C38FE4A35ABDC7E96FFAB128 /* Pods-TelemetryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelemetryApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +86,7 @@
 				A01CA523236A3D02007B6713 /* ViewController.swift */,
 				A01CA525236A3D02007B6713 /* Main.storyboard */,
 				A01C1E48236A47770026D76F /* Telemetry.swift */,
+				A03FB88C2371079C00AF75A8 /* StringSorter.swift */,
 				A01CA528236A3D03007B6713 /* Assets.xcassets */,
 				A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */,
 				A01CA52D236A3D03007B6713 /* Info.plist */,
@@ -206,6 +209,7 @@
 				A01CA524236A3D02007B6713 /* ViewController.swift in Sources */,
 				A01C1E49236A47770026D76F /* Telemetry.swift in Sources */,
 				A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */,
+				A03FB88D2371079C00AF75A8 /* StringSorter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
