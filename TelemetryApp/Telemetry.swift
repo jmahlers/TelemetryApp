@@ -6,8 +6,6 @@
 //  Copyright © 2019 Jeff Ahlers. All rights reserved.
 //
 
-//test commit
-
 import IKEventSource
 
 ///Protocol to proccess messages, and connection actions
@@ -23,10 +21,10 @@ protocol TelemetryDelegate: AnyObject{
 //Any use of Telemetry must use the format Telemetry.shared._
 //It is a singleton to ensure there is only ever one Telemetry object
 //As a singleton, Telemetry.shared has global scope
+//This class is extended within KeySorter.swift which deals with the sorting of keys by priority and alphabetical order
 
 ///Class of type EventSource that contains a singleton instance of itself
 class Telemetry: EventSource {
-    
     ///Delegate to process protocol methods
     weak var delegate:TelemetryDelegate?
     ///Dictionary of received messages
@@ -39,6 +37,8 @@ class Telemetry: EventSource {
     var sortedDescription:[String] = []
     ///Array of system identifiers sorted according to sortedKeys
     var sortedSystems:[String] = []
+    ///Dictionary to assign higher sorting priority to specific keys
+    internal var keyPriority:[String:Int] = [:]
     ///Singleton of Telemetry that connects to the telemetry server
     static let shared = Telemetry()
     
@@ -68,12 +68,7 @@ class Telemetry: EventSource {
                     self.sortedUnits.append(sensor.unit ?? "N/A")
                     self.sortedSystems.append(sensor.system ?? "N/A")
                     self.sortedDescription.append(sensor.description ?? "N/A")
-                    //Creates a map so that the unit and system arrays can be sorted according to the keys array
-                    let offsets = self.sortedKeys.enumerated().sorted(by: {$0.element < $1.element}).map {$0.offset}
-                    self.sortedKeys = offsets.map {self.sortedKeys[$0]}
-                    self.sortedUnits = offsets.map {self.sortedUnits[$0]}
-                    self.sortedSystems = offsets.map {self.sortedSystems[$0]}
-                    self.sortedDescription = offsets.map {self.sortedDescription[$0]}
+                    self.sortTelemetry()
                 }
                 self.delegate?.manageMessage(sensor)
             } catch {
@@ -86,6 +81,7 @@ class Telemetry: EventSource {
             print(self.dataSource)
             print(self.sortedKeys)
             print(self.sortedUnits)
+            print(self.keyPriority)
             self.delegate?.manageComplete()
         }
         
@@ -93,6 +89,7 @@ class Telemetry: EventSource {
 }
 ///Struct for json data from the telemetry server
 struct Sensor: Decodable {
+    //Whenever a new <field> is added, a sortedField array must be added and it must be added to sortTelemetry()
     let key: String
     let value: Float
     let unit: String?
