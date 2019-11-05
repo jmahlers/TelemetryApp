@@ -49,7 +49,7 @@ extension Telemetry{
                 }
             }
         }else{
-            for key in Telemetry.shared.keyPriority.keys {
+            for key in self.keyPriority.keys {
                 if(self.keyPriority[key]! >= index){
                     self.keyPriority[key]! += 1
                 }
@@ -58,12 +58,24 @@ extension Telemetry{
         self.keyPriority[sensorKey] = index
         self.sortTelemetry()
     }
+    ///Gets the priority of sensorKey. Returns -1 if the dictionary entry is nil.
     func getPriority(sensorKey: String) -> Int{
         if(self.keyPriority[sensorKey] != nil){
             return self.keyPriority[sensorKey]!
         }else{
             return -1
         }
+    }
+    func deletePriority(sensorKey: String){
+        guard let formerKey = self.keyPriority[sensorKey] else{
+            return
+        }
+        for key in self.keyPriority.keys{
+            if(self.keyPriority[key]! > formerKey){
+                self.keyPriority[key]! -= 1
+            }
+        }
+        self.keyPriority.removeValue(forKey: sensorKey)
     }
     ///Sorts all field arrays according to the priority and then alphabetical order of sortedKeys
     func sortTelemetry(){
