@@ -69,12 +69,7 @@ class Telemetry: EventSource {
                     self.sortedUnits.append(sensor.unit ?? "N/A")
                     self.sortedSystems.append(sensor.system ?? "N/A")
                     self.sortedDescription.append(sensor.description ?? "N/A")
-                    //Creates a map so that the unit and system arrays can be sorted according to the keys array
-                    let offsets = self.sortedKeys.enumerated().sorted(by: {$0.element.lessThan($1.element) }).map {$0.offset}
-                    self.sortedKeys = offsets.map {self.sortedKeys[$0]}
-                    self.sortedUnits = offsets.map {self.sortedUnits[$0]}
-                    self.sortedSystems = offsets.map {self.sortedSystems[$0]}
-                    self.sortedDescription = offsets.map {self.sortedDescription[$0]}
+                    self.sortTelemetry()
                 }
                 self.delegate?.manageMessage(sensor)
             } catch {
@@ -87,12 +82,14 @@ class Telemetry: EventSource {
             print(self.dataSource)
             print(self.sortedKeys)
             print(self.sortedUnits)
+            print(self.keyPriority)
             self.delegate?.manageComplete()
         }
     }
 }
 ///Struct for json data from the telemetry server
 struct Sensor: Decodable {
+    //Whenever a new <field> is added, a sortedField array must be added and it must be added to sortTelemetry()
     let key: String
     let value: Float
     let unit: String?
