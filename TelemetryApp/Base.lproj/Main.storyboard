@@ -110,21 +110,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hT5-rw-bQW">
-                                <rect key="frame" x="0.0" y="204.5" width="414" height="448"/>
+                            <wkWebView contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="hT5-rw-bQW">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                <wkWebViewConfiguration key="configuration" allowsInlineMediaPlayback="YES" allowsPictureInPictureMediaPlayback="NO">
+                                    <dataDetectorTypes key="dataDetectorTypes"/>
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hT5-rw-bQW" firstAttribute="width" secondItem="So0-bv-JNZ" secondAttribute="width" id="GC1-Lf-UmA"/>
-                            <constraint firstItem="hT5-rw-bQW" firstAttribute="height" secondItem="So0-bv-JNZ" secondAttribute="height" multiplier="0.5" id="Tkd-8U-bWq"/>
-                            <constraint firstItem="hT5-rw-bQW" firstAttribute="centerX" secondItem="Qtp-Om-SCS" secondAttribute="centerX" id="XrL-Uj-c0G"/>
-                            <constraint firstItem="hT5-rw-bQW" firstAttribute="centerY" secondItem="Qtp-Om-SCS" secondAttribute="centerY" id="t5Z-lZ-9GW"/>
+                            <constraint firstItem="hT5-rw-bQW" firstAttribute="centerX" secondItem="Qtp-Om-SCS" secondAttribute="centerX" id="Eev-By-3wF"/>
+                            <constraint firstItem="hT5-rw-bQW" firstAttribute="centerY" secondItem="Qtp-Om-SCS" secondAttribute="centerY" id="gH0-yy-ThL"/>
+                            <constraint firstItem="hT5-rw-bQW" firstAttribute="width" secondItem="Qtp-Om-SCS" secondAttribute="width" id="mYT-pt-Wq2"/>
+                            <constraint firstItem="hT5-rw-bQW" firstAttribute="height" secondItem="Qtp-Om-SCS" secondAttribute="height" id="wQu-Ee-Aid"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qtp-Om-SCS"/>
                     </view>
@@ -135,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D14-yU-JJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1712" y="17"/>
+            <point key="canvasLocation" x="1711.5942028985507" y="16.741071428571427"/>
         </scene>
     </scenes>
 </document>
