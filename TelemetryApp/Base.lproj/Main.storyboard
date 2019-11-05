@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JMS-BU-dPj">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,13 +41,101 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="N7Q-8k-OF7"/>
                     <connections>
                         <outlet property="console" destination="bnQ-8I-ZFE" id="KoR-9s-2Eo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="409" y="21"/>
+            <point key="canvasLocation" x="1712" y="-1058"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="W32-QP-iUx">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="JMS-BU-dPj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="01k-JC-3kK">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="aWA-H4-cYT" kind="relationship" relationship="viewControllers" id="HOf-uT-z0s"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="unJ-Vw-QSm"/>
+                        <segue destination="Ys6-4b-QNE" kind="relationship" relationship="viewControllers" id="fLe-1b-8QI"/>
+                        <segue destination="Me1-g1-aXF" kind="relationship" relationship="viewControllers" id="2ka-eS-kfy"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fit-s0-Obn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="548" y="-1058"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Ne5-2r-G0c">
+            <objects>
+                <viewController id="Ys6-4b-QNE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Glk-3Z-zHf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cPD-qE-JPv"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="1rm-Vr-qIY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rFF-Xf-kqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-706" y="17"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="cKS-GM-gOm">
+            <objects>
+                <viewController id="aWA-H4-cYT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rDK-w4-j1J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="q5o-sd-P74"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="LP8-ct-nTX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUG-Zy-hcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="548" y="21"/>
+        </scene>
+        <!--Livestream-->
+        <scene sceneID="EhX-SY-J7K">
+            <objects>
+                <viewController id="Me1-g1-aXF" customClass="LivestreamView" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="So0-bv-JNZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hT5-rw-bQW">
+                                <rect key="frame" x="0.0" y="204.5" width="414" height="448"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hT5-rw-bQW" firstAttribute="width" secondItem="So0-bv-JNZ" secondAttribute="width" id="GC1-Lf-UmA"/>
+                            <constraint firstItem="hT5-rw-bQW" firstAttribute="height" secondItem="So0-bv-JNZ" secondAttribute="height" multiplier="0.5" id="Tkd-8U-bWq"/>
+                            <constraint firstItem="hT5-rw-bQW" firstAttribute="centerX" secondItem="Qtp-Om-SCS" secondAttribute="centerX" id="XrL-Uj-c0G"/>
+                            <constraint firstItem="hT5-rw-bQW" firstAttribute="centerY" secondItem="Qtp-Om-SCS" secondAttribute="centerY" id="t5Z-lZ-9GW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Qtp-Om-SCS"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Livestream" id="cmx-l3-DRO"/>
+                    <connections>
+                        <outlet property="livestream" destination="hT5-rw-bQW" id="yJD-ua-C6k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D14-yU-JJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1712" y="17"/>
         </scene>
     </scenes>
 </document>
