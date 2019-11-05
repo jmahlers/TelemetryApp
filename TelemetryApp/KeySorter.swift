@@ -8,25 +8,6 @@
 
 //All of this code relates to sorting the keys and other fields of Telemetry.shared
 
-extension String{
-    ///Returns whether a string is less than the rhs by keyPriority and then by alphabetical order
-    func lessThan(_ rhs: String)->Bool{
-        let lhs = self
-        if(Telemetry.shared.keyPriority[lhs] != nil){
-            if(Telemetry.shared.keyPriority[rhs] != nil){
-                return Telemetry.shared.keyPriority[lhs]! < Telemetry.shared.keyPriority[rhs]!
-            }else{
-                return true
-            }
-        }else{
-            if(Telemetry.shared.keyPriority[rhs] != nil){
-                return false
-            }else{
-                return lhs<rhs
-            }
-        }
-    }
-}
 extension Telemetry{
     //This code is just a bunch of logic to decide which elements to increase and decrease as keys are set.
     ///Sets the given sensorKey to have priority index and adjusts other priorities to maintain that a given index is guranteed to have only one sensorKey.
@@ -60,7 +41,7 @@ extension Telemetry{
             }
         }
         self.keyPriority[sensorKey] = index
-        self.sortTelemetry()
+        self.sortedSensors.sort()
     }
     ///Gets the priority of sensorKey. Returns -1 if the dictionary entry is nil.
     func getPriority(sensorKey: String) -> Int{
@@ -80,14 +61,6 @@ extension Telemetry{
             }
         }
         self.keyPriority.removeValue(forKey: sensorKey)
-        self.sortTelemetry()
-    }
-    ///Sorts sortedKeys according to priority and then alphabetical order and changes other fields to match
-    func sortTelemetry(){
-        let offsets = self.sortedKeys.enumerated().sorted(by: {$0.element.lessThan($1.element) }).map {$0.offset}
-        self.sortedKeys = offsets.map {self.sortedKeys[$0]}
-        self.sortedUnits = offsets.map {self.sortedUnits[$0]}
-        self.sortedSystems = offsets.map {self.sortedSystems[$0]}
-        self.sortedDescription = offsets.map {self.sortedDescription[$0]}
+        self.sortedSensors.sort()
     }
 }
