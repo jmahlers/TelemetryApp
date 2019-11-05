@@ -31,7 +31,7 @@ class Telemetry: EventSource {
     var dataSource:[Sensor: [Float]] = [:]
     ///Priority & alphabetically sorted array of sensors
     var sortedSensors:[Sensor] = []
-    ///Dictionary to assign higher sorting priority to specific keys
+    ///Dictionary to assign higher sorting priority to specific sensors
     internal var sensorPriority:[Sensor:Int] = [:]
     ///Singleton of Telemetry that connects to the telemetry server
     static let shared = Telemetry()
