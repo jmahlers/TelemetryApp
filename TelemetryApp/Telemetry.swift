@@ -26,7 +26,6 @@ protocol TelemetryDelegate: AnyObject{
 
 ///Class of type EventSource that contains a singleton instance of itself
 class Telemetry: EventSource {
-    
     ///Delegate to process protocol methods
     weak var delegate:TelemetryDelegate?
     ///Dictionary of received messages
