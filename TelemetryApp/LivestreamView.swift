@@ -13,10 +13,12 @@ class LivestreamView: UIViewController, TelemetryDelegate {
     
     @IBOutlet weak var livestream: WKWebView!
     
+    override func viewWillAppear(_ animated: Bool) {
+            Telemetry.shared.delegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Telemetry.shared.delegate = self
         livestream.scrollView.contentInset = .zero
         livestream.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         //Using pokemon as placeholder for now

@@ -12,11 +12,12 @@ class ViewController: UIViewController, TelemetryDelegate {
 
     @IBOutlet weak var console: UITextView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        Telemetry.shared.delegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Telemetry.shared.delegate = self
-        
     }
     
     //Triggers on received message
