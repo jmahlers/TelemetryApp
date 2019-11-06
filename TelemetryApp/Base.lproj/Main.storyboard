@@ -26,7 +26,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bnQ-8I-ZFE">
-                                <rect key="frame" x="87" y="326" width="240" height="128"/>
+                                <rect key="frame" x="317" y="421" width="10" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -48,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1712" y="-1058"/>
+            <point key="canvasLocation" x="1711.5942028985507" y="-1058.0357142857142"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="W32-QP-iUx">
@@ -90,18 +90,28 @@
         <!--Item-->
         <scene sceneID="cKS-GM-gOm">
             <objects>
-                <viewController id="aWA-H4-cYT" sceneMemberID="viewController">
+                <viewController id="aWA-H4-cYT" customClass="LineChartViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rDK-w4-j1J">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LVf-ou-Bcu" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="q5o-sd-P74"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="LP8-ct-nTX"/>
+                    <connections>
+                        <outlet property="chartView" destination="LVf-ou-Bcu" id="uAX-NS-Du1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUG-Zy-hcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="548" y="21"/>
+            <point key="canvasLocation" x="547.82608695652175" y="20.758928571428569"/>
         </scene>
         <!--Livestream-->
         <scene sceneID="EhX-SY-J7K">

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Charts
 
-class ViewController: UIViewController, TelemetryDelegate {
+class ViewController: UIViewController, TelemetryDelegate, ChartViewDelegate {
 
     @IBOutlet weak var console: UITextView!
     

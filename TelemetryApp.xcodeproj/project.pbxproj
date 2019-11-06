@@ -3,11 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23CC0843236A702A003A5372 /* SensorReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CC0842236A702A003A5372 /* SensorReading.swift */; };
+		2314FB8023736933005ACD79 /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FB7F23736933005ACD79 /* LineChartViewController.swift */; };
+		2314FB8223736955005ACD79 /* BaseChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FB8123736954005ACD79 /* BaseChartViewController.swift */; };
+		2314FB9223736AAF005ACD79 /* IntAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FB8E23736AAF005ACD79 /* IntAxisValueFormatter.swift */; };
+		2314FB9323736AAF005ACD79 /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FB8F23736AAF005ACD79 /* DayAxisValueFormatter.swift */; };
+		2314FB9423736AAF005ACD79 /* DateValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FB9023736AAF005ACD79 /* DateValueFormatter.swift */; };
+		2314FB9523736AAF005ACD79 /* LargeValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FB9123736AAF005ACD79 /* LargeValueFormatter.swift */; };
+		2314FBA323736B08005ACD79 /* XYMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA023736B08005ACD79 /* XYMarkerView.swift */; };
+		2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA123736B08005ACD79 /* BalloonMarker.swift */; };
+		2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA223736B08005ACD79 /* RadarMarkerView.swift */; };
 		9FCF394612F0A8E42E27A9CB /* Pods_TelemetryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B22950E09878D842173933E /* Pods_TelemetryApp.framework */; };
 		A01C1E49236A47770026D76F /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C1E48236A47770026D76F /* Telemetry.swift */; };
 		A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA521236A3D02007B6713 /* AppDelegate.swift */; };
@@ -23,6 +31,15 @@
 
 /* Begin PBXFileReference section */
 		144BD5E6415349B6695AAAEF /* Pods-TelemetryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelemetryApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp.debug.xcconfig"; sourceTree = "<group>"; };
+		2314FB7F23736933005ACD79 /* LineChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartViewController.swift; sourceTree = "<group>"; };
+		2314FB8123736954005ACD79 /* BaseChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChartViewController.swift; sourceTree = "<group>"; };
+		2314FB8E23736AAF005ACD79 /* IntAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntAxisValueFormatter.swift; sourceTree = "<group>"; };
+		2314FB8F23736AAF005ACD79 /* DayAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayAxisValueFormatter.swift; sourceTree = "<group>"; };
+		2314FB9023736AAF005ACD79 /* DateValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateValueFormatter.swift; sourceTree = "<group>"; };
+		2314FB9123736AAF005ACD79 /* LargeValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeValueFormatter.swift; sourceTree = "<group>"; };
+		2314FBA023736B08005ACD79 /* XYMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYMarkerView.swift; sourceTree = "<group>"; };
+		2314FBA123736B08005ACD79 /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
+		2314FBA223736B08005ACD79 /* RadarMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarMarkerView.swift; sourceTree = "<group>"; };
 		23CC0842236A702A003A5372 /* SensorReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorReading.swift; sourceTree = "<group>"; };
 		6B22950E09878D842173933E /* Pods_TelemetryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TelemetryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01C1E48236A47770026D76F /* Telemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
@@ -53,6 +70,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2314FB8D23736AAF005ACD79 /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				2314FB8E23736AAF005ACD79 /* IntAxisValueFormatter.swift */,
+				2314FB8F23736AAF005ACD79 /* DayAxisValueFormatter.swift */,
+				2314FB9023736AAF005ACD79 /* DateValueFormatter.swift */,
+				2314FB9123736AAF005ACD79 /* LargeValueFormatter.swift */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
+		2314FB9F23736B08005ACD79 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2314FBA023736B08005ACD79 /* XYMarkerView.swift */,
+				2314FBA123736B08005ACD79 /* BalloonMarker.swift */,
+				2314FBA223736B08005ACD79 /* RadarMarkerView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		69FC17B818426CF39FED3FDC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,8 +130,12 @@
 		A01CA520236A3D02007B6713 /* TelemetryApp */ = {
 			isa = PBXGroup;
 			children = (
+				2314FB9F23736B08005ACD79 /* Components */,
+				2314FB8D23736AAF005ACD79 /* Formatters */,
 				A01CA521236A3D02007B6713 /* AppDelegate.swift */,
 				A01CA523236A3D02007B6713 /* ViewController.swift */,
+				2314FB7F23736933005ACD79 /* LineChartViewController.swift */,
+				2314FB8123736954005ACD79 /* BaseChartViewController.swift */,
 				A01CA525236A3D02007B6713 /* Main.storyboard */,
 				A01C1E48236A47770026D76F /* Telemetry.swift */,
 				A0F4A83323713D480025CAA1 /* LivestreamView.swift */,
@@ -199,17 +241,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/IKEventSource/IKEventSource.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IKEventSource.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -219,12 +260,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */,
 				A01CA524236A3D02007B6713 /* ViewController.swift in Sources */,
 				A0F3D86223721AFD00D10CF8 /* Sensor.swift in Sources */,
 				A0F4A83423713D480025CAA1 /* LivestreamView.swift in Sources */,
+				2314FBA323736B08005ACD79 /* XYMarkerView.swift in Sources */,
+				2314FB9423736AAF005ACD79 /* DateValueFormatter.swift in Sources */,
+				2314FB9523736AAF005ACD79 /* LargeValueFormatter.swift in Sources */,
+				2314FB9223736AAF005ACD79 /* IntAxisValueFormatter.swift in Sources */,
+				2314FB8023736933005ACD79 /* LineChartViewController.swift in Sources */,
+				2314FB8223736955005ACD79 /* BaseChartViewController.swift in Sources */,
+				2314FB9323736AAF005ACD79 /* DayAxisValueFormatter.swift in Sources */,
 				A01C1E49236A47770026D76F /* Telemetry.swift in Sources */,
 				A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */,
 				A03FB88D2371079C00AF75A8 /* Priority.swift in Sources */,
+				2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

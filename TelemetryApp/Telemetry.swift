@@ -10,12 +10,13 @@ import IKEventSource
 
 ///Protocol to proccess messages, and connection actions
 protocol TelemetryDelegate: AnyObject{
-    ///Triggers upon incoming event
-    func manageMessage(_ event: SensorReading)
-    ///Triggers upon opening server connection
-    func manageOpen()
-    ///Triggers upon closing server connection
-    func manageComplete()
+
+    func manageMessage(_ event: SensorReading)  // Triggers upon incoming event
+    
+    func manageOpen()   // Triggers upon opening server connection
+    
+    func manageComplete()   //T riggers upon closing server connection
+
 }
 
 //Any use of Telemetry must use the format Telemetry.shared._
