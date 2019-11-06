@@ -64,8 +64,8 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="MVX-3v-Bt9"/>
                         <segue destination="Ys6-4b-QNE" kind="relationship" relationship="viewControllers" id="fLe-1b-8QI"/>
-                        <segue destination="aWA-H4-cYT" kind="relationship" relationship="viewControllers" id="YuD-cN-a7f"/>
                         <segue destination="Me1-g1-aXF" kind="relationship" relationship="viewControllers" id="9oX-Ss-ecH"/>
+                        <segue destination="sgO-W4-Uen" kind="relationship" relationship="viewControllers" id="PXq-ii-PLB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fit-s0-Obn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -89,49 +89,49 @@
             <point key="canvasLocation" x="-706" y="17"/>
         </scene>
         <!--Telemetry-->
-        <scene sceneID="cKS-GM-gOm">
+        <scene sceneID="yWA-Mh-zTb">
             <objects>
-                <viewController id="aWA-H4-cYT" customClass="TeleContainerController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rDK-w4-j1J">
+                <viewController id="sgO-W4-Uen" customClass="ContainerController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G4g-ZK-r0Z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3e-Zx-r2l" userLabel="Top View Container">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZo-9e-nRb">
                                 <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <connections>
-                                    <segue destination="jfW-Z0-eol" kind="embed" id="kJK-7m-UAw"/>
+                                    <segue destination="70B-ge-d6i" kind="embed" id="KtF-Gg-1Zi"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8J6-cJ-kl6" userLabel="Bottom View Container" customClass="DockView" customModule="TelemetryApp" customModuleProvider="target">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j0c-qZ-0GN">
                                 <rect key="frame" x="0.0" y="736" width="414" height="77"/>
                                 <connections>
-                                    <segue destination="GdE-g5-ToK" kind="embed" id="aBG-hV-gXq"/>
+                                    <segue destination="ycP-cU-FRD" kind="embed" id="XwB-UJ-8Eb"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="q5o-sd-P74" firstAttribute="trailing" secondItem="8J6-cJ-kl6" secondAttribute="trailing" id="8my-6k-Dt5"/>
-                            <constraint firstItem="n3e-Zx-r2l" firstAttribute="leading" secondItem="q5o-sd-P74" secondAttribute="leading" id="ItQ-tN-eAi"/>
-                            <constraint firstItem="q5o-sd-P74" firstAttribute="trailing" secondItem="n3e-Zx-r2l" secondAttribute="trailing" id="Q55-y6-U05"/>
-                            <constraint firstItem="8J6-cJ-kl6" firstAttribute="top" secondItem="n3e-Zx-r2l" secondAttribute="bottom" id="QM7-A7-mxP"/>
-                            <constraint firstItem="q5o-sd-P74" firstAttribute="bottom" secondItem="8J6-cJ-kl6" secondAttribute="bottom" id="bAv-WG-bSI"/>
-                            <constraint firstItem="n3e-Zx-r2l" firstAttribute="top" secondItem="q5o-sd-P74" secondAttribute="top" id="ddf-Pn-ecq"/>
-                            <constraint firstItem="8J6-cJ-kl6" firstAttribute="leading" secondItem="q5o-sd-P74" secondAttribute="leading" id="fO0-mY-eBt"/>
-                            <constraint firstItem="n3e-Zx-r2l" firstAttribute="height" secondItem="q5o-sd-P74" secondAttribute="height" multiplier="0.9" id="wAq-le-T3u"/>
+                            <constraint firstItem="j0c-qZ-0GN" firstAttribute="leading" secondItem="rMf-8e-buq" secondAttribute="leading" id="0rx-U7-axx"/>
+                            <constraint firstItem="rMf-8e-buq" firstAttribute="trailing" secondItem="fZo-9e-nRb" secondAttribute="trailing" id="A14-TG-0av"/>
+                            <constraint firstItem="fZo-9e-nRb" firstAttribute="top" secondItem="rMf-8e-buq" secondAttribute="top" id="Edh-Wk-2SS"/>
+                            <constraint firstItem="rMf-8e-buq" firstAttribute="bottom" secondItem="j0c-qZ-0GN" secondAttribute="bottom" id="Fle-oq-qqp"/>
+                            <constraint firstItem="j0c-qZ-0GN" firstAttribute="top" secondItem="fZo-9e-nRb" secondAttribute="bottom" id="NtO-yQ-bgB"/>
+                            <constraint firstItem="rMf-8e-buq" firstAttribute="trailing" secondItem="j0c-qZ-0GN" secondAttribute="trailing" id="fLf-Fb-dhd"/>
+                            <constraint firstItem="j0c-qZ-0GN" firstAttribute="height" secondItem="rMf-8e-buq" secondAttribute="height" multiplier="0.1" id="syk-pL-Thw"/>
+                            <constraint firstItem="fZo-9e-nRb" firstAttribute="leading" secondItem="rMf-8e-buq" secondAttribute="leading" id="uqf-VO-DvV"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="q5o-sd-P74"/>
+                        <viewLayoutGuide key="safeArea" id="rMf-8e-buq"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Telemetry" id="Q3q-ER-Uqe"/>
-                    <navigationItem key="navigationItem" id="Jfd-j5-0Nc"/>
+                    <tabBarItem key="tabBarItem" title="Telemetry" id="OjB-ib-pZc"/>
                     <connections>
-                        <outlet property="TelemetryDockView" destination="8J6-cJ-kl6" id="T3d-6W-uTS"/>
-                        <outlet property="TelemetryGraphView" destination="n3e-Zx-r2l" id="r45-kP-aTU"/>
+                        <outlet property="DockHeight" destination="syk-pL-Thw" id="TX3-qZ-EHT"/>
+                        <outlet property="DockView" destination="j0c-qZ-0GN" id="Zza-su-dAn"/>
+                        <outlet property="GraphView" destination="fZo-9e-nRb" id="R7g-dQ-NJg"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eUG-Zy-hcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xGs-nM-0qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="548" y="17"/>
+            <point key="canvasLocation" x="544" y="-57"/>
         </scene>
         <!--Livestream-->
         <scene sceneID="EhX-SY-J7K">
@@ -171,74 +171,48 @@
             <point key="canvasLocation" x="2621.739130434783" y="16.741071428571427"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="RHq-IN-rfn">
+        <scene sceneID="ydn-49-J98">
             <objects>
-                <viewController id="jfW-Z0-eol" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AOz-HW-pJx" userLabel="Top View">
+                <viewController id="70B-ge-d6i" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gSH-XY-78X">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ppE-oy-tcw">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wSf-dQ-tGg">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myCell" id="0lQ-rR-Wez">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="ppE-oy-tcw" firstAttribute="leading" secondItem="AOz-HW-pJx" secondAttribute="leading" id="EUr-pv-FcD"/>
-                            <constraint firstItem="ppE-oy-tcw" firstAttribute="top" secondItem="AOz-HW-pJx" secondAttribute="top" id="mdC-pP-wMS"/>
-                            <constraint firstAttribute="trailing" secondItem="ppE-oy-tcw" secondAttribute="trailing" id="q3Y-pF-uHa"/>
-                            <constraint firstAttribute="bottom" secondItem="ppE-oy-tcw" secondAttribute="bottom" id="t76-jJ-AQ7"/>
-                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="foC-1h-RkZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qBU-8f-cLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1512" y="-52"/>
+            <point key="canvasLocation" x="1357" y="-181"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="jX2-jy-SIL">
+        <!--Dock View Controller-->
+        <scene sceneID="nR3-n0-mLs">
             <objects>
-                <viewController id="GdE-g5-ToK" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="537-Ob-1Sd" userLabel="Bottom View">
+                <viewController id="ycP-cU-FRD" customClass="DockViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gn0-YN-3us">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="77"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom  View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fg7-4d-KFG">
-                                <rect key="frame" x="103.5" y="19.5" width="207" height="38.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I41-LB-JnA">
+                                <rect key="frame" x="157" y="18.5" width="100" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="HIC-JV-Ya7"/>
+                                    <constraint firstAttribute="width" constant="100" id="oD4-GO-LAA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="1" green="0.87206052600740158" blue="0.1875476661893396" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Fg7-4d-KFG" firstAttribute="centerX" secondItem="537-Ob-1Sd" secondAttribute="centerX" id="7FA-gR-RPq"/>
-                            <constraint firstItem="Fg7-4d-KFG" firstAttribute="width" secondItem="537-Ob-1Sd" secondAttribute="width" multiplier="0.5" id="Alz-Mz-CU8"/>
-                            <constraint firstItem="Fg7-4d-KFG" firstAttribute="centerY" secondItem="537-Ob-1Sd" secondAttribute="centerY" id="F3N-DB-gvd"/>
-                            <constraint firstItem="Fg7-4d-KFG" firstAttribute="height" secondItem="537-Ob-1Sd" secondAttribute="height" multiplier="0.5" id="mFb-mr-yzv"/>
+                            <constraint firstItem="I41-LB-JnA" firstAttribute="centerX" secondItem="Gn0-YN-3us" secondAttribute="centerX" id="KGN-Jp-Leh"/>
+                            <constraint firstItem="I41-LB-JnA" firstAttribute="centerY" secondItem="Gn0-YN-3us" secondAttribute="centerY" id="k0t-gT-fit"/>
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Puv-RL-RL0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mm0-f6-amG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1512" y="292"/>
+            <point key="canvasLocation" x="1356.521739130435" y="199.55357142857142"/>
         </scene>
     </scenes>
 </document>

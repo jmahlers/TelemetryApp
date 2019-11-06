@@ -10,23 +10,23 @@ import UIKit
 
 class ContainerController: UIViewController {
     
-    @IBOutlet weak var TelemetryGraphView: UIView!
-    @IBOutlet weak var TelemetryDockView: UIView!
+
+    @IBOutlet weak var GraphView: UIView!
+    @IBOutlet weak var DockView: UIView!
+    @IBOutlet weak var DockHeight: NSLayoutConstraint!
     
     var panGesture = UIPanGestureRecognizer()
-    var test = UIPanGestureRecognizer()
     override func viewDidLoad() {
         super.viewDidLoad()
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(ContainerController.draggedView(_:)))
-        TelemetryDockView.isUserInteractionEnabled = true
-        TelemetryDockView.addGestureRecognizer(panGesture)
+        DockView.isUserInteractionEnabled = true
+        DockView.addGestureRecognizer(panGesture)
     }
 
     @objc func draggedView(_ sender:UIPanGestureRecognizer){
-        self.view.bringSubviewToFront(TelemetryDockView)
+        self.view.bringSubviewToFront(DockView)
         let translation = sender.translation(in: self.view)
-        TelemetryDockView.center = CGPoint(x: TelemetryDockView.center.x + translation.x, y: TelemetryDockView.center.y)
+        DockHeight.constant -= translation.y
         sender.setTranslation(CGPoint.zero, in: self.view)
     }
-    
 }
