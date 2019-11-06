@@ -17,7 +17,9 @@
 		2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA123736B08005ACD79 /* BalloonMarker.swift */; };
 		2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA223736B08005ACD79 /* RadarMarkerView.swift */; };
 		9FCF394612F0A8E42E27A9CB /* Pods_TelemetryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B22950E09878D842173933E /* Pods_TelemetryApp.framework */; };
-		A0119410237380B7002625C5 /* TeleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011940F237380B7002625C5 /* TeleContainerView.swift */; };
+		A0119410237380B7002625C5 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011940F237380B7002625C5 /* ContainerController.swift */; };
+		A0119418237383FB002625C5 /* DockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0119417237383FB002625C5 /* DockView.swift */; };
+		A011941A23738470002625C5 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011941923738470002625C5 /* Protocols.swift */; };
 		A01C1E49236A47770026D76F /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C1E48236A47770026D76F /* Telemetry.swift */; };
 		A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA521236A3D02007B6713 /* AppDelegate.swift */; };
 		A01CA524236A3D02007B6713 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA523236A3D02007B6713 /* ViewController.swift */; };
@@ -42,7 +44,9 @@
 		2314FBA123736B08005ACD79 /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		2314FBA223736B08005ACD79 /* RadarMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarMarkerView.swift; sourceTree = "<group>"; };
 		6B22950E09878D842173933E /* Pods_TelemetryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TelemetryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A011940F237380B7002625C5 /* TeleContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleContainerView.swift; sourceTree = "<group>"; };
+		A011940F237380B7002625C5 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
+		A0119417237383FB002625C5 /* DockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockView.swift; sourceTree = "<group>"; };
+		A011941923738470002625C5 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		A01C1E48236A47770026D76F /* Telemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
 		A01CA51E236A3D02007B6713 /* TelemetryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelemetryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01CA521236A3D02007B6713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,9 +129,10 @@
 		A0119412237380D8002625C5 /* Telemetry */ = {
 			isa = PBXGroup;
 			children = (
-				A011940F237380B7002625C5 /* TeleContainerView.swift */,
+				A011940F237380B7002625C5 /* ContainerController.swift */,
 				A01C1E48236A47770026D76F /* Telemetry.swift */,
 				A03FB88C2371079C00AF75A8 /* Priority.swift */,
+				A0119417237383FB002625C5 /* DockView.swift */,
 				A0F3D86123721AFD00D10CF8 /* Sensor.swift */,
 			);
 			path = Telemetry;
@@ -166,6 +171,7 @@
 				A01CA521236A3D02007B6713 /* AppDelegate.swift */,
 				A01CA523236A3D02007B6713 /* ViewController.swift */,
 				A01CA525236A3D02007B6713 /* Main.storyboard */,
+				A011941923738470002625C5 /* Protocols.swift */,
 				A0119412237380D8002625C5 /* Telemetry */,
 				A0119413237380E2002625C5 /* Livestream */,
 				A01CA528236A3D03007B6713 /* Assets.xcassets */,
@@ -285,12 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0119410237380B7002625C5 /* TeleContainerView.swift in Sources */,
+				A0119410237380B7002625C5 /* ContainerController.swift in Sources */,
 				2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */,
 				A01CA524236A3D02007B6713 /* ViewController.swift in Sources */,
+				A011941A23738470002625C5 /* Protocols.swift in Sources */,
 				A0F3D86223721AFD00D10CF8 /* Sensor.swift in Sources */,
 				A0F4A83423713D480025CAA1 /* LivestreamView.swift in Sources */,
 				2314FBA323736B08005ACD79 /* XYMarkerView.swift in Sources */,
+				A0119418237383FB002625C5 /* DockView.swift in Sources */,
 				2314FB9423736AAF005ACD79 /* DateValueFormatter.swift in Sources */,
 				2314FB9523736AAF005ACD79 /* LargeValueFormatter.swift in Sources */,
 				2314FB9223736AAF005ACD79 /* IntAxisValueFormatter.swift in Sources */,

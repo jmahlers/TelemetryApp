@@ -91,7 +91,7 @@
         <!--Telemetry-->
         <scene sceneID="cKS-GM-gOm">
             <objects>
-                <viewController id="aWA-H4-cYT" sceneMemberID="viewController">
+                <viewController id="aWA-H4-cYT" customClass="TeleContainerController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rDK-w4-j1J">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,7 +102,7 @@
                                     <segue destination="jfW-Z0-eol" kind="embed" id="kJK-7m-UAw"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8J6-cJ-kl6" userLabel="Bottom View Container">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8J6-cJ-kl6" userLabel="Bottom View Container" customClass="DockView" customModule="TelemetryApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="736" width="414" height="77"/>
                                 <connections>
                                     <segue destination="GdE-g5-ToK" kind="embed" id="aBG-hV-gXq"/>
@@ -124,10 +124,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Telemetry" id="Q3q-ER-Uqe"/>
                     <navigationItem key="navigationItem" id="Jfd-j5-0Nc"/>
+                    <connections>
+                        <outlet property="TelemetryDockView" destination="8J6-cJ-kl6" id="T3d-6W-uTS"/>
+                        <outlet property="TelemetryGraphView" destination="n3e-Zx-r2l" id="r45-kP-aTU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUG-Zy-hcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="307" y="17"/>
+            <point key="canvasLocation" x="548" y="17"/>
         </scene>
         <!--Livestream-->
         <scene sceneID="EhX-SY-J7K">
