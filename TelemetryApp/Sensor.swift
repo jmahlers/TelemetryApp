@@ -39,14 +39,14 @@ struct Sensor: Comparable, Hashable{
     static func < (lhs: Sensor, rhs: Sensor) -> Bool {
         let lhsKey = lhs.key
         let rhsKey = rhs.key
-        if(Telemetry.shared.sensorPriority[lhsKey] != nil){
-            if(Telemetry.shared.sensorPriority[rhsKey] != nil){
-                return Telemetry.shared.sensorPriority[lhsKey]! < Telemetry.shared.sensorPriority[rhsKey]!
+        if(Telemetry.shared.sensorPriority[lhs] != nil){
+            if(Telemetry.shared.sensorPriority[rhs] != nil){
+                return Telemetry.shared.sensorPriority[lhs]! < Telemetry.shared.sensorPriority[rhs]!
             }else{
                 return true
             }
         }else{
-            if(Telemetry.shared.sensorPriority[rhsKey] != nil){
+            if(Telemetry.shared.sensorPriority[rhs] != nil){
                 return false
             }else{
                 return lhsKey<rhsKey
