@@ -30,10 +30,14 @@ class Telemetry: EventSource {
     weak var delegate:TelemetryDelegate?
     ///Dictionary of received messages
     var dataSource:[Sensor: [Float]] = [:]
-    ///Priority & alphabetically sorted array of sensors
-    var sortedSensors:[Sensor] = []
-    ///Dictionary to assign higher sorting priority to specific sensors
-    internal var sensorPriority:[Sensor:Int] = [:]
+    ///Sorted array of favorited sensors
+    var favoriteSensors:[Sensor] = []
+    ///Sorted array of non-favorited sensors
+    var generalSensors:[Sensor] = []
+    
+    //Dictionary to assign higher sorting priority to specific sensors.
+    //internal var sensorPriority:[Sensor:Int] = [:]     //Deprocated with addition of favoriteSensors.
+    
     ///Singleton of Telemetry that connects to the telemetry server
     static let shared = Telemetry()
     
@@ -59,9 +63,15 @@ class Telemetry: EventSource {
                 if(self.dataSource[sensor] != nil){
                     self.dataSource[sensor]!.append(sensorReading.value)
                 }else{
-                    self.dataSource[sensor] = [sensorReading.value]
-                    self.sortedSensors.append(Sensor(sensorReading))
-                    self.sortedSensors.sort()
+                    if(self.favoriteSensors.contains(sensor)){
+                        self.dataSource[sensor] = [sensorReading.value]
+                        self.favoriteSensors.append(Sensor(sensorReading))
+                        self.favoriteSensors.sort()
+                    }else{
+                        self.dataSource[sensor] = [sensorReading.value]
+                        self.generalSensors.append(Sensor(sensorReading))
+                        self.generalSensors.sort()
+                    }
                 }
                 self.delegate?.manageMessage(sensorReading)
             } catch {
@@ -72,8 +82,8 @@ class Telemetry: EventSource {
         self.onComplete{ (status, shouldReconnect, netLayer) in
             print("Data source at connection close was:")
             print(self.dataSource)
-            print(self.sortedSensors)
-            print(self.sensorPriority)
+            print(self.favoriteSensors)
+            print(self.generalSensors)
             self.delegate?.manageComplete()
         }
         

@@ -5,8 +5,9 @@
 //  Created by Jeff Ahlers on 11/4/19.
 //  Copyright © 2019 Jeff Ahlers. All rights reserved.
 //
-
-extension Telemetry {
+//DEPROCATED WITH CHANGE TO GENERAL AND FAVORITE SENSORS
+/*
+extension Telemetry{
     //This code is just a bunch of logic to decide which elements to increase and decrease as keys are set.
     ///Sets the given sensorKey to have priority index and adjusts other priorities to maintain that a given index is guranteed to have only one sensorKey.
     func setPriority(sensor: Sensor, index: Int){
@@ -66,3 +67,5 @@ extension Telemetry {
         self.sortedSensors.sort()
     }
 }
+
+ */

@@ -1,16 +1,22 @@
 PODS:
+  - Charts (3.3.0):
+    - Charts/Core (= 3.3.0)
+  - Charts/Core (3.3.0)
   - IKEventSource (3.0.1)
 
 DEPENDENCIES:
+  - Charts (~> 3.3.0)
   - IKEventSource
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
+    - Charts
     - IKEventSource
 
 SPEC CHECKSUMS:
+  Charts: e0dd4cd8f257bccf98407b58183ddca8e8d5b578
   IKEventSource: ababa323587c6b0c250dd54d4a48ab68fd845e8e
 
-PODFILE CHECKSUM: 2bca955769dc02c2ed1dd9876c97c96c344d45be
+PODFILE CHECKSUM: 262b00b9f2cd53cda8c98d739a870f5881eb45c4
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.8.4
