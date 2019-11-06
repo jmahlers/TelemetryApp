@@ -39,6 +39,8 @@ struct Sensor: Comparable, Hashable{
     static func < (lhs: Sensor, rhs: Sensor) -> Bool {
         let lhsKey = lhs.key
         let rhsKey = rhs.key
+        /*
+         //Removed with Priority.swift removal
         if(Telemetry.shared.sensorPriority[lhs] != nil){
             if(Telemetry.shared.sensorPriority[rhs] != nil){
                 return Telemetry.shared.sensorPriority[lhs]! < Telemetry.shared.sensorPriority[rhs]!
@@ -52,6 +54,8 @@ struct Sensor: Comparable, Hashable{
                 return lhsKey<rhsKey
             }
         }
+ */
+        return lhsKey<rhsKey
     }
     
     static func == (lhs: Sensor, rhs: Sensor)-> Bool {
