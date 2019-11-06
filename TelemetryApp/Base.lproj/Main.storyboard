@@ -64,8 +64,8 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="MVX-3v-Bt9"/>
                         <segue destination="Ys6-4b-QNE" kind="relationship" relationship="viewControllers" id="fLe-1b-8QI"/>
-                        <segue destination="Me1-g1-aXF" kind="relationship" relationship="viewControllers" id="9oX-Ss-ecH"/>
                         <segue destination="sgO-W4-Uen" kind="relationship" relationship="viewControllers" id="PXq-ii-PLB"/>
+                        <segue destination="Me1-g1-aXF" kind="relationship" relationship="viewControllers" id="9oX-Ss-ecH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fit-s0-Obn" userLabel="First Responder" sceneMemberID="firstResponder"/>
