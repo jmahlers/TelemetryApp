@@ -43,7 +43,7 @@ class Telemetry: EventSource {
     
     private init(){
         //Initializing instance variables
-        let urlString =  "https://api.data.wuracing.com/api/telemetry"
+        let urlString =  "https://jksites.dev/api/telemetry"
         let url = URL(string: urlString)
         
         //Initialize EventSource
