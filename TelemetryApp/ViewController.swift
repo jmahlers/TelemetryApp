@@ -12,6 +12,10 @@ class ViewController: UIViewController, TelemetryDelegate {
 
     @IBOutlet weak var console: UITextView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        Telemetry.shared.delegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,9 +24,8 @@ class ViewController: UIViewController, TelemetryDelegate {
         
     }
     
-    
     //Triggers on received message
-    func manageMessage(_ event: Sensor) {
+    func manageMessage(_ event: SensorReading) {
         let consoleString = "Key is: "+event.key+" \nValue is: "+String(event.value)
         console.text = consoleString
     }

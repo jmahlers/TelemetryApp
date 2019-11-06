@@ -11,7 +11,7 @@ import IKEventSource
 ///Protocol to proccess messages, and connection actions
 protocol TelemetryDelegate: AnyObject{
     ///Triggers upon incoming event
-    func manageMessage(_ event: Sensor)
+    func manageMessage(_ event: SensorReading)
     ///Triggers upon opening server connection
     func manageOpen()
     ///Triggers upon closing server connection
@@ -28,17 +28,11 @@ class Telemetry: EventSource {
     ///Delegate to process protocol methods
     weak var delegate:TelemetryDelegate?
     ///Dictionary of received messages
-    var dataSource:[String: [Float]] = [:]
-    ///Alphabetically sorted array of dataSource keys
-    var sortedKeys:[String] = []
-    ///Array of units sorted according to sortedKeys
-    var sortedUnits:[String] = []
-    ///Array of descriptions sorted according to sortedKeys
-    var sortedDescription:[String] = []
-    ///Array of system identifiers sorted according to sortedKeys
-    var sortedSystems:[String] = []
-    ///Dictionary to assign higher sorting priority to specific keys
-    internal var keyPriority:[String:Int] = [:]
+    var dataSource:[Sensor: [Float]] = [:]
+    ///Priority & alphabetically sorted array of sensors
+    var sortedSensors:[Sensor] = []
+    ///Dictionary to assign higher sorting priority to specific sensors
+    internal var sensorPriority:[Sensor:Int] = [:]
     ///Singleton of Telemetry that connects to the telemetry server
     static let shared = Telemetry()
     
@@ -59,18 +53,16 @@ class Telemetry: EventSource {
             print("Received message")
             let jsonData = data!.data(using: .utf8)
             do {
-                let sensor = try JSONDecoder().decode(Sensor.self, from: jsonData!)
-                if(self.dataSource[sensor.key] != nil){
-                    self.dataSource[sensor.key]!.append(sensor.value)
+                let sensorReading = try JSONDecoder().decode(SensorReading.self, from: jsonData!)
+                let sensor = Sensor(sensorReading)
+                if(self.dataSource[sensor] != nil){
+                    self.dataSource[sensor]!.append(sensorReading.value)
                 }else{
-                    self.dataSource[sensor.key] = [sensor.value]
-                    self.sortedKeys.append(sensor.key)
-                    self.sortedUnits.append(sensor.unit ?? "N/A")
-                    self.sortedSystems.append(sensor.system ?? "N/A")
-                    self.sortedDescription.append(sensor.description ?? "N/A")
-                    self.sortTelemetry()
+                    self.dataSource[sensor] = [sensorReading.value]
+                    self.sortedSensors.append(Sensor(sensorReading))
+                    self.sortedSensors.sort()
                 }
-                self.delegate?.manageMessage(sensor)
+                self.delegate?.manageMessage(sensorReading)
             } catch {
                 print("Message decoded to an error")
             }
@@ -79,21 +71,10 @@ class Telemetry: EventSource {
         self.onComplete{ (status, shouldReconnect, netLayer) in
             print("Data source at connection close was:")
             print(self.dataSource)
-            print(self.sortedKeys)
-            print(self.sortedUnits)
-            print(self.keyPriority)
+            print(self.sortedSensors)
+            print(self.sensorPriority)
             self.delegate?.manageComplete()
         }
         
     }
-}
-///Struct for json data from the telemetry server
-struct Sensor: Decodable {
-    //Whenever a new <field> is added, a sortedField array must be added and it must be added to sortTelemetry()
-    let key: String
-    let value: Float
-    let unit: String?
-    let description: String?
-    //Connor has not implimented system yet
-    let system: String?
 }
