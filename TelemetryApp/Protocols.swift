@@ -11,7 +11,7 @@ import Foundation
 ///Protocol to proccess messages, and connection actions
 protocol TelemetryDelegate: AnyObject{
     
-    func manageMessage(_ event: SensorReading)  // Triggers upon incoming event
+    func manageMessage(key: String, dataPoint: DataPoint)  // Triggers upon incoming event
     
     func manageOpen()   // Triggers upon opening server connection
     

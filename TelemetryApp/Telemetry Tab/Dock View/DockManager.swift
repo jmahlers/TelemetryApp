@@ -21,8 +21,8 @@ class DockManager: UIView, TelemetryDelegate{
         setUp(currentView)
     }
     
-    func manageMessage(_ event: SensorReading) {
-        currentView.manageMessage(event)
+    func manageMessage(key: String, dataPoint: DataPoint) {
+        currentView.manageMessage(key: key, dataPoint: dataPoint)
     }
     func manageOpen() {
         currentView.manageOpen()
@@ -30,9 +30,6 @@ class DockManager: UIView, TelemetryDelegate{
     func manageComplete() {
         currentView.manageComplete()
     }
-    
-    
-    
 }
 
 

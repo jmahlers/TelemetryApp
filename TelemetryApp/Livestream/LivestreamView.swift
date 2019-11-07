@@ -27,7 +27,7 @@ class LivestreamView: UIViewController, TelemetryDelegate, UIScrollViewDelegate{
         livestream.scrollView.backgroundColor = UIColor.black
     }
     
-    func manageMessage(_ event: SensorReading) {
+    func manageMessage(key: String, dataPoint: DataPoint) {
     }
     func manageOpen() {
     }
