@@ -29,15 +29,11 @@ class ContainerController: UIViewController {
         case .began:
             break
         case .changed:
-            print("Changed")
             let translation = sender.translation(in: self.view)
             DockHeight.constant -= translation.y
             sender.setTranslation(CGPoint.zero, in: self.view)
-//        }
- 
             break
         case .ended:
-            print("Ended")
             let inset = view.safeAreaInsets.top + view.safeAreaInsets.bottom
             let upwardHeight = (view.frame.height - inset)*0.9
             if(DockView.bounds.height > 0.3*view.bounds.height && sender.velocity(in: self.view).y<0){
