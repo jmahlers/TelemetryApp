@@ -130,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				2314FB8123736954005ACD79 /* BaseChartViewController.swift */,
-				A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */,
 				2314FB7F23736933005ACD79 /* LineChartViewController.swift */,
 				2314FB9F23736B08005ACD79 /* Components */,
 				2314FB8D23736AAF005ACD79 /* Formatters */,
@@ -193,6 +192,7 @@
 			children = (
 				A011940E23737113002625C5 /* Graph Example */,
 				A01CA521236A3D02007B6713 /* AppDelegate.swift */,
+				A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */,
 				A01CA523236A3D02007B6713 /* ViewController.swift */,
 				A01CA525236A3D02007B6713 /* Main.storyboard */,
 				A011941923738470002625C5 /* Protocols.swift */,
