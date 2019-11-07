@@ -75,18 +75,28 @@
         <!--Database-->
         <scene sceneID="Ne5-2r-G0c">
             <objects>
-                <viewController id="Ys6-4b-QNE" sceneMemberID="viewController">
+                <viewController id="Ys6-4b-QNE" customClass="LineChartViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Glk-3Z-zHf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Obv-v9-1ly" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cPD-qE-JPv"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Database" id="1rm-Vr-qIY"/>
+                    <connections>
+                        <outlet property="chartView" destination="Obv-v9-1ly" id="TDv-9j-feA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFF-Xf-kqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-716" y="-58"/>
+            <point key="canvasLocation" x="-717.39130434782612" y="-58.258928571428569"/>
         </scene>
         <!--Telemetry-->
         <scene sceneID="yWA-Mh-zTb">
@@ -171,7 +181,6 @@
         <!--View Controller-->
         <scene sceneID="ydn-49-J98">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qBU-8f-cLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="70B-ge-d6i" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gSH-XY-78X">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="715"/>
@@ -180,6 +189,7 @@
                         <viewLayoutGuide key="safeArea" id="beE-cg-eLw"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qBU-8f-cLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1358" y="-58"/>
         </scene>
