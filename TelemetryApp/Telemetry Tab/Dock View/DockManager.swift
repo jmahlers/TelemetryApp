@@ -10,7 +10,6 @@ import UIKit
 class DockManager: UIView, TelemetryDelegate{
     
     var currentView:DockView = DockMinimizedView()
-    
     func expandDock(){
         currentView.removeFromSuperview()
         currentView = DockExpandedView()
