@@ -9,7 +9,6 @@
 import IKEventSource
 
 
-
 //Any use of Telemetry must use the format Telemetry.shared._
 //It is a singleton to ensure there is only ever one Telemetry object
 //As a singleton, Telemetry.shared has global scope
@@ -20,12 +19,13 @@ class Telemetry: EventSource {
     ///Delegate to process protocol methods
     weak var delegate:TelemetryDelegate?
     ///Dictionary of received messages
-    var dataSource:[Sensor: [Float]] = [:]
+    var dataSource:[Sensor: [DataPoint]] = [:]
     ///Sorted array of favorited sensors
     var favoriteSensors:[Sensor] = []
     ///Sorted array of non-favorited sensors
     var generalSensors:[Sensor] = []
-    
+
+    var timer: Date?
     //Dictionary to assign higher sorting priority to specific sensors.
     //internal var sensorPriority:[Sensor:Int] = [:]     //Deprocated with addition of favoriteSensors.
     
@@ -50,20 +50,22 @@ class Telemetry: EventSource {
             do {
                 let sensorReading = try JSONDecoder().decode(SensorReading.self, from: jsonData!)
                 let sensor = Sensor(sensorReading)
+                let timeElapsed = self.timer?.timeIntervalSinceNow
+                let dataPoint = DataPoint(time: timeElapsed ?? -1, sensorReading: sensorReading)
                 if(self.dataSource[sensor] != nil){
-                    self.dataSource[sensor]!.append(sensorReading.value)
+                    self.dataSource[sensor]!.append(dataPoint)
                 }else{
                     if(self.favoriteSensors.contains(sensor)){
-                        self.dataSource[sensor] = [sensorReading.value]
+                        self.dataSource[sensor] = [dataPoint]
                         self.favoriteSensors.append(Sensor(sensorReading))
                         self.favoriteSensors.sort()
                     }else{
-                        self.dataSource[sensor] = [sensorReading.value]
+                        self.dataSource[sensor] = [dataPoint]
                         self.generalSensors.append(Sensor(sensorReading))
                         self.generalSensors.sort()
                     }
                 }
-                self.delegate?.manageMessage(sensorReading)
+                self.delegate?.manageMessage(key: sensorReading.key, dataPoint: dataPoint)
             } catch {
                 print("Message decoded to an error")
             }

@@ -14,13 +14,30 @@ struct SensorReading: Decodable {
     let description: String?
     let system: String?
 }
-
+struct DataPoint {
+    let key: String
+    let time: Double
+    let value: Float
+    
+    init(time: Double, sensorReading: SensorReading){
+        self.key = sensorReading.key
+        self.time = time
+        self.value = sensorReading.value
+    }
+}
 ///Struct for for sensors. Contains key, unit, description, and system
 struct Sensor: Comparable, Hashable{
     let key: String
     let unit: String
     let description: String
     let system: String
+    
+    init(key: String){
+        self.key = key
+        self.unit = "N/A"
+        self.description = "N/A"
+        self.system = "N/A"
+    }
     
     init(key: String, unit:String?, description:String?, system:String?){
         self.key = key
@@ -59,7 +76,7 @@ struct Sensor: Comparable, Hashable{
     }
     
     static func == (lhs: Sensor, rhs: Sensor)-> Bool {
-        if(lhs.key == rhs.key && lhs.unit == rhs.unit && lhs.description == rhs.description && lhs.system == rhs.system){
+        if(lhs.key == rhs.key){
             return true
         }else{
             return false

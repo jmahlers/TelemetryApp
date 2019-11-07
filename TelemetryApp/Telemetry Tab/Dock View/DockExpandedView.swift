@@ -30,7 +30,7 @@ class DockExpandedView: DockView{
     }
     
     
-    override func manageMessage(_ event: SensorReading) {
+    override func manageMessage(key: String, dataPoint: DataPoint) {
     }
     
     override func manageOpen() {
