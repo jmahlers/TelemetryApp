@@ -86,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFF-Xf-kqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-706" y="17"/>
+            <point key="canvasLocation" x="-716" y="-58"/>
         </scene>
         <!--Telemetry-->
         <scene sceneID="yWA-Mh-zTb">
@@ -97,35 +97,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZo-9e-nRb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="679.5"/>
                                 <connections>
                                     <segue destination="70B-ge-d6i" kind="embed" id="KtF-Gg-1Zi"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j0c-qZ-0GN">
-                                <rect key="frame" x="0.0" y="736" width="414" height="77"/>
-                                <connections>
-                                    <segue destination="ycP-cU-FRD" kind="embed" id="XwB-UJ-8Eb"/>
-                                </connections>
-                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flZ-jR-p4G" customClass="DockView" customModule="TelemetryApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="723.5" width="414" height="89.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="j0c-qZ-0GN" firstAttribute="leading" secondItem="rMf-8e-buq" secondAttribute="leading" id="0rx-U7-axx"/>
                             <constraint firstItem="rMf-8e-buq" firstAttribute="trailing" secondItem="fZo-9e-nRb" secondAttribute="trailing" id="A14-TG-0av"/>
                             <constraint firstItem="fZo-9e-nRb" firstAttribute="top" secondItem="rMf-8e-buq" secondAttribute="top" id="Edh-Wk-2SS"/>
-                            <constraint firstItem="rMf-8e-buq" firstAttribute="bottom" secondItem="j0c-qZ-0GN" secondAttribute="bottom" id="Fle-oq-qqp"/>
-                            <constraint firstItem="j0c-qZ-0GN" firstAttribute="height" secondItem="rMf-8e-buq" secondAttribute="height" multiplier="0.1" id="K8S-Ga-pnZ"/>
-                            <constraint firstItem="j0c-qZ-0GN" firstAttribute="top" secondItem="fZo-9e-nRb" secondAttribute="bottom" id="NtO-yQ-bgB"/>
-                            <constraint firstItem="rMf-8e-buq" firstAttribute="trailing" secondItem="j0c-qZ-0GN" secondAttribute="trailing" id="fLf-Fb-dhd"/>
+                            <constraint firstItem="flZ-jR-p4G" firstAttribute="bottom" secondItem="rMf-8e-buq" secondAttribute="bottom" id="L6u-YF-vjB"/>
+                            <constraint firstItem="flZ-jR-p4G" firstAttribute="height" secondItem="G4g-ZK-r0Z" secondAttribute="height" multiplier="0.1" id="QER-Qo-grZ"/>
+                            <constraint firstItem="flZ-jR-p4G" firstAttribute="top" secondItem="fZo-9e-nRb" secondAttribute="bottom" id="rEx-PZ-y0n"/>
+                            <constraint firstItem="flZ-jR-p4G" firstAttribute="leading" secondItem="rMf-8e-buq" secondAttribute="leading" id="uTF-wU-fxj"/>
                             <constraint firstItem="fZo-9e-nRb" firstAttribute="leading" secondItem="rMf-8e-buq" secondAttribute="leading" id="uqf-VO-DvV"/>
+                            <constraint firstItem="rMf-8e-buq" firstAttribute="trailing" secondItem="flZ-jR-p4G" secondAttribute="trailing" id="wc7-sV-jNy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rMf-8e-buq"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Telemetry" id="OjB-ib-pZc"/>
                     <connections>
-                        <outlet property="DockHeight" destination="K8S-Ga-pnZ" id="6X7-GB-rfJ"/>
-                        <outlet property="DockView" destination="j0c-qZ-0GN" id="Zza-su-dAn"/>
+                        <outlet property="DockHeight" destination="QER-Qo-grZ" id="30y-0v-sii"/>
+                        <outlet property="DockOutlet" destination="flZ-jR-p4G" id="Hb9-hP-YXF"/>
                         <outlet property="GraphView" destination="fZo-9e-nRb" id="R7g-dQ-NJg"/>
                     </connections>
                 </viewController>
@@ -168,53 +166,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D14-yU-JJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2621.739130434783" y="16.741071428571427"/>
+            <point key="canvasLocation" x="2449" y="-58"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ydn-49-J98">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qBU-8f-cLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="70B-ge-d6i" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gSH-XY-78X">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="679.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="beE-cg-eLw"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qBU-8f-cLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1357" y="-127"/>
-        </scene>
-        <!--Dock View Controller-->
-        <scene sceneID="nR3-n0-mLs">
-            <objects>
-                <viewController id="ycP-cU-FRD" customClass="DockViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Gn0-YN-3us">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="77"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I41-LB-JnA">
-                                <rect key="frame" x="157" y="18.5" width="100" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="HIC-JV-Ya7"/>
-                                    <constraint firstAttribute="width" constant="100" id="oD4-GO-LAA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" red="1" green="0.87206052600740158" blue="0.1875476661893396" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="I41-LB-JnA" firstAttribute="centerX" secondItem="Gn0-YN-3us" secondAttribute="centerX" id="KGN-Jp-Leh"/>
-                            <constraint firstItem="I41-LB-JnA" firstAttribute="centerY" secondItem="Gn0-YN-3us" secondAttribute="centerY" id="k0t-gT-fit"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="P0L-vn-SQM"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mm0-f6-amG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1357" y="195"/>
         </scene>
     </scenes>
 </document>

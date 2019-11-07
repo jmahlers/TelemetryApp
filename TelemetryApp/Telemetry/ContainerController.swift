@@ -12,16 +12,17 @@ class ContainerController: UIViewController {
     
 
     @IBOutlet weak var GraphView: UIView!
-    @IBOutlet weak var DockView: UIView!
+    @IBOutlet weak var DockOutlet: DockView!
     @IBOutlet var DockHeight: NSLayoutConstraint!
+    
     
     var panGesture = UIPanGestureRecognizer()
     var upwardState = false
     override func viewDidLoad() {
         super.viewDidLoad()
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(ContainerController.draggedView(_:)))
-        DockView.isUserInteractionEnabled = true
-        DockView.addGestureRecognizer(panGesture)
+        DockOutlet.isUserInteractionEnabled = true
+        DockOutlet.addGestureRecognizer(panGesture)
     }
     
     @objc func draggedView(_ sender:UIPanGestureRecognizer){
@@ -36,18 +37,22 @@ class ContainerController: UIViewController {
         case .ended:
             let inset = view.safeAreaInsets.top + view.safeAreaInsets.bottom
             let upwardHeight = (view.frame.height - inset)*0.9
-            if(DockView.bounds.height > 0.3*view.bounds.height && sender.velocity(in: self.view).y<0){
+            if(DockOutlet.bounds.height > 0.3*view.bounds.height && sender.velocity(in: self.view).y<0){
                 DockHeight.constant = upwardHeight
                 upwardState = true
                 UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseInOut, animations: {
                     self.view.layoutIfNeeded()
-                }, completion:  nil)
-            }else if(DockView.bounds.height < 0.7*view.bounds.height && sender.velocity(in: view).y>0){
+                }, completion:  { (didComplete) in
+                    self.DockOutlet.setOtherView()
+                })
+            }else if(DockOutlet.bounds.height < 0.7*view.bounds.height && sender.velocity(in: view).y>0){
                 DockHeight.constant = 0
                 upwardState = false
                 UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseInOut, animations: {
                     self.view.layoutIfNeeded()
-                }, completion:  nil)
+                }, completion:  {(didComplete) in
+                    self.DockOutlet.setOGView()
+                })
             }else{
                 if(upwardState == true){
                     DockHeight.constant = upwardHeight
