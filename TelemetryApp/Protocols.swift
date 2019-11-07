@@ -18,8 +18,3 @@ protocol TelemetryDelegate: AnyObject{
     func manageComplete()   //T riggers upon closing server connection
     
 }
-
-protocol DraggableViewDelegate: AnyObject{
-    
-}
-

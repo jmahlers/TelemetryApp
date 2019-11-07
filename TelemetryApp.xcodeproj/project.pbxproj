@@ -17,11 +17,14 @@
 		2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA123736B08005ACD79 /* BalloonMarker.swift */; };
 		2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA223736B08005ACD79 /* RadarMarkerView.swift */; };
 		9FCF394612F0A8E42E27A9CB /* Pods_TelemetryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B22950E09878D842173933E /* Pods_TelemetryApp.framework */; };
-		A0119410237380B7002625C5 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011940F237380B7002625C5 /* ContainerController.swift */; };
+		A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011940F237380B7002625C5 /* TelemetryViewContoller.swift */; };
 		A011941A23738470002625C5 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011941923738470002625C5 /* Protocols.swift */; };
-		A01194282373EFA6002625C5 /* DockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01194272373EFA6002625C5 /* DockView.xib */; };
+		A01194282373EFA6002625C5 /* DockMinimizedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01194272373EFA6002625C5 /* DockMinimizedView.xib */; };
 		A011942A2373EFB2002625C5 /* DockExpandedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01194292373EFB2002625C5 /* DockExpandedView.xib */; };
-		A011942C2373EFC6002625C5 /* DockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011942B2373EFC6002625C5 /* DockView.swift */; };
+		A011942C2373EFC6002625C5 /* DockMinimizedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011942B2373EFC6002625C5 /* DockMinimizedView.swift */; };
+		A011942F2373FAB2002625C5 /* DockExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011942E2373FAB2002625C5 /* DockExpandedView.swift */; };
+		A01194312373FB9B002625C5 /* DockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01194302373FB9B002625C5 /* DockManager.swift */; };
+		A0119433237401BB002625C5 /* DockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0119432237401BB002625C5 /* DockView.swift */; };
 		A01C1E49236A47770026D76F /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C1E48236A47770026D76F /* Telemetry.swift */; };
 		A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA521236A3D02007B6713 /* AppDelegate.swift */; };
 		A01CA524236A3D02007B6713 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA523236A3D02007B6713 /* ViewController.swift */; };
@@ -46,11 +49,14 @@
 		2314FBA123736B08005ACD79 /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		2314FBA223736B08005ACD79 /* RadarMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarMarkerView.swift; sourceTree = "<group>"; };
 		6B22950E09878D842173933E /* Pods_TelemetryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TelemetryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A011940F237380B7002625C5 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
+		A011940F237380B7002625C5 /* TelemetryViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryViewContoller.swift; sourceTree = "<group>"; };
 		A011941923738470002625C5 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		A01194272373EFA6002625C5 /* DockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DockView.xib; sourceTree = "<group>"; };
+		A01194272373EFA6002625C5 /* DockMinimizedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DockMinimizedView.xib; sourceTree = "<group>"; };
 		A01194292373EFB2002625C5 /* DockExpandedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DockExpandedView.xib; sourceTree = "<group>"; };
-		A011942B2373EFC6002625C5 /* DockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockView.swift; sourceTree = "<group>"; };
+		A011942B2373EFC6002625C5 /* DockMinimizedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockMinimizedView.swift; sourceTree = "<group>"; };
+		A011942E2373FAB2002625C5 /* DockExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockExpandedView.swift; sourceTree = "<group>"; };
+		A01194302373FB9B002625C5 /* DockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockManager.swift; sourceTree = "<group>"; };
+		A0119432237401BB002625C5 /* DockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockView.swift; sourceTree = "<group>"; };
 		A01C1E48236A47770026D76F /* Telemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
 		A01CA51E236A3D02007B6713 /* TelemetryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelemetryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01CA521236A3D02007B6713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,16 +136,15 @@
 			path = "Graph Example";
 			sourceTree = "<group>";
 		};
-		A0119412237380D8002625C5 /* Telemetry */ = {
+		A0119412237380D8002625C5 /* Telemetry Tab */ = {
 			isa = PBXGroup;
 			children = (
-				A011940F237380B7002625C5 /* ContainerController.swift */,
-				A01C1E48236A47770026D76F /* Telemetry.swift */,
+				A011940F237380B7002625C5 /* TelemetryViewContoller.swift */,
 				A03FB88C2371079C00AF75A8 /* Priority.swift */,
 				A0F3D86123721AFD00D10CF8 /* Sensor.swift */,
 				A011942D2373F646002625C5 /* Dock View */,
 			);
-			path = Telemetry;
+			path = "Telemetry Tab";
 			sourceTree = "<group>";
 		};
 		A0119413237380E2002625C5 /* Livestream */ = {
@@ -153,8 +158,11 @@
 		A011942D2373F646002625C5 /* Dock View */ = {
 			isa = PBXGroup;
 			children = (
-				A01194272373EFA6002625C5 /* DockView.xib */,
-				A011942B2373EFC6002625C5 /* DockView.swift */,
+				A0119432237401BB002625C5 /* DockView.swift */,
+				A01194302373FB9B002625C5 /* DockManager.swift */,
+				A011942B2373EFC6002625C5 /* DockMinimizedView.swift */,
+				A01194272373EFA6002625C5 /* DockMinimizedView.xib */,
+				A011942E2373FAB2002625C5 /* DockExpandedView.swift */,
 				A01194292373EFB2002625C5 /* DockExpandedView.xib */,
 			);
 			path = "Dock View";
@@ -186,7 +194,8 @@
 				A01CA523236A3D02007B6713 /* ViewController.swift */,
 				A01CA525236A3D02007B6713 /* Main.storyboard */,
 				A011941923738470002625C5 /* Protocols.swift */,
-				A0119412237380D8002625C5 /* Telemetry */,
+				A01C1E48236A47770026D76F /* Telemetry.swift */,
+				A0119412237380D8002625C5 /* Telemetry Tab */,
 				A0119413237380E2002625C5 /* Livestream */,
 				A01CA528236A3D03007B6713 /* Assets.xcassets */,
 				A01CA52D236A3D03007B6713 /* Info.plist */,
@@ -255,7 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A01CA52C236A3D03007B6713 /* LaunchScreen.storyboard in Resources */,
-				A01194282373EFA6002625C5 /* DockView.xib in Resources */,
+				A01194282373EFA6002625C5 /* DockMinimizedView.xib in Resources */,
 				A01CA529236A3D03007B6713 /* Assets.xcassets in Resources */,
 				A011942A2373EFB2002625C5 /* DockExpandedView.xib in Resources */,
 				A01CA527236A3D02007B6713 /* Main.storyboard in Resources */,
@@ -307,21 +316,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0119410237380B7002625C5 /* ContainerController.swift in Sources */,
+				A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */,
 				2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */,
 				A01CA524236A3D02007B6713 /* ViewController.swift in Sources */,
 				A011941A23738470002625C5 /* Protocols.swift in Sources */,
 				A0F3D86223721AFD00D10CF8 /* Sensor.swift in Sources */,
 				A0F4A83423713D480025CAA1 /* LivestreamView.swift in Sources */,
+				A011942F2373FAB2002625C5 /* DockExpandedView.swift in Sources */,
 				2314FBA323736B08005ACD79 /* XYMarkerView.swift in Sources */,
 				2314FB9423736AAF005ACD79 /* DateValueFormatter.swift in Sources */,
 				2314FB9523736AAF005ACD79 /* LargeValueFormatter.swift in Sources */,
 				2314FB9223736AAF005ACD79 /* IntAxisValueFormatter.swift in Sources */,
 				2314FB8023736933005ACD79 /* LineChartViewController.swift in Sources */,
 				2314FB8223736955005ACD79 /* BaseChartViewController.swift in Sources */,
+				A0119433237401BB002625C5 /* DockView.swift in Sources */,
 				2314FB9323736AAF005ACD79 /* DayAxisValueFormatter.swift in Sources */,
-				A011942C2373EFC6002625C5 /* DockView.swift in Sources */,
+				A011942C2373EFC6002625C5 /* DockMinimizedView.swift in Sources */,
 				A01C1E49236A47770026D76F /* Telemetry.swift in Sources */,
+				A01194312373FB9B002625C5 /* DockManager.swift in Sources */,
 				A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */,
 				A03FB88D2371079C00AF75A8 /* Priority.swift in Sources */,
 				2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */,

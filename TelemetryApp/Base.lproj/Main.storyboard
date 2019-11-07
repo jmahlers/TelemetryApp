@@ -91,19 +91,19 @@
         <!--Telemetry-->
         <scene sceneID="yWA-Mh-zTb">
             <objects>
-                <viewController id="sgO-W4-Uen" customClass="ContainerController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sgO-W4-Uen" customClass="TelemetryViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G4g-ZK-r0Z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZo-9e-nRb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="715"/>
                                 <connections>
                                     <segue destination="70B-ge-d6i" kind="embed" id="KtF-Gg-1Zi"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flZ-jR-p4G" customClass="DockView" customModule="TelemetryApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="736" width="414" height="77"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flZ-jR-p4G" customClass="DockManager" customModule="TelemetryApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="759" width="414" height="54"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -112,7 +112,7 @@
                             <constraint firstItem="rMf-8e-buq" firstAttribute="trailing" secondItem="fZo-9e-nRb" secondAttribute="trailing" id="A14-TG-0av"/>
                             <constraint firstItem="fZo-9e-nRb" firstAttribute="top" secondItem="rMf-8e-buq" secondAttribute="top" id="Edh-Wk-2SS"/>
                             <constraint firstItem="flZ-jR-p4G" firstAttribute="bottom" secondItem="rMf-8e-buq" secondAttribute="bottom" id="L6u-YF-vjB"/>
-                            <constraint firstItem="flZ-jR-p4G" firstAttribute="height" secondItem="rMf-8e-buq" secondAttribute="height" multiplier="0.1" id="QER-Qo-grZ"/>
+                            <constraint firstItem="flZ-jR-p4G" firstAttribute="height" secondItem="rMf-8e-buq" secondAttribute="height" multiplier="0.07" id="QER-Qo-grZ"/>
                             <constraint firstItem="fZo-9e-nRb" firstAttribute="bottom" secondItem="flZ-jR-p4G" secondAttribute="top" id="rEx-PZ-y0n"/>
                             <constraint firstItem="flZ-jR-p4G" firstAttribute="leading" secondItem="rMf-8e-buq" secondAttribute="leading" id="uTF-wU-fxj"/>
                             <constraint firstItem="fZo-9e-nRb" firstAttribute="leading" secondItem="rMf-8e-buq" secondAttribute="leading" id="uqf-VO-DvV"/>
@@ -123,7 +123,7 @@
                     <tabBarItem key="tabBarItem" title="Telemetry" id="OjB-ib-pZc"/>
                     <connections>
                         <outlet property="DockHeight" destination="QER-Qo-grZ" id="30y-0v-sii"/>
-                        <outlet property="DockOutlet" destination="flZ-jR-p4G" id="Hb9-hP-YXF"/>
+                        <outlet property="DockOutlet" destination="flZ-jR-p4G" id="7KQ-hM-OlS"/>
                         <outlet property="GraphView" destination="fZo-9e-nRb" id="R7g-dQ-NJg"/>
                     </connections>
                 </viewController>
@@ -174,14 +174,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qBU-8f-cLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="70B-ge-d6i" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gSH-XY-78X">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="715"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="beE-cg-eLw"/>
                     </view>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1357" y="-127"/>
+            <point key="canvasLocation" x="1358" y="-58"/>
         </scene>
     </scenes>
 </document>

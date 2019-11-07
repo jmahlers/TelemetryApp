@@ -1,5 +1,5 @@
 //
-//  DockView.swift
+//  DockExpandedView.swift
 //  TelemetryApp
 //
 //  Created by Jeff Ahlers on 11/7/19.
@@ -7,10 +7,10 @@
 //
 
 import UIKit
-class DockView: UIView{
+class DockExpandedView: DockView{
+
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet var otherView: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,22 +23,20 @@ class DockView: UIView{
     }
     
     private func commonInit(){
-        Bundle.main.loadNibNamed("DockView", owner: self, options: nil)
         Bundle.main.loadNibNamed("DockExpandedView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
-    func setOtherView(){
-        contentView.removeFromSuperview()
-        addSubview(otherView)
-        otherView.frame = self.bounds
-        otherView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+    
+    
+    override func manageMessage(_ event: SensorReading) {
     }
-    func setOGView(){
-        otherView.removeFromSuperview()
-        addSubview(contentView)
-        contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+    
+    override func manageOpen() {
     }
+    
+    override func manageComplete() {
+    }
+    
 }
