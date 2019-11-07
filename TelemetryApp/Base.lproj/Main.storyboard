@@ -97,13 +97,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZo-9e-nRb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="679.5"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <connections>
                                     <segue destination="70B-ge-d6i" kind="embed" id="KtF-Gg-1Zi"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flZ-jR-p4G" customClass="DockView" customModule="TelemetryApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="723.5" width="414" height="89.5"/>
+                                <rect key="frame" x="0.0" y="736" width="414" height="77"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -112,8 +112,8 @@
                             <constraint firstItem="rMf-8e-buq" firstAttribute="trailing" secondItem="fZo-9e-nRb" secondAttribute="trailing" id="A14-TG-0av"/>
                             <constraint firstItem="fZo-9e-nRb" firstAttribute="top" secondItem="rMf-8e-buq" secondAttribute="top" id="Edh-Wk-2SS"/>
                             <constraint firstItem="flZ-jR-p4G" firstAttribute="bottom" secondItem="rMf-8e-buq" secondAttribute="bottom" id="L6u-YF-vjB"/>
-                            <constraint firstItem="flZ-jR-p4G" firstAttribute="height" secondItem="G4g-ZK-r0Z" secondAttribute="height" multiplier="0.1" id="QER-Qo-grZ"/>
-                            <constraint firstItem="flZ-jR-p4G" firstAttribute="top" secondItem="fZo-9e-nRb" secondAttribute="bottom" id="rEx-PZ-y0n"/>
+                            <constraint firstItem="flZ-jR-p4G" firstAttribute="height" secondItem="rMf-8e-buq" secondAttribute="height" multiplier="0.1" id="QER-Qo-grZ"/>
+                            <constraint firstItem="fZo-9e-nRb" firstAttribute="bottom" secondItem="flZ-jR-p4G" secondAttribute="top" id="rEx-PZ-y0n"/>
                             <constraint firstItem="flZ-jR-p4G" firstAttribute="leading" secondItem="rMf-8e-buq" secondAttribute="leading" id="uTF-wU-fxj"/>
                             <constraint firstItem="fZo-9e-nRb" firstAttribute="leading" secondItem="rMf-8e-buq" secondAttribute="leading" id="uqf-VO-DvV"/>
                             <constraint firstItem="rMf-8e-buq" firstAttribute="trailing" secondItem="flZ-jR-p4G" secondAttribute="trailing" id="wc7-sV-jNy"/>
@@ -174,7 +174,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qBU-8f-cLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="70B-ge-d6i" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gSH-XY-78X">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="679.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="beE-cg-eLw"/>
