@@ -39,19 +39,17 @@ class ContainerController: UIViewController {
         case .ended:
             print("Ended")
             let inset = view.safeAreaInsets.top + view.safeAreaInsets.bottom
-            let upwardHeight = view.frame.height - inset
+            let upwardHeight = (view.frame.height - inset)*0.9
             if(DockView.bounds.height > 0.3*view.bounds.height && sender.velocity(in: self.view).y<0){
-                print("greater than")
                 DockHeight.constant = upwardHeight
                 upwardState = true
-                UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveLinear, animations: {
+                UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseInOut, animations: {
                     self.view.layoutIfNeeded()
                 }, completion:  nil)
             }else if(DockView.bounds.height < 0.7*view.bounds.height && sender.velocity(in: view).y>0){
-                print("less than")
                 DockHeight.constant = 0
                 upwardState = false
-                UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveLinear, animations: {
+                UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseInOut, animations: {
                     self.view.layoutIfNeeded()
                 }, completion:  nil)
             }else{
@@ -60,19 +58,13 @@ class ContainerController: UIViewController {
                 }else{
                     DockHeight.constant = 0
                 }
-                DockView.isUserInteractionEnabled = true
-                UIView.animate(withDuration: 0.05, delay: 0.0, options: .curveLinear, animations: {
+                UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: {
                     self.view.layoutIfNeeded()
                 }, completion:  nil)
             }
-            print("updating")
-
- 
             break
         default:
             break
         }
-        
     }
-    
 }
