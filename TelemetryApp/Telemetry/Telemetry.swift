@@ -46,7 +46,6 @@ class Telemetry: EventSource {
         }
         
         self.onMessage{ (id, event, data) in
-            print("Received message")
             let jsonData = data!.data(using: .utf8)
             do {
                 let sensorReading = try JSONDecoder().decode(SensorReading.self, from: jsonData!)

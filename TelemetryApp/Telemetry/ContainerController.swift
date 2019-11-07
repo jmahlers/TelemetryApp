@@ -13,9 +13,10 @@ class ContainerController: UIViewController {
 
     @IBOutlet weak var GraphView: UIView!
     @IBOutlet weak var DockView: UIView!
-    @IBOutlet weak var DockHeight: NSLayoutConstraint!
+    @IBOutlet var DockHeight: NSLayoutConstraint!
     
     var panGesture = UIPanGestureRecognizer()
+    var upwardState = false
     override func viewDidLoad() {
         super.viewDidLoad()
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(ContainerController.draggedView(_:)))
@@ -25,32 +26,53 @@ class ContainerController: UIViewController {
     
     @objc func draggedView(_ sender:UIPanGestureRecognizer){
         switch sender.state{
+        case .began:
+            break
         case .changed:
-        if(DockHeight.constant >= self.view.bounds.height*0.7){
-            let translation = sender.translation(in: self.view)
-            if(translation.y > 0){
-                DockHeight.constant -= translation.y
-            }
-            sender.setTranslation(CGPoint.zero, in: self.view)
-        }else{
+            print("Changed")
             let translation = sender.translation(in: self.view)
             DockHeight.constant -= translation.y
-            
-            if(DockHeight.constant >= self.view.bounds.height*0.7){
-                DockHeight.constant = self.view.bounds.height*0.7
-            }
             sender.setTranslation(CGPoint.zero, in: self.view)
-        }
+//        }
+ 
             break
         case .ended:
-            self.DockHeight.constant = 0
-            UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseIn, animations: {
-                self.view.layoutIfNeeded()
-            }, completion: nil)
+            print("Ended")
+            let inset = view.safeAreaInsets.top + view.safeAreaInsets.bottom
+            let upwardHeight = view.frame.height - inset
+            if(DockView.bounds.height > 0.3*view.bounds.height && sender.velocity(in: self.view).y<0){
+                print("greater than")
+                DockHeight.constant = upwardHeight
+                upwardState = true
+                UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveLinear, animations: {
+                    self.view.layoutIfNeeded()
+                }, completion:  nil)
+            }else if(DockView.bounds.height < 0.7*view.bounds.height && sender.velocity(in: view).y>0){
+                print("less than")
+                DockHeight.constant = 0
+                upwardState = false
+                UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveLinear, animations: {
+                    self.view.layoutIfNeeded()
+                }, completion:  nil)
+            }else{
+                if(upwardState == true){
+                    DockHeight.constant = upwardHeight
+                }else{
+                    DockHeight.constant = 0
+                }
+                DockView.isUserInteractionEnabled = true
+                UIView.animate(withDuration: 0.05, delay: 0.0, options: .curveLinear, animations: {
+                    self.view.layoutIfNeeded()
+                }, completion:  nil)
+            }
+            print("updating")
+
+ 
             break
         default:
             break
         }
+        
     }
     
 }
