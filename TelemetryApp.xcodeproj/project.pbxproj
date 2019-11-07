@@ -35,6 +35,7 @@
 		A0F3D86223721AFD00D10CF8 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3D86123721AFD00D10CF8 /* Sensor.swift */; };
 		A0F4A83423713D480025CAA1 /* LivestreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F4A83323713D480025CAA1 /* LivestreamView.swift */; };
 		A0F4A836237142420025CAA1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F4A835237142420025CAA1 /* WebKit.framework */; };
+		A0FE983B2374A8D20033F6E6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE983A2374A8D20033F6E6 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		A0F3D86123721AFD00D10CF8 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
 		A0F4A83323713D480025CAA1 /* LivestreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivestreamView.swift; sourceTree = "<group>"; };
 		A0F4A835237142420025CAA1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		A0FE983A2374A8D20033F6E6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C38FE4A35ABDC7E96FFAB128 /* Pods-TelemetryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelemetryApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 		A011940E23737113002625C5 /* Graph Example */ = {
 			isa = PBXGroup;
 			children = (
+				A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */,
 				2314FB8123736954005ACD79 /* BaseChartViewController.swift */,
 				2314FB7F23736933005ACD79 /* LineChartViewController.swift */,
 				2314FB9F23736B08005ACD79 /* Components */,
@@ -190,10 +193,10 @@
 			children = (
 				A011940E23737113002625C5 /* Graph Example */,
 				A01CA521236A3D02007B6713 /* AppDelegate.swift */,
-				A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */,
 				A01CA523236A3D02007B6713 /* ViewController.swift */,
 				A01CA525236A3D02007B6713 /* Main.storyboard */,
 				A011941923738470002625C5 /* Protocols.swift */,
+				A0FE983A2374A8D20033F6E6 /* Extensions.swift */,
 				A01C1E48236A47770026D76F /* Telemetry.swift */,
 				A0119412237380D8002625C5 /* Telemetry Tab */,
 				A0119413237380E2002625C5 /* Livestream */,
@@ -325,6 +328,7 @@
 				A011942F2373FAB2002625C5 /* DockExpandedView.swift in Sources */,
 				2314FBA323736B08005ACD79 /* XYMarkerView.swift in Sources */,
 				2314FB9423736AAF005ACD79 /* DateValueFormatter.swift in Sources */,
+				A0FE983B2374A8D20033F6E6 /* Extensions.swift in Sources */,
 				2314FB9523736AAF005ACD79 /* LargeValueFormatter.swift in Sources */,
 				2314FB9223736AAF005ACD79 /* IntAxisValueFormatter.swift in Sources */,
 				2314FB8023736933005ACD79 /* LineChartViewController.swift in Sources */,

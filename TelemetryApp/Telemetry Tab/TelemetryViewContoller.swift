@@ -24,6 +24,7 @@ class TelemetryViewController: UIViewController {
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(TelemetryViewController.draggedView(_:)))
         DockOutlet.isUserInteractionEnabled = true
         DockOutlet.addGestureRecognizer(panGesture)
+        DockOutlet.roundCorners(cornerRadius: 12.5)
     }
     
     @objc func draggedView(_ sender:UIPanGestureRecognizer){

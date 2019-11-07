@@ -10,7 +10,6 @@ import UIKit
 class DockManager: UIView, TelemetryDelegate{
     
     var currentView:DockView = DockMinimizedView()
-    
     func expandDock(){
         currentView.removeFromSuperview()
         currentView = DockExpandedView()
@@ -36,17 +35,4 @@ class DockManager: UIView, TelemetryDelegate{
     
 }
 
-extension UIView {
-    func setUp(_ currentView:UIView){
-        addSubview(currentView)
-        currentView.frame = self.bounds
-        currentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-    }
-    
-    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        layer.mask = mask
-    }
-}
+
