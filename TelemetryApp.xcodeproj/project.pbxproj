@@ -143,7 +143,6 @@
 			children = (
 				A011940F237380B7002625C5 /* TelemetryViewContoller.swift */,
 				A03FB88C2371079C00AF75A8 /* Priority.swift */,
-				A0F3D86123721AFD00D10CF8 /* Sensor.swift */,
 				A011942D2373F646002625C5 /* Dock View */,
 			);
 			path = "Telemetry Tab";
@@ -197,6 +196,7 @@
 				A011941923738470002625C5 /* Protocols.swift */,
 				A0FE983A2374A8D20033F6E6 /* Extensions.swift */,
 				A01C1E48236A47770026D76F /* Telemetry.swift */,
+				A0F3D86123721AFD00D10CF8 /* Sensor.swift */,
 				A0398BEC2374F679005454E2 /* WebsiteController.swift */,
 				A0119412237380D8002625C5 /* Telemetry Tab */,
 				A0119413237380E2002625C5 /* Livestream Tab */,
