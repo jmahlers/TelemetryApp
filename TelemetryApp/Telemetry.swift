@@ -70,10 +70,10 @@ class Telemetry: EventSource {
         }
         
         self.onComplete{ (status, shouldReconnect, netLayer) in
-            print("Data source at connection close was:")
-            print(self.dataSource)
-            print(self.favoriteSensors)
-            print(self.generalSensors)
+            //print("Data source at connection close was:")
+            //print(self.dataSource)
+            //print(self.favoriteSensors)
+            //print(self.generalSensors)
             self.delegate?.manageComplete()
         }
         
