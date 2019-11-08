@@ -15,14 +15,12 @@ class DockManager: UIView, TelemetryDelegate{
     var isExpanded = false
     func expandDock(){
         UIView.transition(from: minimizedView, to: expandedView, duration: 0.5, options: .transitionCrossDissolve, completion: nil)
-        minimizedView.removeFromSuperview()
-        setUp(expandedView)
+        setUp(expandedView) //Spooky but neccessary
         isExpanded = true
     }
     func minimizeDock(){
         UIView.transition(from: expandedView, to: minimizedView, duration: 0.5, options: .transitionCrossDissolve, completion: nil)
-        //expandedView.removeFromSuperview()
-        //setUp(minimizedView)
+        setUp(minimizedView) //Spooky but neccessary
         isExpanded = false
     }
     

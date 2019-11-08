@@ -76,7 +76,7 @@
         <!--Website-->
         <scene sceneID="sQN-HO-fdW">
             <objects>
-                <viewController id="wxF-gs-8Am" customClass="Website" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wxF-gs-8Am" customClass="WebsiteController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wjo-eu-Feg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,6 +102,9 @@
                         <viewLayoutGuide key="safeArea" id="nIp-Y6-TFw"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Website" id="foU-1E-7Tc"/>
+                    <connections>
+                        <outlet property="website" destination="j3s-b9-O2c" id="gPR-2X-Lk4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L7I-8Q-1KP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -43,22 +43,21 @@ class TelemetryViewController: UIViewController {
         case .ended:
             let inset = view.safeAreaInsets.top + view.safeAreaInsets.bottom
             let upwardHeight = (view.frame.height - inset)*0.93
-            if(DockOutlet.bounds.height > 0.3*view.bounds.height && sender.velocity(in: self.view).y<0){
+            if(DockOutlet.bounds.height > 0.15*view.bounds.height && sender.velocity(in: self.view).y<0){
                 DockHeight.constant = upwardHeight
                 upwardState = true
-                UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseInOut, animations: {
+                UIView.animate(withDuration: 0.13, delay: 0.0, options: .curveEaseInOut, animations: {
                     self.view.layoutIfNeeded()
-                }, completion:  { (didComplete) in
                     self.DockOutlet.expandDock()
-                })
-            }else if(DockOutlet.bounds.height < 0.7*view.bounds.height && sender.velocity(in: view).y>0){
+                }, completion:  nil)
+            }else if(DockOutlet.bounds.height < 0.6*view.bounds.height && sender.velocity(in: view).y>0){
                 DockHeight.constant = 0
                 upwardState = false
-                UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.DockOutlet.minimizeDock()
+                UIView.animate(withDuration: 0.13, delay: 0.0, options: .curveEaseInOut, animations: {
                     self.view.layoutIfNeeded()
-                }, completion:  {(didComplete) in
                     self.DockOutlet.minimizeDock()
-                })
+                }, completion:  nil)
             }else{
                 if(upwardState == true){
                     DockHeight.constant = upwardHeight
