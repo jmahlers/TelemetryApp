@@ -20,7 +20,7 @@ class TelemetryViewController: UIViewController {
     var upwardState = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        DockOutlet.setUp(DockOutlet.currentView)
+        DockOutlet.setUp(DockOutlet.minimizedView)
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(TelemetryViewController.draggedView(_:)))
         DockOutlet.isUserInteractionEnabled = true
         DockOutlet.addGestureRecognizer(panGesture)

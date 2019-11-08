@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class DockExpandedView: DockView{
+class DockExpandedView: UIView{
 
     
     @IBOutlet var contentView: UIView!
@@ -30,13 +30,13 @@ class DockExpandedView: DockView{
     }
     
     
-    override func manageMessage(key: String, dataPoint: DataPoint) {
+    func manageMessage(key: String, dataPoint: DataPoint) {
     }
     
-    override func manageOpen() {
+    func manageOpen() {
     }
     
-    override func manageComplete() {
+    func manageComplete() {
     }
     
 }
