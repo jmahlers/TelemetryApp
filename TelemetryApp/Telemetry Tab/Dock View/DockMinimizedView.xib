@@ -20,14 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vDo-ns-Gf0">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1Of-m2-aza">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                    <blurEffect style="dark"/>
-                </visualEffectView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ile-W5-XRm">
                     <rect key="frame" x="119" y="32" width="176" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -35,12 +27,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <constraints>
-                <constraint firstItem="vDo-ns-Gf0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1L3-ER-Wt4"/>
-                <constraint firstItem="vDo-ns-Gf0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LQV-GE-frg"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vDo-ns-Gf0" secondAttribute="trailing" id="hfP-PG-DlE"/>
-                <constraint firstAttribute="bottom" secondItem="vDo-ns-Gf0" secondAttribute="bottom" id="kWZ-Jq-07I"/>
-            </constraints>
+            <color key="backgroundColor" red="0.89289183937823835" green="0.89289183937823835" blue="0.89289183937823835" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="47.826086956521742" y="306.69642857142856"/>
