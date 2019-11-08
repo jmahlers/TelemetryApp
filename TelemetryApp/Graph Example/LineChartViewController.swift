@@ -57,6 +57,24 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
             counter += 110
         }
         
+        // Do any additional setup after loading the view.
+        self.options = [.toggleValues,
+                        .toggleFilled,
+                        .toggleCircles,
+                        .toggleCubic,
+                        .toggleHorizontalCubic,
+                        .toggleIcons,
+                        .toggleStepped,
+                        .toggleHighlight,
+                        .animateX,
+                        .animateY,
+                        .animateXY,
+                        .saveToGallery,
+                        .togglePinchZoom,
+                        .toggleAutoScaleMinMax,
+                        .toggleData]
+        
+        chartView.delegate = self
         Telemetry.shared.delegate = self
 
         updateChartData()

@@ -144,35 +144,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZo-9e-nRb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="715"/>
-                                <connections>
-                                    <segue destination="70B-ge-d6i" kind="embed" id="KtF-Gg-1Zi"/>
-                                </connections>
-                            </containerView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="729-1f-wCk" userLabel="Graph View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8fl-rz-xDc">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myCell" id="DXf-X0-gNY">
+                                        <rect key="frame" x="0.0" y="50" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="myView" id="lKW-BG-dcB" customClass="HeaderView" customModule="TelemetryApp" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                            </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flZ-jR-p4G" customClass="DockManager" customModule="TelemetryApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="759" width="414" height="54"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.89289183940000005" green="0.89289183940000005" blue="0.89289183940000005" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rMf-8e-buq" firstAttribute="trailing" secondItem="fZo-9e-nRb" secondAttribute="trailing" id="A14-TG-0av"/>
-                            <constraint firstItem="fZo-9e-nRb" firstAttribute="top" secondItem="rMf-8e-buq" secondAttribute="top" id="Edh-Wk-2SS"/>
+                            <constraint firstItem="729-1f-wCk" firstAttribute="width" secondItem="G4g-ZK-r0Z" secondAttribute="width" id="1gB-gy-vBi"/>
                             <constraint firstItem="flZ-jR-p4G" firstAttribute="bottom" secondItem="rMf-8e-buq" secondAttribute="bottom" id="L6u-YF-vjB"/>
+                            <constraint firstItem="729-1f-wCk" firstAttribute="centerX" secondItem="rMf-8e-buq" secondAttribute="centerX" id="LMl-kf-miw"/>
                             <constraint firstItem="flZ-jR-p4G" firstAttribute="height" secondItem="rMf-8e-buq" secondAttribute="height" multiplier="0.07" id="QER-Qo-grZ"/>
-                            <constraint firstItem="fZo-9e-nRb" firstAttribute="bottom" secondItem="flZ-jR-p4G" secondAttribute="top" id="rEx-PZ-y0n"/>
+                            <constraint firstItem="729-1f-wCk" firstAttribute="top" secondItem="rMf-8e-buq" secondAttribute="top" id="cnp-H2-46X"/>
+                            <constraint firstItem="rMf-8e-buq" firstAttribute="bottom" secondItem="729-1f-wCk" secondAttribute="bottom" id="jLl-5H-ocB"/>
                             <constraint firstItem="flZ-jR-p4G" firstAttribute="leading" secondItem="rMf-8e-buq" secondAttribute="leading" id="uTF-wU-fxj"/>
-                            <constraint firstItem="fZo-9e-nRb" firstAttribute="leading" secondItem="rMf-8e-buq" secondAttribute="leading" id="uqf-VO-DvV"/>
                             <constraint firstItem="rMf-8e-buq" firstAttribute="trailing" secondItem="flZ-jR-p4G" secondAttribute="trailing" id="wc7-sV-jNy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rMf-8e-buq"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Telemetry" id="OjB-ib-pZc"/>
                     <connections>
-                        <outlet property="DockHeight" destination="QER-Qo-grZ" id="30y-0v-sii"/>
                         <outlet property="DockOutlet" destination="flZ-jR-p4G" id="7KQ-hM-OlS"/>
-                        <outlet property="GraphView" destination="fZo-9e-nRb" id="R7g-dQ-NJg"/>
+                        <outlet property="dockHeight" destination="QER-Qo-grZ" id="30y-0v-sii"/>
+                        <outlet property="graphView" destination="729-1f-wCk" id="ld3-cf-eD2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGs-nM-0qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -215,21 +233,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D14-yU-JJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2449" y="-58"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="ydn-49-J98">
-            <objects>
-                <viewController id="70B-ge-d6i" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gSH-XY-78X">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="715"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="beE-cg-eLw"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qBU-8f-cLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1358" y="-58"/>
         </scene>
     </scenes>
 </document>

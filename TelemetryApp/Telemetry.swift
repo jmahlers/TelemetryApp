@@ -86,7 +86,7 @@ class Telemetry: EventSource {
     }
 }
 
-
+//Has to be in this file because of fileprivate
 extension Sensor{
     func addFavorite(){
         if(!Telemetry.shared.favoriteSensors.contains(self)){
