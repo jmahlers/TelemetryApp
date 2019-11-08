@@ -35,8 +35,16 @@ class TelemetryViewController: UIViewController {
             break
             
         case .changed:
-            let translation = sender.translation(in: self.view)
-            DockHeight.constant -= translation.y
+            let inset = view.safeAreaInsets.top + view.safeAreaInsets.bottom
+            let upwardHeight = (view.frame.height - inset)*0.93
+             let translation = sender.translation(in: self.view)
+            if(DockHeight.constant - translation.y >= upwardHeight){
+                DockHeight.constant = upwardHeight
+            }else if(DockHeight.constant - translation.y <= 0){
+                DockHeight.constant = 0
+            }else{
+                DockHeight.constant -= translation.y
+            }
             sender.setTranslation(CGPoint.zero, in: self.view)
             break
             
