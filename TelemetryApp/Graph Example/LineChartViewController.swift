@@ -155,8 +155,8 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         set1.highlightLineDashLengths = [5, 2.5]
         set1.setColor(.black)
         set1.setCircleColor(.black)
-        set1.lineWidth = 0.2
-        set1.circleRadius = 2
+        set1.lineWidth = 0.1
+        set1.circleRadius = 1
         set1.drawValuesEnabled = false
         set1.drawCircleHoleEnabled = false
         set1.valueFont = .systemFont(ofSize: 9)
