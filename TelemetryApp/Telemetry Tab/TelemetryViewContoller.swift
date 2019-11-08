@@ -26,9 +26,7 @@ class TelemetryViewController: UIViewController{
         DockOutlet.isUserInteractionEnabled = true
         DockOutlet.addGestureRecognizer(panGesture)
         DockOutlet.roundCorners(cornerRadius: 12.5)
-        forceExpand()
     }
-    
     
 }
 
