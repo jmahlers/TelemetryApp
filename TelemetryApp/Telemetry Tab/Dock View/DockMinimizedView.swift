@@ -8,7 +8,7 @@
 
 import UIKit
 class DockMinimizedView: UIView{
-
+    
     @IBOutlet var contentView: UIView!
     
     override init(frame: CGRect) {

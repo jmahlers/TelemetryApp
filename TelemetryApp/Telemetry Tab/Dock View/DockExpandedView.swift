@@ -8,7 +8,7 @@
 
 import UIKit
 class DockExpandedView: UIView{
-
+    
     
     @IBOutlet var contentView: UIView!
     

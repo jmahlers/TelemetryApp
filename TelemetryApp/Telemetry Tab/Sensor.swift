@@ -60,20 +60,20 @@ struct Sensor: Comparable, Hashable{
         let rhsKey = rhs.key
         /*
          //Removed with Priority.swift removal
-        if(Telemetry.shared.sensorPriority[lhs] != nil){
-            if(Telemetry.shared.sensorPriority[rhs] != nil){
-                return Telemetry.shared.sensorPriority[lhs]! < Telemetry.shared.sensorPriority[rhs]!
-            }else{
-                return true
-            }
-        }else{
-            if(Telemetry.shared.sensorPriority[rhs] != nil){
-                return false
-            }else{
-                return lhsKey<rhsKey
-            }
-        }
- */
+         if(Telemetry.shared.sensorPriority[lhs] != nil){
+         if(Telemetry.shared.sensorPriority[rhs] != nil){
+         return Telemetry.shared.sensorPriority[lhs]! < Telemetry.shared.sensorPriority[rhs]!
+         }else{
+         return true
+         }
+         }else{
+         if(Telemetry.shared.sensorPriority[rhs] != nil){
+         return false
+         }else{
+         return lhsKey<rhsKey
+         }
+         }
+         */
         return lhsKey<rhsKey
     }
     

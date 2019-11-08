@@ -10,11 +10,11 @@ import Foundation
 
 ///Protocol to proccess messages, and connection actions
 protocol TelemetryDelegate: AnyObject{
-    
-    func manageMessage(key: String, dataPoint: DataPoint)  // Triggers upon incoming event
-    
-    func manageOpen()   // Triggers upon opening server connection
-    
-    func manageComplete()   //T riggers upon closing server connection
+    /// Triggers upon incoming event
+    func manageMessage(key: String, dataPoint: DataPoint)
+    /// Triggers upon opening server connection
+    func manageOpen()
+    ///Triggers upon closing server connection
+    func manageComplete()
     
 }
