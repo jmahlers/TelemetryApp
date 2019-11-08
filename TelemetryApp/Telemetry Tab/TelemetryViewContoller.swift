@@ -8,18 +8,20 @@
 
 import UIKit
 
-class TelemetryViewController: UIViewController {
+class TelemetryViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
-    
-    @IBOutlet weak var GraphView: UIView!
     @IBOutlet weak var DockOutlet: DockManager!
-    @IBOutlet var DockHeight: NSLayoutConstraint!
-    
+    @IBOutlet var dockHeight: NSLayoutConstraint!
+    @IBOutlet weak var graphView: UICollectionView!
     
     var panGesture = UIPanGestureRecognizer()
     var upwardState = false
+    var headerHeight:CGFloat = 50
+    //var headerView = HeaderView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        graphView.dataSource = self
+        graphView.delegate = self
         DockOutlet.setUp(DockOutlet.minimizedView)
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(TelemetryViewController.draggedView(_:)))
         DockOutlet.isUserInteractionEnabled = true
@@ -29,8 +31,8 @@ class TelemetryViewController: UIViewController {
     
     @objc func draggedView(_ sender:UIPanGestureRecognizer){
         let inset = view.safeAreaInsets.top + view.safeAreaInsets.bottom
-        let upwardTop = (view.frame.height - inset)*0.95   //Portion of screen to fill
-        let upwardHeight = upwardTop*0.93     //Account for static height multiplier in storyboard
+        let upwardTop = view.frame.height - inset    //Portion of screen to fill
+        let upwardHeight = upwardTop*0.93 - headerHeight //Account for static height multiplier in storyboard
         
         switch sender.state{
         case .began:
@@ -39,19 +41,19 @@ class TelemetryViewController: UIViewController {
             
         case .changed:
             let translation = sender.translation(in: self.view)
-            if(DockHeight.constant - translation.y >= upwardHeight){
-                DockHeight.constant = upwardHeight
-            }else if(DockHeight.constant - translation.y <= 0){
-                DockHeight.constant = 0
+            if(dockHeight.constant - translation.y >= upwardHeight){
+                dockHeight.constant = upwardHeight
+            }else if(dockHeight.constant - translation.y <= 0){
+                dockHeight.constant = 0
             }else{
-                DockHeight.constant -= translation.y
+                dockHeight.constant -= translation.y
             }
             sender.setTranslation(CGPoint.zero, in: self.view)
             break
             
         case .ended:
             if(DockOutlet.bounds.height > upwardTop*0.2 && sender.velocity(in: self.view).y<0){
-                DockHeight.constant = upwardHeight
+                dockHeight.constant = upwardHeight
                 upwardState = true
                 UIView.animate(withDuration: 0.13, delay: 0.0, options: .curveEaseInOut, animations: {
                     self.view.layoutIfNeeded()
@@ -59,7 +61,7 @@ class TelemetryViewController: UIViewController {
                     self.DockOutlet.expandDock()
                 })
             }else if(DockOutlet.bounds.height < upwardTop*0.85 && sender.velocity(in: view).y>0){
-                DockHeight.constant = 0
+                dockHeight.constant = 0
                 upwardState = false
                 UIView.animate(withDuration: 0.13, delay: 0.0, options: .curveEaseInOut, animations: {
                     self.view.layoutIfNeeded()
@@ -68,9 +70,9 @@ class TelemetryViewController: UIViewController {
                 })
             }else{
                 if(upwardState == true){
-                    DockHeight.constant = upwardHeight
+                    dockHeight.constant = upwardHeight
                 }else{
-                    DockHeight.constant = 0
+                    dockHeight.constant = 0
                 }
                 UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: {
                     self.view.layoutIfNeeded()
@@ -82,6 +84,20 @@ class TelemetryViewController: UIViewController {
             break
         }
     }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return 1
+    }
     
-    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = graphView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath)
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "myView", for: indexPath) as! HeaderView
+        return headerView
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let size = CGSize(width: view.frame.width, height: headerHeight)
+        return size
+    }
 }
