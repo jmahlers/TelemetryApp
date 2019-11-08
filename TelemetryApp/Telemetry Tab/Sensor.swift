@@ -14,6 +14,7 @@ struct SensorReading: Decodable {
     let description: String?
     let system: String?
 }
+
 struct DataPoint {
     let key: String
     let time: Double
@@ -25,6 +26,7 @@ struct DataPoint {
         self.value = sensorReading.value
     }
 }
+
 ///Struct for for sensors. Contains key, unit, description, and system
 struct Sensor: Comparable, Hashable{
     let key: String

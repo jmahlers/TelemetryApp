@@ -10,16 +10,11 @@ import UIKit
 import Charts
 
 class LineChartViewController: BaseChartViewController, TelemetryDelegate {
+    
     let frequency:Double = 4
     
-    func manageMessage(_ event: SensorReading) {
-        let sensor = Sensor(event)
-        if (sensor.key == "FrontLeftDamperTravel") {
-            print(event)
-//            chartView.lineData?.addEntry(<#T##e: ChartDataEntry##ChartDataEntry#>, dataSetIndex: <#T##Int#>)
-//            chartView.data?.addEntry(<#T##e: ChartDataEntry##ChartDataEntry#>, dataSetIndex: <#T##Int#>)
-            updateChartData()
-        }
+    func manageMessage(key: String, dataPoint: DataPoint) {
+        updateChartData()
     }
     
     func manageOpen() {
@@ -107,19 +102,19 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
     }
     
     func setDataCount(_ count: Int, range: UInt32) {
-        guard let data = Telemetry.shared.dataSource[Sensor(key: "FrontLeftDamperTravel", unit: nil, description: nil, system: nil)] else {
+        guard let points = Telemetry.shared.dataSource[Sensor(key: "FrontLeftDamperTravel", unit: nil, description: nil, system: nil)] else {
             print("data couldn't be accessed from telemetry data source (it probably doesn't exist)")
             return
         }
             
         let numSeconds = 30
-        let dataFromLastNSecondsSlice = data.suffix(Int(frequency)*numSeconds)
-        let dataFromLastNSeconds = Array(dataFromLastNSecondsSlice)
+        let pointsFromLastNSecondsSlice = points.suffix(Int(frequency)*numSeconds)
+        let pointsFromLastNSeconds = Array(pointsFromLastNSecondsSlice)
         
         var entries:[ChartDataEntry] = []
         
-        for datum in dataFromLastNSeconds {
-            let entry:ChartDataEntry = ChartDataEntry(x: 0, y: Double(datum))
+        for point in points {
+            let entry:ChartDataEntry = ChartDataEntry(x: point.time, y: Double(point.value))
             entries.append(entry)
         }
         

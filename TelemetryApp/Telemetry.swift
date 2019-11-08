@@ -36,6 +36,7 @@ class Telemetry: EventSource {
         //Initializing instance variables
         let urlString =  "https://jksites.dev/api/telemetry"
         let url = URL(string: urlString)
+        timer = Date()
         
         //Initialize EventSource
         super.init(url: url!)
@@ -50,7 +51,13 @@ class Telemetry: EventSource {
             do {
                 let sensorReading = try JSONDecoder().decode(SensorReading.self, from: jsonData!)
                 let sensor = Sensor(sensorReading)
-                let timeElapsed = self.timer?.timeIntervalSinceNow
+                var timeElapsed = self.timer?.timeIntervalSinceNow
+                if timeElapsed != nil {
+                    timeElapsed! *= -1.0
+                } else {
+                    timeElapsed = 0.0
+                }
+                
                 let dataPoint = DataPoint(time: timeElapsed ?? -1, sensorReading: sensorReading)
                 if(self.dataSource[sensor] != nil){
                     self.dataSource[sensor]!.append(dataPoint)
