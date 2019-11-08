@@ -16,6 +16,7 @@
 		2314FBA323736B08005ACD79 /* XYMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA023736B08005ACD79 /* XYMarkerView.swift */; };
 		2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA123736B08005ACD79 /* BalloonMarker.swift */; };
 		2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA223736B08005ACD79 /* RadarMarkerView.swift */; };
+		23EB4A972375033A0061A700 /* TelemetryLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB4A962375033A0061A700 /* TelemetryLineChartView.swift */; };
 		9FCF394612F0A8E42E27A9CB /* Pods_TelemetryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B22950E09878D842173933E /* Pods_TelemetryApp.framework */; };
 		A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011940F237380B7002625C5 /* TelemetryViewContoller.swift */; };
 		A011941A23738470002625C5 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011941923738470002625C5 /* Protocols.swift */; };
@@ -49,6 +50,7 @@
 		2314FBA023736B08005ACD79 /* XYMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYMarkerView.swift; sourceTree = "<group>"; };
 		2314FBA123736B08005ACD79 /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		2314FBA223736B08005ACD79 /* RadarMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarMarkerView.swift; sourceTree = "<group>"; };
+		23EB4A962375033A0061A700 /* TelemetryLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryLineChartView.swift; sourceTree = "<group>"; };
 		6B22950E09878D842173933E /* Pods_TelemetryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TelemetryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A011940F237380B7002625C5 /* TelemetryViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryViewContoller.swift; sourceTree = "<group>"; };
 		A011941923738470002625C5 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				2314FB8123736954005ACD79 /* BaseChartViewController.swift */,
 				A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */,
 				2314FB7F23736933005ACD79 /* LineChartViewController.swift */,
+				23EB4A962375033A0061A700 /* TelemetryLineChartView.swift */,
 				2314FB9F23736B08005ACD79 /* Components */,
 				2314FB8D23736AAF005ACD79 /* Formatters */,
 			);
@@ -337,6 +340,7 @@
 				2314FB9323736AAF005ACD79 /* DayAxisValueFormatter.swift in Sources */,
 				A011942C2373EFC6002625C5 /* DockMinimizedView.swift in Sources */,
 				A01C1E49236A47770026D76F /* Telemetry.swift in Sources */,
+				23EB4A972375033A0061A700 /* TelemetryLineChartView.swift in Sources */,
 				A01194312373FB9B002625C5 /* DockManager.swift in Sources */,
 				A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */,
 				A03FB88D2371079C00AF75A8 /* Priority.swift in Sources */,
