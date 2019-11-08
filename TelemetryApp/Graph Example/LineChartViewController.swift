@@ -46,7 +46,6 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         self.chartView.keyToGraph = "FrontRightBrakeTemp"
         
         // Do any additional setup after loading the view.
-        self.title = chartView.keyToGraph
         self.options = [.toggleValues,
                         .toggleFilled,
                         .toggleCircles,
