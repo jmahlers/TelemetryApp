@@ -21,9 +21,9 @@ class Telemetry: EventSource {
     ///Dictionary of received messages
     var dataSource:[Sensor: [DataPoint]] = [:]
     ///Sorted array of favorited sensors
-    var favoriteSensors:[Sensor] = []
+    fileprivate var favoriteSensors:[Sensor] = []
     ///Sorted array of non-favorited sensors
-    var generalSensors:[Sensor] = []
+    fileprivate var generalSensors:[Sensor] = []
     ///Timer that tracks the time since the app launched.
     var timer: Date?
     //Dictionary to assign higher sorting priority to specific sensors.
@@ -37,7 +37,6 @@ class Telemetry: EventSource {
         let urlString =  "https://jksites.dev/api/telemetry"
         let url = URL(string: urlString)
         timer = Date()
-        
         //Initialize EventSource
         super.init(url: url!)
         
@@ -58,8 +57,6 @@ class Telemetry: EventSource {
                 }else{
                     if(self.favoriteSensors.contains(sensor)){
                         self.dataSource[sensor] = [dataPoint]
-                        self.favoriteSensors.append(Sensor(sensorReading))
-                        self.favoriteSensors.sort()
                     }else{
                         self.dataSource[sensor] = [dataPoint]
                         self.generalSensors.append(Sensor(sensorReading))
@@ -80,5 +77,36 @@ class Telemetry: EventSource {
             self.delegate?.manageComplete()
         }
         
+    }
+    func getFavoriteSensors()->[Sensor]{
+        return favoriteSensors
+    }
+    func getGeneralSensors()->[Sensor]{
+        return generalSensors
+    }
+}
+
+
+extension Sensor{
+    func addFavorite(){
+        if(!Telemetry.shared.favoriteSensors.contains(self)){
+            Telemetry.shared.favoriteSensors.append(self)
+            Telemetry.shared.generalSensors.removeAll(where: {(sensor) in
+                return sensor == self
+            })
+            saveFavorites()
+        }
+    }
+    func removeFavorite(){
+        if(Telemetry.shared.favoriteSensors.contains(self)){
+            Telemetry.shared.generalSensors.append(self)
+            Telemetry.shared.favoriteSensors.removeAll(where: {(sensor) in
+                return sensor == self
+            })
+            saveFavorites()
+        }
+    }
+    func saveFavorites(){
+        //TODO
     }
 }

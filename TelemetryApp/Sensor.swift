@@ -6,6 +6,8 @@
 //  Copyright © 2019 Jeff Ahlers. All rights reserved.
 //
 
+//Extensions for favoriting are located in Telemetry.swift do to fileprivate status
+
 ///Struct for json data from the telemetry server
 struct SensorReading: Decodable {
     let key: String
@@ -84,4 +86,5 @@ struct Sensor: Comparable, Hashable{
             return false
         }
     }
+    
 }
