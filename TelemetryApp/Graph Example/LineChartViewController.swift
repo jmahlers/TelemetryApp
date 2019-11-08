@@ -54,9 +54,6 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
             counter += 110
         }
         
-        Telemetry.shared.delegate = self
-
-        updateChartData()
 
     }
     
