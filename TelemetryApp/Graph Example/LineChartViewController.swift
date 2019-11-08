@@ -11,25 +11,27 @@ import Charts
 
 class LineChartViewController: BaseChartViewController, TelemetryDelegate {
     
-    var rollAvgStorage: [Float] = []
-    let avgPeriod = 10
-    var rollingIndex = 0
-    var currTime = 0.0
+    var charts: [TelemetryLineChartView] = []
+    
     
     func manageMessage(key: String, dataPoint: DataPoint) {
-        if (key == chartView.keyToGraph) {
+        
+        for chart in charts where chart.keyToGraph == key {
 
-            let entry: ChartDataEntry = ChartDataEntry(x: currTime, y: Double(dataPoint.value))
-            chartView.data?.addEntry(entry, dataSetIndex: 0)
-            chartView.xAxis.axisMaximum = currTime + (chartView.xAxis.axisRange * 0.1)
-            chartView.moveViewToX(currTime + (chartView.xAxis.axisRange * 0.1))
-            incrementCurrTime()
-
-            let rollingAvgEntry: ChartDataEntry = computeRollingAverageForDataPoint(point: dataPoint)
-            chartView.data?.addEntry(rollingAvgEntry, dataSetIndex: 1)
+            let entry: ChartDataEntry = ChartDataEntry(x: dataPoint.time, y: Double(dataPoint.value))
+            chart.data?.addEntry(entry, dataSetIndex: 0)
             
-            chartView.notifyDataSetChanged()
+            chart.xAxis.axisMaximum = dataPoint.time + (chart.xAxis.axisRange * 0.2)
+            chart.xAxis.axisMinimum = dataPoint.time - chart.secondsInPastToPlot
+            chart.moveViewToX(dataPoint.time + (chart.xAxis.axisRange * 0.2))
+            
+            let rollingAvgEntry: ChartDataEntry = computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
+            chart.data?.addEntry(rollingAvgEntry, dataSetIndex: 1)
+
+            chart.notifyDataSetChanged()
+            
         }
+        
     }
     
     func manageOpen() {
@@ -45,7 +47,15 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.chartView.keyToGraph = "FrontRightBrakeTemp"
+        var counter = 100
+        for sensor in Telemetry.shared.getGeneralSensors() {
+            let chart = TelemetryLineChartView(frame: CGRect(x: 10, y: counter, width: 400, height: 100))
+            chart.setUp(key: sensor.key)
+            chart.delegate = self
+            charts.append(chart)
+            self.view.addSubview(chart)
+            counter += 110
+        }
         
         // Do any additional setup after loading the view.
         self.options = [.toggleValues,
@@ -67,9 +77,6 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         chartView.delegate = self
         Telemetry.shared.delegate = self
 
-        chartView.setUpXAxes()
-        chartView.setUpYAxes()
-
         updateChartData()
 
     }
@@ -83,24 +90,24 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
     }
     
     override func updateChartData() {
-        guard let points = Telemetry.shared.dataSource[Sensor(key: chartView.keyToGraph)] else {
+        charts.forEach {chart in
+            updateChartData(chart: chart)
+        }
+    }
+    
+    func updateChartData(chart: TelemetryLineChartView) {
+        guard let points = Telemetry.shared.dataSource[Sensor(key: chart.keyToGraph)] else {
             print("Data couldn't be accessed from telemetry data source (it probably doesn't exist)")
             return
         }
-        let nDataPointsToPlot = Int(TelemetryLineChartView.frequency * chartView.secondsInPastToPlot)
-        let pointsFromLastNSecondsSlice = points.suffix(nDataPointsToPlot)
-        let pointsFromLastNSeconds = Array(pointsFromLastNSecondsSlice)
         
         var rawEntries:[ChartDataEntry] = []
         
-        let rollingAvgEntries:[ChartDataEntry] = computeRollingAverageEntriesForDataSet(points: pointsFromLastNSeconds)
+        let rollingAvgEntries:[ChartDataEntry] = computeRollingAverageEntriesForDataSet(chart: chart, points: points)
         
-        var timeCounter:Double = 0
-        for point in pointsFromLastNSeconds {
-            let entry:ChartDataEntry = ChartDataEntry(x: timeCounter, y: Double(point.value))
+        for point in points {
+            let entry:ChartDataEntry = ChartDataEntry(x: point.time, y: Double(point.value))
             rawEntries.append(entry)
-            
-            timeCounter += 1 / TelemetryLineChartView.frequency
         }
         
         let rawDataSet = setUpRawDataSet(entries: rawEntries)
@@ -109,52 +116,52 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         
         let chartData = LineChartData(dataSets: [rawDataSet, rollAvgDataSet])
         
-        chartView.data = chartData
-        
+        chart.data = chartData
     }
     
     
-    func computeRollingAverageForDataPoint(point: DataPoint) -> ChartDataEntry {
-        if rollAvgStorage.count < avgPeriod {
-            rollAvgStorage.append(point.value)
+    func computeRollingAverageForDataPoint(chart: TelemetryLineChartView, point: DataPoint) -> ChartDataEntry {
+        
+        if chart.rollAvgStorage.count < chart.avgPeriod {
+            chart.rollAvgStorage.append(point.value)
         } else {
-            rollAvgStorage[rollingIndex] = point.value
+            chart.rollAvgStorage[chart.rollingIndex] = point.value
         }
         
-        let sum = rollAvgStorage.reduce(0) { $0 + $1 }
-        let currAvg:Double = Double(sum) / Double(rollAvgStorage.count)
+        let sum = chart.rollAvgStorage.reduce(0) { $0 + $1 }
+        let currAvg:Double = Double(sum) / Double(chart.rollAvgStorage.count)
         
-        let entry = ChartDataEntry(x: currTime, y: currAvg)
-        incrementCurrTime()
+        let entry = ChartDataEntry(x: point.time, y: currAvg)
         
-        
-        rollingIndex += 1
-        if rollingIndex == rollAvgStorage.count {
-            rollingIndex = 0
+        chart.rollingIndex += 1
+        if chart.rollingIndex == chart.rollAvgStorage.count {
+            chart.rollingIndex = 0
         }
         
         return entry
     }
     
-    func computeRollingAverageEntriesForDataSet(points: [DataPoint]) -> [ChartDataEntry] {
+    func computeRollingAverageEntriesForDataSet(chart: TelemetryLineChartView, points: [DataPoint]) -> [ChartDataEntry] {
+        chart.rollingIndex = 0
+        chart.rollAvgStorage.removeAll()
+        
         var rollAvgEntries: [ChartDataEntry] = []
 
         for i in 0..<points.count {
-            if rollAvgStorage.count < avgPeriod {
-                rollAvgStorage.append(points[i].value)
+            if chart.rollAvgStorage.count < chart.avgPeriod {
+                chart.rollAvgStorage.append(points[i].value)
             } else {
-                rollAvgStorage[rollingIndex] = points[i].value
+                chart.rollAvgStorage[chart.rollingIndex] = points[i].value
             }
             
-            let sum = rollAvgStorage.reduce(0) { $0 + $1 }
-            let currAvg:Double = Double(sum) / Double(rollAvgStorage.count)
+            let sum = chart.rollAvgStorage.reduce(0) { $0 + $1 }
+            let currAvg:Double = Double(sum) / Double(chart.rollAvgStorage.count)
 
-            rollAvgEntries.append(ChartDataEntry(x: currTime, y: currAvg))
-            incrementCurrTime()
+            rollAvgEntries.append(ChartDataEntry(x: points[i].time, y: currAvg))
             
-            rollingIndex += 1
-            if rollingIndex == rollAvgStorage.count {
-                rollingIndex = 0
+            chart.rollingIndex += 1
+            if chart.rollingIndex == chart.rollAvgStorage.count {
+                chart.rollingIndex = 0
             }
         }
         
@@ -183,7 +190,7 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
     func setUpRollingAvgDataSet(entries: [ChartDataEntry]) -> LineChartDataSet {
         let set = LineChartDataSet(entries: entries, label: "Rolling Average")
         set.drawIconsEnabled = false
-        set.mode = .cubicBezier
+//        set.mode = .cubicBezier
         set.lineDashLengths = [5, 0]
         set.highlightLineDashLengths = [5, 2.5]
         set.setColor(.blue)
@@ -207,8 +214,4 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         return set
     }
     
-    func incrementCurrTime() {
-        currTime += 1 / TelemetryLineChartView.frequency
-    }
-
 }
