@@ -88,6 +88,7 @@ enum Option {
 }
 
 class BaseChartViewController: UIViewController, ChartViewDelegate {
+    
     private var optionsTableView: UITableView? = nil
     let parties = ["Party A", "Party B", "Party C", "Party D", "Party E", "Party F",
                    "Party G", "Party H", "Party I", "Party J", "Party K", "Party L",
