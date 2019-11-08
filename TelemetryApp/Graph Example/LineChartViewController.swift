@@ -12,23 +12,52 @@ import Charts
 class LineChartViewController: BaseChartViewController, TelemetryDelegate {
     
     var rollAvgStorage: [Float] = []
-    let avgPeriod = 30
+    let avgPeriod = 10
     var rollingIndex = 0
     
     
     func manageMessage(key: String, dataPoint: DataPoint) {
-        if (key == self.chartView.keyToGraph) {
+        
+
+        if (key == chartView.keyToGraph) {
+//            var firstTimeEntry = chartView.data?.getDataSetByIndex(0)?.entryForIndex(0)
+//            var lastTimeEntry = chartView.data?.getDataSetByIndex(0)?.entryForIndex((chartView.data?.getDataSetByIndex(0)?.entryCount ?? 0) - 1)
+//
+//            var firstTime = firstTimeEntry?.x
+//            var lastTime = lastTimeEntry?.x
+            
+            
+//            if firstTimeEntry != nil && lastTimeEntry != nil {
+//                print("difference", firstTime! - lastTime!)
+//                while Int(firstTime! - lastTime!) > avgPeriod {
+//                    print("difference", firstTime! - lastTime!)
+//                    chartView.data?.removeEntry(lastTimeEntry!, dataSetIndex: 0)
+//                    chartView.data?.removeEntry(lastTimeEntry!, dataSetIndex: 1)
+//                    
+////                    chartView.data?.getDataSetByIndex(1)?.removeEntry(index: 0)
+//                    
+//                    firstTime = chartView.data?.getDataSetByIndex(0)?.entryForIndex(0)?.x
+//                    lastTime = chartView.data?.getDataSetByIndex((chartView.data?.getDataSetByIndex(0)?.entryCount ?? 0) - 1)?.entryForIndex(0)?.x
+//                }
+//            }
+//            chartView.notifyDataSetChanged()
+
+            
             let entry: ChartDataEntry = ChartDataEntry(x: dataPoint.time, y: Double(dataPoint.value))
             chartView.data?.addEntry(entry, dataSetIndex: 0)
             chartView.xAxis.axisMaximum = dataPoint.time + (chartView.xAxis.axisRange * 0.1)
-            chartView.moveViewToX(dataPoint.time)
-            
+            chartView.moveViewToX(dataPoint.time + (chartView.xAxis.axisRange * 0.1))
+
             let rollingAvgEntry: ChartDataEntry = computeRollingAverageForDataPoint(point: dataPoint)
             chartView.data?.addEntry(rollingAvgEntry, dataSetIndex: 1)
             
             chartView.notifyDataSetChanged()
-
         }
+            
+
+            
+        
+        
     }
     
     func manageOpen() {
@@ -43,10 +72,10 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.chartView.keyToGraph = "FrontRightBrakeTemp"
         
         // Do any additional setup after loading the view.
-        self.title = chartView.keyToGraph
         self.options = [.toggleValues,
                         .toggleFilled,
                         .toggleCircles,
@@ -78,7 +107,6 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         
         chartView.xAxis.gridLineDashLengths = [10, 10]
         chartView.xAxis.gridLineDashPhase = 0
-        chartView.xAxis.axisMinimum = 0
         
         let leftAxis = chartView.leftAxis
         leftAxis.removeAllLimitLines()
@@ -120,27 +148,18 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
     }
     
     override func updateChartData() {
-        if self.shouldHideData {
-            chartView.data = nil
-            return
-        }
-        
-        self.setDataCount(Int(45), range: UInt32(100))
-    }
-    
-    func setDataCount(_ count: Int, range: UInt32) {
         guard let points = Telemetry.shared.dataSource[Sensor(key: "FrontRightBrakeTemp", unit: nil, description: nil, system: nil)] else {
             print("data couldn't be accessed from telemetry data source (it probably doesn't exist)")
             return
         }
         
-
+        
         let pointsFromLastNSecondsSlice = points.suffix(Int(TelemetryLineChartView.frequency * chartView.secondsInPastToPlot))
         
         let pointsFromLastNSeconds = Array(pointsFromLastNSecondsSlice)
         
         var entries:[ChartDataEntry] = []
-        let rollingAvgEntries:[ChartDataEntry] = computeRollingAverageEntriesForDataSet(points: points)
+        let rollingAvgEntries:[ChartDataEntry] = computeRollingAverageEntriesForDataSet(points: pointsFromLastNSeconds)
         
         for point in pointsFromLastNSeconds {
             let entry:ChartDataEntry = ChartDataEntry(x: point.time, y: Double(point.value))
@@ -150,13 +169,13 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         
         let set1 = LineChartDataSet(entries: entries, label: chartView.keyToGraph)
         set1.drawIconsEnabled = false
-
+        
         set1.lineDashLengths = [5, 0]
         set1.highlightLineDashLengths = [5, 2.5]
         set1.setColor(.black)
         set1.setCircleColor(.black)
-        set1.lineWidth = 0.1
-        set1.circleRadius = 1
+        set1.lineWidth = 0
+        set1.circleRadius = 1.2
         set1.drawValuesEnabled = false
         set1.drawCircleHoleEnabled = false
         set1.valueFont = .systemFont(ofSize: 9)
@@ -165,17 +184,9 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         set1.formSize = 15
         set1.mode = .cubicBezier
         
-//        let gradientColors = [ChartColorTemplates.colorFromString("#00ff0000").cgColor,
-//                              ChartColorTemplates.colorFromString("#ffff0000").cgColor]
-//        let gradient = CGGradient(colorsSpace: nil, colors: gradientColors as CFArray, locations: nil)!
-//
-//        set1.fillAlpha = 1
-//        set1.fill = Fill(linearGradient: gradient, angle: 90) //.linearGradient(gradient, angle: 90)
-//        set1.drawFilledEnabled = true
-        
-        let priorDataSet = chartView.data?.getDataSetByIndex(1)
-        print(priorDataSet)
 
+        
+        
         let set2 = LineChartDataSet(entries: rollingAvgEntries, label: "Rolling Average")
         set2.drawIconsEnabled = false
         set2.mode = .cubicBezier
@@ -193,7 +204,7 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         set2.formSize = 15
         
         let gradientColors2 = [ChartColorTemplates.colorFromString("#00add8e6").cgColor,
-                              ChartColorTemplates.colorFromString("#ffadd8e6").cgColor]
+                               ChartColorTemplates.colorFromString("#ffadd8e6").cgColor]
         let gradient2 = CGGradient(colorsSpace: nil, colors: gradientColors2 as CFArray, locations: nil)!
         
         set2.fillAlpha = 1
@@ -202,7 +213,9 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         let chartData = LineChartData(dataSets: [set1, set2])
         
         chartView.data = chartData
+        
     }
+    
     
     func computeRollingAverageForDataPoint(point: DataPoint) -> ChartDataEntry {
         if rollAvgStorage.count < avgPeriod {
