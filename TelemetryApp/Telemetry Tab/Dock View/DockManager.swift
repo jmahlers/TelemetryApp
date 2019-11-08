@@ -16,10 +16,12 @@ class DockManager: UIView, TelemetryDelegate{
     func expandDock(){
         minimizedView.removeFromSuperview()
         setUp(expandedView)
+        isExpanded = true
     }
     func minimizeDock(){
         expandedView.removeFromSuperview()
         setUp(minimizedView)
+        isExpanded = false
     }
     
     func manageMessage(key: String, dataPoint: DataPoint) {

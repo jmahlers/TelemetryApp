@@ -63,6 +63,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="MVX-3v-Bt9"/>
+                        <segue destination="wxF-gs-8Am" kind="relationship" relationship="viewControllers" id="5OG-WP-wOq"/>
                         <segue destination="Ys6-4b-QNE" kind="relationship" relationship="viewControllers" id="fLe-1b-8QI"/>
                         <segue destination="sgO-W4-Uen" kind="relationship" relationship="viewControllers" id="PXq-ii-PLB"/>
                         <segue destination="Me1-g1-aXF" kind="relationship" relationship="viewControllers" id="9oX-Ss-ecH"/>
@@ -71,6 +72,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fit-s0-Obn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="548" y="-1058"/>
+        </scene>
+        <!--Website-->
+        <scene sceneID="sQN-HO-fdW">
+            <objects>
+                <viewController id="wxF-gs-8Am" customClass="WebsiteController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wjo-eu-Feg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j3s-b9-O2c">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nIp-Y6-TFw" firstAttribute="trailing" secondItem="j3s-b9-O2c" secondAttribute="trailing" id="1CQ-hM-Ya3"/>
+                            <constraint firstItem="j3s-b9-O2c" firstAttribute="centerY" secondItem="nIp-Y6-TFw" secondAttribute="centerY" id="6h8-A7-FXk"/>
+                            <constraint firstItem="j3s-b9-O2c" firstAttribute="top" secondItem="nIp-Y6-TFw" secondAttribute="top" id="QfQ-gg-56O"/>
+                            <constraint firstItem="j3s-b9-O2c" firstAttribute="centerX" secondItem="nIp-Y6-TFw" secondAttribute="centerX" id="b81-A4-VxH"/>
+                            <constraint firstItem="j3s-b9-O2c" firstAttribute="leading" secondItem="nIp-Y6-TFw" secondAttribute="leading" id="hAC-lq-lep"/>
+                            <constraint firstItem="nIp-Y6-TFw" firstAttribute="bottom" secondItem="j3s-b9-O2c" secondAttribute="bottom" id="uDR-0t-dXP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nIp-Y6-TFw"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Website" id="foU-1E-7Tc"/>
+                    <connections>
+                        <outlet property="website" destination="j3s-b9-O2c" id="vmu-LX-bae"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L7I-8Q-1KP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1749" y="-58"/>
         </scene>
         <!--Database-->
         <scene sceneID="Ne5-2r-G0c">
