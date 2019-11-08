@@ -27,12 +27,16 @@ class TelemetryViewController: UIViewController,UICollectionViewDataSource, UICo
         DockOutlet.isUserInteractionEnabled = true
         DockOutlet.addGestureRecognizer(panGesture)
         DockOutlet.roundCorners(cornerRadius: 12.5)
+        forceExpand()
     }
     
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 1
+    return 50
+    }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

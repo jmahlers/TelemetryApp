@@ -31,7 +31,6 @@ extension TelemetryViewController{
         
         switch sender.state{
         case .began:
-            //DockOutlet.makeOpaque()
             break
             
         case .changed:

@@ -12,6 +12,7 @@ class DockManager: UIView, TelemetryDelegate{
     var minimizedView = DockMinimizedView()
     var expandedView = DockExpandedView()
     var isExpanded = false
+    
     func expandDock(){
         UIView.transition(from: minimizedView, to: expandedView, duration: 0.2, options: .transitionCrossDissolve, completion: nil)
         setUp(expandedView) //Spooky but neccessary
