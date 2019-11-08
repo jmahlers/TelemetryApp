@@ -117,20 +117,10 @@
                     <view key="view" contentMode="scaleToFill" id="Glk-3Z-zHf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Obv-v9-1ly" customClass="TelemetryLineChartView" customModule="TelemetryApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="469" width="414" height="344"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cPD-qE-JPv"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Database" id="1rm-Vr-qIY"/>
-                    <connections>
-                        <outlet property="chartView" destination="Obv-v9-1ly" id="TDv-9j-feA"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFF-Xf-kqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,8 +11,7 @@ import Charts
 
 class LineChartViewController: BaseChartViewController, TelemetryDelegate {
     
-    var charts: [TelemetryLineChartView] = []
-    
+    var charts: [SmallTelemetryChartView] = []
     
     func manageMessage(key: String, dataPoint: DataPoint) {
         
@@ -41,15 +40,13 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
     func manageComplete() {
         
     }
-    
-    @IBOutlet weak var chartView: TelemetryLineChartView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
         var counter = 100
         for sensor in Telemetry.shared.getGeneralSensors() {
-            let chart = TelemetryLineChartView(frame: CGRect(x: 10, y: counter, width: 400, height: 100))
+            let chart = SmallTelemetryChartView(frame: CGRect(x: 10, y: counter, width: 400, height: 100))
             chart.setUp(key: sensor.key)
             chart.delegate = self
             charts.append(chart)
@@ -57,24 +54,6 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
             counter += 110
         }
         
-        // Do any additional setup after loading the view.
-        self.options = [.toggleValues,
-                        .toggleFilled,
-                        .toggleCircles,
-                        .toggleCubic,
-                        .toggleHorizontalCubic,
-                        .toggleIcons,
-                        .toggleStepped,
-                        .toggleHighlight,
-                        .animateX,
-                        .animateY,
-                        .animateXY,
-                        .saveToGallery,
-                        .togglePinchZoom,
-                        .toggleAutoScaleMinMax,
-                        .toggleData]
-        
-        chartView.delegate = self
         Telemetry.shared.delegate = self
 
         updateChartData()
@@ -95,7 +74,7 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         }
     }
     
-    func updateChartData(chart: TelemetryLineChartView) {
+    func updateChartData(chart: SmallTelemetryChartView) {
         guard let points = Telemetry.shared.dataSource[Sensor(key: chart.keyToGraph)] else {
             print("Data couldn't be accessed from telemetry data source (it probably doesn't exist)")
             return
@@ -110,7 +89,7 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
             rawEntries.append(entry)
         }
         
-        let rawDataSet = setUpRawDataSet(entries: rawEntries)
+        let rawDataSet = setUpRawDataSet(chart: chart, entries: rawEntries)
         let rollAvgDataSet = setUpRollingAvgDataSet(entries: rollingAvgEntries)
         
         
@@ -120,7 +99,7 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
     }
     
     
-    func computeRollingAverageForDataPoint(chart: TelemetryLineChartView, point: DataPoint) -> ChartDataEntry {
+    func computeRollingAverageForDataPoint(chart: SmallTelemetryChartView, point: DataPoint) -> ChartDataEntry {
         
         if chart.rollAvgStorage.count < chart.avgPeriod {
             chart.rollAvgStorage.append(point.value)
@@ -141,7 +120,7 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         return entry
     }
     
-    func computeRollingAverageEntriesForDataSet(chart: TelemetryLineChartView, points: [DataPoint]) -> [ChartDataEntry] {
+    func computeRollingAverageEntriesForDataSet(chart: SmallTelemetryChartView, points: [DataPoint]) -> [ChartDataEntry] {
         chart.rollingIndex = 0
         chart.rollAvgStorage.removeAll()
         
@@ -168,8 +147,8 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         return rollAvgEntries
     }
     
-    func setUpRawDataSet(entries: [ChartDataEntry]) -> LineChartDataSet {
-        let set = LineChartDataSet(entries: entries, label: chartView.keyToGraph)
+    func setUpRawDataSet(chart: SmallTelemetryChartView, entries: [ChartDataEntry]) -> LineChartDataSet {
+        let set = LineChartDataSet(entries: entries, label: chart.keyToGraph)
         set.drawIconsEnabled = false
         set.lineDashLengths = [5, 0]
         set.highlightLineDashLengths = [5, 2.5]

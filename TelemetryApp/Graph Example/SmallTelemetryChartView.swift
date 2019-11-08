@@ -1,15 +1,15 @@
 //
-//  TelemetryLineChartView.swift
+//  SmallTelemetryChartView.swift
 //  TelemetryApp
 //
-//  Created by Jake Kendrick on 11/7/19.
+//  Created by Jake Kendrick on 11/8/19.
 //  Copyright © 2019 Jeff Ahlers. All rights reserved.
 //
 
 import Foundation
 import Charts
 
-class TelemetryLineChartView : LineChartView {
+class SmallTelemetryChartView : LineChartView {
     
     var keyToGraph:String = ""
     var secondsInPastToPlot:Double = 10
@@ -30,11 +30,13 @@ class TelemetryLineChartView : LineChartView {
     func setUpXAxes() {
         self.xAxis.gridLineDashLengths = [10, 10]
         self.xAxis.gridLineDashPhase = 0
+        self.xAxis.drawGridLinesEnabled = false
     }
     
     func setUpYAxes() {
-        self.leftAxis.gridLineDashLengths = [5, 5]
+        self.leftAxis.gridLineDashLengths = [3, 3]
         self.rightAxis.enabled = false
+        self.leftAxis.drawGridLinesEnabled = true
     }
     
 }
