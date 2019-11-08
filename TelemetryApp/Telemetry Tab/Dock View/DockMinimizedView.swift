@@ -7,8 +7,8 @@
 //
 
 import UIKit
-class DockMinimizedView: DockView{
-
+class DockMinimizedView: UIView{
+    
     @IBOutlet var contentView: UIView!
     
     override init(frame: CGRect) {
@@ -28,13 +28,13 @@ class DockMinimizedView: DockView{
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
-    override func manageMessage(key: String, dataPoint: DataPoint) {
+    func manageMessage(key: String, dataPoint: DataPoint) {
     }
     
-    override func manageOpen() {
+    func manageOpen() {
     }
     
-    override func manageComplete() {
+    func manageComplete() {
     }
     
 }

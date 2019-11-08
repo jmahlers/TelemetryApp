@@ -24,7 +24,7 @@ class Telemetry: EventSource {
     var favoriteSensors:[Sensor] = []
     ///Sorted array of non-favorited sensors
     var generalSensors:[Sensor] = []
-
+    ///Timer that tracks the time since the app launched.
     var timer: Date?
     //Dictionary to assign higher sorting priority to specific sensors.
     //internal var sensorPriority:[Sensor:Int] = [:]     //Deprocated with addition of favoriteSensors.
@@ -51,14 +51,8 @@ class Telemetry: EventSource {
             do {
                 let sensorReading = try JSONDecoder().decode(SensorReading.self, from: jsonData!)
                 let sensor = Sensor(sensorReading)
-                var timeElapsed = self.timer?.timeIntervalSinceNow
-                if timeElapsed != nil {
-                    timeElapsed! *= -1.0
-                } else {
-                    timeElapsed = 0.0
-                }
-                
-                let dataPoint = DataPoint(time: timeElapsed ?? -1, sensorReading: sensorReading)
+                let timeElapsed = self.timer?.timeIntervalSinceNow
+                let dataPoint = DataPoint(time: (timeElapsed ?? 1) * -1, sensorReading: sensorReading)
                 if(self.dataSource[sensor] != nil){
                     self.dataSource[sensor]!.append(dataPoint)
                 }else{

@@ -9,26 +9,40 @@
 import UIKit
 class DockManager: UIView, TelemetryDelegate{
     
-    var currentView:DockView = DockMinimizedView()
+    var minimizedView = DockMinimizedView()
+    var expandedView = DockExpandedView()
+    var isExpanded = false
     func expandDock(){
-        currentView.removeFromSuperview()
-        currentView = DockExpandedView()
-        setUp(currentView)
+        UIView.transition(from: minimizedView, to: expandedView, duration: 0.2, options: .transitionCrossDissolve, completion: nil)
+        setUp(expandedView) //Spooky but neccessary
+        isExpanded = true
     }
     func minimizeDock(){
-        currentView.removeFromSuperview()
-        currentView = DockMinimizedView()
-        setUp(currentView)
+        UIView.transition(from: expandedView, to: minimizedView, duration: 0.2, options: .transitionCrossDissolve, completion: nil)
+        setUp(minimizedView) //Spooky but neccessary
+        isExpanded = false
     }
     
     func manageMessage(key: String, dataPoint: DataPoint) {
-        currentView.manageMessage(key: key, dataPoint: dataPoint)
+        if(isExpanded){
+            expandedView.manageMessage(key: key, dataPoint: dataPoint)
+        }else{
+            minimizedView.manageMessage(key: key, dataPoint: dataPoint)
+        }
     }
     func manageOpen() {
-        currentView.manageOpen()
+        if(isExpanded){
+            expandedView.manageOpen()
+        }else{
+            minimizedView.manageOpen()
+        }
     }
     func manageComplete() {
-        currentView.manageComplete()
+        if(isExpanded){
+            expandedView.manageComplete()
+        }else{
+            minimizedView.manageComplete()
+        }
     }
 }
 
