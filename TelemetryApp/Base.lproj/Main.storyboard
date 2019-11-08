@@ -160,7 +160,22 @@
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flZ-jR-p4G" customClass="DockManager" customModule="TelemetryApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="759" width="414" height="54"/>
-                                <color key="backgroundColor" red="0.89289183940000005" green="0.89289183940000005" blue="0.89289183940000005" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPg-8b-TVV">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uHu-YY-Ose">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="light"/>
+                                    </visualEffectView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="VPg-8b-TVV" firstAttribute="leading" secondItem="flZ-jR-p4G" secondAttribute="leading" id="520-jl-5Xc"/>
+                                    <constraint firstAttribute="bottom" secondItem="VPg-8b-TVV" secondAttribute="bottom" id="9Te-C4-1LM"/>
+                                    <constraint firstItem="VPg-8b-TVV" firstAttribute="top" secondItem="flZ-jR-p4G" secondAttribute="top" id="MG2-YO-9D8"/>
+                                    <constraint firstAttribute="trailing" secondItem="VPg-8b-TVV" secondAttribute="trailing" id="dI4-z5-UGi"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
