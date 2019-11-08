@@ -34,6 +34,7 @@
 		A0398BED2374F679005454E2 /* WebsiteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0398BEC2374F679005454E2 /* WebsiteController.swift */; };
 		A03FB88D2371079C00AF75A8 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03FB88C2371079C00AF75A8 /* Priority.swift */; };
 		A073C3EB2375D8C500BDB7CD /* DraggableDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073C3EA2375D8C500BDB7CD /* DraggableDock.swift */; };
+		A073C3EF2375F43200BDB7CD /* GraphCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073C3EE2375F43200BDB7CD /* GraphCollectionView.swift */; };
 		A08290F72375546F00AF0E20 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08290F62375546F00AF0E20 /* HeaderView.swift */; };
 		A08290F92375592B00AF0E20 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A08290F82375592B00AF0E20 /* HeaderView.xib */; };
 		A0F3D86223721AFD00D10CF8 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3D86123721AFD00D10CF8 /* Sensor.swift */; };
@@ -73,6 +74,7 @@
 		A0398BEC2374F679005454E2 /* WebsiteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteController.swift; sourceTree = "<group>"; };
 		A03FB88C2371079C00AF75A8 /* Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
 		A073C3EA2375D8C500BDB7CD /* DraggableDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableDock.swift; sourceTree = "<group>"; };
+		A073C3EE2375F43200BDB7CD /* GraphCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCollectionView.swift; sourceTree = "<group>"; };
 		A08290F62375546F00AF0E20 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A08290F82375592B00AF0E20 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		A0F3D86123721AFD00D10CF8 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				A011940F237380B7002625C5 /* TelemetryViewContoller.swift */,
+				A073C3EE2375F43200BDB7CD /* GraphCollectionView.swift */,
 				A073C3EA2375D8C500BDB7CD /* DraggableDock.swift */,
 				A03FB88C2371079C00AF75A8 /* Priority.swift */,
 				A011942D2373F646002625C5 /* Dock View */,
@@ -351,6 +354,7 @@
 				2314FB8223736955005ACD79 /* BaseChartViewController.swift in Sources */,
 				2314FB9323736AAF005ACD79 /* DayAxisValueFormatter.swift in Sources */,
 				A011942C2373EFC6002625C5 /* DockMinimizedView.swift in Sources */,
+				A073C3EF2375F43200BDB7CD /* GraphCollectionView.swift in Sources */,
 				A01C1E49236A47770026D76F /* Telemetry.swift in Sources */,
 				23EB4A972375033A0061A700 /* TelemetryLineChartView.swift in Sources */,
 				A01194312373FB9B002625C5 /* DockManager.swift in Sources */,

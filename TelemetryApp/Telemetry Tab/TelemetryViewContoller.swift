@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TelemetryViewController: UIViewController,UICollectionViewDataSource{
+class TelemetryViewController: UIViewController{
     
     @IBOutlet weak var DockOutlet: DockManager!
     @IBOutlet var dockHeight: NSLayoutConstraint!
@@ -30,26 +30,6 @@ class TelemetryViewController: UIViewController,UICollectionViewDataSource{
     }
     
     
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 50
-    }
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = graphView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath)
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "myView", for: indexPath) as! HeaderView
-        return headerView
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let size = CGSize(width: view.frame.width, height: headerHeight)
-        return size
-    }
 }
 
 
