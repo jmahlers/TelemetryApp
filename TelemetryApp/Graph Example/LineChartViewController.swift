@@ -154,23 +154,24 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         set1.lineDashLengths = [5, 0]
         set1.highlightLineDashLengths = [5, 2.5]
         set1.setColor(.black)
-        //set1.setCircleColor(.black)
-        set1.lineWidth = 1
-        set1.circleRadius = 0
+        set1.setCircleColor(.black)
+        set1.lineWidth = 0.1
+        set1.circleRadius = 1
         set1.drawValuesEnabled = false
         set1.drawCircleHoleEnabled = false
         set1.valueFont = .systemFont(ofSize: 9)
         set1.formLineDashLengths = [5, 2.5]
         set1.formLineWidth = 1
         set1.formSize = 15
+        set1.mode = .cubicBezier
         
-        let gradientColors = [ChartColorTemplates.colorFromString("#00ff0000").cgColor,
-                              ChartColorTemplates.colorFromString("#ffff0000").cgColor]
-        let gradient = CGGradient(colorsSpace: nil, colors: gradientColors as CFArray, locations: nil)!
-        
-        set1.fillAlpha = 1
-        set1.fill = Fill(linearGradient: gradient, angle: 90) //.linearGradient(gradient, angle: 90)
-        set1.drawFilledEnabled = true
+//        let gradientColors = [ChartColorTemplates.colorFromString("#00ff0000").cgColor,
+//                              ChartColorTemplates.colorFromString("#ffff0000").cgColor]
+//        let gradient = CGGradient(colorsSpace: nil, colors: gradientColors as CFArray, locations: nil)!
+//
+//        set1.fillAlpha = 1
+//        set1.fill = Fill(linearGradient: gradient, angle: 90) //.linearGradient(gradient, angle: 90)
+//        set1.drawFilledEnabled = true
         
         let priorDataSet = chartView.data?.getDataSetByIndex(1)
         print(priorDataSet)
@@ -182,7 +183,7 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         set2.highlightLineDashLengths = [5, 2.5]
         set2.setColor(.blue)
         //set1.setCircleColor(.black)
-        set2.lineWidth = 1
+        set2.lineWidth = 2
         set2.circleRadius = 0
         set2.drawValuesEnabled = false
         set2.drawCircleHoleEnabled = false
@@ -191,8 +192,8 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         set2.formLineWidth = 1
         set2.formSize = 15
         
-        let gradientColors2 = [ChartColorTemplates.colorFromString("#00ff0000").cgColor,
-                              ChartColorTemplates.colorFromString("#ffff0000").cgColor]
+        let gradientColors2 = [ChartColorTemplates.colorFromString("#00add8e6").cgColor,
+                              ChartColorTemplates.colorFromString("#ffadd8e6").cgColor]
         let gradient2 = CGGradient(colorsSpace: nil, colors: gradientColors2 as CFArray, locations: nil)!
         
         set2.fillAlpha = 1
@@ -250,43 +251,6 @@ class LineChartViewController: BaseChartViewController, TelemetryDelegate {
         }
         
         return rollAvgEntries
-    }
-    
-    override func optionTapped(_ option: Option) {
-        switch option {
-        case .toggleFilled:
-            for set in chartView.data!.dataSets as! [LineChartDataSet] {
-                set.drawFilledEnabled = !set.drawFilledEnabled
-            }
-            chartView.setNeedsDisplay()
-            
-        case .toggleCircles:
-            for set in chartView.data!.dataSets as! [LineChartDataSet] {
-                set.drawCirclesEnabled = !set.drawCirclesEnabled
-            }
-            chartView.setNeedsDisplay()
-            
-        case .toggleCubic:
-            for set in chartView.data!.dataSets as! [LineChartDataSet] {
-                set.mode = (set.mode == .cubicBezier) ? .linear : .cubicBezier
-            }
-            chartView.setNeedsDisplay()
-            
-        case .toggleStepped:
-            for set in chartView.data!.dataSets as! [LineChartDataSet] {
-                set.mode = (set.mode == .stepped) ? .linear : .stepped
-            }
-            chartView.setNeedsDisplay()
-            
-        case .toggleHorizontalCubic:
-            for set in chartView.data!.dataSets as! [LineChartDataSet] {
-                set.mode = (set.mode == .cubicBezier) ? .horizontalBezier : .cubicBezier
-            }
-            chartView.setNeedsDisplay()
-            
-        default:
-            super.handleOption(option, forChartView: chartView)
-        }
     }
 
 }
