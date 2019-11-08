@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TelemetryViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+class TelemetryViewController: UIViewController,UICollectionViewDataSource{
     
     @IBOutlet weak var DockOutlet: DockManager!
     @IBOutlet var dockHeight: NSLayoutConstraint!
@@ -21,7 +21,6 @@ class TelemetryViewController: UIViewController,UICollectionViewDataSource, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         graphView.dataSource = self
-        graphView.delegate = self
         DockOutlet.setUp(DockOutlet.minimizedView)
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(TelemetryViewController.draggedView(_:)))
         DockOutlet.isUserInteractionEnabled = true
