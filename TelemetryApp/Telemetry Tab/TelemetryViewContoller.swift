@@ -30,9 +30,9 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
         graphView.dataSource = self
         dockOutlet.setUp(dockOutlet.minimizedView)
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(TelemetryViewController.draggedView(_:)))
-        DockOutlet.isUserInteractionEnabled = true
-        DockOutlet.addGestureRecognizer(panGesture)
-        DockOutlet.roundCorners(cornerRadius: 12.5)
+        dockOutlet.isUserInteractionEnabled = true
+        dockOutlet.addGestureRecognizer(panGesture)
+        dockOutlet.roundCorners(cornerRadius: 12.5)
         
         var counter = 100
         for sensor in Telemetry.shared.getGeneralSensors() {
