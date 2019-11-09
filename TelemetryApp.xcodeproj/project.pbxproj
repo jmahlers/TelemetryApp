@@ -39,6 +39,7 @@
 		A073C3F12376335600BDB7CD /* OverallTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073C3F02376335600BDB7CD /* OverallTabViewController.swift */; };
 		A08290F72375546F00AF0E20 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08290F62375546F00AF0E20 /* HeaderView.swift */; };
 		A08290F92375592B00AF0E20 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A08290F82375592B00AF0E20 /* HeaderView.xib */; };
+		A0E27005237645CE00440719 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E27004237645CE00440719 /* SettingViewController.swift */; };
 		A0F3D86223721AFD00D10CF8 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3D86123721AFD00D10CF8 /* Sensor.swift */; };
 		A0F4A83423713D480025CAA1 /* LivestreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F4A83323713D480025CAA1 /* LivestreamView.swift */; };
 		A0F4A836237142420025CAA1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F4A835237142420025CAA1 /* WebKit.framework */; };
@@ -81,6 +82,7 @@
 		A073C3F02376335600BDB7CD /* OverallTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallTabViewController.swift; sourceTree = "<group>"; };
 		A08290F62375546F00AF0E20 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A08290F82375592B00AF0E20 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		A0E27004237645CE00440719 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		A0F3D86123721AFD00D10CF8 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
 		A0F4A83323713D480025CAA1 /* LivestreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivestreamView.swift; sourceTree = "<group>"; };
 		A0F4A835237142420025CAA1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -212,6 +214,7 @@
 				A011940E23737113002625C5 /* Graph Example */,
 				A01CA521236A3D02007B6713 /* AppDelegate.swift */,
 				A01CA523236A3D02007B6713 /* ViewController.swift */,
+				A0E27004237645CE00440719 /* SettingViewController.swift */,
 				A073C3F02376335600BDB7CD /* OverallTabViewController.swift */,
 				A01CA525236A3D02007B6713 /* Main.storyboard */,
 				A011941923738470002625C5 /* Protocols.swift */,
@@ -341,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0E27005237645CE00440719 /* SettingViewController.swift in Sources */,
 				A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */,
 				2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */,
 				A01CA524236A3D02007B6713 /* ViewController.swift in Sources */,
