@@ -38,5 +38,4 @@ class SmallTelemetryChartView : LineChartView {
         self.rightAxis.enabled = false
         self.leftAxis.drawGridLinesEnabled = true
     }
-    
 }

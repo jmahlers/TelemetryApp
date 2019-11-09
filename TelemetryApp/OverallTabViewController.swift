@@ -9,7 +9,7 @@ import UIKit
 class OverallTabViewController: UITabBarController, UITabBarControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.selectedIndex = 2
+        self.selectedIndex = 3
         self.delegate = self
     }
     

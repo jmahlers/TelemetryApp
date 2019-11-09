@@ -7,10 +7,11 @@
 //
 
 import UIKit
-class DockExpandedView: UIView{
+class DockExpandedView: UIView, TelemetryDelegate{
     
     
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var expandedDockCollection: UICollectionView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,5 +39,6 @@ class DockExpandedView: UIView{
     
     func manageComplete() {
     }
-    
+    func newSensor(sensor: Sensor) {
+    }
 }

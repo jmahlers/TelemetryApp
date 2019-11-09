@@ -16,5 +16,6 @@ protocol TelemetryDelegate: AnyObject{
     func manageOpen()
     ///Triggers upon closing server connection
     func manageComplete()
-    
+    ///Triggers when a sensor is added
+    func newSensor(sensor: Sensor)
 }

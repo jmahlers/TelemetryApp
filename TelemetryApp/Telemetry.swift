@@ -57,10 +57,12 @@ class Telemetry: EventSource {
                 }else{
                     if(self.favoriteSensors.contains(sensor)){
                         self.dataSource[sensor] = [dataPoint]
+                        self.delegate?.newSensor(sensor: sensor)
                     }else{
                         self.dataSource[sensor] = [dataPoint]
-                        self.generalSensors.append(Sensor(sensorReading))
+                        self.generalSensors.append(sensor)
                         self.generalSensors.sort()
+                        self.delegate?.newSensor(sensor: sensor)
                     }
                 }
                 self.delegate?.manageMessage(key: sensorReading.key, dataPoint: dataPoint)

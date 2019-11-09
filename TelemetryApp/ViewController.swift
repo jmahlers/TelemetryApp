@@ -40,6 +40,8 @@ class ViewController: UIViewController, TelemetryDelegate, ChartViewDelegate {
     func manageComplete() {
         console.text = "Disconnected"
     }
+    func newSensor(sensor: Sensor) {
+    }
     
     @IBAction func disconnectButton(_ sender: Any) {
         Telemetry.shared.disconnect()
