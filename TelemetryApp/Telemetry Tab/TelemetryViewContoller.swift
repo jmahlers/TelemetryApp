@@ -82,7 +82,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     }
     
     func newSensor(sensor: Sensor) {
-        let chart = SmallTelemetryChartView()
+        let chart = SmallTelemetryChartView(frame: .zero)
         chart.setUp(key: sensor.key)
         chart.delegate = self
         charts.append(chart)

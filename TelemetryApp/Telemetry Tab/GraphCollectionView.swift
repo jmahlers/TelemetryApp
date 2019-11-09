@@ -21,7 +21,9 @@ extension TelemetryViewController: UICollectionViewDataSource {
         let cell = graphView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as! GraphCollectionViewCell
         let key = Telemetry.shared.getGeneralSensors()[indexPath.row].key
         cell.label.text = key
-        cell.graph = charts[indexPath.row]
+        let chart = charts[indexPath.row]
+        chart.frame=cell.graph.bounds
+        cell.graph = chart
         return cell
     }
     
