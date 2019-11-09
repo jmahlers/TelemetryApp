@@ -6,7 +6,7 @@
 //  Copyright © 2019 Jeff Ahlers. All rights reserved.
 //
 import UIKit
-import Foundation
+
 extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -31,6 +31,7 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DockExpandedCell", for: indexPath) as! DockExpandedCell
             cell.setCellValue(data: Telemetry.shared.dataSource[sensor]!.last!)
             return cell
+            
         }else{
             
             let cell = graphView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as! GraphCollectionViewCell
@@ -58,7 +59,7 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.dockOutlet.expandedView.expandedDockCollection{
-            let size = CGSize(width: view.frame.width*0.3, height: 200)
+            let size = CGSize(width: view.frame.width*0.45, height: 80)
             return size
         }else{
             return CGSize(width: view.frame.width*0.3, height: 400)

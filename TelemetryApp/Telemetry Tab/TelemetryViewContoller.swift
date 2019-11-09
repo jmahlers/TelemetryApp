@@ -11,6 +11,8 @@ import Charts
 
 class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     
+    //We need to change this so that charts maintains order with favorites and general
+    //Ideally I think this should be to arrays that have matching orders to the above arrays
     var charts: [SmallTelemetryChartView] = []
     
     let graphingQueue = DispatchQueue(label: "graphingQueue", qos: .background, attributes: .concurrent)
@@ -24,7 +26,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     
     var panGesture = UIPanGestureRecognizer()
     var upwardState = false
-    //var headerView = HeaderView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         graphView.dataSource = self
@@ -34,38 +36,36 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
         let cellNib = UINib(nibName: "DockExpandedCell", bundle: nil)
         dockOutlet.expandedView.expandedDockCollection.register(cellNib, forCellWithReuseIdentifier: "DockExpandedCell")
         graphView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "myView")
-//         dockOutlet.expandedView.expandedDockCollection.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "myView")
         dockOutlet.setUp(dockOutlet.minimizedView)
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(TelemetryViewController.draggedView(_:)))
         dockOutlet.isUserInteractionEnabled = true
         dockOutlet.addGestureRecognizer(panGesture)
         dockOutlet.roundCorners(cornerRadius: 12.5)
-        //var counter = 100
-        /*
-        for sensor in Telemetry.shared.getGeneralSensors() {
-            let chart = SmallTelemetryChartView(frame: CGRect(x: 10, y: counter, width: 400, height: 100))
-            chart.setUp(key: sensor.key)
-            chart.delegate = self
-            charts.append(chart)
-            counter += 110
-        }
- */
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         Telemetry.shared.delegate = self
         
+        updateChartData()
     }
     
     
     func manageMessage(key: String, dataPoint: DataPoint) {
         let sensor = Sensor(key: key)
+        let section = (Telemetry.shared.getFavoriteSensors().contains(sensor) ? 0:1)
+        let row = (section == 0 ? Telemetry.shared.getFavoriteSensors().firstIndex(of: sensor):Telemetry.shared.getGeneralSensors().firstIndex(of: sensor)) ?? 0
+        let indexPath = IndexPath(row: row, section: section)
+        
         if(upwardState){
-            let section = (Telemetry.shared.getFavoriteSensors().contains(sensor) ? 0:1)
-            let row = (section == 0 ? Telemetry.shared.getFavoriteSensors().firstIndex(of: sensor):Telemetry.shared.getGeneralSensors().firstIndex(of: sensor)) ?? 0
-            let indexPath = IndexPath(row: row, section: section)
+            
             dockOutlet.expandedView.expandedDockCollection.reloadItems(at: [indexPath])
-            //dockOutlet.manageMessage(key: key, dataPoint: dataPoint)
+            
         }else{
+            //You should call reloadItems() instead of reloading everything.
             graphingQueue.sync {
+                //If you make charts two arrays you can do the syntax like above to get the sensor directly rather than searching for it.
+
                 for chart in self.charts where chart.keyToGraph == key {
                     
                     let entry: ChartDataEntry = ChartDataEntry(x: dataPoint.time, y: Double(dataPoint.value))
@@ -103,14 +103,6 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
         graphView.reloadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        Telemetry.shared.delegate = self
-        
-        updateChartData()
-    }
-    
     override func updateChartData() {
         graphingQueue.sync {
             self.charts.forEach {chart in
@@ -118,31 +110,6 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
             }
         }
     }
-    
-    func updateChartData(chart: SmallTelemetryChartView) {
-        guard let points = Telemetry.shared.dataSource[Sensor(key: chart.keyToGraph)] else {
-            print("Data couldn't be accessed from telemetry data source (it probably doesn't exist)")
-            return
-        }
-        
-        var rawEntries:[ChartDataEntry] = []
-        
-        let rollingAvgEntries:[ChartDataEntry] = computeRollingAverageEntriesForDataSet(chart: chart, points: points)
-        
-        for point in points {
-            let entry:ChartDataEntry = ChartDataEntry(x: point.time, y: Double(point.value))
-            rawEntries.append(entry)
-        }
-        
-        let rawDataSet = setUpRawDataSet(chart: chart, entries: rawEntries)
-        let rollAvgDataSet = setUpRollingAvgDataSet(entries: rollingAvgEntries)
-        
-        
-        let chartData = LineChartData(dataSets: [rawDataSet, rollAvgDataSet])
-        
-        chart.data = chartData
-    }
-    
 }
 
 

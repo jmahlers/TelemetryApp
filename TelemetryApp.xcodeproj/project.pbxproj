@@ -35,6 +35,7 @@
 		A01CA529236A3D03007B6713 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A01CA528236A3D03007B6713 /* Assets.xcassets */; };
 		A01CA52C236A3D03007B6713 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */; };
 		A0398BED2374F679005454E2 /* WebsiteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0398BEC2374F679005454E2 /* WebsiteController.swift */; };
+		A04D5D252376A7EE00B07241 /* TelemetryChartUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04D5D242376A7EE00B07241 /* TelemetryChartUpdates.swift */; };
 		A073C3EB2375D8C500BDB7CD /* DraggableDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073C3EA2375D8C500BDB7CD /* DraggableDock.swift */; };
 		A073C3EF2375F43200BDB7CD /* TelemetryCollectionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073C3EE2375F43200BDB7CD /* TelemetryCollectionViews.swift */; };
 		A073C3F12376335600BDB7CD /* OverallTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073C3F02376335600BDB7CD /* OverallTabViewController.swift */; };
@@ -81,6 +82,7 @@
 		A01CA52B236A3D03007B6713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A01CA52D236A3D03007B6713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0398BEC2374F679005454E2 /* WebsiteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteController.swift; sourceTree = "<group>"; };
+		A04D5D242376A7EE00B07241 /* TelemetryChartUpdates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryChartUpdates.swift; sourceTree = "<group>"; };
 		A073C3EA2375D8C500BDB7CD /* DraggableDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableDock.swift; sourceTree = "<group>"; };
 		A073C3EE2375F43200BDB7CD /* TelemetryCollectionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryCollectionViews.swift; sourceTree = "<group>"; };
 		A073C3F02376335600BDB7CD /* OverallTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallTabViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				A011940F237380B7002625C5 /* TelemetryViewContoller.swift */,
+				A04D5D242376A7EE00B07241 /* TelemetryChartUpdates.swift */,
 				A073C3EE2375F43200BDB7CD /* TelemetryCollectionViews.swift */,
 				A073C3EA2375D8C500BDB7CD /* DraggableDock.swift */,
 				236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */,
@@ -354,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A04D5D252376A7EE00B07241 /* TelemetryChartUpdates.swift in Sources */,
 				A0E27005237645CE00440719 /* SettingViewController.swift in Sources */,
 				A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */,
 				2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */,

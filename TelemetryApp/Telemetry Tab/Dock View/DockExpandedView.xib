@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Cjg-i7-LzW">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="10" y="44" width="394" height="818"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yvW-5v-w2r">
                         <size key="itemSize" width="50" height="50"/>
@@ -34,8 +34,8 @@
             </subviews>
             <constraints>
                 <constraint firstItem="Cjg-i7-LzW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="VbE-u4-ZI9"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Cjg-i7-LzW" secondAttribute="trailing" id="Vg5-CB-Py4"/>
-                <constraint firstItem="Cjg-i7-LzW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="kmr-Qd-6a3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Cjg-i7-LzW" secondAttribute="trailing" constant="10" id="Vg5-CB-Py4"/>
+                <constraint firstItem="Cjg-i7-LzW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="kmr-Qd-6a3"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Cjg-i7-LzW" secondAttribute="bottom" id="pGL-Fw-zi2"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

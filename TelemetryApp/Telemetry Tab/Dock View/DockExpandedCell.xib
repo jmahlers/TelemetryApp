@@ -27,11 +27,11 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sensor:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga4-Rh-ekr">
                                         <rect key="frame" x="0.0" y="0.0" width="165" height="50.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rLU-dx-jwR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value:" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rLU-dx-jwR">
                                         <rect key="frame" x="0.0" y="50.5" width="165" height="50.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -63,7 +63,7 @@
                 <outlet property="sensorName" destination="ga4-Rh-ekr" id="YWn-Ns-5hU"/>
                 <outlet property="sensorValue" destination="rLU-dx-jwR" id="R5U-lq-0nf"/>
             </connections>
-            <point key="canvasLocation" x="73" y="55"/>
+            <point key="canvasLocation" x="49" y="55"/>
         </collectionViewCell>
     </objects>
 </document>
