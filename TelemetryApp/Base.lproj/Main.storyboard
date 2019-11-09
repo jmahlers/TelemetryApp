@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AT7-AP-fcC">
@@ -50,15 +50,15 @@
             </objects>
             <point key="canvasLocation" x="1711.5942028985507" y="-1058.0357142857142"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Overall Tab View Controller-->
         <scene sceneID="W32-QP-iUx">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="JMS-BU-dPj" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="JMS-BU-dPj" customClass="OverallTabViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="01k-JC-3kK">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="01k-JC-3kK">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                     </tabBar>
                     <connections>
@@ -78,7 +78,7 @@
             <objects>
                 <viewController id="wxF-gs-8Am" customClass="WebsiteController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wjo-eu-Feg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j3s-b9-O2c">
@@ -115,7 +115,7 @@
             <objects>
                 <viewController id="Ys6-4b-QNE" customClass="LineChartViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Glk-3Z-zHf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cPD-qE-JPv"/>
@@ -131,7 +131,7 @@
             <objects>
                 <viewController id="sgO-W4-Uen" customClass="TelemetryViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G4g-ZK-r0Z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="729-1f-wCk" userLabel="Graph View">
@@ -176,16 +176,39 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                             </collectionView>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="cc5-Jl-swa">
+                                <rect key="frame" x="115" y="354" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stepper>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ekG-li-3aC">
+                                <rect key="frame" x="221" y="237" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Elg-H7-Glt">
+                                <rect key="frame" x="20" y="499" width="250" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="18O-mZ-bTl">
+                                <rect key="frame" x="252" y="676" width="121" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flZ-jR-p4G" customClass="DockManager" customModule="TelemetryApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="759" width="414" height="54"/>
+                                <rect key="frame" x="0.0" y="751.5" width="414" height="61.5"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPg-8b-TVV">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="61.5"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uHu-YY-Ose">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="61.5"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
-                                        <blurEffect style="light"/>
+                                        <blurEffect style="regular"/>
                                     </visualEffectView>
                                 </subviews>
                                 <constraints>
@@ -201,7 +224,7 @@
                             <constraint firstItem="729-1f-wCk" firstAttribute="width" secondItem="G4g-ZK-r0Z" secondAttribute="width" id="1gB-gy-vBi"/>
                             <constraint firstItem="flZ-jR-p4G" firstAttribute="bottom" secondItem="rMf-8e-buq" secondAttribute="bottom" id="L6u-YF-vjB"/>
                             <constraint firstItem="729-1f-wCk" firstAttribute="centerX" secondItem="rMf-8e-buq" secondAttribute="centerX" id="LMl-kf-miw"/>
-                            <constraint firstItem="flZ-jR-p4G" firstAttribute="height" secondItem="rMf-8e-buq" secondAttribute="height" multiplier="0.07" id="QER-Qo-grZ"/>
+                            <constraint firstItem="flZ-jR-p4G" firstAttribute="height" secondItem="rMf-8e-buq" secondAttribute="height" multiplier="0.08" id="QER-Qo-grZ"/>
                             <constraint firstItem="729-1f-wCk" firstAttribute="top" secondItem="rMf-8e-buq" secondAttribute="top" id="cnp-H2-46X"/>
                             <constraint firstItem="rMf-8e-buq" firstAttribute="bottom" secondItem="729-1f-wCk" secondAttribute="bottom" id="jLl-5H-ocB"/>
                             <constraint firstItem="flZ-jR-p4G" firstAttribute="leading" secondItem="rMf-8e-buq" secondAttribute="leading" id="uTF-wU-fxj"/>
@@ -211,8 +234,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Telemetry" id="OjB-ib-pZc"/>
                     <connections>
-                        <outlet property="DockOutlet" destination="flZ-jR-p4G" id="7KQ-hM-OlS"/>
+                        <outlet property="dockBlur" destination="uHu-YY-Ose" id="FNv-xp-VCR"/>
                         <outlet property="dockHeight" destination="QER-Qo-grZ" id="30y-0v-sii"/>
+                        <outlet property="dockOutlet" destination="flZ-jR-p4G" id="7KQ-hM-OlS"/>
                         <outlet property="graphView" destination="729-1f-wCk" id="ld3-cf-eD2"/>
                     </connections>
                 </viewController>
@@ -225,7 +249,7 @@
             <objects>
                 <viewController id="Me1-g1-aXF" customClass="LivestreamView" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="So0-bv-JNZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="hT5-rw-bQW">

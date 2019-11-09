@@ -15,52 +15,52 @@ extension TelemetryViewController{
         let upwardTop = view.frame.height - inset    //Portion of screen to fill
         let upwardHeight = upwardTop*0.93
         self.dockHeight.constant = upwardHeight - headerHeight
-        self.DockOutlet.expandDock()
+        self.dockOutlet.expandDock()
         self.upwardState = true
     }
     ///Sets dock to minimized position with no animation and transitions view
     func forceMinimize(){
         self.dockHeight.constant = 0
-        self.DockOutlet.minimizeDock()
+        self.dockOutlet.minimizeDock()
         self.upwardState = false
     }
     @objc func draggedView(_ sender:UIPanGestureRecognizer){
         let inset = view.safeAreaInsets.top + view.safeAreaInsets.bottom
         let upwardTop = view.frame.height - inset    //Portion of screen to fill
-        let upwardHeight = upwardTop*0.93 - headerHeight //Account for static height multiplier in storyboard
+        let upwardHeight = upwardTop*(1-dockHeight.multiplier) - headerHeight //Account for static height multiplier in storyboard
         
         switch sender.state{
         case .began:
             break
             
         case .changed:
-            let translation = sender.translation(in: self.view)
-            if(dockHeight.constant - translation.y >= upwardHeight){
+            let translation = sender.translation(in: self.view).y*1.3
+            if(dockHeight.constant - translation >= upwardHeight){
                 dockHeight.constant = upwardHeight
-            }else if(dockHeight.constant - translation.y <= 0){
+            }else if(dockHeight.constant - translation <= 0){
                 dockHeight.constant = 0
             }else{
-                dockHeight.constant -= translation.y
+                dockHeight.constant -= translation
             }
             sender.setTranslation(CGPoint.zero, in: self.view)
             break
             
         case .ended:
-            if(DockOutlet.bounds.height > upwardTop*0.2 && sender.velocity(in: self.view).y<0){
+            if(dockOutlet.bounds.height > upwardTop*0.2 && sender.velocity(in: self.view).y<0){
                 dockHeight.constant = upwardHeight
                 upwardState = true
                 UIView.animate(withDuration: 0.13, delay: 0.0, options: .curveEaseInOut, animations: {
                     self.view.layoutIfNeeded()
                 }, completion:  {(_) in
-                    self.DockOutlet.expandDock()
+                    self.dockOutlet.expandDock()
                 })
-            }else if(DockOutlet.bounds.height < upwardTop*0.85 && sender.velocity(in: view).y>0){
+            }else if(dockOutlet.bounds.height < upwardTop*0.85 && sender.velocity(in: view).y>0){
                 dockHeight.constant = 0
                 upwardState = false
                 UIView.animate(withDuration: 0.13, delay: 0.0, options: .curveEaseInOut, animations: {
                     self.view.layoutIfNeeded()
                 }, completion:  {(_) in
-                    self.DockOutlet.minimizeDock()
+                    self.dockOutlet.minimizeDock()
                 })
             }else{
                 if(upwardState == true){
