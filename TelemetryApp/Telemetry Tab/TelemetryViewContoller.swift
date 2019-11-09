@@ -10,9 +10,10 @@ import UIKit
 
 class TelemetryViewController: UIViewController{
     
-    @IBOutlet weak var DockOutlet: DockManager!
+    @IBOutlet weak var dockOutlet: DockManager!
     @IBOutlet var dockHeight: NSLayoutConstraint!
     @IBOutlet weak var graphView: UICollectionView!
+    @IBOutlet weak var dockBlur: UIView!
     
     var panGesture = UIPanGestureRecognizer()
     var upwardState = false
@@ -21,11 +22,11 @@ class TelemetryViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         graphView.dataSource = self
-        DockOutlet.setUp(DockOutlet.minimizedView)
+        dockOutlet.setUp(dockOutlet.minimizedView)
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(TelemetryViewController.draggedView(_:)))
-        DockOutlet.isUserInteractionEnabled = true
-        DockOutlet.addGestureRecognizer(panGesture)
-        DockOutlet.roundCorners(cornerRadius: 12.5)
+        dockOutlet.isUserInteractionEnabled = true
+        dockOutlet.addGestureRecognizer(panGesture)
+        dockOutlet.roundCorners(cornerRadius: 12.5)
     }
     
 }
