@@ -35,13 +35,14 @@
 		A01CA529236A3D03007B6713 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A01CA528236A3D03007B6713 /* Assets.xcassets */; };
 		A01CA52C236A3D03007B6713 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */; };
 		A0398BED2374F679005454E2 /* WebsiteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0398BEC2374F679005454E2 /* WebsiteController.swift */; };
-		A03FB88D2371079C00AF75A8 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03FB88C2371079C00AF75A8 /* Priority.swift */; };
 		A073C3EB2375D8C500BDB7CD /* DraggableDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073C3EA2375D8C500BDB7CD /* DraggableDock.swift */; };
 		A073C3EF2375F43200BDB7CD /* GraphCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073C3EE2375F43200BDB7CD /* GraphCollectionView.swift */; };
 		A073C3F12376335600BDB7CD /* OverallTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073C3F02376335600BDB7CD /* OverallTabViewController.swift */; };
 		A08290F72375546F00AF0E20 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08290F62375546F00AF0E20 /* HeaderView.swift */; };
 		A08290F92375592B00AF0E20 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A08290F82375592B00AF0E20 /* HeaderView.xib */; };
 		A0E27005237645CE00440719 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E27004237645CE00440719 /* SettingViewController.swift */; };
+		A0E2701023768F0800440719 /* DockExpandedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E2700E23768F0800440719 /* DockExpandedCell.swift */; };
+		A0E2701123768F0800440719 /* DockExpandedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0E2700F23768F0800440719 /* DockExpandedCell.xib */; };
 		A0F3D86223721AFD00D10CF8 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3D86123721AFD00D10CF8 /* Sensor.swift */; };
 		A0F4A83423713D480025CAA1 /* LivestreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F4A83323713D480025CAA1 /* LivestreamView.swift */; };
 		A0F4A836237142420025CAA1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F4A835237142420025CAA1 /* WebKit.framework */; };
@@ -80,13 +81,14 @@
 		A01CA52B236A3D03007B6713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A01CA52D236A3D03007B6713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0398BEC2374F679005454E2 /* WebsiteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteController.swift; sourceTree = "<group>"; };
-		A03FB88C2371079C00AF75A8 /* Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
 		A073C3EA2375D8C500BDB7CD /* DraggableDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableDock.swift; sourceTree = "<group>"; };
 		A073C3EE2375F43200BDB7CD /* GraphCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCollectionView.swift; sourceTree = "<group>"; };
 		A073C3F02376335600BDB7CD /* OverallTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallTabViewController.swift; sourceTree = "<group>"; };
 		A08290F62375546F00AF0E20 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A08290F82375592B00AF0E20 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		A0E27004237645CE00440719 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		A0E2700E23768F0800440719 /* DockExpandedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockExpandedCell.swift; sourceTree = "<group>"; };
+		A0E2700F23768F0800440719 /* DockExpandedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DockExpandedCell.xib; sourceTree = "<group>"; };
 		A0F3D86123721AFD00D10CF8 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
 		A0F4A83323713D480025CAA1 /* LivestreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivestreamView.swift; sourceTree = "<group>"; };
 		A0F4A835237142420025CAA1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -167,7 +169,6 @@
 				A011940F237380B7002625C5 /* TelemetryViewContoller.swift */,
 				A073C3EE2375F43200BDB7CD /* GraphCollectionView.swift */,
 				A073C3EA2375D8C500BDB7CD /* DraggableDock.swift */,
-				A03FB88C2371079C00AF75A8 /* Priority.swift */,
 				236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */,
 				A011942D2373F646002625C5 /* Dock View */,
 			);
@@ -192,6 +193,8 @@
 				A01194292373EFB2002625C5 /* DockExpandedView.xib */,
 				A08290F62375546F00AF0E20 /* HeaderView.swift */,
 				A08290F82375592B00AF0E20 /* HeaderView.xib */,
+				A0E2700E23768F0800440719 /* DockExpandedCell.swift */,
+				A0E2700F23768F0800440719 /* DockExpandedCell.xib */,
 			);
 			path = "Dock View";
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				A01194282373EFA6002625C5 /* DockMinimizedView.xib in Resources */,
 				A01CA529236A3D03007B6713 /* Assets.xcassets in Resources */,
 				A08290F92375592B00AF0E20 /* HeaderView.xib in Resources */,
+				A0E2701123768F0800440719 /* DockExpandedCell.xib in Resources */,
 				A011942A2373EFB2002625C5 /* DockExpandedView.xib in Resources */,
 				A01CA527236A3D02007B6713 /* Main.storyboard in Resources */,
 			);
@@ -377,8 +381,8 @@
 				23EB4A972375033A0061A700 /* DetailTelemetryChartView.swift in Sources */,
 				A01194312373FB9B002625C5 /* DockManager.swift in Sources */,
 				A073C3F12376335600BDB7CD /* OverallTabViewController.swift in Sources */,
+				A0E2701023768F0800440719 /* DockExpandedCell.swift in Sources */,
 				A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */,
-				A03FB88D2371079C00AF75A8 /* Priority.swift in Sources */,
 				2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */,
 				236AC49223763CD400014AA1 /* DatasetSetUpUtils.swift in Sources */,
 			);

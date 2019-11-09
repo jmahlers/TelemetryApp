@@ -13,29 +13,33 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DockExpandedView" customModule="TelemetryApp" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="ne7-K1-mTX"/>
+                <outlet property="expandedDockCollection" destination="Cjg-i7-LzW" id="DUY-fB-L9w"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="237"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JA3-1o-UKB">
-                    <rect key="frame" x="0.0" y="5" width="414" height="237"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.14259771390000001" green="0.36633049550000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Cjg-i7-LzW">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yvW-5v-w2r">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <constraints>
-                <constraint firstItem="JA3-1o-UKB" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="2oF-jU-eRq"/>
-                <constraint firstItem="JA3-1o-UKB" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="JCr-cG-QrY"/>
-                <constraint firstItem="JA3-1o-UKB" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="fEE-D9-NYC"/>
-                <constraint firstItem="JA3-1o-UKB" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="zVe-R8-1Ym"/>
+                <constraint firstItem="Cjg-i7-LzW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="VbE-u4-ZI9"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Cjg-i7-LzW" secondAttribute="trailing" id="Vg5-CB-Py4"/>
+                <constraint firstItem="Cjg-i7-LzW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="kmr-Qd-6a3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Cjg-i7-LzW" secondAttribute="bottom" id="pGL-Fw-zi2"/>
             </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="137.68115942028987" y="337.16517857142856"/>
+            <point key="canvasLocation" x="-68.115942028985515" y="557.8125"/>
         </view>
     </objects>
 </document>

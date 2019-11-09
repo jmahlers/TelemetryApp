@@ -8,6 +8,7 @@
 import UIKit
 
 extension TelemetryViewController{
+    
     ///Sets dock to expanded position with no animation and transitions view
     func forceExpand(){
         //This closure makes the starting screen the top bar
@@ -18,12 +19,14 @@ extension TelemetryViewController{
         self.dockOutlet.expandDock()
         self.upwardState = true
     }
+    
     ///Sets dock to minimized position with no animation and transitions view
     func forceMinimize(){
         self.dockHeight.constant = 0
         self.dockOutlet.minimizeDock()
         self.upwardState = false
     }
+    
     @objc func draggedView(_ sender:UIPanGestureRecognizer){
         let inset = view.safeAreaInsets.top + view.safeAreaInsets.bottom
         let upwardTop = view.frame.height - inset    //Portion of screen to fill

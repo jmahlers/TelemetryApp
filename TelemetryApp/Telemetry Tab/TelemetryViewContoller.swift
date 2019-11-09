@@ -28,6 +28,13 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         graphView.dataSource = self
+        dockOutlet.expandedView.expandedDockCollection.dataSource = self
+        dockOutlet.expandedView.expandedDockCollection.delegate = self
+        
+        let cellNib = UINib(nibName: "DockExpandedCell", bundle: nil)
+        dockOutlet.expandedView.expandedDockCollection.register(cellNib, forCellWithReuseIdentifier: "DockExpandedCell")
+        graphView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "myView")
+//         dockOutlet.expandedView.expandedDockCollection.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "myView")
         dockOutlet.setUp(dockOutlet.minimizedView)
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(TelemetryViewController.draggedView(_:)))
         dockOutlet.isUserInteractionEnabled = true
@@ -50,29 +57,36 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     
     
     func manageMessage(key: String, dataPoint: DataPoint) {
-        
-        graphingQueue.sync {
-            for chart in self.charts where chart.keyToGraph == key {
-                
-                let entry: ChartDataEntry = ChartDataEntry(x: dataPoint.time, y: Double(dataPoint.value))
-                chart.data?.addEntry(entry, dataSetIndex: 0)
-                
-                chart.xAxis.axisMaximum = dataPoint.time + (chart.xAxis.axisRange * 0.2)
-                chart.xAxis.axisMinimum = dataPoint.time - chart.secondsInPastToPlot
-                chart.moveViewToX(dataPoint.time + (chart.xAxis.axisRange * 0.2))
-                
-                let rollingAvgEntry: ChartDataEntry = self.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
-                chart.data?.addEntry(rollingAvgEntry, dataSetIndex: 1)
-                chart.notifyDataSetChanged()
-                
-                
-                graphView.reloadData()
+        let sensor = Sensor(key: key)
+        if(upwardState){
+            let section = (Telemetry.shared.getFavoriteSensors().contains(sensor) ? 0:1)
+            let row = (section == 0 ? Telemetry.shared.getFavoriteSensors().firstIndex(of: sensor):Telemetry.shared.getGeneralSensors().firstIndex(of: sensor)) ?? 0
+            let indexPath = IndexPath(row: row, section: section)
+            dockOutlet.expandedView.expandedDockCollection.reloadItems(at: [indexPath])
+            //dockOutlet.manageMessage(key: key, dataPoint: dataPoint)
+        }else{
+            graphingQueue.sync {
+                for chart in self.charts where chart.keyToGraph == key {
+                    
+                    let entry: ChartDataEntry = ChartDataEntry(x: dataPoint.time, y: Double(dataPoint.value))
+                    chart.data?.addEntry(entry, dataSetIndex: 0)
+                    
+                    chart.xAxis.axisMaximum = dataPoint.time + (chart.xAxis.axisRange * 0.2)
+                    chart.xAxis.axisMinimum = dataPoint.time - chart.secondsInPastToPlot
+                    chart.moveViewToX(dataPoint.time + (chart.xAxis.axisRange * 0.2))
+                    
+                    let rollingAvgEntry: ChartDataEntry = self.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
+                    chart.data?.addEntry(rollingAvgEntry, dataSetIndex: 1)
+                    chart.notifyDataSetChanged()
+                    
+                    
+                    graphView.reloadData()
+                }
             }
+            
+            
         }
-        
-        
     }
-    
     func manageOpen() {
         
     }

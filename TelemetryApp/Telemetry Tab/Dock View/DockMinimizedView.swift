@@ -7,7 +7,9 @@
 //
 
 import UIKit
-class DockMinimizedView: UIView{
+class DockMinimizedView: UIView, TelemetryDelegate{
+
+    
     
     @IBOutlet var contentView: UIView!
     
@@ -35,5 +37,7 @@ class DockMinimizedView: UIView{
     }
     
     func manageComplete() {
+    }
+    func newSensor(sensor: Sensor) {
     }
 }
