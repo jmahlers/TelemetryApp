@@ -20,10 +20,10 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     @IBOutlet var dockHeight: NSLayoutConstraint!
     @IBOutlet weak var graphView: UICollectionView!
     @IBOutlet weak var dockBlur: UIView!
+    @IBOutlet weak var topViewHeight: NSLayoutConstraint!
     
     var panGesture = UIPanGestureRecognizer()
     var upwardState = false
-    var headerHeight:CGFloat = 50
     //var headerView = HeaderView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +33,8 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
         dockOutlet.isUserInteractionEnabled = true
         dockOutlet.addGestureRecognizer(panGesture)
         dockOutlet.roundCorners(cornerRadius: 12.5)
-        
-        var counter = 100
+        //var counter = 100
+        /*
         for sensor in Telemetry.shared.getGeneralSensors() {
             let chart = SmallTelemetryChartView(frame: CGRect(x: 10, y: counter, width: 400, height: 100))
             chart.setUp(key: sensor.key)
@@ -42,6 +42,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
             charts.append(chart)
             counter += 110
         }
+ */
         
         Telemetry.shared.delegate = self
         
@@ -62,9 +63,10 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
                 
                 let rollingAvgEntry: ChartDataEntry = self.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
                 chart.data?.addEntry(rollingAvgEntry, dataSetIndex: 1)
-                
                 chart.notifyDataSetChanged()
                 
+                
+                graphView.reloadData()
             }
         }
         
@@ -77,6 +79,14 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     
     func manageComplete() {
         
+    }
+    
+    func newSensor(sensor: Sensor) {
+        let chart = SmallTelemetryChartView()
+        chart.setUp(key: sensor.key)
+        chart.delegate = self
+        charts.append(chart)
+        graphView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -118,11 +128,6 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
         
         chart.data = chartData
     }
-    
-    
-    
-    
-   
     
 }
 

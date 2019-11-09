@@ -14,22 +14,14 @@ extension TelemetryViewController: UICollectionViewDataSource {
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = graphView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as! GraphCollectionViewCell
-        
         let key = Telemetry.shared.getGeneralSensors()[indexPath.row].key
-        
-        cell.graph.setUp(key: key)
-        cell.graph.delegate = self
-        charts.append(cell.graph)
-        
         cell.label.text = key
-        
-        updateChartData()
-
+        cell.graph = charts[indexPath.row]
         return cell
     }
     
@@ -39,7 +31,8 @@ extension TelemetryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let size = CGSize(width: view.frame.width, height: headerHeight)
+        let size = CGSize(width: view.frame.width, height: 50.0)
         return size
     }
+    
 }

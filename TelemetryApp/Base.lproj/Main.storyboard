@@ -135,7 +135,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="729-1f-wCk" userLabel="Graph View">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="719"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8fl-rz-xDc">
                                     <size key="itemSize" width="198" height="213"/>
@@ -195,14 +195,24 @@
                                     <constraint firstAttribute="trailing" secondItem="VPg-8b-TVV" secondAttribute="trailing" id="dI4-z5-UGi"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73v-t5-sHD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Z76-WF-MKs"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="729-1f-wCk" firstAttribute="width" secondItem="G4g-ZK-r0Z" secondAttribute="width" id="1gB-gy-vBi"/>
+                            <constraint firstItem="73v-t5-sHD" firstAttribute="top" secondItem="rMf-8e-buq" secondAttribute="top" id="2NX-uX-SHs"/>
+                            <constraint firstItem="73v-t5-sHD" firstAttribute="leading" secondItem="rMf-8e-buq" secondAttribute="leading" id="JVF-QE-qOa"/>
+                            <constraint firstItem="rMf-8e-buq" firstAttribute="trailing" secondItem="73v-t5-sHD" secondAttribute="trailing" id="JpS-86-e5L"/>
                             <constraint firstItem="flZ-jR-p4G" firstAttribute="bottom" secondItem="rMf-8e-buq" secondAttribute="bottom" id="L6u-YF-vjB"/>
                             <constraint firstItem="729-1f-wCk" firstAttribute="centerX" secondItem="rMf-8e-buq" secondAttribute="centerX" id="LMl-kf-miw"/>
                             <constraint firstItem="flZ-jR-p4G" firstAttribute="height" secondItem="rMf-8e-buq" secondAttribute="height" multiplier="0.08" id="QER-Qo-grZ"/>
-                            <constraint firstItem="729-1f-wCk" firstAttribute="top" secondItem="rMf-8e-buq" secondAttribute="top" id="cnp-H2-46X"/>
+                            <constraint firstItem="729-1f-wCk" firstAttribute="top" secondItem="73v-t5-sHD" secondAttribute="bottom" id="SLN-12-OOv"/>
                             <constraint firstItem="rMf-8e-buq" firstAttribute="bottom" secondItem="729-1f-wCk" secondAttribute="bottom" id="jLl-5H-ocB"/>
                             <constraint firstItem="flZ-jR-p4G" firstAttribute="leading" secondItem="rMf-8e-buq" secondAttribute="leading" id="uTF-wU-fxj"/>
                             <constraint firstItem="rMf-8e-buq" firstAttribute="trailing" secondItem="flZ-jR-p4G" secondAttribute="trailing" id="wc7-sV-jNy"/>
@@ -215,11 +225,12 @@
                         <outlet property="dockHeight" destination="QER-Qo-grZ" id="30y-0v-sii"/>
                         <outlet property="dockOutlet" destination="flZ-jR-p4G" id="7KQ-hM-OlS"/>
                         <outlet property="graphView" destination="729-1f-wCk" id="ld3-cf-eD2"/>
+                        <outlet property="topViewHeight" destination="Z76-WF-MKs" id="HLP-j8-rhr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGs-nM-0qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="548" y="-58"/>
+            <point key="canvasLocation" x="547.82608695652175" y="-58.258928571428569"/>
         </scene>
         <!--Livestream-->
         <scene sceneID="EhX-SY-J7K">

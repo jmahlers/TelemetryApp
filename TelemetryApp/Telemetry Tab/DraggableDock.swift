@@ -14,7 +14,7 @@ extension TelemetryViewController{
         let inset:CGFloat = 127 //Experimentally found
         let upwardTop = view.frame.height - inset    //Portion of screen to fill
         let upwardHeight = upwardTop*0.93
-        self.dockHeight.constant = upwardHeight - headerHeight
+        self.dockHeight.constant = upwardHeight - topViewHeight.constant
         self.dockOutlet.expandDock()
         self.upwardState = true
     }
@@ -27,7 +27,7 @@ extension TelemetryViewController{
     @objc func draggedView(_ sender:UIPanGestureRecognizer){
         let inset = view.safeAreaInsets.top + view.safeAreaInsets.bottom
         let upwardTop = view.frame.height - inset    //Portion of screen to fill
-        let upwardHeight = upwardTop*(1-dockHeight.multiplier) - headerHeight //Account for static height multiplier in storyboard
+        let upwardHeight = upwardTop*(1-dockHeight.multiplier) - topViewHeight.constant //Account for static height multiplier in storyboard
         
         switch sender.state{
         case .began:

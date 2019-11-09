@@ -32,4 +32,6 @@ class LivestreamView: UIViewController, TelemetryDelegate, UIScrollViewDelegate{
     }
     func manageComplete() {
     }
+    func newSensor(sensor: Sensor) {
+    }
 }

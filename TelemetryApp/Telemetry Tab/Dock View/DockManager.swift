@@ -45,6 +45,8 @@ class DockManager: UIView, TelemetryDelegate{
             minimizedView.manageComplete()
         }
     }
+    func newSensor(sensor: Sensor) {
+    }
 }
 
 

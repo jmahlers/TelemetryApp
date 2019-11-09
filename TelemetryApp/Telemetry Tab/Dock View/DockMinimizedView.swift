@@ -36,5 +36,4 @@ class DockMinimizedView: UIView{
     
     func manageComplete() {
     }
-    
 }
