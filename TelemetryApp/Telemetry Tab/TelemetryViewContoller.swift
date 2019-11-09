@@ -13,6 +13,9 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     
     var charts: [SmallTelemetryChartView] = []
     
+    let graphingQueue = DispatchQueue(label: "graphingQueue", qos: .background, attributes: .concurrent)
+
+    
     @IBOutlet weak var DockOutlet: DockManager!
     @IBOutlet var dockHeight: NSLayoutConstraint!
     @IBOutlet weak var graphView: UICollectionView!
@@ -36,34 +39,34 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
             chart.setUp(key: sensor.key)
             chart.delegate = self
             charts.append(chart)
-            self.view.addSubview(chart)
             counter += 110
         }
         
         Telemetry.shared.delegate = self
-        
-        updateChartData()
         
     }
     
     
     func manageMessage(key: String, dataPoint: DataPoint) {
         
-        for chart in charts where chart.keyToGraph == key {
-            
-            let entry: ChartDataEntry = ChartDataEntry(x: dataPoint.time, y: Double(dataPoint.value))
-            chart.data?.addEntry(entry, dataSetIndex: 0)
-            
-            chart.xAxis.axisMaximum = dataPoint.time + (chart.xAxis.axisRange * 0.2)
-            chart.xAxis.axisMinimum = dataPoint.time - chart.secondsInPastToPlot
-            chart.moveViewToX(dataPoint.time + (chart.xAxis.axisRange * 0.2))
-            
-            let rollingAvgEntry: ChartDataEntry = computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
-            chart.data?.addEntry(rollingAvgEntry, dataSetIndex: 1)
-            
-            chart.notifyDataSetChanged()
-            
+        graphingQueue.sync {
+            for chart in self.charts where chart.keyToGraph == key {
+                
+                let entry: ChartDataEntry = ChartDataEntry(x: dataPoint.time, y: Double(dataPoint.value))
+                chart.data?.addEntry(entry, dataSetIndex: 0)
+                
+                chart.xAxis.axisMaximum = dataPoint.time + (chart.xAxis.axisRange * 0.2)
+                chart.xAxis.axisMinimum = dataPoint.time - chart.secondsInPastToPlot
+                chart.moveViewToX(dataPoint.time + (chart.xAxis.axisRange * 0.2))
+                
+                let rollingAvgEntry: ChartDataEntry = self.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
+                chart.data?.addEntry(rollingAvgEntry, dataSetIndex: 1)
+                
+                chart.notifyDataSetChanged()
+                
+            }
         }
+        
         
     }
     
@@ -84,8 +87,10 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     }
     
     override func updateChartData() {
-        charts.forEach {chart in
-            updateChartData(chart: chart)
+        graphingQueue.sync {
+            self.charts.forEach {chart in
+                self.updateChartData(chart: chart)
+            }
         }
     }
     
@@ -114,99 +119,9 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     }
     
     
-    func computeRollingAverageForDataPoint(chart: SmallTelemetryChartView, point: DataPoint) -> ChartDataEntry {
-        
-        if chart.rollAvgStorage.count < chart.avgPeriod {
-            chart.rollAvgStorage.append(point.value)
-        } else {
-            chart.rollAvgStorage[chart.rollingIndex] = point.value
-        }
-        
-        let sum = chart.rollAvgStorage.reduce(0) { $0 + $1 }
-        let currAvg:Double = Double(sum) / Double(chart.rollAvgStorage.count)
-        
-        let entry = ChartDataEntry(x: point.time, y: currAvg)
-        
-        chart.rollingIndex += 1
-        if chart.rollingIndex == chart.rollAvgStorage.count {
-            chart.rollingIndex = 0
-        }
-        
-        return entry
-    }
     
-    func computeRollingAverageEntriesForDataSet(chart: SmallTelemetryChartView, points: [DataPoint]) -> [ChartDataEntry] {
-        chart.rollingIndex = 0
-        chart.rollAvgStorage.removeAll()
-        
-        var rollAvgEntries: [ChartDataEntry] = []
-        
-        for i in 0..<points.count {
-            if chart.rollAvgStorage.count < chart.avgPeriod {
-                chart.rollAvgStorage.append(points[i].value)
-            } else {
-                chart.rollAvgStorage[chart.rollingIndex] = points[i].value
-            }
-            
-            let sum = chart.rollAvgStorage.reduce(0) { $0 + $1 }
-            let currAvg:Double = Double(sum) / Double(chart.rollAvgStorage.count)
-            
-            rollAvgEntries.append(ChartDataEntry(x: points[i].time, y: currAvg))
-            
-            chart.rollingIndex += 1
-            if chart.rollingIndex == chart.rollAvgStorage.count {
-                chart.rollingIndex = 0
-            }
-        }
-        
-        return rollAvgEntries
-    }
     
-    func setUpRawDataSet(chart: SmallTelemetryChartView, entries: [ChartDataEntry]) -> LineChartDataSet {
-        let set = LineChartDataSet(entries: entries, label: chart.keyToGraph)
-        set.drawIconsEnabled = false
-        set.lineDashLengths = [5, 0]
-        set.highlightLineDashLengths = [5, 2.5]
-        set.setColor(.black)
-        set.setCircleColor(.black)
-        set.lineWidth = 0
-        set.circleRadius = 1.2
-        set.drawValuesEnabled = false
-        set.drawCircleHoleEnabled = false
-        set.valueFont = .systemFont(ofSize: 9)
-        set.formLineDashLengths = [5, 2.5]
-        set.formLineWidth = 1
-        set.formSize = 15
-        set.mode = .cubicBezier
-        return set
-    }
-    
-    func setUpRollingAvgDataSet(entries: [ChartDataEntry]) -> LineChartDataSet {
-        let set = LineChartDataSet(entries: entries, label: "Rolling Average")
-        set.drawIconsEnabled = false
-        //        set.mode = .cubicBezier
-        set.lineDashLengths = [5, 0]
-        set.highlightLineDashLengths = [5, 2.5]
-        set.setColor(.blue)
-        //set1.setCircleColor(.black)
-        set.lineWidth = 2
-        set.circleRadius = 0
-        set.drawValuesEnabled = false
-        set.drawCircleHoleEnabled = false
-        set.valueFont = .systemFont(ofSize: 9)
-        set.formLineDashLengths = [5, 2.5]
-        set.formLineWidth = 1
-        set.formSize = 15
-        
-        let gradientColors2 = [ChartColorTemplates.colorFromString("#00add8e6").cgColor,
-                               ChartColorTemplates.colorFromString("#ffadd8e6").cgColor]
-        let gradient2 = CGGradient(colorsSpace: nil, colors: gradientColors2 as CFArray, locations: nil)!
-        
-        set.fillAlpha = 1
-        set.fill = Fill(linearGradient: gradient2, angle: 90) //.linearGradient(gradient, angle: 90)
-        set.drawFilledEnabled = true
-        return set
-    }
+   
     
 }
 
