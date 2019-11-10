@@ -30,6 +30,7 @@ class Telemetry: EventSource {
     //internal var sensorPriority:[Sensor:Int] = [:]     //Deprocated with addition of favoriteSensors.
     var favoriteCharts: [SmallTelemetryChartView] = []
     var generalCharts: [SmallTelemetryChartView] = []
+    var numConnection = 0
     
     ///Singleton of Telemetry that connects to the telemetry server
     static let shared = Telemetry()
@@ -45,6 +46,8 @@ class Telemetry: EventSource {
         self.onOpen{
             print("Connection to " + urlString + " open")
             self.delegate?.manageOpen()
+            self.numConnection += 1
+            print(self.numConnection)
         }
         
         self.onMessage{ (id, event, data) in

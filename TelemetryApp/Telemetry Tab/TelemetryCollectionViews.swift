@@ -88,7 +88,7 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
             let size = CGSize(width: view.frame.width*0.45, height: 60)
             return size
         }else{
-            return CGSize(width: view.frame.width*0.45, height: 300)
+            return CGSize(width: view.frame.width*0.48, height: 220)
         }
     }
     

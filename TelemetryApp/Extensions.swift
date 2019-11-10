@@ -14,10 +14,15 @@ extension UIView {
         currentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
-    func roundCorners(cornerRadius: CGFloat) {
+    func roundTopCorners(cornerRadius: CGFloat) {
         self.layer.cornerRadius = CGFloat(cornerRadius)
         self.clipsToBounds = true
         self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
+    func roundCorners(cornerRadius: CGFloat) {
+        self.layer.cornerRadius = CGFloat(cornerRadius)
+        self.clipsToBounds = true
+        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
     //https://stackoverflow.com/questions/17355280/how-to-add-a-border-just-on-the-top-side-of-a-uiview
     @discardableResult

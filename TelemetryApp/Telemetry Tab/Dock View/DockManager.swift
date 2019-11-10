@@ -24,8 +24,8 @@ class DockManager: UIView, TelemetryDelegate{
         isExpanded = false
     }
     func setAlpha(_ alpha :CGFloat){
-        minimizedView.alpha = alpha
-        expandedView.alpha = alpha
+        minimizedView.setAlpha(alpha)
+        expandedView.setAlpha(alpha)
     }
     
     func manageMessage(key: String, dataPoint: DataPoint) {

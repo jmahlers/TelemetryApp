@@ -13,6 +13,7 @@ class DockMinimizedView: UIView, TelemetryDelegate{
     
     @IBOutlet var label: UILabel!
     @IBOutlet var contentView: UIView!
+    @IBOutlet var dragBar: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,6 +27,7 @@ class DockMinimizedView: UIView, TelemetryDelegate{
     
     private func commonInit(){
         Bundle.main.loadNibNamed("DockMinimizedView", owner: self, options: nil)
+        dragBar.layer.cornerRadius = dragBar.frame.height/2
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -40,5 +42,8 @@ class DockMinimizedView: UIView, TelemetryDelegate{
     func manageComplete() {
     }
     func newSensor(sensor: Sensor) {
+    }
+    func setAlpha(_ alpha: CGFloat){
+        label.alpha = alpha
     }
 }

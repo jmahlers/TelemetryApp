@@ -48,7 +48,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate{
         
         dockOutlet.isUserInteractionEnabled = true
         dockOutlet.addGestureRecognizer(panGesture)
-        dockOutlet.roundCorners(cornerRadius: 12.5)
+        dockOutlet.roundTopCorners(cornerRadius: 12.5)
         
         updateChartData()
         
