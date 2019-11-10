@@ -16,7 +16,10 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     var favoriteCharts: [SmallTelemetryChartView] = []
     var generalCharts: [SmallTelemetryChartView] = []
     
-    let graphingQueue = DispatchQueue(label: "graphingQueue", qos: .background, attributes: .concurrent)
+    var graphingQueues: [DispatchQueue] = []
+    var queueIndex = 0
+    let numThreads = 16
+//    let graphingQueue = DispatchQueue(label: "graphingQueue", qos: .background, attributes: .concurrent)
 
  
     let chartUpdateFrequency: Double = 1 // seconds
@@ -46,6 +49,10 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
         dockOutlet.isUserInteractionEnabled = true
         dockOutlet.addGestureRecognizer(panGesture)
         dockOutlet.roundCorners(cornerRadius: 12.5)
+        
+        for i in 0..<numThreads {
+            graphingQueues.append(DispatchQueue(label: "graphingQueue"+String(i), qos: .background, attributes: .concurrent))
+        }
         
         updateChartData()
         
@@ -102,15 +109,19 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     }
     
     override func updateChartData() {
-        graphingQueue.sync {
+        graphingQueues[queueIndex].sync {
         
-            for chart in favoriteCharts {
+            for chart in self.favoriteCharts {
                 self.updateChartData(chart: chart)
             }
             
-            for chart in generalCharts {
+            for chart in self.generalCharts {
                 self.updateChartData(chart: chart)
             }
+        }
+        queueIndex += 1
+        if queueIndex == numThreads {
+            queueIndex = 0
         }
     }
 }
