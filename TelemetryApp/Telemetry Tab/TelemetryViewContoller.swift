@@ -18,6 +18,9 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     
     let graphingQueue = DispatchQueue(label: "graphingQueue", qos: .background, attributes: .concurrent)
 
+ 
+    let chartUpdateFrequency: Double = 1 // seconds
+    var lastTime: Date = Date()
     
     @IBOutlet weak var dockOutlet: DockManager!
     @IBOutlet var dockHeight: NSLayoutConstraint!
@@ -46,9 +49,6 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
         
         updateChartData()
         
-        
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,42 +71,13 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
             dockOutlet.expandedView.expandedDockCollection.reloadItems(at: [indexPath])
             
         }else{
-            //You should call reloadItems() instead of reloading everything.
-            graphingQueue.sync {
-                //If you make charts two arrays you can do the syntax like above to get the sensor directly rather than searching for it.
-
-                for chart in self.favoriteCharts where chart.keyToGraph == key {
-                    
-                    let entry: ChartDataEntry = ChartDataEntry(x: dataPoint.time, y: Double(dataPoint.value))
-                    chart.data?.addEntry(entry, dataSetIndex: 0)
-                    
-                    chart.xAxis.axisMaximum = dataPoint.time + (chart.xAxis.axisRange * 0.2)
-                    chart.xAxis.axisMinimum = dataPoint.time - chart.secondsInPastToPlot
-                    chart.moveViewToX(dataPoint.time + (chart.xAxis.axisRange * 0.2))
-                    
-                    let rollingAvgEntry: ChartDataEntry = self.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
-                    chart.data?.addEntry(rollingAvgEntry, dataSetIndex: 1)
-                    
-                    chart.notifyDataSetChanged()
-                }
-                
-                for chart in self.generalCharts where chart.keyToGraph == key {
-                    
-                    let entry: ChartDataEntry = ChartDataEntry(x: dataPoint.time, y: Double(dataPoint.value))
-                    chart.data?.addEntry(entry, dataSetIndex: 0)
-                    
-                    chart.xAxis.axisMaximum = dataPoint.time + (chart.xAxis.axisRange * 0.2)
-                    chart.xAxis.axisMinimum = dataPoint.time - chart.secondsInPastToPlot
-                    chart.moveViewToX(dataPoint.time + (chart.xAxis.axisRange * 0.2))
-                    
-                    let rollingAvgEntry: ChartDataEntry = self.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
-                    chart.data?.addEntry(rollingAvgEntry, dataSetIndex: 1)
-                    
-                    chart.notifyDataSetChanged()
-                }
+            
+            let now = Date()
+            
+            if abs(now.timeIntervalSince(lastTime)) > chartUpdateFrequency {
+                updateChartData()
+                lastTime = now
             }
-            
-            
         }
     }
     func manageOpen() {

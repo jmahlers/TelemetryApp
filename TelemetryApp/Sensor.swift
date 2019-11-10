@@ -19,7 +19,7 @@ struct SensorReading: Decodable {
 
 struct DataPoint {
     let key: String
-    let time: Double
+    var time: Double
     let value: Float
     
     init(time: Double, sensorReading: SensorReading){
