@@ -21,9 +21,11 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate{
 //    let graphingQueue = DispatchQueue(label: "graphingQueue", qos: .background, attributes: .concurrent)
 
  
-    let chartUpdateFrequency: Double = 1 // seconds
+    let chartUpdateFrequency: Double = 0.5 // seconds
     var lastGraphTime: Date = Date()
     var lastDockTime: Date = Date()
+    
+    var userIsScrolling = false
     
     @IBOutlet weak var dockOutlet: DockManager!
     @IBOutlet var dockHeight: NSLayoutConstraint!
@@ -103,6 +105,18 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate{
         
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        userIsScrolling = true
+    }
+    
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView,
+                                  willDecelerate decelerate: Bool) {
+        userIsScrolling = false
+        updateChartData()
+        lastGraphTime = Date()
+    }
+    
     func newSensor(sensor: Sensor) {
         let chart = SmallTelemetryChartView(frame: .zero)
         chart.setUp(key: sensor.key)
@@ -117,19 +131,29 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate{
     }
     
     override func updateChartData() {
-        graphingQueues[queueIndex].sync {
+        
+        if !userIsScrolling {
         
             for chart in Telemetry.shared.favoriteCharts {
-                self.updateChartData(chart: chart)
+                graphingQueues[queueIndex].sync {
+                    self.updateChartData(chart: chart)
+                }
+                queueIndex += 1
+                if queueIndex == numThreads {
+                    queueIndex = 0
+                }
             }
             
             for chart in Telemetry.shared.generalCharts {
-                self.updateChartData(chart: chart)
+                graphingQueues[queueIndex].sync {
+                    self.updateChartData(chart: chart)
+                }
+                queueIndex += 1
+                if queueIndex == numThreads {
+                    queueIndex = 0
+                }
             }
-        }
-        queueIndex += 1
-        if queueIndex == numThreads {
-            queueIndex = 0
+        
         }
     }
 }
