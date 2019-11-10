@@ -12,6 +12,5 @@ class GraphCollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var graph: SmallTelemetryChartView!
-    
+    @IBOutlet weak var graphContainer: UIView!
 }

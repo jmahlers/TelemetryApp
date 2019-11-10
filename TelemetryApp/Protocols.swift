@@ -9,7 +9,7 @@
 import Foundation
 
 ///Protocol to proccess messages, and connection actions
-protocol TelemetryDelegate: AnyObject{
+protocol TelemetryDelegate: AnyObject {
     /// Triggers upon incoming event
     func manageMessage(key: String, dataPoint: DataPoint)
     /// Triggers upon opening server connection

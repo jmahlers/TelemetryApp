@@ -151,7 +151,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="198" height="213"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhx-hX-i0H" customClass="SmallTelemetryChartView" customModule="TelemetryApp" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhx-hX-i0H">
                                                     <rect key="frame" x="0.0" y="54" width="206" height="151"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -166,7 +166,7 @@
                                             </subviews>
                                         </view>
                                         <connections>
-                                            <outlet property="graph" destination="hhx-hX-i0H" id="SQq-tp-g0S"/>
+                                            <outlet property="graphContainer" destination="hhx-hX-i0H" id="Niu-fF-K9Y"/>
                                             <outlet property="label" destination="xre-s0-s2T" id="SPx-7v-tgm"/>
                                         </connections>
                                     </collectionViewCell>

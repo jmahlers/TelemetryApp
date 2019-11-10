@@ -13,7 +13,8 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     
     //We need to change this so that charts maintains order with favorites and general
     //Ideally I think this should be to arrays that have matching orders to the above arrays
-    var charts: [SmallTelemetryChartView] = []
+    var favoriteCharts: [SmallTelemetryChartView] = []
+    var generalCharts: [SmallTelemetryChartView] = []
     
     let graphingQueue = DispatchQueue(label: "graphingQueue", qos: .background, attributes: .concurrent)
 
@@ -38,10 +39,18 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
         graphView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "myView")
         dockOutlet.setUp(dockOutlet.minimizedView)
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(TelemetryViewController.draggedView(_:)))
+        
         dockOutlet.isUserInteractionEnabled = true
         dockOutlet.addGestureRecognizer(panGesture)
         dockOutlet.roundCorners(cornerRadius: 12.5)
+        
+        updateChartData()
+        
+        
+        
+        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -66,7 +75,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
             graphingQueue.sync {
                 //If you make charts two arrays you can do the syntax like above to get the sensor directly rather than searching for it.
 
-                for chart in self.charts where chart.keyToGraph == key {
+                for chart in self.favoriteCharts where chart.keyToGraph == key {
                     
                     let entry: ChartDataEntry = ChartDataEntry(x: dataPoint.time, y: Double(dataPoint.value))
                     chart.data?.addEntry(entry, dataSetIndex: 0)
@@ -77,10 +86,23 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
                     
                     let rollingAvgEntry: ChartDataEntry = self.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
                     chart.data?.addEntry(rollingAvgEntry, dataSetIndex: 1)
+                    
                     chart.notifyDataSetChanged()
+                }
+                
+                for chart in self.generalCharts where chart.keyToGraph == key {
                     
+                    let entry: ChartDataEntry = ChartDataEntry(x: dataPoint.time, y: Double(dataPoint.value))
+                    chart.data?.addEntry(entry, dataSetIndex: 0)
                     
-                    graphView.reloadData()
+                    chart.xAxis.axisMaximum = dataPoint.time + (chart.xAxis.axisRange * 0.2)
+                    chart.xAxis.axisMinimum = dataPoint.time - chart.secondsInPastToPlot
+                    chart.moveViewToX(dataPoint.time + (chart.xAxis.axisRange * 0.2))
+                    
+                    let rollingAvgEntry: ChartDataEntry = self.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
+                    chart.data?.addEntry(rollingAvgEntry, dataSetIndex: 1)
+                    
+                    chart.notifyDataSetChanged()
                 }
             }
             
@@ -99,13 +121,23 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
         let chart = SmallTelemetryChartView(frame: .zero)
         chart.setUp(key: sensor.key)
         chart.delegate = self
-        charts.append(chart)
+        updateChartData(chart: chart)
+        if Telemetry.shared.getGeneralSensors().contains(sensor) {
+            generalCharts.append(chart)
+        } else {
+            favoriteCharts.append(chart)
+        }
         graphView.reloadData()
     }
     
     override func updateChartData() {
         graphingQueue.sync {
-            self.charts.forEach {chart in
+        
+            for chart in favoriteCharts {
+                self.updateChartData(chart: chart)
+            }
+            
+            for chart in generalCharts {
                 self.updateChartData(chart: chart)
             }
         }

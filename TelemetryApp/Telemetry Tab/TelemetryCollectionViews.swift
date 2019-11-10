@@ -17,8 +17,14 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
                 return Telemetry.shared.getGeneralSensors().count
             }
         }else{
-            return charts.count
+            if (section == 0) {
+                return favoriteCharts.count
+            } else {
+                return generalCharts.count
+            }
         }
+        
+        
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -26,21 +32,41 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if(collectionView == self.dockOutlet.expandedView.expandedDockCollection){
+        if (collectionView == self.dockOutlet.expandedView.expandedDockCollection) {
             let sensor = ((indexPath.section == 0) ? Telemetry.shared.getFavoriteSensors()[indexPath.row] : Telemetry.shared.getGeneralSensors()[indexPath.row])
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DockExpandedCell", for: indexPath) as! DockExpandedCell
             cell.setCellValue(data: Telemetry.shared.dataSource[sensor]!.last!)
             return cell
             
-        }else{
+        } else {
             
             let cell = graphView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as! GraphCollectionViewCell
-            let key = Telemetry.shared.getGeneralSensors()[indexPath.row].key
-            cell.label.text = key
-            let chart = charts[indexPath.row]
-            chart.frame=cell.graph.bounds
-            cell.graph = chart
-            return cell
+            
+            if indexPath.section == 0 {
+                cell.graphContainer.subviews.forEach({ $0.removeFromSuperview() })
+                
+                let key = Telemetry.shared.getFavoriteSensors()[indexPath.row].key
+                cell.label.text = key
+                
+                let chart = favoriteCharts[indexPath.row]
+                chart.frame = cell.graphContainer.bounds
+                cell.graphContainer.addSubview(chart)
+                
+                return cell
+            } else {
+                cell.graphContainer.subviews.forEach({ $0.removeFromSuperview() })
+                
+                let key = Telemetry.shared.getGeneralSensors()[indexPath.row].key
+                cell.label.text = key
+                
+                let chart = generalCharts[indexPath.row]
+                chart.frame = cell.graphContainer.bounds
+                cell.graphContainer.addSubview(chart)
+                
+                return cell
+            }
+            
+            
         }
     }
     
