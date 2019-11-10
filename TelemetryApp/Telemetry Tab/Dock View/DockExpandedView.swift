@@ -12,6 +12,7 @@ class DockExpandedView: UIView, TelemetryDelegate{
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var expandedDockCollection: UICollectionView!
+    @IBOutlet var dragBar: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,8 +29,12 @@ class DockExpandedView: UIView, TelemetryDelegate{
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        dragBar.layer.cornerRadius = dragBar.frame.height/2
     }
     
+    func setAlpha(_ alpha: CGFloat){
+        expandedDockCollection.alpha = alpha
+    }
     
     func manageMessage(key: String, dataPoint: DataPoint) {
     }

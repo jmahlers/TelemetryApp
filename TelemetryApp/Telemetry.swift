@@ -7,7 +7,7 @@
 //
 
 import IKEventSource
-
+import Charts
 
 //Any use of Telemetry must use the format Telemetry.shared._
 //It is a singleton to ensure there is only ever one Telemetry object
@@ -28,6 +28,9 @@ class Telemetry: EventSource {
     var timer: Date?
     //Dictionary to assign higher sorting priority to specific sensors.
     //internal var sensorPriority:[Sensor:Int] = [:]     //Deprocated with addition of favoriteSensors.
+    var favoriteCharts: [SmallTelemetryChartView] = []
+    var generalCharts: [SmallTelemetryChartView] = []
+    var numConnection = 0
     
     ///Singleton of Telemetry that connects to the telemetry server
     static let shared = Telemetry()
@@ -43,6 +46,8 @@ class Telemetry: EventSource {
         self.onOpen{
             print("Connection to " + urlString + " open")
             self.delegate?.manageOpen()
+            self.numConnection += 1
+            print(self.numConnection)
         }
         
         self.onMessage{ (id, event, data) in

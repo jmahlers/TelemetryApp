@@ -9,12 +9,11 @@
 import UIKit
 import Charts
 
-class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
+class TelemetryViewController: BaseChartViewController, TelemetryDelegate{
     
     //We need to change this so that charts maintains order with favorites and general
     //Ideally I think this should be to arrays that have matching orders to the above arrays
-    var favoriteCharts: [SmallTelemetryChartView] = []
-    var generalCharts: [SmallTelemetryChartView] = []
+
     
     var graphingQueues: [DispatchQueue] = []
     var queueIndex = 0
@@ -23,7 +22,8 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
 
  
     let chartUpdateFrequency: Double = 1 // seconds
-    var lastTime: Date = Date()
+    var lastGraphTime: Date = Date()
+    var lastDockTime: Date = Date()
     
     @IBOutlet weak var dockOutlet: DockManager!
     @IBOutlet var dockHeight: NSLayoutConstraint!
@@ -33,22 +33,25 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     
     var panGesture = UIPanGestureRecognizer()
     var upwardState = false
+    var dockDidTransition = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         graphView.dataSource = self
+        graphView.delegate = self
         dockOutlet.expandedView.expandedDockCollection.dataSource = self
         dockOutlet.expandedView.expandedDockCollection.delegate = self
         
         let cellNib = UINib(nibName: "DockExpandedCell", bundle: nil)
         dockOutlet.expandedView.expandedDockCollection.register(cellNib, forCellWithReuseIdentifier: "DockExpandedCell")
         graphView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "myView")
+        dockOutlet.expandedView.expandedDockCollection.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "myView")
         dockOutlet.setUp(dockOutlet.minimizedView)
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(TelemetryViewController.draggedView(_:)))
         
         dockOutlet.isUserInteractionEnabled = true
         dockOutlet.addGestureRecognizer(panGesture)
-        dockOutlet.roundCorners(cornerRadius: 12.5)
+        dockOutlet.roundTopCorners(cornerRadius: 12.5)
         
         for i in 0..<numThreads {
             graphingQueues.append(DispatchQueue(label: "graphingQueue"+String(i), qos: .background, attributes: .concurrent))
@@ -72,19 +75,24 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
         let section = (Telemetry.shared.getFavoriteSensors().contains(sensor) ? 0:1)
         let row = (section == 0 ? Telemetry.shared.getFavoriteSensors().firstIndex(of: sensor):Telemetry.shared.getGeneralSensors().firstIndex(of: sensor)) ?? 0
         let indexPath = IndexPath(row: row, section: section)
-        
+       
+        let now = Date()
         if(upwardState){
-            
-            dockOutlet.expandedView.expandedDockCollection.reloadItems(at: [indexPath])
-            
-        }else{
-            
-            let now = Date()
-            
-            if abs(now.timeIntervalSince(lastTime)) > chartUpdateFrequency {
-                updateChartData()
-                lastTime = now
+            UIView.performWithoutAnimation {
+                 dockOutlet.expandedView.expandedDockCollection.reloadItems(at: [indexPath])
             }
+        }else{
+            UIView.performWithoutAnimation {
+            
+                if abs(now.timeIntervalSince(lastGraphTime)) > chartUpdateFrequency {
+                    updateChartData()
+                    lastGraphTime = now
+                }
+ 
+           //     let chart = (section == 0 ? Telemetry.shared.favoriteCharts[row] : Telemetry.shared.generalCharts[row])
+              //  self.updateChartData(chart: chart)
+            }
+           
         }
     }
     func manageOpen() {
@@ -101,9 +109,9 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
         chart.delegate = self
         updateChartData(chart: chart)
         if Telemetry.shared.getGeneralSensors().contains(sensor) {
-            generalCharts.append(chart)
+            Telemetry.shared.generalCharts.append(chart)
         } else {
-            favoriteCharts.append(chart)
+            Telemetry.shared.favoriteCharts.append(chart)
         }
         graphView.reloadData()
     }
@@ -111,11 +119,11 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     override func updateChartData() {
         graphingQueues[queueIndex].sync {
         
-            for chart in self.favoriteCharts {
+            for chart in Telemetry.shared.favoriteCharts {
                 self.updateChartData(chart: chart)
             }
             
-            for chart in self.generalCharts {
+            for chart in Telemetry.shared.generalCharts {
                 self.updateChartData(chart: chart)
             }
         }

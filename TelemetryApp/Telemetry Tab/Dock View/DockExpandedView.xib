@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DockExpandedView" customModule="TelemetryApp" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="ne7-K1-mTX"/>
+                <outlet property="dragBar" destination="fN1-ln-1RX" id="cZy-Pf-JgT"/>
                 <outlet property="expandedDockCollection" destination="Cjg-i7-LzW" id="DUY-fB-L9w"/>
             </connections>
         </placeholder>
@@ -22,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Cjg-i7-LzW">
-                    <rect key="frame" x="10" y="44" width="394" height="818"/>
+                    <rect key="frame" x="10" y="64" width="394" height="798"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yvW-5v-w2r">
                         <size key="itemSize" width="50" height="50"/>
@@ -31,10 +32,20 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fN1-ln-1RX" userLabel="DragBar">
+                    <rect key="frame" x="142" y="46" width="130" height="5"/>
+                    <color key="backgroundColor" red="0.84975910590000003" green="0.84975910590000003" blue="0.84975910590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="5" id="8Ia-Qm-sgi"/>
+                        <constraint firstAttribute="width" constant="130" id="FPr-7p-svg"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
-                <constraint firstItem="Cjg-i7-LzW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="VbE-u4-ZI9"/>
+                <constraint firstItem="fN1-ln-1RX" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="OeY-Zk-BOt"/>
+                <constraint firstItem="Cjg-i7-LzW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="VbE-u4-ZI9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Cjg-i7-LzW" secondAttribute="trailing" constant="10" id="Vg5-CB-Py4"/>
+                <constraint firstItem="fN1-ln-1RX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="2" id="baH-C5-XiU"/>
                 <constraint firstItem="Cjg-i7-LzW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="kmr-Qd-6a3"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Cjg-i7-LzW" secondAttribute="bottom" id="pGL-Fw-zi2"/>
             </constraints>

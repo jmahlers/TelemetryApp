@@ -13,15 +13,19 @@ class DockManager: UIView, TelemetryDelegate{
     var expandedView = DockExpandedView()
     var isExpanded = false
     
-    func expandDock(){
-        UIView.transition(from: minimizedView, to: expandedView, duration: 0.2, options: .transitionCrossDissolve, completion: nil)
+    func expandDock(time: Double){
+        UIView.transition(from: minimizedView, to: expandedView, duration: time, options: .transitionCrossDissolve, completion: nil)
         setUp(expandedView) //Spooky but neccessary
         isExpanded = true
     }
-    func minimizeDock(){
-        UIView.transition(from: expandedView, to: minimizedView, duration: 0.2, options: .transitionCrossDissolve, completion: nil)
+    func minimizeDock(time: Double){
+        UIView.transition(from: expandedView, to: minimizedView, duration: time, options: .transitionCrossDissolve, completion: nil)
         setUp(minimizedView) //Spooky but neccessary
         isExpanded = false
+    }
+    func setAlpha(_ alpha :CGFloat){
+        minimizedView.setAlpha(alpha)
+        expandedView.setAlpha(alpha)
     }
     
     func manageMessage(key: String, dataPoint: DataPoint) {

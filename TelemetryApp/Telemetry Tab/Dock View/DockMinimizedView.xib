@@ -13,6 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DockMinimizedView" customModule="TelemetryApp" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="8OS-eo-cas"/>
+                <outlet property="dragBar" destination="GOZ-9K-LOq" id="jHT-9D-8LZ"/>
+                <outlet property="label" destination="ile-W5-XRm" id="laY-Zc-6DE"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,15 +22,25 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ile-W5-XRm">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ile-W5-XRm">
                     <rect key="frame" x="103.5" y="26" width="207" height="42"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOZ-9K-LOq" userLabel="DragBar">
+                    <rect key="frame" x="142" y="2" width="130" height="5"/>
+                    <color key="backgroundColor" red="0.84975910592279802" green="0.84975910592279802" blue="0.84975910592279802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="a5r-Br-kdm"/>
+                        <constraint firstAttribute="height" constant="5" id="aUY-ZU-cck"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
                 <constraint firstItem="ile-W5-XRm" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="8RG-Rk-o37"/>
                 <constraint firstItem="ile-W5-XRm" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" id="e8K-7T-0HU"/>
+                <constraint firstItem="GOZ-9K-LOq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="hLe-oI-Udd"/>
+                <constraint firstItem="GOZ-9K-LOq" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="kik-cu-sfu"/>
                 <constraint firstItem="ile-W5-XRm" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="rNc-LC-hgU"/>
                 <constraint firstItem="ile-W5-XRm" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="s5L-SA-AWu"/>
             </constraints>

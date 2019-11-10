@@ -18,9 +18,9 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
             }
         }else{
             if (section == 0) {
-                return favoriteCharts.count
+                return Telemetry.shared.favoriteCharts.count
             } else {
-                return generalCharts.count
+                return Telemetry.shared.generalCharts.count
             }
         }
         
@@ -48,7 +48,7 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
                 let key = Telemetry.shared.getFavoriteSensors()[indexPath.row].key
                 cell.label.text = key
                 
-                let chart = favoriteCharts[indexPath.row]
+                let chart = Telemetry.shared.favoriteCharts[indexPath.row]
                 chart.frame = cell.graphContainer.bounds
                 cell.graphContainer.addSubview(chart)
                 
@@ -59,7 +59,7 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
                 let key = Telemetry.shared.getGeneralSensors()[indexPath.row].key
                 cell.label.text = key
                 
-                let chart = generalCharts[indexPath.row]
+                let chart = Telemetry.shared.generalCharts[indexPath.row]
                 chart.frame = cell.graphContainer.bounds
                 cell.graphContainer.addSubview(chart)
                 
@@ -76,7 +76,7 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        if(upwardState){
+        if collectionView == self.dockOutlet.expandedView.expandedDockCollection{
             return .zero
         }else{
             let size = CGSize(width: view.frame.width, height: 50.0)
@@ -85,10 +85,10 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.dockOutlet.expandedView.expandedDockCollection{
-            let size = CGSize(width: view.frame.width*0.45, height: 80)
+            let size = CGSize(width: view.frame.width*0.45, height: 60)
             return size
         }else{
-            return CGSize(width: view.frame.width*0.3, height: 400)
+            return CGSize(width: view.frame.width*0.48, height: 220)
         }
     }
     
