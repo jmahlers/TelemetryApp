@@ -18,9 +18,9 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
             }
         }else{
             if (section == 0) {
-                return favoriteCharts.count
+                return Telemetry.shared.favoriteCharts.count
             } else {
-                return generalCharts.count
+                return Telemetry.shared.generalCharts.count
             }
         }
         
@@ -48,7 +48,7 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
                 let key = Telemetry.shared.getFavoriteSensors()[indexPath.row].key
                 cell.label.text = key
                 
-                let chart = favoriteCharts[indexPath.row]
+                let chart = Telemetry.shared.favoriteCharts[indexPath.row]
                 chart.frame = cell.graphContainer.bounds
                 cell.graphContainer.addSubview(chart)
                 
@@ -59,7 +59,7 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
                 let key = Telemetry.shared.getGeneralSensors()[indexPath.row].key
                 cell.label.text = key
                 
-                let chart = generalCharts[indexPath.row]
+                let chart = Telemetry.shared.generalCharts[indexPath.row]
                 chart.frame = cell.graphContainer.bounds
                 cell.graphContainer.addSubview(chart)
                 

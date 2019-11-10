@@ -13,8 +13,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     
     //We need to change this so that charts maintains order with favorites and general
     //Ideally I think this should be to arrays that have matching orders to the above arrays
-    var favoriteCharts: [SmallTelemetryChartView] = []
-    var generalCharts: [SmallTelemetryChartView] = []
+
     
     let graphingQueue = DispatchQueue(label: "graphingQueue", qos: .background, attributes: .concurrent)
 
@@ -94,9 +93,9 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
         chart.delegate = self
         updateChartData(chart: chart)
         if Telemetry.shared.getGeneralSensors().contains(sensor) {
-            generalCharts.append(chart)
+            Telemetry.shared.generalCharts.append(chart)
         } else {
-            favoriteCharts.append(chart)
+            Telemetry.shared.favoriteCharts.append(chart)
         }
         graphView.reloadData()
     }
@@ -104,11 +103,11 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     override func updateChartData() {
         graphingQueue.sync {
         
-            for chart in favoriteCharts {
+            for chart in Telemetry.shared.favoriteCharts {
                 self.updateChartData(chart: chart)
             }
             
-            for chart in generalCharts {
+            for chart in Telemetry.shared.generalCharts {
                 self.updateChartData(chart: chart)
             }
         }
