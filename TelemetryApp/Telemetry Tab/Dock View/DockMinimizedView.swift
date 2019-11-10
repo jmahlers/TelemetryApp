@@ -11,6 +11,7 @@ class DockMinimizedView: UIView, TelemetryDelegate{
 
     
     
+    @IBOutlet var label: UILabel!
     @IBOutlet var contentView: UIView!
     
     override init(frame: CGRect) {

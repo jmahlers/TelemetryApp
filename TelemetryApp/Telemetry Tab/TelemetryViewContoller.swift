@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
+class TelemetryViewController: BaseChartViewController, TelemetryDelegate{
     
     //We need to change this so that charts maintains order with favorites and general
     //Ideally I think this should be to arrays that have matching orders to the above arrays
@@ -30,16 +30,19 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
     
     var panGesture = UIPanGestureRecognizer()
     var upwardState = false
+    var dockDidTransition = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         graphView.dataSource = self
+        graphView.delegate = self
         dockOutlet.expandedView.expandedDockCollection.dataSource = self
         dockOutlet.expandedView.expandedDockCollection.delegate = self
         
         let cellNib = UINib(nibName: "DockExpandedCell", bundle: nil)
         dockOutlet.expandedView.expandedDockCollection.register(cellNib, forCellWithReuseIdentifier: "DockExpandedCell")
         graphView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "myView")
+        dockOutlet.expandedView.expandedDockCollection.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "myView")
         dockOutlet.setUp(dockOutlet.minimizedView)
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(TelemetryViewController.draggedView(_:)))
         

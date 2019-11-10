@@ -76,7 +76,7 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        if(upwardState){
+        if collectionView == self.dockOutlet.expandedView.expandedDockCollection{
             return .zero
         }else{
             let size = CGSize(width: view.frame.width, height: 50.0)
@@ -85,10 +85,10 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.dockOutlet.expandedView.expandedDockCollection{
-            let size = CGSize(width: view.frame.width*0.45, height: 80)
+            let size = CGSize(width: view.frame.width*0.45, height: 60)
             return size
         }else{
-            return CGSize(width: view.frame.width*0.3, height: 400)
+            return CGSize(width: view.frame.width*0.45, height: 300)
         }
     }
     
