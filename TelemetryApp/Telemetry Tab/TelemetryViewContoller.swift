@@ -19,7 +19,8 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
 
  
     let chartUpdateFrequency: Double = 1 // seconds
-    var lastTime: Date = Date()
+    var lastGraphTime: Date = Date()
+    var lastDockTime: Date = Date()
     
     @IBOutlet weak var dockOutlet: DockManager!
     @IBOutlet var dockHeight: NSLayoutConstraint!
@@ -64,19 +65,24 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate {
         let section = (Telemetry.shared.getFavoriteSensors().contains(sensor) ? 0:1)
         let row = (section == 0 ? Telemetry.shared.getFavoriteSensors().firstIndex(of: sensor):Telemetry.shared.getGeneralSensors().firstIndex(of: sensor)) ?? 0
         let indexPath = IndexPath(row: row, section: section)
-        
+       
+        let now = Date()
         if(upwardState){
-            
-            dockOutlet.expandedView.expandedDockCollection.reloadItems(at: [indexPath])
-            
-        }else{
-            
-            let now = Date()
-            
-            if abs(now.timeIntervalSince(lastTime)) > chartUpdateFrequency {
-                updateChartData()
-                lastTime = now
+            UIView.performWithoutAnimation {
+                 dockOutlet.expandedView.expandedDockCollection.reloadItems(at: [indexPath])
             }
+        }else{
+            UIView.performWithoutAnimation {
+            
+                if abs(now.timeIntervalSince(lastGraphTime)) > chartUpdateFrequency {
+                    updateChartData()
+                    lastGraphTime = now
+                }
+ 
+           //     let chart = (section == 0 ? Telemetry.shared.favoriteCharts[row] : Telemetry.shared.generalCharts[row])
+              //  self.updateChartData(chart: chart)
+            }
+           
         }
     }
     func manageOpen() {
