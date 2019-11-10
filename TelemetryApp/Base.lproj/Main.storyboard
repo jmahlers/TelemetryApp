@@ -156,15 +156,19 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sensor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xre-s0-s2T">
-                                                    <rect key="frame" x="20" y="0.0" width="158" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sensor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xre-s0-s2T">
+                                                    <rect key="frame" x="0.0" y="0.0" width="198" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="xre-s0-s2T" firstAttribute="top" secondItem="DXf-X0-gNY" secondAttribute="top" id="Aa3-g4-YhN"/>
+                                            <constraint firstItem="xre-s0-s2T" firstAttribute="width" secondItem="DXf-X0-gNY" secondAttribute="width" id="X5F-TU-UDo"/>
+                                            <constraint firstItem="xre-s0-s2T" firstAttribute="centerX" secondItem="DXf-X0-gNY" secondAttribute="centerX" id="ot9-Lr-U59"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="graphContainer" destination="hhx-hX-i0H" id="Niu-fF-K9Y"/>
                                             <outlet property="label" destination="xre-s0-s2T" id="SPx-7v-tgm"/>
@@ -177,12 +181,12 @@
                                 </collectionReusableView>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flZ-jR-p4G" customClass="DockManager" customModule="TelemetryApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="751.5" width="414" height="61.5"/>
+                                <rect key="frame" x="0.0" y="767" width="414" height="46"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPg-8b-TVV">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="61.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uHu-YY-Ose">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="61.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                         <blurEffect style="regular"/>
@@ -211,7 +215,7 @@
                             <constraint firstItem="rMf-8e-buq" firstAttribute="trailing" secondItem="73v-t5-sHD" secondAttribute="trailing" id="JpS-86-e5L"/>
                             <constraint firstItem="flZ-jR-p4G" firstAttribute="bottom" secondItem="rMf-8e-buq" secondAttribute="bottom" id="L6u-YF-vjB"/>
                             <constraint firstItem="729-1f-wCk" firstAttribute="centerX" secondItem="rMf-8e-buq" secondAttribute="centerX" id="LMl-kf-miw"/>
-                            <constraint firstItem="flZ-jR-p4G" firstAttribute="height" secondItem="rMf-8e-buq" secondAttribute="height" multiplier="0.08" id="QER-Qo-grZ"/>
+                            <constraint firstItem="flZ-jR-p4G" firstAttribute="height" secondItem="rMf-8e-buq" secondAttribute="height" multiplier="0.06" id="QER-Qo-grZ"/>
                             <constraint firstItem="729-1f-wCk" firstAttribute="top" secondItem="73v-t5-sHD" secondAttribute="bottom" id="SLN-12-OOv"/>
                             <constraint firstItem="rMf-8e-buq" firstAttribute="bottom" secondItem="729-1f-wCk" secondAttribute="bottom" id="jLl-5H-ocB"/>
                             <constraint firstItem="flZ-jR-p4G" firstAttribute="leading" secondItem="rMf-8e-buq" secondAttribute="leading" id="uTF-wU-fxj"/>

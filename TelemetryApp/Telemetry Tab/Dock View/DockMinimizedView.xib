@@ -28,8 +28,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOZ-9K-LOq" userLabel="DragBar">
-                    <rect key="frame" x="142" y="10" width="130" height="5"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <rect key="frame" x="142" y="2" width="130" height="5"/>
+                    <color key="backgroundColor" red="0.84975910592279802" green="0.84975910592279802" blue="0.84975910592279802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="130" id="a5r-Br-kdm"/>
                         <constraint firstAttribute="height" constant="5" id="aUY-ZU-cck"/>
@@ -39,7 +39,7 @@
             <constraints>
                 <constraint firstItem="ile-W5-XRm" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="8RG-Rk-o37"/>
                 <constraint firstItem="ile-W5-XRm" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" id="e8K-7T-0HU"/>
-                <constraint firstItem="GOZ-9K-LOq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="hLe-oI-Udd"/>
+                <constraint firstItem="GOZ-9K-LOq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="hLe-oI-Udd"/>
                 <constraint firstItem="GOZ-9K-LOq" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="kik-cu-sfu"/>
                 <constraint firstItem="ile-W5-XRm" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="rNc-LC-hgU"/>
                 <constraint firstItem="ile-W5-XRm" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="s5L-SA-AWu"/>
