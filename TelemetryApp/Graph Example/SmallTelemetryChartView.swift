@@ -12,11 +12,11 @@ import Charts
 class SmallTelemetryChartView : LineChartView {
     
     var keyToGraph:String = ""
-    var secondsInPastToPlot:Double = 10
+    var secondsInPastToPlot:Double = 15
     static let frequency:Double = 4
     
     var rollAvgStorage: [Float] = []
-    let avgPeriod = 20 // Number of points
+    let avgPeriod = 15 // Number of points
     var rollingIndex = 0
     
     func setUp(key: String) {

@@ -19,14 +19,13 @@ extension TelemetryViewController {
         set.setColor(.black)
         set.setCircleColor(.black)
         set.lineWidth = 0
-        set.circleRadius = 1.2
+        set.circleRadius = 1
         set.drawValuesEnabled = false
         set.drawCircleHoleEnabled = false
         set.valueFont = .systemFont(ofSize: 9)
         set.formLineDashLengths = [5, 2.5]
         set.formLineWidth = 1
         set.formSize = 15
-        set.mode = .cubicBezier
         return set
     }
     
@@ -46,6 +45,7 @@ extension TelemetryViewController {
         set.formLineDashLengths = [5, 2.5]
         set.formLineWidth = 1
         set.formSize = 15
+        set.mode = .horizontalBezier
         
         let gradientColors2 = [ChartColorTemplates.colorFromString("#00add8e6").cgColor,
                                ChartColorTemplates.colorFromString("#ffadd8e6").cgColor]
