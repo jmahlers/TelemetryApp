@@ -3,12 +3,16 @@ PODS:
     - Charts/Core (= 3.3.0)
   - Charts/Core (3.3.0)
   - IKEventSource (3.0.1)
+  - SciChart (2.5.0.2622)
 
 DEPENDENCIES:
   - Charts (~> 3.3.0)
   - IKEventSource
+  - SciChart
 
 SPEC REPOS:
+  https://github.com/ABTSoftware/PodSpecs.git:
+    - SciChart
   trunk:
     - Charts
     - IKEventSource
@@ -16,7 +20,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Charts: e0dd4cd8f257bccf98407b58183ddca8e8d5b578
   IKEventSource: ababa323587c6b0c250dd54d4a48ab68fd845e8e
+  SciChart: 0ba5ca7881a9306e62ca3328a931c87cdcb6a3fb
 
-PODFILE CHECKSUM: 262b00b9f2cd53cda8c98d739a870f5881eb45c4
+PODFILE CHECKSUM: 865d9083a26d151574e953dda69feca2f36512c9
 
 COCOAPODS: 1.8.4

@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import SciChart
 
 class TelemetryViewController: BaseChartViewController, TelemetryDelegate{
     
@@ -17,7 +18,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate{
     
     var graphingQueues: [DispatchQueue] = []
     var queueIndex = 0
-    let numThreads = 16
+    let numThreads = 12
 //    let graphingQueue = DispatchQueue(label: "graphingQueue", qos: .background, attributes: .concurrent)
 
  

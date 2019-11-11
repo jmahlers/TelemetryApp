@@ -19,6 +19,12 @@
 		236AC4902376387100014AA1 /* GraphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */; };
 		236AC49223763CD400014AA1 /* DatasetSetUpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236AC49123763CD400014AA1 /* DatasetSetUpUtils.swift */; };
 		2384239D2375FEA600BD2DC2 /* SmallTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */; };
+		239981EE2378ED39002AEEC9 /* SciChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981ED2378ED39002AEEC9 /* SciChartViewController.swift */; };
+		239981F02378EE09002AEEC9 /* SciChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 239981EF2378EE09002AEEC9 /* SciChart.framework */; };
+		239981F12378EE09002AEEC9 /* SciChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 239981EF2378EE09002AEEC9 /* SciChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		239981F42378EE6E002AEEC9 /* SCIGenericWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981F32378EE6E002AEEC9 /* SCIGenericWrapper.swift */; };
+		239981F62378F563002AEEC9 /* ChartSetUpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981F52378F563002AEEC9 /* ChartSetUpUtils.swift */; };
+		239981F82378F6B7002AEEC9 /* SmallTelemetrySciChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981F72378F6B7002AEEC9 /* SmallTelemetrySciChart.swift */; };
 		23EB4A972375033A0061A700 /* DetailTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB4A962375033A0061A700 /* DetailTelemetryChartView.swift */; };
 		9FCF394612F0A8E42E27A9CB /* Pods_TelemetryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B22950E09878D842173933E /* Pods_TelemetryApp.framework */; };
 		A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011940F237380B7002625C5 /* TelemetryViewContoller.swift */; };
@@ -50,6 +56,20 @@
 		A0FE983B2374A8D20033F6E6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE983A2374A8D20033F6E6 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		239981F22378EE09002AEEC9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				239981F12378EE09002AEEC9 /* SciChart.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		144BD5E6415349B6695AAAEF /* Pods-TelemetryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelemetryApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp.debug.xcconfig"; sourceTree = "<group>"; };
 		2314FB7F23736933005ACD79 /* RollingAverageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollingAverageUtils.swift; sourceTree = "<group>"; };
@@ -64,6 +84,11 @@
 		236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCollectionViewCell.swift; sourceTree = "<group>"; };
 		236AC49123763CD400014AA1 /* DatasetSetUpUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetSetUpUtils.swift; sourceTree = "<group>"; };
 		2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTelemetryChartView.swift; sourceTree = "<group>"; };
+		239981ED2378ED39002AEEC9 /* SciChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciChartViewController.swift; sourceTree = "<group>"; };
+		239981EF2378EE09002AEEC9 /* SciChart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SciChart.framework; sourceTree = "<group>"; };
+		239981F32378EE6E002AEEC9 /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCIGenericWrapper.swift; sourceTree = "<group>"; };
+		239981F52378F563002AEEC9 /* ChartSetUpUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSetUpUtils.swift; sourceTree = "<group>"; };
+		239981F72378F6B7002AEEC9 /* SmallTelemetrySciChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTelemetrySciChart.swift; sourceTree = "<group>"; };
 		23EB4A962375033A0061A700 /* DetailTelemetryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTelemetryChartView.swift; sourceTree = "<group>"; };
 		6B22950E09878D842173933E /* Pods_TelemetryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TelemetryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A011940F237380B7002625C5 /* TelemetryViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryViewContoller.swift; sourceTree = "<group>"; };
@@ -103,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				239981F02378EE09002AEEC9 /* SciChart.framework in Frameworks */,
 				A0F4A836237142420025CAA1 /* WebKit.framework in Frameworks */,
 				9FCF394612F0A8E42E27A9CB /* Pods_TelemetryApp.framework in Frameworks */,
 			);
@@ -205,6 +231,8 @@
 		A01CA515236A3D02007B6713 = {
 			isa = PBXGroup;
 			children = (
+				239981F32378EE6E002AEEC9 /* SCIGenericWrapper.swift */,
+				239981EF2378EE09002AEEC9 /* SciChart.framework */,
 				A01CA520236A3D02007B6713 /* TelemetryApp */,
 				A01CA51F236A3D02007B6713 /* Products */,
 				69FC17B818426CF39FED3FDC /* Pods */,
@@ -229,6 +257,9 @@
 				A0E27004237645CE00440719 /* SettingViewController.swift */,
 				A073C3F02376335600BDB7CD /* OverallTabViewController.swift */,
 				A01CA525236A3D02007B6713 /* Main.storyboard */,
+				239981ED2378ED39002AEEC9 /* SciChartViewController.swift */,
+				239981F52378F563002AEEC9 /* ChartSetUpUtils.swift */,
+				239981F72378F6B7002AEEC9 /* SmallTelemetrySciChart.swift */,
 				A011941923738470002625C5 /* Protocols.swift */,
 				A0FE983A2374A8D20033F6E6 /* Extensions.swift */,
 				A01C1E48236A47770026D76F /* Telemetry.swift */,
@@ -254,6 +285,7 @@
 				A01CA51B236A3D02007B6713 /* Frameworks */,
 				A01CA51C236A3D02007B6713 /* Resources */,
 				75A90B1FA7D352775B17FF51 /* [CP] Embed Pods Frameworks */,
+				239981F22378EE09002AEEC9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -357,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				239981F42378EE6E002AEEC9 /* SCIGenericWrapper.swift in Sources */,
 				A04D5D252376A7EE00B07241 /* TelemetryChartUpdates.swift in Sources */,
 				A0E27005237645CE00440719 /* SettingViewController.swift in Sources */,
 				A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */,
@@ -368,12 +401,14 @@
 				A0398BED2374F679005454E2 /* WebsiteController.swift in Sources */,
 				2384239D2375FEA600BD2DC2 /* SmallTelemetryChartView.swift in Sources */,
 				A0F4A83423713D480025CAA1 /* LivestreamView.swift in Sources */,
+				239981F82378F6B7002AEEC9 /* SmallTelemetrySciChart.swift in Sources */,
 				A08290F72375546F00AF0E20 /* HeaderView.swift in Sources */,
 				A011942F2373FAB2002625C5 /* DockExpandedView.swift in Sources */,
 				2314FBA323736B08005ACD79 /* XYMarkerView.swift in Sources */,
 				2314FB9423736AAF005ACD79 /* DateValueFormatter.swift in Sources */,
 				A0FE983B2374A8D20033F6E6 /* Extensions.swift in Sources */,
 				2314FB9523736AAF005ACD79 /* LargeValueFormatter.swift in Sources */,
+				239981F62378F563002AEEC9 /* ChartSetUpUtils.swift in Sources */,
 				2314FB9223736AAF005ACD79 /* IntAxisValueFormatter.swift in Sources */,
 				2314FB8023736933005ACD79 /* RollingAverageUtils.swift in Sources */,
 				A073C3EB2375D8C500BDB7CD /* DraggableDock.swift in Sources */,
@@ -383,6 +418,7 @@
 				A073C3EF2375F43200BDB7CD /* TelemetryCollectionViews.swift in Sources */,
 				A01C1E49236A47770026D76F /* Telemetry.swift in Sources */,
 				23EB4A972375033A0061A700 /* DetailTelemetryChartView.swift in Sources */,
+				239981EE2378ED39002AEEC9 /* SciChartViewController.swift in Sources */,
 				A01194312373FB9B002625C5 /* DockManager.swift in Sources */,
 				A073C3F12376335600BDB7CD /* OverallTabViewController.swift in Sources */,
 				A0E2701023768F0800440719 /* DockExpandedCell.swift in Sources */,
@@ -537,6 +573,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVD3AQD899;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TelemetryApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -556,6 +596,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 29FQDQ8QD3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TelemetryApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

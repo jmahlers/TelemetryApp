@@ -113,7 +113,7 @@
         <!--Database-->
         <scene sceneID="Ne5-2r-G0c">
             <objects>
-                <viewController id="Ys6-4b-QNE" customClass="LineChartViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ys6-4b-QNE" customClass="SciChartViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Glk-3Z-zHf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

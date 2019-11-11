@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SciChart
 
 
 @UIApplicationMain
@@ -17,6 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let licence:String = "<LicenseContract>" +
+        "<Customer>jake.kendrick@gmail.com</Customer>" +
+        "<OrderId>Trial</OrderId>" +
+        "<LicenseCount>1</LicenseCount>" +
+        "<IsTrialLicense>true</IsTrialLicense>" +
+        "<SupportExpires>12/11/2019 00:00:00</SupportExpires>" +
+        "<ProductCode>SC-IOS-2D-ENTERPRISE-SRC</ProductCode>" +
+        "<KeyCode>80b07ea46beaf563312e32edc4d6b9dd2d92b9aad1b9d601aca8bf958360d36979b7eec003211d1f0dd3e343a74e47d26f813f7b8ba3b428ffee0ec565fe3b50c9dfb348171d2742fa3970961cdd1680f123eecea0a750e740f2ab601a76409101d0a51d69172520a5ff8b12148019b88490cf4caab899c85b96326f660622dea1d6465223614c5e9dcf6076babf072afb9ed66936d05c5fa5f15b1d5cd0411e9d48588d3cc8f68055790f400f</KeyCode>" +
+        "</LicenseContract>"
+        
+        SCIChartSurface.setRuntimeLicenseKey(licence)
+        
         return true
     }
 
