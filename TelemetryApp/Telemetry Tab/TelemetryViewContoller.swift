@@ -33,6 +33,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate{
     @IBOutlet weak var graphView: UICollectionView!
     @IBOutlet weak var dockBlur: UIView!
     @IBOutlet weak var topViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var settingButton: UIButton!
     
     var panGesture = UIPanGestureRecognizer()
     var upwardState = false
@@ -157,6 +158,13 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate{
         
         }
     }
+    @IBAction func showSettings(_ sender: Any) {
+        let settingsViewController = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
+        settingsViewController.modalPresentationStyle = .overFullScreen
+        settingsViewController.modalTransitionStyle = .crossDissolve
+        self.present(settingsViewController, animated: true, completion: nil)
+    }
+    
 }
 
 

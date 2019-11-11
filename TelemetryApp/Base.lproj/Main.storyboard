@@ -201,6 +201,16 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73v-t5-sHD">
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAa-Sv-Vkl">
+                                        <rect key="frame" x="344" y="10" width="57" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Settings"/>
+                                        <connections>
+                                            <action selector="showSettings:" destination="sgO-W4-Uen" eventType="primaryActionTriggered" id="ixM-nX-wbZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Z76-WF-MKs"/>
@@ -229,6 +239,7 @@
                         <outlet property="dockHeight" destination="QER-Qo-grZ" id="30y-0v-sii"/>
                         <outlet property="dockOutlet" destination="flZ-jR-p4G" id="7KQ-hM-OlS"/>
                         <outlet property="graphView" destination="729-1f-wCk" id="ld3-cf-eD2"/>
+                        <outlet property="settingButton" destination="EAa-Sv-Vkl" id="GAh-f7-dDu"/>
                         <outlet property="topViewHeight" destination="Z76-WF-MKs" id="HLP-j8-rhr"/>
                     </connections>
                 </viewController>

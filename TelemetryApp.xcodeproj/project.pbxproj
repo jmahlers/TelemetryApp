@@ -31,6 +31,8 @@
 		A011942C2373EFC6002625C5 /* DockMinimizedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011942B2373EFC6002625C5 /* DockMinimizedView.swift */; };
 		A011942F2373FAB2002625C5 /* DockExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011942E2373FAB2002625C5 /* DockExpandedView.swift */; };
 		A01194312373FB9B002625C5 /* DockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01194302373FB9B002625C5 /* DockManager.swift */; };
+		A0188D2D237A0A8400D95F00 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0188D2B237A0A8400D95F00 /* SettingsViewController.swift */; };
+		A0188D2E237A0A8400D95F00 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0188D2C237A0A8400D95F00 /* SettingsViewController.xib */; };
 		A01C1E49236A47770026D76F /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C1E48236A47770026D76F /* Telemetry.swift */; };
 		A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA521236A3D02007B6713 /* AppDelegate.swift */; };
 		A01CA524236A3D02007B6713 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA523236A3D02007B6713 /* ViewController.swift */; };
@@ -48,7 +50,6 @@
 		A077D9892379CC9800250EC6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F4A835237142420025CAA1 /* WebKit.framework */; };
 		A08290F72375546F00AF0E20 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08290F62375546F00AF0E20 /* HeaderView.swift */; };
 		A08290F92375592B00AF0E20 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A08290F82375592B00AF0E20 /* HeaderView.xib */; };
-		A0E27005237645CE00440719 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E27004237645CE00440719 /* SettingViewController.swift */; };
 		A0E2701023768F0800440719 /* DockExpandedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E2700E23768F0800440719 /* DockExpandedCell.swift */; };
 		A0E2701123768F0800440719 /* DockExpandedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0E2700F23768F0800440719 /* DockExpandedCell.xib */; };
 		A0F3D86223721AFD00D10CF8 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3D86123721AFD00D10CF8 /* Sensor.swift */; };
@@ -96,6 +97,8 @@
 		A011942B2373EFC6002625C5 /* DockMinimizedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockMinimizedView.swift; sourceTree = "<group>"; };
 		A011942E2373FAB2002625C5 /* DockExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockExpandedView.swift; sourceTree = "<group>"; };
 		A01194302373FB9B002625C5 /* DockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockManager.swift; sourceTree = "<group>"; };
+		A0188D2B237A0A8400D95F00 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A0188D2C237A0A8400D95F00 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		A01C1E48236A47770026D76F /* Telemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
 		A01CA51E236A3D02007B6713 /* TelemetryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelemetryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01CA521236A3D02007B6713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,7 +116,6 @@
 		A077D987237938F500250EC6 /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCIGenericWrapper.swift; sourceTree = "<group>"; };
 		A08290F62375546F00AF0E20 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A08290F82375592B00AF0E20 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
-		A0E27004237645CE00440719 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		A0E2700E23768F0800440719 /* DockExpandedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockExpandedCell.swift; sourceTree = "<group>"; };
 		A0E2700F23768F0800440719 /* DockExpandedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DockExpandedCell.xib; sourceTree = "<group>"; };
 		A0F3D86123721AFD00D10CF8 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
@@ -228,6 +230,15 @@
 			path = "Dock View";
 			sourceTree = "<group>";
 		};
+		A0188D2F237A0A9500D95F00 /* Settings Modal */ = {
+			isa = PBXGroup;
+			children = (
+				A0188D2B237A0A8400D95F00 /* SettingsViewController.swift */,
+				A0188D2C237A0A8400D95F00 /* SettingsViewController.xib */,
+			);
+			path = "Settings Modal";
+			sourceTree = "<group>";
+		};
 		A01CA515236A3D02007B6713 = {
 			isa = PBXGroup;
 			children = (
@@ -254,7 +265,6 @@
 				A011940E23737113002625C5 /* Graph Example */,
 				A01CA521236A3D02007B6713 /* AppDelegate.swift */,
 				A01CA523236A3D02007B6713 /* ViewController.swift */,
-				A0E27004237645CE00440719 /* SettingViewController.swift */,
 				A073C3F02376335600BDB7CD /* OverallTabViewController.swift */,
 				A01CA525236A3D02007B6713 /* Main.storyboard */,
 				239981ED2378ED39002AEEC9 /* SciChartViewController.swift */,
@@ -265,6 +275,7 @@
 				A01C1E48236A47770026D76F /* Telemetry.swift */,
 				A0F3D86123721AFD00D10CF8 /* Sensor.swift */,
 				A0398BEC2374F679005454E2 /* WebsiteController.swift */,
+				A0188D2F237A0A9500D95F00 /* Settings Modal */,
 				A0119412237380D8002625C5 /* Telemetry Tab */,
 				A0119413237380E2002625C5 /* Livestream Tab */,
 				A01CA528236A3D03007B6713 /* Assets.xcassets */,
@@ -337,6 +348,7 @@
 				A01CA52C236A3D03007B6713 /* LaunchScreen.storyboard in Resources */,
 				A01194282373EFA6002625C5 /* DockMinimizedView.xib in Resources */,
 				A01CA529236A3D03007B6713 /* Assets.xcassets in Resources */,
+				A0188D2E237A0A8400D95F00 /* SettingsViewController.xib in Resources */,
 				A08290F92375592B00AF0E20 /* HeaderView.xib in Resources */,
 				A0E2701123768F0800440719 /* DockExpandedCell.xib in Resources */,
 				A011942A2373EFB2002625C5 /* DockExpandedView.xib in Resources */,
@@ -391,7 +403,6 @@
 			files = (
 				A077D988237938F500250EC6 /* SCIGenericWrapper.swift in Sources */,
 				A04D5D252376A7EE00B07241 /* TelemetryChartUpdates.swift in Sources */,
-				A0E27005237645CE00440719 /* SettingViewController.swift in Sources */,
 				A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */,
 				2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */,
 				A01CA524236A3D02007B6713 /* ViewController.swift in Sources */,
@@ -414,6 +425,7 @@
 				A073C3EB2375D8C500BDB7CD /* DraggableDock.swift in Sources */,
 				2314FB8223736955005ACD79 /* BaseChartViewController.swift in Sources */,
 				2314FB9323736AAF005ACD79 /* DayAxisValueFormatter.swift in Sources */,
+				A0188D2D237A0A8400D95F00 /* SettingsViewController.swift in Sources */,
 				A011942C2373EFC6002625C5 /* DockMinimizedView.swift in Sources */,
 				A073C3EF2375F43200BDB7CD /* TelemetryCollectionViews.swift in Sources */,
 				A01C1E49236A47770026D76F /* Telemetry.swift in Sources */,
