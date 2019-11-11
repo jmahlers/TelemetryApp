@@ -16,13 +16,13 @@
 		2314FBA323736B08005ACD79 /* XYMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA023736B08005ACD79 /* XYMarkerView.swift */; };
 		2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA123736B08005ACD79 /* BalloonMarker.swift */; };
 		2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA223736B08005ACD79 /* RadarMarkerView.swift */; };
+		232C1E9F237900F5005A32D1 /* SciChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232C1E9E237900F5005A32D1 /* SciChart.framework */; };
+		232C1EA0237900F5005A32D1 /* SciChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 232C1E9E237900F5005A32D1 /* SciChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		232C1EA223790108005A32D1 /* SCIGenericWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C1EA123790108005A32D1 /* SCIGenericWrapper.swift */; };
 		236AC4902376387100014AA1 /* GraphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */; };
 		236AC49223763CD400014AA1 /* DatasetSetUpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236AC49123763CD400014AA1 /* DatasetSetUpUtils.swift */; };
 		2384239D2375FEA600BD2DC2 /* SmallTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */; };
 		239981EE2378ED39002AEEC9 /* SciChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981ED2378ED39002AEEC9 /* SciChartViewController.swift */; };
-		239981F02378EE09002AEEC9 /* SciChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 239981EF2378EE09002AEEC9 /* SciChart.framework */; };
-		239981F12378EE09002AEEC9 /* SciChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 239981EF2378EE09002AEEC9 /* SciChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		239981F42378EE6E002AEEC9 /* SCIGenericWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981F32378EE6E002AEEC9 /* SCIGenericWrapper.swift */; };
 		239981F62378F563002AEEC9 /* ChartSetUpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981F52378F563002AEEC9 /* ChartSetUpUtils.swift */; };
 		239981F82378F6B7002AEEC9 /* SmallTelemetrySciChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981F72378F6B7002AEEC9 /* SmallTelemetrySciChart.swift */; };
 		23EB4A972375033A0061A700 /* DetailTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB4A962375033A0061A700 /* DetailTelemetryChartView.swift */; };
@@ -57,13 +57,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		239981F22378EE09002AEEC9 /* Embed Frameworks */ = {
+		232C1E9D2379005B005A32D1 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				239981F12378EE09002AEEC9 /* SciChart.framework in Embed Frameworks */,
+				232C1EA0237900F5005A32D1 /* SciChart.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,12 +81,12 @@
 		2314FBA023736B08005ACD79 /* XYMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYMarkerView.swift; sourceTree = "<group>"; };
 		2314FBA123736B08005ACD79 /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		2314FBA223736B08005ACD79 /* RadarMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarMarkerView.swift; sourceTree = "<group>"; };
+		232C1E9E237900F5005A32D1 /* SciChart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SciChart.framework; path = Pods/SciChart.framework; sourceTree = "<group>"; };
+		232C1EA123790108005A32D1 /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = Pods/SciChart.framework/SwiftUtil/SCIGenericWrapper.swift; sourceTree = "<group>"; };
 		236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCollectionViewCell.swift; sourceTree = "<group>"; };
 		236AC49123763CD400014AA1 /* DatasetSetUpUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetSetUpUtils.swift; sourceTree = "<group>"; };
 		2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTelemetryChartView.swift; sourceTree = "<group>"; };
 		239981ED2378ED39002AEEC9 /* SciChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciChartViewController.swift; sourceTree = "<group>"; };
-		239981EF2378EE09002AEEC9 /* SciChart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SciChart.framework; sourceTree = "<group>"; };
-		239981F32378EE6E002AEEC9 /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCIGenericWrapper.swift; sourceTree = "<group>"; };
 		239981F52378F563002AEEC9 /* ChartSetUpUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSetUpUtils.swift; sourceTree = "<group>"; };
 		239981F72378F6B7002AEEC9 /* SmallTelemetrySciChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTelemetrySciChart.swift; sourceTree = "<group>"; };
 		23EB4A962375033A0061A700 /* DetailTelemetryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTelemetryChartView.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				239981F02378EE09002AEEC9 /* SciChart.framework in Frameworks */,
+				232C1E9F237900F5005A32D1 /* SciChart.framework in Frameworks */,
 				A0F4A836237142420025CAA1 /* WebKit.framework in Frameworks */,
 				9FCF394612F0A8E42E27A9CB /* Pods_TelemetryApp.framework in Frameworks */,
 			);
@@ -231,8 +231,8 @@
 		A01CA515236A3D02007B6713 = {
 			isa = PBXGroup;
 			children = (
-				239981F32378EE6E002AEEC9 /* SCIGenericWrapper.swift */,
-				239981EF2378EE09002AEEC9 /* SciChart.framework */,
+				232C1EA123790108005A32D1 /* SCIGenericWrapper.swift */,
+				232C1E9E237900F5005A32D1 /* SciChart.framework */,
 				A01CA520236A3D02007B6713 /* TelemetryApp */,
 				A01CA51F236A3D02007B6713 /* Products */,
 				69FC17B818426CF39FED3FDC /* Pods */,
@@ -285,7 +285,7 @@
 				A01CA51B236A3D02007B6713 /* Frameworks */,
 				A01CA51C236A3D02007B6713 /* Resources */,
 				75A90B1FA7D352775B17FF51 /* [CP] Embed Pods Frameworks */,
-				239981F22378EE09002AEEC9 /* Embed Frameworks */,
+				232C1E9D2379005B005A32D1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -389,7 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				239981F42378EE6E002AEEC9 /* SCIGenericWrapper.swift in Sources */,
+				232C1EA223790108005A32D1 /* SCIGenericWrapper.swift in Sources */,
 				A04D5D252376A7EE00B07241 /* TelemetryChartUpdates.swift in Sources */,
 				A0E27005237645CE00440719 /* SettingViewController.swift in Sources */,
 				A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */,
@@ -576,6 +576,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods",
 				);
 				INFOPLIST_FILE = TelemetryApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -599,6 +600,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods",
 				);
 				INFOPLIST_FILE = TelemetryApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
