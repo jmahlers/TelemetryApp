@@ -50,7 +50,7 @@ extension TelemetryViewController {
         let legend = SCILegendModifier()
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, legend, rolloverModifier])
-        
+
         chart.chartModifiers = groupModifier
     }
     

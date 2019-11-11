@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/IKEventSource/IKEventSource.framework
+${PODS_ROOT}/SciChart/SciChart.framework

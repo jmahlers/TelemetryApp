@@ -13,7 +13,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/ABTSoftware/PodSpecs.git:
     - SciChart
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - Charts
     - IKEventSource
 

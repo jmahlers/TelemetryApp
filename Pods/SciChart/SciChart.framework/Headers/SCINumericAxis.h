@@ -1,0 +1,54 @@
+//******************************************************************************
+// SCICHART® Copyright SciChart Ltd. 2011-2018. All rights reserved.
+//
+// Web: http://www.scichart.com
+// Support: support@scichart.com
+// Sales:   sales@scichart.com
+//
+// SCINumericAxis.h is part of SCICHART®, High Performance Scientific Charts
+// For full terms and conditions of the license, see http://www.scichart.com/scichart-eula/
+//
+// This source code is protected by international copyright law. Unauthorized
+// reproduction, reverse-engineering, or distribution of all or any portion of
+// this source code is strictly prohibited.
+//
+// This source code contains confidential and proprietary trade secrets of
+// SciChart Ltd., and should at no time be copied, transferred, sold,
+// distributed or made available without express written permission.
+//******************************************************************************
+
+/** \addtogroup Axis
+ *  @{
+ */
+
+#import <Foundation/Foundation.h>
+#import "SCIAxisBase.h"
+#import "SCIScientificNotation.h"
+
+/**
+ @brief Axis that represents numeric values and provides tools for layout numeric data in SciChart
+ @see SCIAxisBase
+ */
+@interface SCINumericAxis : SCIAxisBase
+
+/**
+ * Default text formatting for `SCINumericAxis`
+ */
++ (NSString *)defaultTextFormatting;
+
+/**
+ * Default cursor text formatting used by `SCIChartModifierProtocol` for `SCINumericAxis`
+ */
++ (NSString *)defaultCursorTextFormatting;
+
+@property (nonatomic) SCIScientificNotation scientificNotation;
+
+/**
+ @brief Gets or sets axis label number formatter
+ @discussion If value is not set labels are formated with textFormatting
+ */
+@property (nonatomic) NSNumberFormatter *numberFormatter __deprecated;
+
+@end
+
+/** @}*/
