@@ -13,13 +13,13 @@
         <!--Settings View Controller-->
         <scene sceneID="OV1-Ia-LEO">
             <objects>
-                <viewController storyboardIdentifier="SettingsViewController" id="RcG-4C-93E" customClass="SettingsViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="RcG-4C-93E" customClass="SettingsViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="fxR-8a-264">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sBn-KU-fJL">
-                                <rect key="frame" x="0.0" y="93" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="49" width="414" height="813"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -45,7 +45,7 @@
         <!--Bug Report Controller-->
         <scene sceneID="IQN-xE-FXR">
             <objects>
-                <viewController id="KmH-as-yKy" customClass="BugReportController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="overFullScreen" id="KmH-as-yKy" customClass="BugReportController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CDp-5z-Jzr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,10 +78,11 @@
         <scene sceneID="Iov-sU-ah4">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Vb-uN-02c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController storyboardIdentifier="settingsNavController" automaticallyAdjustsScrollViewInsets="NO" id="4qr-2w-PNW" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="settingsNavController" automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="overFullScreen" navigationBarHidden="YES" id="4qr-2w-PNW" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bdf-Dl-jbZ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

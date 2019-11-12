@@ -26,8 +26,7 @@ class Telemetry: EventSource {
     fileprivate var generalSensors:[Sensor] = []
     ///Timer that tracks the time since the app launched.
     var timer: Date?
-    //Dictionary to assign higher sorting priority to specific sensors.
-    //internal var sensorPriority:[Sensor:Int] = [:]     //Deprocated with addition of favoriteSensors.
+    
     var favoriteCharts: [SmallTelemetrySciChart] = []
     var generalCharts: [SmallTelemetrySciChart] = []
     var numConnection = 0

@@ -112,7 +112,6 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
                 }
                 queueIndex += 1
                 
-                
             }else{
                 let chart = Telemetry.shared.generalCharts[row]
                 
@@ -212,20 +211,20 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
         self.settingsBlur = UIVisualEffectView(effect: blurEffect)
         self.settingsBlur!.frame = self.view.frame
         //self.view.addSubview(self.settingsBlur!)
-        let settingsViewController: SettingsViewController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
-        settingsViewController.modalPresentationStyle = .popover
-        settingsViewController.modalTransitionStyle = .crossDissolve
-        
-        //let navigationController = UINavigationController(rootViewController: settingsViewController)
-        //navigationController.navigationBar.barStyle = .blackTranslucent
-        
-        let popOverVC = settingsViewController.popoverPresentationController
+        //let settingsViewController: SettingsViewController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        //settingsViewController.modalPresentationStyle = .popover
+        //settingsViewController.modalTransitionStyle = .crossDissolve
+
+        let navigationController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "settingsNavController") as! UINavigationController
+        navigationController.modalPresentationStyle = .popover
+        navigationController.modalTransitionStyle = .crossDissolve
+        let popOverVC = navigationController.popoverPresentationController
         popOverVC?.permittedArrowDirections = .up
         popOverVC?.sourceView = self.topView
         popOverVC?.sourceRect = self.settingButton.frame
-        settingsViewController.preferredContentSize = CGSize(width: settingsViewController.width, height: settingsViewController.height)
+        navigationController.preferredContentSize = CGSize(width: 190, height: 350)
         popOverVC?.delegate = self
-        self.present(settingsViewController, animated: true, completion: nil)
+        self.present(navigationController, animated: true, completion: nil)
     }
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none

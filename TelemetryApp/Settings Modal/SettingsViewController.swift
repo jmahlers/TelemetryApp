@@ -12,9 +12,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
 
     @IBOutlet weak var settingsTable: UITableView!
-    
-    var height = CGFloat(350)
-    var width = CGFloat(190)
+//    var height = CGFloat(350)
+//    var width = CGFloat(190)
     var settings:[String] = ["Bug Report", "Console","Dock Options","Favorites","Settings"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +47,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     // This function is called before the segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
+        segue.destination.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height);
     }
 }
