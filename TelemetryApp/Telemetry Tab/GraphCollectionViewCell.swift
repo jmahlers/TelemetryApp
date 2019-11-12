@@ -9,8 +9,6 @@
 import UIKit
 
 class GraphCollectionViewCell: UICollectionViewCell {
-    
-    
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var graphContainer: UIView!
 }

@@ -28,8 +28,8 @@ class Telemetry: EventSource {
     var timer: Date?
     //Dictionary to assign higher sorting priority to specific sensors.
     //internal var sensorPriority:[Sensor:Int] = [:]     //Deprocated with addition of favoriteSensors.
-    var favoriteCharts: [SmallTelemetryChartView] = []
-    var generalCharts: [SmallTelemetryChartView] = []
+    var favoriteCharts: [SmallTelemetrySciChart] = []
+    var generalCharts: [SmallTelemetrySciChart] = []
     var numConnection = 0
     
     ///Singleton of Telemetry that connects to the telemetry server
