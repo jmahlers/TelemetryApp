@@ -33,6 +33,8 @@
 		A01194312373FB9B002625C5 /* DockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01194302373FB9B002625C5 /* DockManager.swift */; };
 		A0188D2D237A0A8400D95F00 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0188D2B237A0A8400D95F00 /* SettingsViewController.swift */; };
 		A0188D2E237A0A8400D95F00 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0188D2C237A0A8400D95F00 /* SettingsViewController.xib */; };
+		A0188D36237A30CE00D95F00 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0188D34237A30CE00D95F00 /* SettingsCell.swift */; };
+		A0188D37237A30CE00D95F00 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0188D35237A30CE00D95F00 /* SettingsCell.xib */; };
 		A01C1E49236A47770026D76F /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C1E48236A47770026D76F /* Telemetry.swift */; };
 		A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA521236A3D02007B6713 /* AppDelegate.swift */; };
 		A01CA524236A3D02007B6713 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA523236A3D02007B6713 /* ViewController.swift */; };
@@ -99,6 +101,8 @@
 		A01194302373FB9B002625C5 /* DockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockManager.swift; sourceTree = "<group>"; };
 		A0188D2B237A0A8400D95F00 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A0188D2C237A0A8400D95F00 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		A0188D34237A30CE00D95F00 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		A0188D35237A30CE00D95F00 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
 		A01C1E48236A47770026D76F /* Telemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
 		A01CA51E236A3D02007B6713 /* TelemetryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelemetryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01CA521236A3D02007B6713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -235,6 +239,8 @@
 			children = (
 				A0188D2B237A0A8400D95F00 /* SettingsViewController.swift */,
 				A0188D2C237A0A8400D95F00 /* SettingsViewController.xib */,
+				A0188D34237A30CE00D95F00 /* SettingsCell.swift */,
+				A0188D35237A30CE00D95F00 /* SettingsCell.xib */,
 			);
 			path = "Settings Modal";
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				A01CA52C236A3D03007B6713 /* LaunchScreen.storyboard in Resources */,
 				A01194282373EFA6002625C5 /* DockMinimizedView.xib in Resources */,
 				A01CA529236A3D03007B6713 /* Assets.xcassets in Resources */,
+				A0188D37237A30CE00D95F00 /* SettingsCell.xib in Resources */,
 				A0188D2E237A0A8400D95F00 /* SettingsViewController.xib in Resources */,
 				A08290F92375592B00AF0E20 /* HeaderView.xib in Resources */,
 				A0E2701123768F0800440719 /* DockExpandedCell.xib in Resources */,
@@ -405,6 +412,7 @@
 				A04D5D252376A7EE00B07241 /* TelemetryChartUpdates.swift in Sources */,
 				A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */,
 				2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */,
+				A0188D36237A30CE00D95F00 /* SettingsCell.swift in Sources */,
 				A01CA524236A3D02007B6713 /* ViewController.swift in Sources */,
 				A011941A23738470002625C5 /* Protocols.swift in Sources */,
 				A0F3D86223721AFD00D10CF8 /* Sensor.swift in Sources */,
