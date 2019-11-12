@@ -14,14 +14,17 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
     
     //We need to change this so that charts maintains order with favorites and general
     //Ideally I think this should be to arrays that have matching orders to the above arrays
-
-    
     var graphingQueues: [DispatchQueue] = []
-    var queueIndex = 0
+    var queueIndex = 0 {
+        didSet {
+            if self.queueIndex == self.numThreads {
+                self.queueIndex = 0
+            }
+        }
+    }
     let numThreads = 12
+    
 //    let graphingQueue = DispatchQueue(label: "graphingQueue", qos: .background, attributes: .concurrent)
-
- 
     let chartUpdateFrequency: Double = 0.5 // seconds
     var lastGraphTime: Date = Date()
     var lastDockTime: Date = Date()
@@ -62,8 +65,8 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
         for i in 0..<numThreads {
             graphingQueues.append(DispatchQueue(label: "graphingQueue"+String(i), qos: .background, attributes: .concurrent))
         }
-        
-        updateChartData()
+//
+//        updateChartData()
         
     }
     
@@ -72,7 +75,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
         
         Telemetry.shared.delegate = self
         
-        updateChartData()
+//        updateChartData()
     }
     
     
@@ -90,10 +93,54 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
         }else{
             UIView.performWithoutAnimation {
             
-                if abs(now.timeIntervalSince(lastGraphTime)) > chartUpdateFrequency {
-                    updateChartData()
-                    lastGraphTime = now
+                for chart in Telemetry.shared.generalCharts where chart.key == key {
+                    
+                    graphingQueues[queueIndex].sync {
+                        chart.scatterDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
+                        let avgPoint = SciChartRollingAverageUtils.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
+                        chart.lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(avgPoint))
+                        
+                        let maxIndex = chart.lineDataSeries.count() - 1
+                        
+                        let max = SCIGenericDouble(chart.lineDataSeries.xValues().value(at: maxIndex))
+                        
+                        let visibleRange = chart.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+                        
+                        visibleRange.min = SCIGeneric(dataPoint.time - chart.secondsInPastToPlot)
+                        visibleRange.max = SCIGeneric(dataPoint.time + 1)
+                        
+                        chart.invalidateElement()
+                    }
+                    queueIndex += 1
+                    
                 }
+                
+                for chart in Telemetry.shared.favoriteCharts where chart.key == key {
+                    
+                    graphingQueues[queueIndex].sync {
+                        chart.scatterDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
+                        let avgPoint = SciChartRollingAverageUtils.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
+                        chart.lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(avgPoint))
+                        
+                        let maxIndex = chart.lineDataSeries.count() - 1
+                        
+                        let max = SCIGenericDouble(chart.lineDataSeries.xValues().value(at: maxIndex))
+                        
+                        let visibleRange = chart.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+                        
+                        visibleRange.min = SCIGeneric(dataPoint.time - chart.secondsInPastToPlot)
+                        visibleRange.max = SCIGeneric(dataPoint.time + 1)
+                        
+                        chart.invalidateElement()
+                    }
+                    queueIndex += 1
+                    
+                }
+                
+//                if abs(now.timeIntervalSince(lastGraphTime)) > chartUpdateFrequency {
+//                    updateChartData()
+//                    lastGraphTime = now
+//                }
  
            //     let chart = (section == 0 ? Telemetry.shared.favoriteCharts[row] : Telemetry.shared.generalCharts[row])
               //  self.updateChartData(chart: chart)
@@ -110,56 +157,57 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        userIsScrolling = true
+//        userIsScrolling = true
     }
     
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView,
                                   willDecelerate decelerate: Bool) {
-        userIsScrolling = false
-        updateChartData()
-        lastGraphTime = Date()
+//        userIsScrolling = false
+//        updateChartData()
+//        lastGraphTime = Date()
     }
     
     func newSensor(sensor: Sensor) {
-        let chart = SmallTelemetryChartView(frame: .zero)
-        chart.setUp(key: sensor.key)
-        chart.delegate = self
-        updateChartData(chart: chart)
+        let chart = SmallTelemetrySciChart(frame: .zero)
+        
+        chart.initialize(key: sensor.key)
+        
         if Telemetry.shared.getGeneralSensors().contains(sensor) {
             Telemetry.shared.generalCharts.append(chart)
         } else {
             Telemetry.shared.favoriteCharts.append(chart)
         }
+        
         graphView.reloadData()
     }
     
-    override func updateChartData() {
-        
-        if !userIsScrolling {
-        
-            for chart in Telemetry.shared.favoriteCharts {
-                graphingQueues[queueIndex].sync {
-                    self.updateChartData(chart: chart)
-                }
-                queueIndex += 1
-                if queueIndex == numThreads {
-                    queueIndex = 0
-                }
-            }
-            
-            for chart in Telemetry.shared.generalCharts {
-                graphingQueues[queueIndex].sync {
-                    self.updateChartData(chart: chart)
-                }
-                queueIndex += 1
-                if queueIndex == numThreads {
-                    queueIndex = 0
-                }
-            }
-        
-        }
-    }
+//    override func updateChartData() {
+//
+//        if !userIsScrolling {
+//
+//            for chart in Telemetry.shared.favoriteCharts {
+//                graphingQueues[queueIndex].sync {
+//                    self.updateChartData(chart: chart)
+//                }
+//                queueIndex += 1
+//                if queueIndex == numThreads {
+//                    queueIndex = 0
+//                }
+//            }
+//
+//            for chart in Telemetry.shared.generalCharts {
+//                graphingQueues[queueIndex].sync {
+//                    self.updateChartData(chart: chart)
+//                }
+//                queueIndex += 1
+//                if queueIndex == numThreads {
+//                    queueIndex = 0
+//                }
+//            }
+//
+//        }
+//    }
     @IBAction func showSettings(_ sender: Any) {
         let blurEffect = UIBlurEffect(style: .light)
         self.settingsBlur = UIVisualEffectView(effect: blurEffect)

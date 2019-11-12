@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230A0CD5237A77E3002A208C /* SciChartRollingAverageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0CD4237A77E3002A208C /* SciChartRollingAverageUtils.swift */; };
 		2314FB8023736933005ACD79 /* RollingAverageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FB7F23736933005ACD79 /* RollingAverageUtils.swift */; };
 		2314FB8223736955005ACD79 /* BaseChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FB8123736954005ACD79 /* BaseChartViewController.swift */; };
 		2314FB9223736AAF005ACD79 /* IntAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FB8E23736AAF005ACD79 /* IntAxisValueFormatter.swift */; };
@@ -76,6 +77,7 @@
 
 /* Begin PBXFileReference section */
 		144BD5E6415349B6695AAAEF /* Pods-TelemetryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelemetryApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp.debug.xcconfig"; sourceTree = "<group>"; };
+		230A0CD4237A77E3002A208C /* SciChartRollingAverageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciChartRollingAverageUtils.swift; sourceTree = "<group>"; };
 		2314FB7F23736933005ACD79 /* RollingAverageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollingAverageUtils.swift; sourceTree = "<group>"; };
 		2314FB8123736954005ACD79 /* BaseChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChartViewController.swift; sourceTree = "<group>"; };
 		2314FB8E23736AAF005ACD79 /* IntAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntAxisValueFormatter.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				A011941923738470002625C5 /* Protocols.swift */,
 				A0FE983A2374A8D20033F6E6 /* Extensions.swift */,
 				A01C1E48236A47770026D76F /* Telemetry.swift */,
+				230A0CD4237A77E3002A208C /* SciChartRollingAverageUtils.swift */,
 				A0F3D86123721AFD00D10CF8 /* Sensor.swift */,
 				A0398BEC2374F679005454E2 /* WebsiteController.swift */,
 				A0188D2F237A0A9500D95F00 /* Settings Modal */,
@@ -448,6 +451,7 @@
 				A0188D2D237A0A8400D95F00 /* SettingsViewController.swift in Sources */,
 				A011942C2373EFC6002625C5 /* DockMinimizedView.swift in Sources */,
 				A073C3EF2375F43200BDB7CD /* TelemetryCollectionViews.swift in Sources */,
+				230A0CD5237A77E3002A208C /* SciChartRollingAverageUtils.swift in Sources */,
 				A01C1E49236A47770026D76F /* Telemetry.swift in Sources */,
 				23EB4A972375033A0061A700 /* DetailTelemetryChartView.swift in Sources */,
 				239981EE2378ED39002AEEC9 /* SciChartViewController.swift in Sources */,
