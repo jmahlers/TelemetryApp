@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qbj-MS-bTP">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="OV1-Ia-LEO">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="RcG-4C-93E" customClass="SettingsViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="fxR-8a-264">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sBn-KU-fJL">
+                                <rect key="frame" x="0.0" y="93" width="414" height="769"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9Ta-0j-QNJ" firstAttribute="trailing" secondItem="sBn-KU-fJL" secondAttribute="trailing" id="42C-hF-gwr"/>
+                            <constraint firstItem="sBn-KU-fJL" firstAttribute="leading" secondItem="9Ta-0j-QNJ" secondAttribute="leading" id="PIU-63-nLn"/>
+                            <constraint firstItem="sBn-KU-fJL" firstAttribute="top" secondItem="9Ta-0j-QNJ" secondAttribute="top" constant="5" id="fUg-0s-rzV"/>
+                            <constraint firstItem="9Ta-0j-QNJ" firstAttribute="bottom" secondItem="sBn-KU-fJL" secondAttribute="bottom" id="kCh-sD-mXO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9Ta-0j-QNJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XoR-rd-Gew"/>
+                    <connections>
+                        <outlet property="settingsTable" destination="sBn-KU-fJL" id="gyc-V5-3Lo"/>
+                        <segue destination="KmH-as-yKy" kind="show" identifier="ShowBugReport" id="Aff-PU-D9C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YsP-I3-3Id" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="871.01449275362324" y="-13.392857142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mey-MF-7fd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qbj-MS-bTP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l4K-He-6qP">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RcG-4C-93E" kind="relationship" relationship="rootViewController" id="Fqh-V6-vAd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wFA-Og-olx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-39.130434782608695" y="-13.392857142857142"/>
+        </scene>
+        <!--Bug Report Controller-->
+        <scene sceneID="IQN-xE-FXR">
+            <objects>
+                <viewController id="KmH-as-yKy" customClass="BugReportController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CDp-5z-Jzr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="qsE-PZ-PW9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wzf-se-613" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-101" y="794"/>
+        </scene>
+    </scenes>
+</document>
