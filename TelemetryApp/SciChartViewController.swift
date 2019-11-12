@@ -11,32 +11,31 @@ import SciChart
 
 class SciChartViewController: UIViewController, TelemetryDelegate {
     func manageMessage(key: String, dataPoint: DataPoint) {
-        i += 1
         
-        // appending new data points into the line and scatter data series
-        lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
-        //scatterDataSeries.appendX(SCIGeneric(i), y: SCIGeneric(cos(Double(i)*0.1 + phase)))
-        
-        phase += 0.01
-        
-        let minIndex = lineDataSeries.count() - Int32(totalCapacity)
-        let maxIndex = lineDataSeries.count() - 1
-        
-        let max = SCIGenericDouble(lineDataSeries.xValues().value(at: maxIndex))
-        let min = SCIGenericDouble(lineDataSeries.xValues().value(at: minIndex))
-        
-        let visibleRange = sciChartSurface!.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
-        let vMin = SCIGenericDouble(visibleRange.min) + 1.0
-        let vMax = SCIGenericDouble(visibleRange.max) + totalCapacity * 0.1 + 1.0
-        
-        // calculating new visible range to simulate the auto scrolling functionality
-        if vMin < min && vMax > max{
-            visibleRange.min = SCIGeneric(SCIGenericDouble(visibleRange.min) + 1.0)
-            visibleRange.max = SCIGeneric(SCIGenericDouble(visibleRange.max) + 1.0)
+        if (key == chart?.key) {
+
+            lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
+            scatterDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
+            
+            let minIndex = lineDataSeries.count() - Int32(totalCapacity)
+            let maxIndex = lineDataSeries.count() - 1
+            
+            let max = SCIGenericDouble(lineDataSeries.xValues().value(at: maxIndex))
+            let min = SCIGenericDouble(SCIGeneric(max - chart!.secondsInPastToPlot))
+            
+            let visibleRange = chart!.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+//            let vMin = SCIGenericDouble(visibleRange.min) + dataPoint.time - chart!.secondsInPastToPlot
+//            let vMax = SCIGenericDouble(visibleRange.max) + dataPoint.time
+            
+            // calculating new visible range to simulate the auto scrolling functionality
+//            if vMin < min && vMax > max{
+            visibleRange.min = SCIGeneric(0)
+            visibleRange.max = SCIGeneric(dataPoint.time)
+//            }
+            
+            // as usual - DON'T  forget to call invalidateElement method to update the visual part of SciChart
+            chart?.invalidateElement()
         }
-        
-        // as usual - DON'T  forget to call invalidateElement method to update the visual part of SciChart
-        sciChartSurface?.invalidateElement()
     }
     
     func manageOpen() {
@@ -51,7 +50,7 @@ class SciChartViewController: UIViewController, TelemetryDelegate {
         
     }
     
-    var sciChartSurface: SCIChartSurface?
+    var chart: SmallTelemetrySciChart?
     
     var lineDataSeries: SCIXyDataSeries!
     var scatterDataSeries: SCIXyDataSeries!
@@ -68,24 +67,26 @@ class SciChartViewController: UIViewController, TelemetryDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sciChartSurface = SCIChartSurface(frame: self.view.bounds)
-        sciChartSurface?.translatesAutoresizingMaskIntoConstraints = true
+        chart = SmallTelemetrySciChart(frame: CGRect(x: 20, y: 150, width: 200, height: 200))
+        chart?.translatesAutoresizingMaskIntoConstraints = true
         // Set the autoResizingMask property so the chart will fit the screen when we rotate the device
-        sciChartSurface?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        self.view.addSubview(sciChartSurface!)
+        chart?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        self.view.addSubview(chart!)
         
         let xAxis = SCINumericAxis()
         xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        sciChartSurface?.xAxes.add(xAxis)
+        chart?.xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        sciChartSurface?.yAxes.add(yAxis)
+        chart?.yAxes.add(yAxis)
         yAxis.autoRange = .always
         
         createDataSeries()
         createRenderableSeries()
         addModifiers()
+        
+        chart?.key = "FrontRightBrakeTemp"
         
         Telemetry.shared.delegate = self
     }
@@ -110,22 +111,22 @@ class SciChartViewController: UIViewController, TelemetryDelegate {
     }
     
     func addModifiers(){
-        let xAxisDragmodifier = SCIXAxisDragModifier()
-        xAxisDragmodifier.dragMode = .pan
-        xAxisDragmodifier.clipModeX = .none
-        
-        let yAxisDragmodifier = SCIYAxisDragModifier()
-        yAxisDragmodifier.dragMode = .pan
-        
-        let extendZoomModifier = SCIZoomExtentsModifier()
-        let pinchZoomModifier = SCIPinchZoomModifier()
-        
-        let rolloverModifier = SCIRolloverModifier()
-        let legend = SCILegendModifier()
-        
-        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, legend, rolloverModifier])
-        
-        sciChartSurface?.chartModifiers = groupModifier
+//        let xAxisDragmodifier = SCIXAxisDragModifier()
+//        xAxisDragmodifier.dragMode = .pan
+//        xAxisDragmodifier.clipModeX = .none
+//        
+//        let yAxisDragmodifier = SCIYAxisDragModifier()
+//        yAxisDragmodifier.dragMode = .pan
+//        
+//        let extendZoomModifier = SCIZoomExtentsModifier()
+//        let pinchZoomModifier = SCIPinchZoomModifier()
+//        
+//        let rolloverModifier = SCIRolloverModifier()
+//        let legend = SCILegendModifier()
+//        
+//        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, legend, rolloverModifier])
+//        
+//        chart?.chartModifiers = groupModifier
     }
     
     func updatingDataPoints(timer:Timer){
@@ -144,7 +145,7 @@ class SciChartViewController: UIViewController, TelemetryDelegate {
         let max = SCIGenericDouble(lineDataSeries.xValues().value(at: maxIndex))
         let min = SCIGenericDouble(lineDataSeries.xValues().value(at: minIndex))
         
-        let visibleRange = sciChartSurface!.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+        let visibleRange = chart!.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
         let vMin = SCIGenericDouble(visibleRange.min) + 1.0
         let vMax = SCIGenericDouble(visibleRange.max) + totalCapacity * 0.1 + 1.0
         
@@ -155,18 +156,18 @@ class SciChartViewController: UIViewController, TelemetryDelegate {
         }
         
         // as usual - DON'T  forget to call invalidateElement method to update the visual part of SciChart
-        sciChartSurface?.invalidateElement()
+        chart?.invalidateElement()
     }
     
     func createDataSeries(){
         // Init line data series
         lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
-        lineDataSeries.fifoCapacity = 500
+        lineDataSeries.fifoCapacity = 10
         lineDataSeries.seriesName = "line series"
         
         // Init scatter data series
         scatterDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
-        scatterDataSeries.fifoCapacity = 500
+        scatterDataSeries.fifoCapacity = 10
         scatterDataSeries.seriesName = "scatter series"
         
         guard let points = Telemetry.shared.dataSource[Sensor(key: "FrontRightBrakeTemp")] else {
@@ -189,7 +190,7 @@ class SciChartViewController: UIViewController, TelemetryDelegate {
         scatterRenderableSeries = SCIXyScatterRenderableSeries()
         scatterRenderableSeries.dataSeries = scatterDataSeries
         
-        sciChartSurface?.renderableSeries.add(lineRenderableSeries)
-        sciChartSurface?.renderableSeries.add(scatterRenderableSeries)
+        chart?.renderableSeries.add(lineRenderableSeries)
+        chart?.renderableSeries.add(scatterRenderableSeries)
     }
 }
