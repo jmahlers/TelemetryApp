@@ -15,7 +15,13 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
     //We need to change this so that charts maintains order with favorites and general
     //Ideally I think this should be to arrays that have matching orders to the above arrays
     var graphingQueues: [DispatchQueue] = []
-    var queueIndex = 0
+    var queueIndex = 0 {
+        didSet {
+            if self.queueIndex == self.numThreads {
+                self.queueIndex = 0
+            }
+        }
+    }
     let numThreads = 12
     
 //    let graphingQueue = DispatchQueue(label: "graphingQueue", qos: .background, attributes: .concurrent)
@@ -56,9 +62,9 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
         dockOutlet.addGestureRecognizer(panGesture)
         dockOutlet.roundTopCorners(cornerRadius: 12.5)
         
-//        for i in 0..<numThreads {
-//            graphingQueues.append(DispatchQueue(label: "graphingQueue"+String(i), qos: .background, attributes: .concurrent))
-//        }
+        for i in 0..<numThreads {
+            graphingQueues.append(DispatchQueue(label: "graphingQueue"+String(i), qos: .background, attributes: .concurrent))
+        }
 //
 //        updateChartData()
         
@@ -89,38 +95,46 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
             
                 for chart in Telemetry.shared.generalCharts where chart.key == key {
                     
-                    chart.scatterDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
-                    let avgPoint = SciChartRollingAverageUtils.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
-                    chart.lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(avgPoint))
+                    graphingQueues[queueIndex].sync {
+                        chart.scatterDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
+                        let avgPoint = SciChartRollingAverageUtils.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
+                        chart.lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(avgPoint))
+                        
+                        let maxIndex = chart.lineDataSeries.count() - 1
+                        
+                        let max = SCIGenericDouble(chart.lineDataSeries.xValues().value(at: maxIndex))
+                        
+                        let visibleRange = chart.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+                        
+                        visibleRange.min = SCIGeneric(dataPoint.time - chart.secondsInPastToPlot)
+                        visibleRange.max = SCIGeneric(dataPoint.time + 1)
+                        
+                        chart.invalidateElement()
+                    }
+                    queueIndex += 1
                     
-                    let maxIndex = chart.lineDataSeries.count() - 1
-                    
-                    let max = SCIGenericDouble(chart.lineDataSeries.xValues().value(at: maxIndex))
-                    
-                    let visibleRange = chart.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
-
-                    visibleRange.min = SCIGeneric(dataPoint.time - chart.secondsInPastToPlot)
-                    visibleRange.max = SCIGeneric(dataPoint.time + 1)
-
-                    chart.invalidateElement()
                 }
                 
                 for chart in Telemetry.shared.favoriteCharts where chart.key == key {
                     
-                    chart.scatterDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
-                    let avgPoint = SciChartRollingAverageUtils.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
-                    chart.lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(avgPoint))
+                    graphingQueues[queueIndex].sync {
+                        chart.scatterDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
+                        let avgPoint = SciChartRollingAverageUtils.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
+                        chart.lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(avgPoint))
+                        
+                        let maxIndex = chart.lineDataSeries.count() - 1
+                        
+                        let max = SCIGenericDouble(chart.lineDataSeries.xValues().value(at: maxIndex))
+                        
+                        let visibleRange = chart.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+                        
+                        visibleRange.min = SCIGeneric(dataPoint.time - chart.secondsInPastToPlot)
+                        visibleRange.max = SCIGeneric(dataPoint.time + 1)
+                        
+                        chart.invalidateElement()
+                    }
+                    queueIndex += 1
                     
-                    let maxIndex = chart.lineDataSeries.count() - 1
-                    
-                    let max = SCIGenericDouble(chart.lineDataSeries.xValues().value(at: maxIndex))
-                    
-                    let visibleRange = chart.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
-                    
-                    visibleRange.min = SCIGeneric(dataPoint.time - chart.secondsInPastToPlot)
-                    visibleRange.max = SCIGeneric(dataPoint.time + 1)
-                    
-                    chart.invalidateElement()
                 }
                 
 //                if abs(now.timeIntervalSince(lastGraphTime)) > chartUpdateFrequency {
