@@ -10,15 +10,11 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    var height = CGFloat(400)
+    var width = CGFloat(300)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
-
-    @IBAction func dismissSettings(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
 }

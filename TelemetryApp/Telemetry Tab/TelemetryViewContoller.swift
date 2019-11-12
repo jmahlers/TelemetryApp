@@ -10,7 +10,7 @@ import UIKit
 import Charts
 import SciChart
 
-class TelemetryViewController: BaseChartViewController, TelemetryDelegate{
+class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPopoverPresentationControllerDelegate{
     
     //We need to change this so that charts maintains order with favorites and general
     //Ideally I think this should be to arrays that have matching orders to the above arrays
@@ -32,10 +32,12 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate{
     @IBOutlet var dockHeight: NSLayoutConstraint!
     @IBOutlet weak var graphView: UICollectionView!
     @IBOutlet weak var dockBlur: UIView!
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var topViewHeight: NSLayoutConstraint!
     @IBOutlet weak var settingButton: UIButton!
     
     var panGesture = UIPanGestureRecognizer()
+    var settingsBlur: UIVisualEffectView?
     var upwardState = false
     var dockDidTransition = false
     
@@ -159,12 +161,35 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate{
         }
     }
     @IBAction func showSettings(_ sender: Any) {
+        let blurEffect = UIBlurEffect(style: .dark)
+        self.settingsBlur = UIVisualEffectView(effect: blurEffect)
+        self.settingsBlur!.frame = self.view.frame
+        self.view.addSubview(self.settingsBlur!)
         let settingsViewController = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
-        settingsViewController.modalPresentationStyle = .overFullScreen
+        settingsViewController.modalPresentationStyle = .popover
         settingsViewController.modalTransitionStyle = .crossDissolve
+    
+        let popOverVC = settingsViewController.popoverPresentationController
+        popOverVC?.permittedArrowDirections = .up
+        popOverVC?.sourceView = self.topView
+        popOverVC?.sourceRect = self.settingButton.frame
+        settingsViewController.preferredContentSize = CGSize(width: settingsViewController.width, height: settingsViewController.height)
+        popOverVC?.delegate = self
         self.present(settingsViewController, animated: true, completion: nil)
     }
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        
+    }
     
+    func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        UIView.transition(with: self.view, duration: 0.25, options: [.transitionCrossDissolve], animations: {
+            self.settingsBlur?.removeFromSuperview()
+        }, completion: nil)
+        return true
+    }
 }
 
 

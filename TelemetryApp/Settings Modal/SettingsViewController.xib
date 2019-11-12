@@ -20,40 +20,43 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <visualEffectView opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXK-en-xqA">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4F7-dR-d7v">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ReN-ko-6gY">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NU3-e1-TdX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TEST LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeV-s0-RUX">
-                                <rect key="frame" x="128" y="314" width="159" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQP-iH-67t">
+                                <rect key="frame" x="167" y="421" width="80" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="EAB-S0-o3O"/>
+                                    <constraint firstAttribute="width" constant="80" id="Rd6-X8-yNg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29U-rd-Ajp">
-                                <rect key="frame" x="44" y="23" width="40" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Leave"/>
-                                <connections>
-                                    <action selector="dismissSettings:" destination="-1" eventType="primaryActionTriggered" id="1IE-Fk-Pfn"/>
-                                </connections>
-                            </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="eQP-iH-67t" firstAttribute="centerY" secondItem="NU3-e1-TdX" secondAttribute="centerY" id="h1F-xw-wMA"/>
+                            <constraint firstItem="eQP-iH-67t" firstAttribute="centerX" secondItem="NU3-e1-TdX" secondAttribute="centerX" id="zHw-fU-hi4"/>
+                        </constraints>
                     </view>
-                    <blurEffect style="light"/>
+                    <vibrancyEffect>
+                        <blurEffect style="extraLight"/>
+                    </vibrancyEffect>
                 </visualEffectView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="oXK-en-xqA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ZHI-gg-JAp"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="oXK-en-xqA" secondAttribute="bottom" id="amO-hf-Kc5"/>
-                <constraint firstItem="oXK-en-xqA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="sRL-lc-Brj"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oXK-en-xqA" secondAttribute="trailing" id="xJx-mv-kcl"/>
+                <constraint firstItem="ReN-ko-6gY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0CU-1C-DQe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ReN-ko-6gY" secondAttribute="bottom" id="40b-nU-811"/>
+                <constraint firstItem="ReN-ko-6gY" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Tsg-M6-W5c"/>
+                <constraint firstItem="ReN-ko-6gY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WvE-mA-7XG"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="107.24637681159422" y="-83.035714285714278"/>
         </view>
     </objects>
 </document>
