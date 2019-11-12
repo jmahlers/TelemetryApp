@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var settingsCollection: UITableView!
+    
     var height = CGFloat(400)
     var width = CGFloat(300)
     

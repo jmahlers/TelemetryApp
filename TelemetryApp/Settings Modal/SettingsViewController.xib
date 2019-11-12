@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="TelemetryApp" customModuleProvider="target">
             <connections>
+                <outlet property="settingsCollection" destination="dzP-J5-fqs" id="1Tx-cG-LK1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,39 +21,17 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ReN-ko-6gY">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NU3-e1-TdX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQP-iH-67t">
-                                <rect key="frame" x="167" y="421" width="80" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="EAB-S0-o3O"/>
-                                    <constraint firstAttribute="width" constant="80" id="Rd6-X8-yNg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="eQP-iH-67t" firstAttribute="centerY" secondItem="NU3-e1-TdX" secondAttribute="centerY" id="h1F-xw-wMA"/>
-                            <constraint firstItem="eQP-iH-67t" firstAttribute="centerX" secondItem="NU3-e1-TdX" secondAttribute="centerX" id="zHw-fU-hi4"/>
-                        </constraints>
-                    </view>
-                    <vibrancyEffect>
-                        <blurEffect style="extraLight"/>
-                    </vibrancyEffect>
-                </visualEffectView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dzP-J5-fqs">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="ReN-ko-6gY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0CU-1C-DQe"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ReN-ko-6gY" secondAttribute="bottom" id="40b-nU-811"/>
-                <constraint firstItem="ReN-ko-6gY" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Tsg-M6-W5c"/>
-                <constraint firstItem="ReN-ko-6gY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WvE-mA-7XG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dzP-J5-fqs" secondAttribute="bottom" id="0Dj-B2-T6Y"/>
+                <constraint firstItem="dzP-J5-fqs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5rC-mD-sfc"/>
+                <constraint firstItem="dzP-J5-fqs" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="5vr-Hk-mFR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dzP-J5-fqs" secondAttribute="trailing" id="OKC-B1-6lO"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
