@@ -19,6 +19,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         settingsTable.dataSource = self
+        settingsTable.delegate = self
          let cellNib = UINib(nibName: "SettingsCell", bundle: nil)
         settingsTable.register(cellNib, forCellReuseIdentifier: "SettingsCell")
         // Do any additional setup after loading the view.
@@ -34,5 +35,20 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         cell.settingLabel.text = settings[indexPath.row]
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row{
+        case 1:
+            self.performSegue(withIdentifier: "ShowBugReport", sender: self)
+            break
+        default:
+            self.performSegue(withIdentifier: "ShowBugReport", sender: self)
+            break
+        }
+    }
     
+    // This function is called before the segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+    }
 }

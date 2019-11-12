@@ -161,14 +161,17 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
         }
     }
     @IBAction func showSettings(_ sender: Any) {
-        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffect = UIBlurEffect(style: .light)
         self.settingsBlur = UIVisualEffectView(effect: blurEffect)
         self.settingsBlur!.frame = self.view.frame
-        self.view.addSubview(self.settingsBlur!)
+        //self.view.addSubview(self.settingsBlur!)
         let settingsViewController: SettingsViewController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
         settingsViewController.modalPresentationStyle = .popover
         settingsViewController.modalTransitionStyle = .crossDissolve
-    
+        
+        //let navigationController = UINavigationController(rootViewController: settingsViewController)
+        //navigationController.navigationBar.barStyle = .blackTranslucent
+        
         let popOverVC = settingsViewController.popoverPresentationController
         popOverVC?.permittedArrowDirections = .up
         popOverVC?.sourceView = self.topView
