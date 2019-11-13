@@ -252,6 +252,7 @@
                         <outlet property="topViewHeight" destination="Z76-WF-MKs" id="HLP-j8-rhr"/>
                         <segue destination="M9T-He-S3i" kind="show" identifier="showBugReport" id="EKH-sC-heO"/>
                         <segue destination="aYq-2s-EgA" kind="show" identifier="detailLiveGraph" id="KFr-WC-f00"/>
+                        <segue destination="Cc8-Bw-wHI" kind="show" identifier="showWeather" id="IZ9-jj-gGa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGs-nM-0qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -288,13 +289,21 @@
             </objects>
             <point key="canvasLocation" x="2082.608695652174" y="709.82142857142856"/>
         </scene>
+        <!--WeatherViewController-->
+        <scene sceneID="ZTP-j3-M7c">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Weather" storyboardName="Weather" referencedIdentifier="WeatherViewController" id="Cc8-Bw-wHI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yia-IH-s9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="988" y="423"/>
+        </scene>
         <!--BugReportController-->
         <scene sceneID="AJT-iL-f2W">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Settings" storyboardName="Settings" referencedIdentifier="BugReportController" id="M9T-He-S3i" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="BugReport" storyboardName="BugReport" referencedIdentifier="BugReportController" id="M9T-He-S3i" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUT-dm-XwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1319" y="419"/>
+            <point key="canvasLocation" x="1322" y="419"/>
         </scene>
         <!--Livestream-->
         <scene sceneID="EhX-SY-J7K">
