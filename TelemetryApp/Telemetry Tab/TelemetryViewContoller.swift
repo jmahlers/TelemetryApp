@@ -187,6 +187,9 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
                 detailLiveGraphVC?.key = cell.label.text!
             }
             
+        }else if(segue.identifier == "showWeather"){
+            let destinationVC = segue.destination as! WeatherViewController
+            destinationVC.location = "Mohela"
         }
     }
 }
