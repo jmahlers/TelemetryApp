@@ -11,6 +11,8 @@ import SciChart
 
 class DetailLiveSciChart : TelemetrySCIChartSurface {
     
+    var largestValueForScaling: Float = 10
+    
     func initialize(key: String) {
         self.key = key
         
@@ -22,9 +24,9 @@ class DetailLiveSciChart : TelemetrySCIChartSurface {
         self.xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
-        yAxis.growBy = SCIDoubleRange(min: SCIGeneric(1), max: SCIGeneric(1))
+//        yAxis.growBy = SCIDoubleRange(min: SCIGeneric(1), max: SCIGeneric(1))
         self.yAxes.add(yAxis)
-        yAxis.autoRange = .always
+        yAxis.autoRange = .never
         
         SCIThemeManager.applyTheme(toThemeable: self, withThemeKey: SCIChart_Bright_SparkStyleKey)
         
@@ -38,8 +40,25 @@ class DetailLiveSciChart : TelemetrySCIChartSurface {
     }
     
     func updateWithNewMessage(dataPoint: DataPoint) {
+
+        scatterDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
+        let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: self, point: dataPoint)
+        lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(avgPoint))
         
+        let visibleXRange = self.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+        visibleXRange.min = SCIGeneric(0)
+        visibleXRange.max = SCIGeneric(dataPoint.time + (0.1*self.secondsInPastToPlot))
         
+        let visibleYRange = self.yAxes.item(at: 0)?.visibleRange as! SCIDoubleRange
+        visibleYRange.min = SCIGeneric(0)
+//        let max = visibleYRange.max.floatData
+        
+        if (dataPoint.value > largestValueForScaling) {
+            largestValueForScaling = dataPoint.value + (0.2*dataPoint.value)
+        }
+        visibleYRange.max = SCIGeneric(largestValueForScaling)
+        
+        self.invalidateElement()
         
     }
     
@@ -75,17 +94,32 @@ class DetailLiveSciChart : TelemetrySCIChartSurface {
         
         // Init scatter data series
         scatterDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
-//        scatterDataSeries.fifoCapacity = 25
+        scatterDataSeries.fifoCapacity = 25
         scatterDataSeries.seriesName = "scatter series"
         
         let sensor = Sensor(key: self.key)
         guard let points = Telemetry.shared.dataSource[sensor] else { return }
         
+        let visibleYRange = self.yAxes.item(at: 0)?.visibleRange as! SCIDoubleRange
+        
         for point in points {
             scatterDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(point.value))
             let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: self, point: point)
             lineDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(avgPoint))
+            
+            visibleYRange.min = SCIGeneric(0)
+//            let max = visibleYRange.max.floatData
+            
+            if (point.value > largestValueForScaling) {
+                largestValueForScaling = point.value + (0.2*point.value)
+            }
         }
+        
+        let visibleXRange = self.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+        visibleXRange.min = SCIGeneric(0)
+        visibleXRange.max = SCIGeneric(points.last?.time ?? 10 + (0.1*self.secondsInPastToPlot))
+        
+        visibleYRange.max = SCIGeneric(largestValueForScaling)
         
     }
     

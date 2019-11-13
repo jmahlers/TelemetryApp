@@ -13,11 +13,14 @@ class DetailLiveSciChartVC : UIViewController, TelemetryDelegate {
     
     var key: String?
     var graph: DetailLiveSciChart?
+    @IBOutlet weak var label: UILabel!
     
     @IBOutlet weak var detailGraphContainer: UIView!
     
     func manageMessage(key: String, dataPoint: DataPoint) {
-        
+        if key == self.key {
+            graph?.updateWithNewMessage(dataPoint: dataPoint)
+        }
     }
     
     func manageOpen() {
@@ -38,6 +41,10 @@ class DetailLiveSciChartVC : UIViewController, TelemetryDelegate {
         graph = DetailLiveSciChart(frame: self.detailGraphContainer!.frame)
         graph!.initialize(key: key!)
         self.detailGraphContainer.addSubview(graph!)
+        
+        label.text = key
+        
+        Telemetry.shared.delegate = self
         
         updateChartWithData()
     }

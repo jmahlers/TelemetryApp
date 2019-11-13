@@ -19,21 +19,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrY-Sr-C0W">
-                                <rect key="frame" x="0.0" y="44" width="414" height="749"/>
+                                <rect key="frame" x="0.0" y="44" width="399" height="758"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEI-X2-ZYR">
+                                        <rect key="frame" x="8" y="8" width="390" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="mEI-X2-ZYR" firstAttribute="leading" secondItem="hrY-Sr-C0W" secondAttribute="leading" constant="8" id="II9-hp-JJi"/>
+                                    <constraint firstAttribute="trailing" secondItem="mEI-X2-ZYR" secondAttribute="trailing" constant="0.80000000000000004" id="KAR-YS-xPE"/>
+                                    <constraint firstItem="mEI-X2-ZYR" firstAttribute="top" secondItem="hrY-Sr-C0W" secondAttribute="top" constant="8" id="NBQ-Dz-k7X"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qBa-1D-W3p" firstAttribute="trailing" secondItem="hrY-Sr-C0W" secondAttribute="trailing" id="80P-CL-ZeR"/>
+                            <constraint firstItem="qBa-1D-W3p" firstAttribute="trailing" secondItem="hrY-Sr-C0W" secondAttribute="trailing" constant="15" id="80P-CL-ZeR"/>
                             <constraint firstItem="hrY-Sr-C0W" firstAttribute="leading" secondItem="qBa-1D-W3p" secondAttribute="leading" id="D4Z-R8-n0e"/>
-                            <constraint firstItem="qBa-1D-W3p" firstAttribute="bottom" secondItem="hrY-Sr-C0W" secondAttribute="bottom" constant="69" id="LOD-Pd-7jb"/>
+                            <constraint firstItem="qBa-1D-W3p" firstAttribute="bottom" secondItem="hrY-Sr-C0W" secondAttribute="bottom" constant="60" id="LOD-Pd-7jb"/>
                             <constraint firstItem="hrY-Sr-C0W" firstAttribute="top" secondItem="qBa-1D-W3p" secondAttribute="top" id="YDu-sa-fWn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qBa-1D-W3p"/>
                     </view>
                     <connections>
                         <outlet property="detailGraphContainer" destination="hrY-Sr-C0W" id="BJ0-yk-bB4"/>
+                        <outlet property="label" destination="mEI-X2-ZYR" id="zua-6R-TOS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S4h-ag-qeL" userLabel="First Responder" sceneMemberID="firstResponder"/>

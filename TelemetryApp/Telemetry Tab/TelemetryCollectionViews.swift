@@ -93,15 +93,9 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            let key = Telemetry.shared.favoriteCharts[indexPath.item].key
-            
-            
-        } else {
-            let key = Telemetry.shared.generalCharts[indexPath.item].key
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//
+//    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = graphView.cellForItem(at: indexPath)

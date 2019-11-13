@@ -24,6 +24,7 @@
 		236AC49223763CD400014AA1 /* DatasetSetUpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236AC49123763CD400014AA1 /* DatasetSetUpUtils.swift */; };
 		2384239D2375FEA600BD2DC2 /* SmallTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */; };
 		239981F82378F6B7002AEEC9 /* SmallLiveSciChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981F72378F6B7002AEEC9 /* SmallLiveSciChart.swift */; };
+		23E37373237C860600E0A500 /* DatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E37372237C860600E0A500 /* DatabaseViewController.swift */; };
 		23EB4A972375033A0061A700 /* DetailTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB4A962375033A0061A700 /* DetailTelemetryChartView.swift */; };
 		835B3677A0C5E7B384A972AE /* Pods_TelemetryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B22950E09878D842173933E /* Pods_TelemetryApp.framework */; };
 		A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011940F237380B7002625C5 /* TelemetryViewContoller.swift */; };
@@ -99,6 +100,7 @@
 		236AC49123763CD400014AA1 /* DatasetSetUpUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetSetUpUtils.swift; sourceTree = "<group>"; };
 		2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTelemetryChartView.swift; sourceTree = "<group>"; };
 		239981F72378F6B7002AEEC9 /* SmallLiveSciChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallLiveSciChart.swift; sourceTree = "<group>"; };
+		23E37372237C860600E0A500 /* DatabaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseViewController.swift; sourceTree = "<group>"; };
 		23EB4A962375033A0061A700 /* DetailTelemetryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTelemetryChartView.swift; sourceTree = "<group>"; };
 		6B22950E09878D842173933E /* Pods_TelemetryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TelemetryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A011940F237380B7002625C5 /* TelemetryViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryViewContoller.swift; sourceTree = "<group>"; };
@@ -204,6 +206,14 @@
 				A0CC52ED237C72410022E1EC /* DetailLiveSciChart.storyboard */,
 			);
 			path = "Detailed View";
+			sourceTree = "<group>";
+		};
+		23E37371237C85EE00E0A500 /* Database View */ = {
+			isa = PBXGroup;
+			children = (
+				23E37372237C860600E0A500 /* DatabaseViewController.swift */,
+			);
+			path = "Database View";
 			sourceTree = "<group>";
 		};
 		69FC17B818426CF39FED3FDC /* Pods */ = {
@@ -313,6 +323,7 @@
 		A01CA520236A3D02007B6713 /* TelemetryApp */ = {
 			isa = PBXGroup;
 			children = (
+				23E37371237C85EE00E0A500 /* Database View */,
 				2317311A237BDB7400BE6483 /* Website Tab */,
 				23173119237BDB4400BE6483 /* SciChart Graphing */,
 				A011940E23737113002625C5 /* (Deprecated Graphs) */,
@@ -511,6 +522,7 @@
 				23173121237BEA5D00BE6483 /* TelemetrySCIChartSurface.swift in Sources */,
 				A0E2701023768F0800440719 /* DockExpandedCell.swift in Sources */,
 				A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */,
+				23E37373237C860600E0A500 /* DatabaseViewController.swift in Sources */,
 				2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */,
 				236AC49223763CD400014AA1 /* DatasetSetUpUtils.swift in Sources */,
 			);
@@ -659,6 +671,7 @@
 			baseConfigurationReference = 144BD5E6415349B6695AAAEF /* Pods-TelemetryApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVD3AQD899;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -673,6 +686,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE-438.TelemetryApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -683,8 +697,9 @@
 			baseConfigurationReference = C38FE4A35ABDC7E96FFAB128 /* Pods-TelemetryApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 29FQDQ8QD3;
+				DEVELOPMENT_TEAM = LVD3AQD899;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -697,6 +712,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE-438.TelemetryApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
