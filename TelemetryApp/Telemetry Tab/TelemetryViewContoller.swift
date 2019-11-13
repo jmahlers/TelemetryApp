@@ -14,7 +14,7 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
     
     var timer: Timer?
     
-    let graphUpdatePeriod:Double = 2 // in seconds
+    let graphUpdatePeriod:Double = 0.1 // in seconds
     var mostRecentTime:Double = 0
     
     @IBOutlet weak var dockOutlet: DockManager!
@@ -134,8 +134,10 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
         
         if Telemetry.shared.getGeneralSensors().contains(sensor) {
             Telemetry.shared.generalCharts.append(chart)
+            Telemetry.shared.generalCharts.sort()
         } else {
             Telemetry.shared.favoriteCharts.append(chart)
+            Telemetry.shared.favoriteCharts.sort()
         }
         
         graphView.reloadData()
