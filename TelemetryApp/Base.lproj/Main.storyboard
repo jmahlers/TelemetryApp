@@ -265,7 +265,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="Weather" storyboardName="Weather" referencedIdentifier="WeatherViewController" id="Cc8-Bw-wHI" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yia-IH-s9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="988" y="423"/>
+            <point key="canvasLocation" x="985" y="415"/>
         </scene>
         <!--BugReportController-->
         <scene sceneID="AJT-iL-f2W">
@@ -273,7 +273,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="BugReport" storyboardName="BugReport" referencedIdentifier="BugReportController" id="M9T-He-S3i" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUT-dm-XwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1322" y="419"/>
+            <point key="canvasLocation" x="1322" y="415"/>
         </scene>
         <!--DetailLiveSciChartVC-->
         <scene sceneID="j8s-iK-tPm">
@@ -281,7 +281,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="DetailLiveSciChart" storyboardName="DetailLiveSciChart" referencedIdentifier="DetailLiveSciChartVC" id="gnK-rn-LBj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4F-9U-apN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1722" y="415"/>
+            <point key="canvasLocation" x="1632" y="415"/>
         </scene>
         <!--Livestream-->
         <scene sceneID="EhX-SY-J7K">

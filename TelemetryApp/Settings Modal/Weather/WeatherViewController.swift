@@ -9,7 +9,9 @@
 import UIKit
 
 class WeatherViewController: UIViewController {
-
+    //"Mohela", "Emerson", "Michigan International Speedway"
+    var location : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
