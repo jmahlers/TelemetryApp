@@ -44,13 +44,13 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
             
             if indexPath.section == 0 {
                 cell.graphContainer.subviews.forEach({ $0.removeFromSuperview() })
-                
+
                 let key = Telemetry.shared.getFavoriteSensors()[indexPath.row].key
                 cell.label.text = key
                 
-                let chartContainer = Telemetry.shared.favoriteCharts[indexPath.row]
-                chartContainer.chart.frame = cell.graphContainer.bounds
-                cell.graphContainer.addSubview(chartContainer.chart)
+                let chart = Telemetry.shared.favoriteCharts[indexPath.row]
+                chart.frame = cell.graphContainer.bounds
+                cell.graphContainer.addSubview(chart)
                 
                 return cell
             } else {
@@ -65,8 +65,6 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
                 
                 return cell
             }
-            
-            
         }
     }
     

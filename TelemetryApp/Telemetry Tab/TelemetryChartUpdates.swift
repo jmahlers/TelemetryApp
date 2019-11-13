@@ -29,4 +29,13 @@ extension TelemetryViewController{
         }
     }
     
+    func updateVisibleRangeOfEveryGraph(time: Double) {
+        for chart in Telemetry.shared.favoriteCharts {
+            chart.updateVisibleRange(time: time)
+        }
+        for chart in Telemetry.shared.generalCharts {
+            chart.updateVisibleRange(time: time)
+        }
+    }
+    
 }
