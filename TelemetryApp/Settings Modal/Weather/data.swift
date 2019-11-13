@@ -10,10 +10,8 @@ import Foundation
 import UIKit
 
 struct WeatherDataPoint : Decodable {
-    let summary: String?
     let apparentTemperature: Float?
     let humidity: Float?
-    let icon: String?
     let precipProbability: Float?
     let precipType: String?
     let temperature: Float?
