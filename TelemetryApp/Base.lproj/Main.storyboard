@@ -65,7 +65,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="MVX-3v-Bt9"/>
                         <segue destination="wxF-gs-8Am" kind="relationship" relationship="viewControllers" id="5OG-WP-wOq"/>
                         <segue destination="Ys6-4b-QNE" kind="relationship" relationship="viewControllers" id="fLe-1b-8QI"/>
-                        <segue destination="sgO-W4-Uen" kind="relationship" relationship="viewControllers" id="PXq-ii-PLB"/>
+                        <segue destination="yZg-Fh-gh3" kind="relationship" relationship="viewControllers" id="PXq-ii-PLB"/>
                         <segue destination="Me1-g1-aXF" kind="relationship" relationship="viewControllers" id="9oX-Ss-ecH"/>
                     </connections>
                 </tabBarController>
@@ -126,7 +126,7 @@
             </objects>
             <point key="canvasLocation" x="-384.05797101449281" y="-58.258928571428569"/>
         </scene>
-        <!--Telemetry-->
+        <!--Telemetry View Controller-->
         <scene sceneID="yWA-Mh-zTb">
             <objects>
                 <viewController id="sgO-W4-Uen" customClass="TelemetryViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -135,7 +135,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="729-1f-wCk" userLabel="Graph View">
-                                <rect key="frame" x="0.0" y="94" width="414" height="662"/>
+                                <rect key="frame" x="0.0" y="138" width="414" height="618"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8fl-rz-xDc">
                                     <size key="itemSize" width="198" height="213"/>
@@ -181,12 +181,12 @@
                                 </collectionReusableView>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flZ-jR-p4G" customClass="DockManager" customModule="TelemetryApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="767" width="414" height="46"/>
+                                <rect key="frame" x="0.0" y="769.5" width="414" height="43.5"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPg-8b-TVV">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uHu-YY-Ose">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                         <blurEffect style="regular"/>
@@ -200,7 +200,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73v-t5-sHD">
-                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAa-Sv-Vkl">
                                         <rect key="frame" x="344" y="10" width="60" height="30"/>
@@ -238,7 +238,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rMf-8e-buq"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Telemetry" id="OjB-ib-pZc"/>
+                    <navigationItem key="navigationItem" id="oEH-hd-gqI"/>
                     <connections>
                         <outlet property="dockBlur" destination="uHu-YY-Ose" id="FNv-xp-VCR"/>
                         <outlet property="dockHeight" destination="QER-Qo-grZ" id="30y-0v-sii"/>
@@ -247,11 +247,20 @@
                         <outlet property="settingButton" destination="EAa-Sv-Vkl" id="GAh-f7-dDu"/>
                         <outlet property="topView" destination="73v-t5-sHD" id="tSJ-yY-KEJ"/>
                         <outlet property="topViewHeight" destination="Z76-WF-MKs" id="HLP-j8-rhr"/>
+                        <segue destination="M9T-He-S3i" kind="show" identifier="showBugReport" id="EKH-sC-heO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGs-nM-0qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="547.82608695652175" y="-58.258928571428569"/>
+            <point key="canvasLocation" x="1320" y="-58"/>
+        </scene>
+        <!--BugReportController-->
+        <scene sceneID="AJT-iL-f2W">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Settings" storyboardName="Settings" referencedIdentifier="BugReportController" id="M9T-He-S3i" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sUT-dm-XwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1319" y="419"/>
         </scene>
         <!--Livestream-->
         <scene sceneID="EhX-SY-J7K">
@@ -288,7 +297,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D14-yU-JJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1696" y="-58"/>
+            <point key="canvasLocation" x="2605.7971014492755" y="-58.258928571428569"/>
+        </scene>
+        <!--Telemetry-->
+        <scene sceneID="eJc-oJ-NvX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yZg-Fh-gh3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Telemetry" id="OjB-ib-pZc"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cUS-7U-XW5">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sgO-W4-Uen" kind="relationship" relationship="rootViewController" id="gr7-h8-3Q5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LDF-Mm-go2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="547.82608695652175" y="-58.258928571428569"/>
         </scene>
     </scenes>
 </document>

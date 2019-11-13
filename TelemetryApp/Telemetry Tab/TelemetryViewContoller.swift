@@ -76,6 +76,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
         Telemetry.shared.delegate = self
         
 //        updateChartData()
+        
     }
     
     
@@ -207,30 +208,29 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
 //        }
 //    }
     @IBAction func showSettings(_ sender: Any) {
-        let blurEffect = UIBlurEffect(style: .light)
-        self.settingsBlur = UIVisualEffectView(effect: blurEffect)
-        self.settingsBlur!.frame = self.view.frame
-        //self.view.addSubview(self.settingsBlur!)
-        //let settingsViewController: SettingsViewController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
-        //settingsViewController.modalPresentationStyle = .popover
-        //settingsViewController.modalTransitionStyle = .crossDissolve
-
-        let navigationController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "settingsNavController") as! UINavigationController
-        navigationController.modalPresentationStyle = .popover
-        navigationController.modalTransitionStyle = .crossDissolve
-        let popOverVC = navigationController.popoverPresentationController
+//        let blurEffect = UIBlurEffect(style: .light)
+//        self.settingsBlur = UIVisualEffectView(effect: blurEffect)
+//        self.settingsBlur!.frame = self.view.frame
+//        //self.view.addSubview(self.settingsBlur!)
+        let settingsViewController: SettingsViewController = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
+        settingsViewController.modalPresentationStyle = .popover
+        settingsViewController.modalTransitionStyle = .crossDissolve
+        settingsViewController.fromView = self
+        let popOverVC = settingsViewController.popoverPresentationController
         popOverVC?.permittedArrowDirections = .up
         popOverVC?.sourceView = self.topView
         popOverVC?.sourceRect = self.settingButton.frame
-        navigationController.preferredContentSize = CGSize(width: 190, height: 350)
+        settingsViewController.preferredContentSize = CGSize(width: 190, height: 350)
         popOverVC?.delegate = self
-        self.present(navigationController, animated: true, completion: nil)
+        self.present(settingsViewController, animated: true, completion: nil)
     }
+    
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
+    
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-        
+        print("dismissed")
     }
     
     func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
@@ -238,6 +238,8 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
             self.settingsBlur?.removeFromSuperview()
         }, completion: nil)
         return true
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
 }
 
