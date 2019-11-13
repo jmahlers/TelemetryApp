@@ -29,8 +29,8 @@ class Telemetry: EventSource {
     ///Timer that tracks the time since the app launched.
     var timer: Date?
     
-    var favoriteCharts: [SmallTelemetrySciChart] = []
-    var generalCharts: [SmallTelemetrySciChart] = []
+    var favoriteCharts: [SmallSciChartContainer] = []
+    var generalCharts: [SmallSciChartContainer] = []
     var numConnection = 0
     
     ///Singleton of Telemetry that connects to the telemetry server
