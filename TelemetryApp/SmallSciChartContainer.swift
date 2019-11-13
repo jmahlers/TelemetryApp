@@ -9,7 +9,9 @@
 import Foundation
 import SciChart
 
-class SmallTelemetrySciChart : SCIChartSurface {
+class SmallSciChartContainer : UIView {
+    
+    var chart = SCIChartSurface(frame: CGRect.zero)
     
     var key:String = ""
     var secondsInPastToPlot:Double = 10
@@ -27,26 +29,40 @@ class SmallTelemetrySciChart : SCIChartSurface {
     
     func initialize(key: String) {
         self.key = key
-        
-        self.translatesAutoresizingMaskIntoConstraints = true
+//        chart.applyThemeProvider(SCIThemeManager.themeProvider(with: SCIChart_Bright_SparkStyleKey))
+
+        chart.translatesAutoresizingMaskIntoConstraints = true
         // Set the autoResizingMask property so the chart will fit the screen when we rotate the device
-        self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        chart.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     
         let xAxis = SCINumericAxis()
         xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        self.xAxes.add(xAxis)
+        chart.xAxes.add(xAxis)
     
         let yAxis = SCINumericAxis()
-        yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        self.yAxes.add(yAxis)
+        yAxis.growBy = SCIDoubleRange(min: SCIGeneric(1), max: SCIGeneric(1))
+        chart.yAxes.add(yAxis)
         yAxis.autoRange = .always
-    
+        
+        SCIThemeManager.applyTheme(toThemeable: chart, withThemeKey: SCIChart_Bright_SparkStyleKey)
+
+        // Apply theme before this line!
         createDataSeries()
         createRenderableSeries()
         addModifiers()
         
-        self.isUserInteractionEnabled = false
+        
+
+        chart.isUserInteractionEnabled = false
+        
+        
+        
+        
+        chart.frame = self.frame
+        self.addSubview(chart)
+        
     }
+    
     
     func updateWithNewMessage(dataPoint: DataPoint) {
         DispatchQueue.global().sync {
@@ -58,25 +74,16 @@ class SmallTelemetrySciChart : SCIChartSurface {
             
             let max = SCIGenericDouble(self.lineDataSeries.xValues().value(at: maxIndex))
             
-            let visibleRange = self.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+            let visibleRange = chart.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
             
             visibleRange.min = SCIGeneric(dataPoint.time - self.secondsInPastToPlot)
             visibleRange.max = SCIGeneric(dataPoint.time + 1)
             
-            self.invalidateElement()
+            chart.invalidateElement()
         }
     }
     
     func updateWithManyNewMessages() {
-//        DispatchQueue.global().sync {
-//            lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
-//            lineDataSeries.fifoCapacity = Int32(self.secondsInPastToPlot*SmallTelemetrySciChart.frequency+Double(self.rollAvgStorage.count))
-//            lineDataSeries.seriesName = "line series"
-//
-//            // Init scatter data series
-//            scatterDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
-//            scatterDataSeries.fifoCapacity = 10
-//            scatterDataSeries.seriesName = "scatter series"
         
         let sensor = Sensor(key: self.key)
         guard let points = Telemetry.shared.dataToPlot[sensor] else { return }
@@ -89,7 +96,6 @@ class SmallTelemetrySciChart : SCIChartSurface {
         
         Telemetry.shared.dataToPlot[sensor]?.removeAll()
         
-//        }
     }
     
     func clearData() {
@@ -119,7 +125,7 @@ class SmallTelemetrySciChart : SCIChartSurface {
     private func createDataSeries() {
         // Init line data series
         lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
-        lineDataSeries.fifoCapacity = Int32(self.secondsInPastToPlot*SmallTelemetrySciChart.frequency+Double(self.avgPeriod))
+        lineDataSeries.fifoCapacity = Int32(self.secondsInPastToPlot*SmallSciChartContainer.frequency+Double(self.avgPeriod))
         lineDataSeries.seriesName = "line series"
         
         // Init scatter data series
@@ -133,7 +139,7 @@ class SmallTelemetrySciChart : SCIChartSurface {
         }
         
         let suffixLength = Int("\(self.lineDataSeries?.fifoCapacity)")
-        let recentPoints:[DataPoint] = points.suffix(suffixLength ?? Int(self.secondsInPastToPlot*SmallTelemetrySciChart.frequency))
+        let recentPoints:[DataPoint] = points.suffix(suffixLength ?? Int(self.secondsInPastToPlot*SmallSciChartContainer.frequency))
         
         for point in recentPoints {
             scatterDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(point.value))
@@ -146,11 +152,18 @@ class SmallTelemetrySciChart : SCIChartSurface {
     private func createRenderableSeries(){
         lineRenderableSeries = SCIFastLineRenderableSeries()
         lineRenderableSeries.dataSeries = lineDataSeries
+//        lineRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0x0f7fffff, withThickness: 2)
         
         scatterRenderableSeries = SCIXyScatterRenderableSeries()
         scatterRenderableSeries.dataSeries = scatterDataSeries
+//        let marker = SCICrossPointMarker()
+//        marker.strokeStyle = SCISolidPenStyle(colorCode: 0x00000000, withThickness: 1)
+//        marker.height = 6.0
+//        marker.width = 6.0
+//        scatterRenderableSeries.pointMarker = marker
+//        scatterRenderableSeries.opacity = 0.8
         
-        self.renderableSeries.add(lineRenderableSeries)
-        self.renderableSeries.add(scatterRenderableSeries)
+        chart.renderableSeries.add(lineRenderableSeries)
+        chart.renderableSeries.add(scatterRenderableSeries)
     }
 }

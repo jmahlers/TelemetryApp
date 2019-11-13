@@ -138,7 +138,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
     }
     
     func newSensor(sensor: Sensor) {
-        let chart = SmallTelemetrySciChart(frame: .zero)
+        let chart = SmallSciChartContainer(frame: .zero)
         
         chart.initialize(key: sensor.key)
         
@@ -171,6 +171,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
         popOverVC?.delegate = self
         self.present(settingsViewController, animated: true, completion: nil)
     }
+    
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }

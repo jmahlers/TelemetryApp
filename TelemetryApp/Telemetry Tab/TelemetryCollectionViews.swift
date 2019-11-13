@@ -48,9 +48,9 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
                 let key = Telemetry.shared.getFavoriteSensors()[indexPath.row].key
                 cell.label.text = key
                 
-                let chart = Telemetry.shared.favoriteCharts[indexPath.row]
-                chart.frame = cell.graphContainer.bounds
-                cell.graphContainer.addSubview(chart)
+                let chartContainer = Telemetry.shared.favoriteCharts[indexPath.row]
+                chartContainer.chart.frame = cell.graphContainer.bounds
+                cell.graphContainer.addSubview(chartContainer.chart)
                 
                 return cell
             } else {
