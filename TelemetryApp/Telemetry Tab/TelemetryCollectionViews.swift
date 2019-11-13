@@ -10,21 +10,19 @@ import UIKit
 extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(collectionView == self.dockOutlet.expandedView.expandedDockCollection){
-            if (section == 0){
+        if (collectionView == self.dockOutlet.expandedView.expandedDockCollection) {
+            if (section == 0) {
                 return Telemetry.shared.getFavoriteSensors().count
-            }else{
+            } else {
                 return Telemetry.shared.getGeneralSensors().count
             }
-        }else{
+        } else {
             if (section == 0) {
                 return Telemetry.shared.favoriteCharts.count
             } else {
                 return Telemetry.shared.generalCharts.count
             }
         }
-        
-        
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -52,6 +50,8 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
                 chart.frame = cell.graphContainer.bounds
                 cell.graphContainer.addSubview(chart)
                 
+                cell.isUserInteractionEnabled = true
+                
                 return cell
             } else {
                 cell.graphContainer.subviews.forEach({ $0.removeFromSuperview() })
@@ -62,6 +62,8 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
                 let chart = Telemetry.shared.generalCharts[indexPath.row]
                 chart.frame = cell.graphContainer.bounds
                 cell.graphContainer.addSubview(chart)
+                
+                cell.isUserInteractionEnabled = true
                 
                 return cell
             }
@@ -81,13 +83,29 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
             return size
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == self.dockOutlet.expandedView.expandedDockCollection{
+        if collectionView == self.dockOutlet.expandedView.expandedDockCollection {
             let size = CGSize(width: view.frame.width*0.45, height: 60)
             return size
-        }else{
+        } else {
             return CGSize(width: view.frame.width*0.48, height: 220)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            let key = Telemetry.shared.favoriteCharts[indexPath.item].key
+            
+            
+        } else {
+            let key = Telemetry.shared.generalCharts[indexPath.item].key
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = graphView.cellForItem(at: indexPath)
+        self.performSegue(withIdentifier: "detailLiveGraph", sender: cell)
     }
     
 }

@@ -151,9 +151,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="198" height="169"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhx-hX-i0H">
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhx-hX-i0H">
                                                     <rect key="frame" x="0.0" y="34" width="198" height="135"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sensor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="xre-s0-s2T">
@@ -165,9 +164,13 @@
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="hhx-hX-i0H" secondAttribute="bottom" id="6wk-rD-uGz"/>
                                             <constraint firstItem="xre-s0-s2T" firstAttribute="top" secondItem="DXf-X0-gNY" secondAttribute="top" id="Aa3-g4-YhN"/>
+                                            <constraint firstAttribute="trailing" secondItem="hhx-hX-i0H" secondAttribute="trailing" id="DdU-c2-4h2"/>
+                                            <constraint firstItem="hhx-hX-i0H" firstAttribute="top" secondItem="xre-s0-s2T" secondAttribute="bottom" constant="8" id="TEX-uQ-e5x"/>
                                             <constraint firstItem="xre-s0-s2T" firstAttribute="width" secondItem="DXf-X0-gNY" secondAttribute="width" multiplier="0.8" id="X5F-TU-UDo"/>
                                             <constraint firstItem="xre-s0-s2T" firstAttribute="centerX" secondItem="DXf-X0-gNY" secondAttribute="centerX" id="ot9-Lr-U59"/>
+                                            <constraint firstItem="hhx-hX-i0H" firstAttribute="leading" secondItem="DXf-X0-gNY" secondAttribute="leading" id="wsn-Lr-oTo"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="graphContainer" destination="hhx-hX-i0H" id="Niu-fF-K9Y"/>
@@ -248,11 +251,42 @@
                         <outlet property="topView" destination="73v-t5-sHD" id="tSJ-yY-KEJ"/>
                         <outlet property="topViewHeight" destination="Z76-WF-MKs" id="HLP-j8-rhr"/>
                         <segue destination="M9T-He-S3i" kind="show" identifier="showBugReport" id="EKH-sC-heO"/>
+                        <segue destination="aYq-2s-EgA" kind="show" identifier="detailLiveGraph" id="KFr-WC-f00"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGs-nM-0qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1320" y="-58"/>
+        </scene>
+        <!--Detail Live Sci ChartVC-->
+        <scene sceneID="XFP-i5-NcN">
+            <objects>
+                <viewController id="aYq-2s-EgA" customClass="DetailLiveSciChartVC" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QJV-42-zVn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVy-Om-E6R">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fVy-Om-E6R" firstAttribute="trailing" secondItem="SHV-Pd-plT" secondAttribute="trailing" id="Acu-Tl-Ovd"/>
+                            <constraint firstItem="fVy-Om-E6R" firstAttribute="bottom" secondItem="SHV-Pd-plT" secondAttribute="bottom" id="IYG-hT-VcJ"/>
+                            <constraint firstItem="fVy-Om-E6R" firstAttribute="leading" secondItem="SHV-Pd-plT" secondAttribute="leading" id="Lph-2X-Dsq"/>
+                            <constraint firstItem="fVy-Om-E6R" firstAttribute="top" secondItem="SHV-Pd-plT" secondAttribute="top" id="TnB-yU-SqV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SHV-Pd-plT"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailGraphContainer" destination="fVy-Om-E6R" id="hzK-gu-DXV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rR2-EV-rzp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2082.608695652174" y="709.82142857142856"/>
         </scene>
         <!--BugReportController-->
         <scene sceneID="AJT-iL-f2W">

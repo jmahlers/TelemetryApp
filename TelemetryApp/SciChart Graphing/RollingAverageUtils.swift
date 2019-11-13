@@ -11,7 +11,7 @@ import SciChart
 
 class RollingAverageUtils {
     
-    static func computeRollingAverageForDataPoint(chart: SmallLiveSciChart, point: DataPoint) -> Double {
+    static func computeRollingAverageForDataPoint(chart: TelemetrySCIChartSurface, point: DataPoint) -> Double {
         
         if chart.rollAvgStorage.count < chart.avgPeriod {
             chart.rollAvgStorage.append(point.value)

@@ -17,6 +17,9 @@
 		2314FBA323736B08005ACD79 /* XYMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA023736B08005ACD79 /* XYMarkerView.swift */; };
 		2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA123736B08005ACD79 /* BalloonMarker.swift */; };
 		2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA223736B08005ACD79 /* RadarMarkerView.swift */; };
+		2317311D237BE91600BE6483 /* DetailLiveSciChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317311C237BE91600BE6483 /* DetailLiveSciChartVC.swift */; };
+		2317311F237BE9B500BE6483 /* DetailLiveSciChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317311E237BE9B500BE6483 /* DetailLiveSciChart.swift */; };
+		23173121237BEA5D00BE6483 /* TelemetrySCIChartSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23173120237BEA5D00BE6483 /* TelemetrySCIChartSurface.swift */; };
 		236AC4902376387100014AA1 /* GraphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */; };
 		236AC49223763CD400014AA1 /* DatasetSetUpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236AC49123763CD400014AA1 /* DatasetSetUpUtils.swift */; };
 		2384239D2375FEA600BD2DC2 /* SmallTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */; };
@@ -86,6 +89,9 @@
 		2314FBA023736B08005ACD79 /* XYMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYMarkerView.swift; sourceTree = "<group>"; };
 		2314FBA123736B08005ACD79 /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		2314FBA223736B08005ACD79 /* RadarMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarMarkerView.swift; sourceTree = "<group>"; };
+		2317311C237BE91600BE6483 /* DetailLiveSciChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLiveSciChartVC.swift; sourceTree = "<group>"; };
+		2317311E237BE9B500BE6483 /* DetailLiveSciChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLiveSciChart.swift; sourceTree = "<group>"; };
+		23173120237BEA5D00BE6483 /* TelemetrySCIChartSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetrySCIChartSurface.swift; sourceTree = "<group>"; };
 		236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCollectionViewCell.swift; sourceTree = "<group>"; };
 		236AC49123763CD400014AA1 /* DatasetSetUpUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetSetUpUtils.swift; sourceTree = "<group>"; };
 		2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTelemetryChartView.swift; sourceTree = "<group>"; };
@@ -171,6 +177,8 @@
 			children = (
 				230A0CD4237A77E3002A208C /* RollingAverageUtils.swift */,
 				239981F72378F6B7002AEEC9 /* SmallLiveSciChart.swift */,
+				2317311E237BE9B500BE6483 /* DetailLiveSciChart.swift */,
+				23173120237BEA5D00BE6483 /* TelemetrySCIChartSurface.swift */,
 			);
 			path = "SciChart Graphing";
 			sourceTree = "<group>";
@@ -181,6 +189,14 @@
 				A0398BEC2374F679005454E2 /* WebsiteController.swift */,
 			);
 			path = "Website Tab";
+			sourceTree = "<group>";
+		};
+		2317311B237BE8EB00BE6483 /* Detailed View */ = {
+			isa = PBXGroup;
+			children = (
+				2317311C237BE91600BE6483 /* DetailLiveSciChartVC.swift */,
+			);
+			path = "Detailed View";
 			sourceTree = "<group>";
 		};
 		69FC17B818426CF39FED3FDC /* Pods */ = {
@@ -219,6 +235,7 @@
 		A0119412237380D8002625C5 /* Telemetry Tab */ = {
 			isa = PBXGroup;
 			children = (
+				2317311B237BE8EB00BE6483 /* Detailed View */,
 				A011940F237380B7002625C5 /* TelemetryViewContoller.swift */,
 				A04D5D242376A7EE00B07241 /* TelemetryChartUpdates.swift */,
 				A073C3EE2375F43200BDB7CD /* TelemetryCollectionViews.swift */,
@@ -444,6 +461,7 @@
 				A01CA524236A3D02007B6713 /* ViewController.swift in Sources */,
 				A0AA6909237A6EA800AB795B /* BugReportController.swift in Sources */,
 				A011941A23738470002625C5 /* Protocols.swift in Sources */,
+				2317311F237BE9B500BE6483 /* DetailLiveSciChart.swift in Sources */,
 				A0F3D86223721AFD00D10CF8 /* Sensor.swift in Sources */,
 				236AC4902376387100014AA1 /* GraphCollectionViewCell.swift in Sources */,
 				A0398BED2374F679005454E2 /* WebsiteController.swift in Sources */,
@@ -454,6 +472,7 @@
 				A011942F2373FAB2002625C5 /* DockExpandedView.swift in Sources */,
 				2314FBA323736B08005ACD79 /* XYMarkerView.swift in Sources */,
 				2314FB9423736AAF005ACD79 /* DateValueFormatter.swift in Sources */,
+				2317311D237BE91600BE6483 /* DetailLiveSciChartVC.swift in Sources */,
 				A0FE983B2374A8D20033F6E6 /* Extensions.swift in Sources */,
 				2314FB9523736AAF005ACD79 /* LargeValueFormatter.swift in Sources */,
 				2314FB9223736AAF005ACD79 /* IntAxisValueFormatter.swift in Sources */,
@@ -469,6 +488,7 @@
 				23EB4A972375033A0061A700 /* DetailTelemetryChartView.swift in Sources */,
 				A01194312373FB9B002625C5 /* DockManager.swift in Sources */,
 				A073C3F12376335600BDB7CD /* OverallTabViewController.swift in Sources */,
+				23173121237BEA5D00BE6483 /* TelemetrySCIChartSurface.swift in Sources */,
 				A0E2701023768F0800440719 /* DockExpandedCell.swift in Sources */,
 				A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */,
 				2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */,

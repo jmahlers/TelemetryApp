@@ -10,11 +10,11 @@ import UIKit
 import Charts
 import SciChart
 
-class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPopoverPresentationControllerDelegate {
+class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPresentationControllerDelegate {
     
     var timer: Timer?
     
-    let graphUpdatePeriod:Double = 1 // in seconds
+    let graphUpdatePeriod:Double = 2 // in seconds
     var mostRecentTime:Double = 0
     
     @IBOutlet weak var dockOutlet: DockManager!
@@ -51,6 +51,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
         super.viewDidLoad()
         graphView.dataSource = self
         graphView.delegate = self
+        
         dockOutlet.expandedView.expandedDockCollection.dataSource = self
         dockOutlet.expandedView.expandedDockCollection.delegate = self
         
@@ -60,7 +61,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
         dockOutlet.expandedView.expandedDockCollection.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "myView")
         dockOutlet.setUp(dockOutlet.minimizedView)
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(TelemetryViewController.draggedView(_:)))
-        
+                
         dockOutlet.isUserInteractionEnabled = true
         dockOutlet.addGestureRecognizer(panGesture)
         dockOutlet.roundTopCorners(cornerRadius: 12.5)
@@ -70,6 +71,8 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        graphView.dataSource = self
+        graphView.delegate = self
         
         Telemetry.shared.delegate = self
         
@@ -170,7 +173,19 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
         }, completion: nil)
         return true
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailLiveGraph" {
+            
+            let detailLiveGraphVC = segue.destination as? DetailLiveSciChartVC
+            let cell = sender as! GraphCollectionViewCell
+            let indexPath = self.graphView.indexPath(for: cell)
+            
+            if cell.label.text != nil {
+                detailLiveGraphVC?.key = cell.label.text!
+            }
+            
+        }
     }
 }
 
