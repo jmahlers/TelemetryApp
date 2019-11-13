@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SettingsCell: UITableViewCell {
+class ModalCell: UITableViewCell {
 
-    @IBOutlet weak var settingLabel: UILabel!
+    @IBOutlet weak var cellLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

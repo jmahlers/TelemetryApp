@@ -1,9 +1,10 @@
 import UIKit
 
-class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class SettingsModalController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var fromView:UIViewController?
+    
     @IBOutlet weak var settingsTable: UITableView!
+    var fromView:UIViewController?
     var height = CGFloat(350)
     var width = CGFloat(190)
     var settings:[String] = ["Bug Report", "Console","Dock Options","Favorites","Settings"]
@@ -11,8 +12,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         settingsTable.dataSource = self
         settingsTable.delegate = self
-        let cellNib = UINib(nibName: "SettingsCell", bundle: nil)
-        settingsTable.register(cellNib, forCellReuseIdentifier: "SettingsCell")
+        let cellNib = UINib(nibName: "ModalCell", bundle: nil)
+        settingsTable.register(cellNib, forCellReuseIdentifier: "ModalCell")
         // Do any additional setup after loading the view.
     }
     
@@ -21,9 +22,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = settingsTable.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
+        let cell = settingsTable.dequeueReusableCell(withIdentifier: "ModalCell", for: indexPath) as! ModalCell
         cell.backgroundColor = UIColor.clear
-        cell.settingLabel.text = settings[indexPath.row]
+        cell.cellLabel.text = settings[indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

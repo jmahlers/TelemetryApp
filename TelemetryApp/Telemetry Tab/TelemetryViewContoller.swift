@@ -24,6 +24,7 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var topViewHeight: NSLayoutConstraint!
     @IBOutlet weak var settingButton: UIButton!
+    @IBOutlet weak var weatherButton: UIButton!
     
     var panGesture = UIPanGestureRecognizer()
     var settingsBlur: UIVisualEffectView?
@@ -148,7 +149,7 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
 //        self.settingsBlur = UIVisualEffectView(effect: blurEffect)
 //        self.settingsBlur!.frame = self.view.frame
 //        //self.view.addSubview(self.settingsBlur!)
-        let settingsViewController: SettingsViewController = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
+        let settingsViewController: SettingsModalController = SettingsModalController(nibName: "SettingsModalController", bundle: nil)
         settingsViewController.modalPresentationStyle = .popover
         settingsViewController.modalTransitionStyle = .crossDissolve
         settingsViewController.fromView = self
@@ -159,6 +160,19 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
         settingsViewController.preferredContentSize = CGSize(width: settingsViewController.width, height: settingsViewController.height)
         popOverVC?.delegate = self
         self.present(settingsViewController, animated: true, completion: nil)
+    }
+    @IBAction func showWeather(_ sender: Any) {
+        let weatherModalController: WeatherModalController = WeatherModalController(nibName: "WeatherModalController", bundle: nil)
+        weatherModalController.modalPresentationStyle = .popover
+        weatherModalController.modalTransitionStyle = .crossDissolve
+        weatherModalController.fromView = self
+        let popOverVC = weatherModalController.popoverPresentationController
+        popOverVC?.permittedArrowDirections = .up
+        popOverVC?.sourceView = self.topView
+        popOverVC?.sourceRect = self.weatherButton.frame
+        weatherModalController.preferredContentSize = CGSize(width: weatherModalController.width, height: weatherModalController.height)
+        popOverVC?.delegate = self
+        self.present(weatherModalController, animated: true, completion: nil)
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -189,7 +203,8 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
             
         }else if(segue.identifier == "showWeather"){
             let destinationVC = segue.destination as! WeatherViewController
-            destinationVC.location = "Mohela"
+            let destinationLocation = sender as! String
+            destinationVC.location = destinationLocation
         }
     }
 }
