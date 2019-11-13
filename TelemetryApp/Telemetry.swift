@@ -20,6 +20,8 @@ class Telemetry: EventSource {
     weak var delegate:TelemetryDelegate?
     ///Dictionary of received messages
     var dataSource:[Sensor: [DataPoint]] = [:]
+    ///Buffer for messages that haven't been plotted yet
+    var dataToPlot:[Sensor: [DataPoint]] = [:]
     ///Sorted array of favorited sensors
     fileprivate var favoriteSensors:[Sensor] = []
     ///Sorted array of non-favorited sensors
@@ -60,15 +62,21 @@ class Telemetry: EventSource {
                     self.dataSource[sensor]!.append(dataPoint)
                 }else{
                     if(self.favoriteSensors.contains(sensor)){
-                        self.dataSource[sensor] = [dataPoint]
                         self.delegate?.newSensor(sensor: sensor)
                     }else{
-                        self.dataSource[sensor] = [dataPoint]
                         self.generalSensors.append(sensor)
                         self.generalSensors.sort()
                         self.delegate?.newSensor(sensor: sensor)
                     }
+                    self.dataSource[sensor] = [dataPoint]
                 }
+                
+                if (self.dataToPlot[sensor] != nil) {
+                    self.dataToPlot[sensor]!.append(dataPoint)
+                } else {
+                    self.dataToPlot[sensor] = [dataPoint]
+                }
+                
                 self.delegate?.manageMessage(key: sensorReading.key, dataPoint: dataPoint)
             } catch {
                 print("Message decoded to an error")
