@@ -10,56 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings View Controller-->
-        <scene sceneID="OV1-Ia-LEO">
-            <objects>
-                <viewController storyboardIdentifier="SettingsViewController" id="RcG-4C-93E" customClass="SettingsViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" contentMode="scaleToFill" id="fxR-8a-264">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sBn-KU-fJL">
-                                <rect key="frame" x="0.0" y="93" width="414" height="769"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="9Ta-0j-QNJ" firstAttribute="trailing" secondItem="sBn-KU-fJL" secondAttribute="trailing" id="42C-hF-gwr"/>
-                            <constraint firstItem="sBn-KU-fJL" firstAttribute="leading" secondItem="9Ta-0j-QNJ" secondAttribute="leading" id="PIU-63-nLn"/>
-                            <constraint firstItem="sBn-KU-fJL" firstAttribute="top" secondItem="9Ta-0j-QNJ" secondAttribute="top" constant="5" id="fUg-0s-rzV"/>
-                            <constraint firstItem="9Ta-0j-QNJ" firstAttribute="bottom" secondItem="sBn-KU-fJL" secondAttribute="bottom" id="kCh-sD-mXO"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="9Ta-0j-QNJ"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="XoR-rd-Gew"/>
-                    <connections>
-                        <outlet property="settingsTable" destination="sBn-KU-fJL" id="gyc-V5-3Lo"/>
-                        <segue destination="KmH-as-yKy" kind="show" identifier="ShowBugReport" id="Aff-PU-D9C"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YsP-I3-3Id" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="714" y="-13"/>
-        </scene>
         <!--Bug Report Controller-->
-        <scene sceneID="IQN-xE-FXR">
+        <scene sceneID="fnV-kw-JIa">
             <objects>
-                <viewController id="KmH-as-yKy" customClass="BugReportController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CDp-5z-Jzr">
+                <viewController storyboardIdentifier="BugReportController" id="aPf-9I-1Fr" customClass="BugReportController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sf1-rU-2kj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="o9z-qc-DFj">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOg-Bv-bqJ">
-                                <rect key="frame" x="186" y="266" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cge-81-WCy">
+                                <rect key="frame" x="186" y="698" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -67,30 +27,12 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="qsE-PZ-PW9"/>
+                        <viewLayoutGuide key="safeArea" id="PUO-gr-sYq"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wzf-se-613" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VWT-ji-TIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="713" y="782"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Iov-sU-ah4">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Vb-uN-02c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController storyboardIdentifier="settingsNavController" automaticallyAdjustsScrollViewInsets="NO" id="4qr-2w-PNW" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bdf-Dl-jbZ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="RcG-4C-93E" kind="relationship" relationship="rootViewController" id="Ehb-NU-xFP"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="-101" y="-13"/>
+            <point key="canvasLocation" x="107" y="125"/>
         </scene>
     </scenes>
 </document>

@@ -1,18 +1,9 @@
-//
-//  SettingsViewController.swift
-//  TelemetryApp
-//
-//  Created by Jeff Ahlers on 11/11/19.
-//  Copyright © 2019 Jeff Ahlers. All rights reserved.
-//
-
 import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-
-
-    @IBOutlet weak var settingsTable: UITableView!
     
+    var fromView:UIViewController?
+    @IBOutlet weak var settingsTable: UITableView!
     var height = CGFloat(350)
     var width = CGFloat(190)
     var settings:[String] = ["Bug Report", "Console","Dock Options","Favorites","Settings"]
@@ -20,7 +11,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         settingsTable.dataSource = self
         settingsTable.delegate = self
-         let cellNib = UINib(nibName: "SettingsCell", bundle: nil)
+        let cellNib = UINib(nibName: "SettingsCell", bundle: nil)
         settingsTable.register(cellNib, forCellReuseIdentifier: "SettingsCell")
         // Do any additional setup after loading the view.
     }
@@ -36,19 +27,22 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row{
-        case 1:
-            self.performSegue(withIdentifier: "ShowBugReport", sender: self)
-            break
-        default:
-            self.performSegue(withIdentifier: "ShowBugReport", sender: self)
-            break
-        }
+        self.dismiss(animated: true, completion: nil)
+        self.fromView?.performSegue(withIdentifier: "showBugReport", sender: self)
+        self.fromView?.removeBlurs()
+        //        switch indexPath.row{
+        //        case 1:
+        //            self.presentingViewController?.performSegue(withIdentifier: "bug2", sender: self)
+        //            break
+        //        default:
+        //            self.presentingViewController?.performSegue(withIdentifier: "bug2", sender: self)
+        //            break
+        //        }
     }
     
     // This function is called before the segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
-    }
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     segue.destination.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height);
+     }
+     */
 }

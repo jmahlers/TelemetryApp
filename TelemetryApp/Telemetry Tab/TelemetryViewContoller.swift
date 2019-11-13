@@ -139,17 +139,14 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
     }
     
     @IBAction func showSettings(_ sender: Any) {
-        let blurEffect = UIBlurEffect(style: .light)
-        self.settingsBlur = UIVisualEffectView(effect: blurEffect)
-        self.settingsBlur!.frame = self.view.frame
-        //self.view.addSubview(self.settingsBlur!)
-        let settingsViewController: SettingsViewController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+//        let blurEffect = UIBlurEffect(style: .light)
+//        self.settingsBlur = UIVisualEffectView(effect: blurEffect)
+//        self.settingsBlur!.frame = self.view.frame
+//        //self.view.addSubview(self.settingsBlur!)
+        let settingsViewController: SettingsViewController = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
         settingsViewController.modalPresentationStyle = .popover
         settingsViewController.modalTransitionStyle = .crossDissolve
-        
-        //let navigationController = UINavigationController(rootViewController: settingsViewController)
-        //navigationController.navigationBar.barStyle = .blackTranslucent
-        
+        settingsViewController.fromView = self
         let popOverVC = settingsViewController.popoverPresentationController
         popOverVC?.permittedArrowDirections = .up
         popOverVC?.sourceView = self.topView
@@ -162,8 +159,9 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
+    
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-        
+        print("dismissed")
     }
     
     func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
@@ -171,6 +169,8 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
             self.settingsBlur?.removeFromSuperview()
         }, completion: nil)
         return true
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
 }
 

@@ -68,3 +68,12 @@ extension UIView {
         return borders
     }
 }
+extension UIViewController{
+    func removeBlurs(){
+        for subview in self.view.subviews {
+            if subview is UIVisualEffectView {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+}
