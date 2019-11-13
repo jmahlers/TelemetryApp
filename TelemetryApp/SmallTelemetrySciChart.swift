@@ -44,31 +44,82 @@ class SmallTelemetrySciChart : SCIChartSurface {
         createDataSeries()
         createRenderableSeries()
         addModifiers()
+        
+        self.isUserInteractionEnabled = false
+    }
+    
+    func updateWithNewMessage(dataPoint: DataPoint) {
+        DispatchQueue.global().sync {
+            self.scatterDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
+            let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: self, point: dataPoint)
+            self.lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(avgPoint))
+            
+            let maxIndex = self.lineDataSeries.count() - 1
+            
+            let max = SCIGenericDouble(self.lineDataSeries.xValues().value(at: maxIndex))
+            
+            let visibleRange = self.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+            
+            visibleRange.min = SCIGeneric(dataPoint.time - self.secondsInPastToPlot)
+            visibleRange.max = SCIGeneric(dataPoint.time + 1)
+            
+            self.invalidateElement()
+        }
+    }
+    
+    func updateWithManyNewMessages() {
+//        DispatchQueue.global().sync {
+//            lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
+//            lineDataSeries.fifoCapacity = Int32(self.secondsInPastToPlot*SmallTelemetrySciChart.frequency+Double(self.rollAvgStorage.count))
+//            lineDataSeries.seriesName = "line series"
+//
+//            // Init scatter data series
+//            scatterDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
+//            scatterDataSeries.fifoCapacity = 10
+//            scatterDataSeries.seriesName = "scatter series"
+        
+        let sensor = Sensor(key: self.key)
+        guard let points = Telemetry.shared.dataToPlot[sensor] else { return }
+        
+        for point in points {
+            scatterDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(point.value))
+            let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: self, point: point)
+            lineDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(avgPoint))
+        }
+        
+        Telemetry.shared.dataToPlot[sensor]?.removeAll()
+        
+//        }
+    }
+    
+    func clearData() {
+        lineDataSeries.clear()
+        scatterDataSeries.clear()
     }
     
     private func addModifiers(){
-        //        let xAxisDragmodifier = SCIXAxisDragModifier()
-        //        xAxisDragmodifier.dragMode = .pan
-        //        xAxisDragmodifier.clipModeX = .none
-        //
-        //        let yAxisDragmodifier = SCIYAxisDragModifier()
-        //        yAxisDragmodifier.dragMode = .pan
-        //
-        //        let extendZoomModifier = SCIZoomExtentsModifier()
-        //        let pinchZoomModifier = SCIPinchZoomModifier()
-        //
-        //        let rolloverModifier = SCIRolloverModifier()
-        //        let legend = SCILegendModifier()
-        //
-        //        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, legend, rolloverModifier])
-        //
-        //        chart.chartModifiers = groupModifier
+//        let xAxisDragmodifier = SCIXAxisDragModifier()
+//        xAxisDragmodifier.dragMode = .pan
+//        xAxisDragmodifier.clipModeX = .none
+//
+//        let yAxisDragmodifier = SCIYAxisDragModifier()
+//        yAxisDragmodifier.dragMode = .pan
+//
+//        let extendZoomModifier = SCIZoomExtentsModifier()
+//        let pinchZoomModifier = SCIPinchZoomModifier()
+//
+//        let rolloverModifier = SCIRolloverModifier()
+//        let legend = SCILegendModifier()
+//
+//        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, legend, rolloverModifier])
+//
+//        chart.chartModifiers = groupModifier
     }
     
-    private func createDataSeries(){
+    private func createDataSeries() {
         // Init line data series
         lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
-        lineDataSeries.fifoCapacity = Int32(self.secondsInPastToPlot*SmallTelemetrySciChart.frequency+Double(self.rollAvgStorage.count))
+        lineDataSeries.fifoCapacity = Int32(self.secondsInPastToPlot*SmallTelemetrySciChart.frequency+Double(self.avgPeriod))
         lineDataSeries.seriesName = "line series"
         
         // Init scatter data series
@@ -86,7 +137,7 @@ class SmallTelemetrySciChart : SCIChartSurface {
         
         for point in recentPoints {
             scatterDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(point.value))
-            let avgPoint = SciChartRollingAverageUtils.computeRollingAverageForDataPoint(chart: self, point: point)
+            let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: self, point: point)
             lineDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(avgPoint))
         }
         

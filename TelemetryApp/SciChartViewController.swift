@@ -15,7 +15,7 @@ class SciChartViewController: UIViewController, TelemetryDelegate {
         if (key == chart.key) {
 //
             scatterDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
-            let avgPoint = SciChartRollingAverageUtils.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
+            let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: chart, point: dataPoint)
             lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(avgPoint))
             
             let minIndex = lineDataSeries.count() - Int32(totalCapacity)
@@ -171,7 +171,7 @@ class SciChartViewController: UIViewController, TelemetryDelegate {
         
         for point in recentPoints {
             scatterDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(point.value))
-            let avgPoint = SciChartRollingAverageUtils.computeRollingAverageForDataPoint(chart: chart, point: point)
+            let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: chart, point: point)
             lineDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(avgPoint))
         }
         
