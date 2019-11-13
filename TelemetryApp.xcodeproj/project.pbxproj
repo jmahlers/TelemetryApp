@@ -22,7 +22,7 @@
 		2384239D2375FEA600BD2DC2 /* SmallTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */; };
 		239981EE2378ED39002AEEC9 /* SciChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981ED2378ED39002AEEC9 /* SciChartViewController.swift */; };
 		239981F62378F563002AEEC9 /* ChartSetUpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981F52378F563002AEEC9 /* ChartSetUpUtils.swift */; };
-		239981F82378F6B7002AEEC9 /* SmallSciChartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981F72378F6B7002AEEC9 /* SmallSciChartContainer.swift */; };
+		239981F82378F6B7002AEEC9 /* SmallLiveSciChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981F72378F6B7002AEEC9 /* SmallLiveSciChart.swift */; };
 		23EB4A972375033A0061A700 /* DetailTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB4A962375033A0061A700 /* DetailTelemetryChartView.swift */; };
 		835B3677A0C5E7B384A972AE /* Pods_TelemetryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B22950E09878D842173933E /* Pods_TelemetryApp.framework */; };
 		A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011940F237380B7002625C5 /* TelemetryViewContoller.swift */; };
@@ -92,7 +92,7 @@
 		2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTelemetryChartView.swift; sourceTree = "<group>"; };
 		239981ED2378ED39002AEEC9 /* SciChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciChartViewController.swift; sourceTree = "<group>"; };
 		239981F52378F563002AEEC9 /* ChartSetUpUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSetUpUtils.swift; sourceTree = "<group>"; };
-		239981F72378F6B7002AEEC9 /* SmallSciChartContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSciChartContainer.swift; sourceTree = "<group>"; };
+		239981F72378F6B7002AEEC9 /* SmallLiveSciChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallLiveSciChart.swift; sourceTree = "<group>"; };
 		23EB4A962375033A0061A700 /* DetailTelemetryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTelemetryChartView.swift; sourceTree = "<group>"; };
 		6B22950E09878D842173933E /* Pods_TelemetryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TelemetryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A011940F237380B7002625C5 /* TelemetryViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryViewContoller.swift; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 				A01CA525236A3D02007B6713 /* Main.storyboard */,
 				239981ED2378ED39002AEEC9 /* SciChartViewController.swift */,
 				239981F52378F563002AEEC9 /* ChartSetUpUtils.swift */,
-				239981F72378F6B7002AEEC9 /* SmallSciChartContainer.swift */,
+				239981F72378F6B7002AEEC9 /* SmallLiveSciChart.swift */,
 				A011941923738470002625C5 /* Protocols.swift */,
 				A0FE983A2374A8D20033F6E6 /* Extensions.swift */,
 				A01C1E48236A47770026D76F /* Telemetry.swift */,
@@ -435,7 +435,7 @@
 				A0398BED2374F679005454E2 /* WebsiteController.swift in Sources */,
 				2384239D2375FEA600BD2DC2 /* SmallTelemetryChartView.swift in Sources */,
 				A0F4A83423713D480025CAA1 /* LivestreamView.swift in Sources */,
-				239981F82378F6B7002AEEC9 /* SmallSciChartContainer.swift in Sources */,
+				239981F82378F6B7002AEEC9 /* SmallLiveSciChart.swift in Sources */,
 				A08290F72375546F00AF0E20 /* HeaderView.swift in Sources */,
 				A011942F2373FAB2002625C5 /* DockExpandedView.swift in Sources */,
 				2314FBA323736B08005ACD79 /* XYMarkerView.swift in Sources */,

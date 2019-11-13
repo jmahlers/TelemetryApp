@@ -10,7 +10,7 @@ import UIKit
 import Charts
 import SciChart
 
-class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPopoverPresentationControllerDelegate{
+class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPopoverPresentationControllerDelegate {
     
     //We need to change this so that charts maintains order with favorites and general
     //Ideally I think this should be to arrays that have matching orders to the above arrays
@@ -23,6 +23,11 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
             }
         }
     }
+    
+    var counter = 0
+    
+    let graphUpdateFreq = 30 // After this many data points received for given sensor
+    let moveAxesPeriod = 30 // After x number of messages received, move all axes to most recent time
     
 //    let chartUpdateFrequency: Double = 0.5 // seconds
 //    var lastGraphTime: Date = Date()
@@ -78,9 +83,11 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
         dockOutlet.roundTopCorners(cornerRadius: 12.5)
         
         for i in 0..<numThreads {
-            graphingQueues.append(DispatchQueue(label: "graphingQueue"+String(i), qos: .background, attributes: .concurrent))
+            graphingQueues.append(DispatchQueue(label: "graphingQueue"+String(i), qos: .userInteractive, attributes: .concurrent))
         }
         
+        updateAllChartsWithManyNewMessages()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,10 +95,10 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
         
         Telemetry.shared.delegate = self
         
-        clearAllChartData()
+        updateAllChartsWithManyNewMessages()
     }
     
-    
+    var done:Bool = false
     func manageMessage(key: String, dataPoint: DataPoint) {
         let sensor = Sensor(key: key)
         let section = (Telemetry.shared.getFavoriteSensors().contains(sensor) ? 0:1)
@@ -103,15 +110,26 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
                 dockOutlet.expandedView.expandedDockCollection.reloadItems(at: [indexPath])
             }
         } else {
-            if (!graphingPaused) {
+            if (!graphingPaused && Telemetry.shared.dataToPlot[sensor]?.count ?? 0 > graphUpdateFreq) {
+
+                var chart:SmallLiveSciChart?
                 if(section == 0) {
-                    let chart = Telemetry.shared.favoriteCharts[row]
-                    chart.updateWithNewMessage(dataPoint: dataPoint)
+                    chart = Telemetry.shared.favoriteCharts[row]
                 } else {
-                    let chart = Telemetry.shared.generalCharts[row]
-                    chart.updateWithNewMessage(dataPoint: dataPoint)
+                    chart = Telemetry.shared.generalCharts[row]
                 }
+//                chart?.updateWithManyNewMessages()
+//                graphingQueues[queueIndex].sync {
+                    chart?.updateWithManyNewMessages()
+//                }
+//                queueIndex += 1
+
             }
+            
+            if counter % moveAxesPeriod == 0 {
+                updateVisibleRangeOfEveryGraph(time: dataPoint.time)
+            }
+            counter += 1
         }
     }
     
@@ -138,7 +156,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
     }
     
     func newSensor(sensor: Sensor) {
-        let chart = SmallSciChartContainer(frame: .zero)
+        let chart = SmallLiveSciChart(frame: .zero)
         
         chart.initialize(key: sensor.key)
         

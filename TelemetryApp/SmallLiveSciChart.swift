@@ -9,12 +9,10 @@
 import Foundation
 import SciChart
 
-class SmallSciChartContainer : UIView {
-    
-    var chart = SCIChartSurface(frame: CGRect.zero)
+class SmallLiveSciChart : SCIChartSurface {
     
     var key:String = ""
-    var secondsInPastToPlot:Double = 10
+    var secondsInPastToPlot:Double = 30
     static let frequency:Double = 4
     
     var rollAvgStorage: [Float] = []
@@ -31,56 +29,55 @@ class SmallSciChartContainer : UIView {
         self.key = key
 //        chart.applyThemeProvider(SCIThemeManager.themeProvider(with: SCIChart_Bright_SparkStyleKey))
 
-        chart.translatesAutoresizingMaskIntoConstraints = true
+        self.translatesAutoresizingMaskIntoConstraints = true
         // Set the autoResizingMask property so the chart will fit the screen when we rotate the device
-        chart.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     
         let xAxis = SCINumericAxis()
         xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        chart.xAxes.add(xAxis)
+        self.xAxes.add(xAxis)
     
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(1), max: SCIGeneric(1))
-        chart.yAxes.add(yAxis)
+        self.yAxes.add(yAxis)
         yAxis.autoRange = .always
+        yAxis.textFormatting = "1.1"
+
         
-        SCIThemeManager.applyTheme(toThemeable: chart, withThemeKey: SCIChart_Bright_SparkStyleKey)
+        SCIThemeManager.applyTheme(toThemeable: self, withThemeKey: SCIChart_Bright_SparkStyleKey)
 
         // Apply theme before this line!
         createDataSeries()
         createRenderableSeries()
         addModifiers()
         
-        
-
-        chart.isUserInteractionEnabled = false
-        
-        
-        
-        
-        chart.frame = self.frame
-        self.addSubview(chart)
+        self.isUserInteractionEnabled = false
         
     }
     
     
-    func updateWithNewMessage(dataPoint: DataPoint) {
-        DispatchQueue.global().sync {
-            self.scatterDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
-            let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: self, point: dataPoint)
-            self.lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(avgPoint))
-            
-            let maxIndex = self.lineDataSeries.count() - 1
-            
-            let max = SCIGenericDouble(self.lineDataSeries.xValues().value(at: maxIndex))
-            
-            let visibleRange = chart.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
-            
-            visibleRange.min = SCIGeneric(dataPoint.time - self.secondsInPastToPlot)
-            visibleRange.max = SCIGeneric(dataPoint.time + 1)
-            
-            chart.invalidateElement()
-        }
+//    func updateWithNewMessage(dataPoint: DataPoint) {
+//        self.scatterDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
+//        let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: self, point: dataPoint)
+//        self.lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(avgPoint))
+//        
+////        let maxIndex = self.lineDataSeries.count() - 1
+//        
+////        let max = SCIGenericDouble(self.lineDataSeries.xValues().value(at: maxIndex))
+//        
+//        let visibleRange = self.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+//        
+//        visibleRange.min = SCIGeneric(dataPoint.time - self.secondsInPastToPlot)
+//        visibleRange.max = SCIGeneric(dataPoint.time + 1)
+//        
+//        self.invalidateElement()
+//    }
+    
+    func updateVisibleRange(time: Double) {
+        let visibleRange = self.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+        visibleRange.min = SCIGeneric(time - self.secondsInPastToPlot)
+        visibleRange.max = SCIGeneric(time + 2)
+        self.invalidateElement()
     }
     
     func updateWithManyNewMessages() {
@@ -94,6 +91,8 @@ class SmallSciChartContainer : UIView {
             lineDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(avgPoint))
         }
         
+        self.invalidateElement()
+
         Telemetry.shared.dataToPlot[sensor]?.removeAll()
         
     }
@@ -125,45 +124,56 @@ class SmallSciChartContainer : UIView {
     private func createDataSeries() {
         // Init line data series
         lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
-        lineDataSeries.fifoCapacity = Int32(self.secondsInPastToPlot*SmallSciChartContainer.frequency+Double(self.avgPeriod))
+        lineDataSeries.fifoCapacity = Int32(self.secondsInPastToPlot*SmallLiveSciChart.frequency+Double(self.avgPeriod))
         lineDataSeries.seriesName = "line series"
         
         // Init scatter data series
         scatterDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
-        scatterDataSeries.fifoCapacity = 10
+        scatterDataSeries.fifoCapacity = 25
         scatterDataSeries.seriesName = "scatter series"
         
-        guard let points = Telemetry.shared.dataSource[Sensor(key: self.key)] else {
-            print("Data couldn't be accessed from telemetry data source (it probably doesn't exist)")
-            return
-        }
+//        guard let points = Telemetry.shared.dataSource[Sensor(key: self.key)] else {
+//            print("Data couldn't be accessed from telemetry data source (it probably doesn't exist)")
+//            return
+//        }
+//
+//        let suffixLength = Int("\(self.lineDataSeries?.fifoCapacity)")
+//        let recentPoints:[DataPoint] = points.suffix(suffixLength ?? Int(self.secondsInPastToPlot*SmallLiveSciChart.frequency))
+//
+//        for point in recentPoints {
+//            scatterDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(point.value))
+//            let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: self, point: point)
+//            lineDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(avgPoint))
+//        }
         
-        let suffixLength = Int("\(self.lineDataSeries?.fifoCapacity)")
-        let recentPoints:[DataPoint] = points.suffix(suffixLength ?? Int(self.secondsInPastToPlot*SmallSciChartContainer.frequency))
+        let sensor = Sensor(key: self.key)
+        guard let points = Telemetry.shared.dataToPlot[sensor] else { return }
         
-        for point in recentPoints {
+        for point in points {
             scatterDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(point.value))
             let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: self, point: point)
             lineDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(avgPoint))
         }
+        
+        Telemetry.shared.dataToPlot[sensor]?.removeAll()
         
     }
     
     private func createRenderableSeries(){
         lineRenderableSeries = SCIFastLineRenderableSeries()
         lineRenderableSeries.dataSeries = lineDataSeries
-//        lineRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0x0f7fffff, withThickness: 2)
+        lineRenderableSeries.strokeStyle = SCISolidPenStyle(color: UIColor.blue, withThickness: 2)
         
         scatterRenderableSeries = SCIXyScatterRenderableSeries()
         scatterRenderableSeries.dataSeries = scatterDataSeries
-//        let marker = SCICrossPointMarker()
-//        marker.strokeStyle = SCISolidPenStyle(colorCode: 0x00000000, withThickness: 1)
-//        marker.height = 6.0
-//        marker.width = 6.0
-//        scatterRenderableSeries.pointMarker = marker
-//        scatterRenderableSeries.opacity = 0.8
+        let marker = SCICrossPointMarker()
+        marker.strokeStyle = SCISolidPenStyle(color: UIColor.black.withAlphaComponent(0.5), withThickness: 1)
+        marker.height = 6.0
+        marker.width = 6.0
+        scatterRenderableSeries.pointMarker = marker
+        scatterRenderableSeries.opacity = 0.8
         
-        chart.renderableSeries.add(lineRenderableSeries)
-        chart.renderableSeries.add(scatterRenderableSeries)
+        self.renderableSeries.add(lineRenderableSeries)
+        self.renderableSeries.add(scatterRenderableSeries)
     }
 }
