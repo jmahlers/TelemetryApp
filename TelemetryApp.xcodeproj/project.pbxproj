@@ -25,6 +25,8 @@
 		2384239D2375FEA600BD2DC2 /* SmallTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */; };
 		239981F82378F6B7002AEEC9 /* SmallLiveSciChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981F72378F6B7002AEEC9 /* SmallLiveSciChart.swift */; };
 		23EB4A972375033A0061A700 /* DetailTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB4A962375033A0061A700 /* DetailTelemetryChartView.swift */; };
+		7093A1A1237C7EAC00098486 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7093A1A0237C7EAC00098486 /* Weather.swift */; };
+		7093A1A3237C835000098486 /* WeatherDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7093A1A2237C835000098486 /* WeatherDataPoint.swift */; };
 		835B3677A0C5E7B384A972AE /* Pods_TelemetryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B22950E09878D842173933E /* Pods_TelemetryApp.framework */; };
 		A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011940F237380B7002625C5 /* TelemetryViewContoller.swift */; };
 		A011941A23738470002625C5 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011941923738470002625C5 /* Protocols.swift */; };
@@ -101,6 +103,8 @@
 		239981F72378F6B7002AEEC9 /* SmallLiveSciChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallLiveSciChart.swift; sourceTree = "<group>"; };
 		23EB4A962375033A0061A700 /* DetailTelemetryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTelemetryChartView.swift; sourceTree = "<group>"; };
 		6B22950E09878D842173933E /* Pods_TelemetryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TelemetryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7093A1A0237C7EAC00098486 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		7093A1A2237C835000098486 /* WeatherDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataPoint.swift; sourceTree = "<group>"; };
 		A011940F237380B7002625C5 /* TelemetryViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryViewContoller.swift; sourceTree = "<group>"; };
 		A011941923738470002625C5 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		A01194272373EFA6002625C5 /* DockMinimizedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DockMinimizedView.xib; sourceTree = "<group>"; };
@@ -347,6 +351,8 @@
 			children = (
 				A0CC52EA237C70BD0022E1EC /* WeatherViewController.swift */,
 				A0CC52E8237C70B00022E1EC /* Weather.storyboard */,
+				7093A1A0237C7EAC00098486 /* Weather.swift */,
+				7093A1A2237C835000098486 /* WeatherDataPoint.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -506,6 +512,7 @@
 				230A0CD5237A77E3002A208C /* RollingAverageUtils.swift in Sources */,
 				A01C1E49236A47770026D76F /* Telemetry.swift in Sources */,
 				23EB4A972375033A0061A700 /* DetailTelemetryChartView.swift in Sources */,
+				7093A1A1237C7EAC00098486 /* Weather.swift in Sources */,
 				A01194312373FB9B002625C5 /* DockManager.swift in Sources */,
 				A073C3F12376335600BDB7CD /* OverallTabViewController.swift in Sources */,
 				23173121237BEA5D00BE6483 /* TelemetrySCIChartSurface.swift in Sources */,
@@ -513,6 +520,7 @@
 				A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */,
 				2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */,
 				236AC49223763CD400014AA1 /* DatasetSetUpUtils.swift in Sources */,
+				7093A1A3237C835000098486 /* WeatherDataPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
