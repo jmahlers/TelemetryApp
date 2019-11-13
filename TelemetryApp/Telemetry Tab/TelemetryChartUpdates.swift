@@ -11,12 +11,23 @@ import SciChart
 
 extension TelemetryViewController{
     
-    func updateAllChartsWithManyNewMessages() {
+    func updateAllChartsWithBufferedData() {
+        
         for chart in Telemetry.shared.favoriteCharts {
-            chart.updateWithManyNewMessages()
+            chart.updateWithManyNewMessages(timeOfLastMessage: mostRecentTime)
         }
         for chart in Telemetry.shared.generalCharts {
-            chart.updateWithManyNewMessages()
+            chart.updateWithManyNewMessages(timeOfLastMessage: mostRecentTime)
+        }
+    }
+    
+    func updateAllChartsWithBufferedData(timer:Timer) {
+        
+        for chart in Telemetry.shared.favoriteCharts {
+            chart.updateWithManyNewMessages(timeOfLastMessage: mostRecentTime)
+        }
+        for chart in Telemetry.shared.generalCharts {
+            chart.updateWithManyNewMessages(timeOfLastMessage: mostRecentTime)
         }
     }
     
@@ -26,15 +37,6 @@ extension TelemetryViewController{
         }
         for chart in Telemetry.shared.generalCharts {
             chart.clearData()
-        }
-    }
-    
-    func updateVisibleRangeOfEveryGraph(time: Double) {
-        for chart in Telemetry.shared.favoriteCharts {
-            chart.updateVisibleRange(time: time)
-        }
-        for chart in Telemetry.shared.generalCharts {
-            chart.updateVisibleRange(time: time)
         }
     }
     

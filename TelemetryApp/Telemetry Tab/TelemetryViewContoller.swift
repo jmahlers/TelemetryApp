@@ -12,36 +12,10 @@ import SciChart
 
 class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPopoverPresentationControllerDelegate {
     
-    //We need to change this so that charts maintains order with favorites and general
-    //Ideally I think this should be to arrays that have matching orders to the above arrays
-    var graphingQueues: [DispatchQueue] = []
-    let numThreads = 12
-    var queueIndex = 0 {
-        didSet {
-            if self.queueIndex == self.numThreads {
-                self.queueIndex = 0
-            }
-        }
-    }
+    var timer: Timer?
     
-    var counter = 0
-    
-    let graphUpdateFreq = 30 // After this many data points received for given sensor
-    let moveAxesPeriod = 30 // After x number of messages received, move all axes to most recent time
-    
-//    let chartUpdateFrequency: Double = 0.5 // seconds
-//    var lastGraphTime: Date = Date()
-//    var lastDockTime: Date = Date()
-    
-    var graphingPaused = false {
-        didSet {
-            if self.graphingPaused {
-                Telemetry.shared.dataToPlot.removeAll()
-            } else {
-                updateAllChartsWithManyNewMessages()
-            }
-        }
-    }
+    let graphUpdatePeriod = 0.5 // in seconds
+    var mostRecentTime:Double = 0
     
     @IBOutlet weak var dockOutlet: DockManager!
     @IBOutlet var dockHeight: NSLayoutConstraint!
@@ -53,6 +27,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
     
     var panGesture = UIPanGestureRecognizer()
     var settingsBlur: UIVisualEffectView?
+    var dockDidTransition = false
     var upwardState = false {
         didSet {
             if self.upwardState {
@@ -62,7 +37,15 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
             }
         }
     }
-    var dockDidTransition = false
+    var graphingPaused = false {
+        didSet {
+            if self.graphingPaused {
+                Telemetry.shared.dataToPlot.removeAll()
+            } else {
+                updateAllChartsWithBufferedData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,12 +65,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
         dockOutlet.addGestureRecognizer(panGesture)
         dockOutlet.roundTopCorners(cornerRadius: 12.5)
         
-        for i in 0..<numThreads {
-            graphingQueues.append(DispatchQueue(label: "graphingQueue"+String(i), qos: .userInteractive, attributes: .concurrent))
-        }
-        
-        updateAllChartsWithManyNewMessages()
-
+        updateAllChartsWithBufferedData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,10 +73,20 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
         
         Telemetry.shared.delegate = self
         
-        updateAllChartsWithManyNewMessages()
+        if nil == timer{
+            timer = Timer.scheduledTimer(withTimeInterval: graphUpdatePeriod, repeats: true, block: updateAllChartsWithBufferedData)
+        }
     }
     
-    var done:Bool = false
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if timer != nil {
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+    
     func manageMessage(key: String, dataPoint: DataPoint) {
         let sensor = Sensor(key: key)
         let section = (Telemetry.shared.getFavoriteSensors().contains(sensor) ? 0:1)
@@ -110,26 +98,7 @@ class TelemetryViewController: BaseChartViewController, TelemetryDelegate, UIPop
                 dockOutlet.expandedView.expandedDockCollection.reloadItems(at: [indexPath])
             }
         } else {
-            if (!graphingPaused && Telemetry.shared.dataToPlot[sensor]?.count ?? 0 > graphUpdateFreq) {
-
-                var chart:SmallLiveSciChart?
-                if(section == 0) {
-                    chart = Telemetry.shared.favoriteCharts[row]
-                } else {
-                    chart = Telemetry.shared.generalCharts[row]
-                }
-//                chart?.updateWithManyNewMessages()
-//                graphingQueues[queueIndex].sync {
-                    chart?.updateWithManyNewMessages()
-//                }
-//                queueIndex += 1
-
-            }
-            
-            if counter % moveAxesPeriod == 0 {
-                updateVisibleRangeOfEveryGraph(time: dataPoint.time)
-            }
-            counter += 1
+            mostRecentTime = dataPoint.time
         }
     }
     

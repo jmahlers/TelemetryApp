@@ -13,7 +13,7 @@ class SmallLiveSciChart : SCIChartSurface {
     
     var key:String = ""
     var secondsInPastToPlot:Double = 30
-    static let frequency:Double = 4
+    static let frequency:Double = 4 // Hz
     
     var rollAvgStorage: [Float] = []
     let avgPeriod = 10 // Number of points
@@ -27,10 +27,8 @@ class SmallLiveSciChart : SCIChartSurface {
     
     func initialize(key: String) {
         self.key = key
-//        chart.applyThemeProvider(SCIThemeManager.themeProvider(with: SCIChart_Bright_SparkStyleKey))
 
         self.translatesAutoresizingMaskIntoConstraints = true
-        // Set the autoResizingMask property so the chart will fit the screen when we rotate the device
         self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     
         let xAxis = SCINumericAxis()
@@ -41,8 +39,6 @@ class SmallLiveSciChart : SCIChartSurface {
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(1), max: SCIGeneric(1))
         self.yAxes.add(yAxis)
         yAxis.autoRange = .always
-        yAxis.textFormatting = "1.1"
-
         
         SCIThemeManager.applyTheme(toThemeable: self, withThemeKey: SCIChart_Bright_SparkStyleKey)
 
@@ -55,32 +51,7 @@ class SmallLiveSciChart : SCIChartSurface {
         
     }
     
-    
-//    func updateWithNewMessage(dataPoint: DataPoint) {
-//        self.scatterDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
-//        let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: self, point: dataPoint)
-//        self.lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(avgPoint))
-//        
-////        let maxIndex = self.lineDataSeries.count() - 1
-//        
-////        let max = SCIGenericDouble(self.lineDataSeries.xValues().value(at: maxIndex))
-//        
-//        let visibleRange = self.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
-//        
-//        visibleRange.min = SCIGeneric(dataPoint.time - self.secondsInPastToPlot)
-//        visibleRange.max = SCIGeneric(dataPoint.time + 1)
-//        
-//        self.invalidateElement()
-//    }
-    
-    func updateVisibleRange(time: Double) {
-        let visibleRange = self.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
-        visibleRange.min = SCIGeneric(time - self.secondsInPastToPlot)
-        visibleRange.max = SCIGeneric(time + 2)
-        self.invalidateElement()
-    }
-    
-    func updateWithManyNewMessages() {
+    func updateWithManyNewMessages(timeOfLastMessage: Double) {
         
         let sensor = Sensor(key: self.key)
         guard let points = Telemetry.shared.dataToPlot[sensor] else { return }
@@ -91,8 +62,12 @@ class SmallLiveSciChart : SCIChartSurface {
             lineDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(avgPoint))
         }
         
+        let visibleRange = self.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+        visibleRange.min = SCIGeneric(timeOfLastMessage - self.secondsInPastToPlot)
+        visibleRange.max = SCIGeneric(timeOfLastMessage + (0.1*self.secondsInPastToPlot))
+        
         self.invalidateElement()
-
+        
         Telemetry.shared.dataToPlot[sensor]?.removeAll()
         
     }
@@ -131,20 +106,6 @@ class SmallLiveSciChart : SCIChartSurface {
         scatterDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         scatterDataSeries.fifoCapacity = 25
         scatterDataSeries.seriesName = "scatter series"
-        
-//        guard let points = Telemetry.shared.dataSource[Sensor(key: self.key)] else {
-//            print("Data couldn't be accessed from telemetry data source (it probably doesn't exist)")
-//            return
-//        }
-//
-//        let suffixLength = Int("\(self.lineDataSeries?.fifoCapacity)")
-//        let recentPoints:[DataPoint] = points.suffix(suffixLength ?? Int(self.secondsInPastToPlot*SmallLiveSciChart.frequency))
-//
-//        for point in recentPoints {
-//            scatterDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(point.value))
-//            let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: self, point: point)
-//            lineDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(avgPoint))
-//        }
         
         let sensor = Sensor(key: self.key)
         guard let points = Telemetry.shared.dataToPlot[sensor] else { return }
