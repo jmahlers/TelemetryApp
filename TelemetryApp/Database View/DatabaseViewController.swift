@@ -8,107 +8,125 @@
 
 import UIKit
 
-struct Run : Decodable {
-    let id : Int!
-    var location: String?
-    var startDate: Date?
-    var endDate: String?
-    var description: String?
-    var type: String?
-}
-
-struct AllRunResults : Decodable {
-    let runResults : String
-}
-
-class DatabaseViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DatabaseViewController : CollapsibleTableSectionViewController {
     
-    
-    
-    @IBOutlet weak var table: UITableView!
+    var sections:[DaySection] = []
     
     let baseURL = "https://api.data.wuracing.com/api/"
-    
     let queue = DispatchQueue(label: "async", qos: .userInitiated)
-
-    var runs:[Run] = []
-//    var runsByDate:[Run:Date] = [:]
-    
     let formatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
+        self.delegate = self
 
+        self.reloadData()
+//        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
         
-        DispatchQueue.global().async {
-            self.fetchRuns()
-            
-            DispatchQueue.main.async {
-//                for run in self.runs {
-//                    print(run)
+//        DispatchQueue.global().async {
+//            self.fetchRuns()
+//
+//            DispatchQueue.main.sync {
+//                for run in self.allRuns {
+//                    var daySectionExistsForRun = false
+//                    for i in 0..<self.sections.count {
+//                        if Calendar.current.isDate(run.startDate ?? Date(), inSameDayAs: self.sections[i].date ?? Date()) {
+//                            self.sections[i].runs?.append(run)
+//                            daySectionExistsForRun = true
+//                        }
+//                    }
+//
+//                    if !daySectionExistsForRun {
+//                        let daySection = DaySection(location: run.location ?? "", date: run.startDate ?? Date(), runs: [run])
+//                        self.sections.append(daySection)
+//                    }
 //                }
-                self.table.reloadData()
-            }
-        }
+//
+//                print("done sorting")
+//                self.reloadData()
+//            }
+//        }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//    }
+    
+//    func fetchRuns() {
+//        guard let url = URL(string: baseURL+"runs/") else { return }
+//
+//        var data: Data?
+//        do {
+//            data = try Data(contentsOf: url)
+//        } catch {
+//            print("Data could not be retrieved from URL")
+//        }
+//
+//        do {
+//            if data != nil {
+//                let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [[String:Any]]
+//                if json != nil {
+//                    for j in json! {
+//                        
+//                        var runStartDateString = j["date"] as? String
+//                        runStartDateString = runStartDateString?.replacingOccurrences(of: "T", with: " ")
+//                        runStartDateString = runStartDateString?.replacingOccurrences(of: "Z", with: "")
+//                        
+//                        let runStartDate = formatter.date(from: runStartDateString!)
+//                        
+//                        let run = Run(id: j["id"] as? Int, location: j["location"] as? String, startDate: runStartDate, endDate: j["end"] as? String, description: j["description"] as? String, type: j["type"] as? String)
+//                        allRuns.append(run)
+//                    }
+//                }
+//            }
+//        } catch {
+//            print("API results could not be decoded")
+//        }
+//    }
+    
+}
+
+extension DatabaseViewController : CollapsibleTableSectionDelegate {
+    
+    func numberOfSections(_ tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    func collapsibleTableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sections[section].runs.count
+    }
+    
+    func collapsibleTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        table.dataSource = self
-        table.delegate = self
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        
+        let run : Run = sections[(indexPath as NSIndexPath).section].runs[(indexPath as NSIndexPath).row]
+        
+        cell?.textLabel?.text = String(run.id)
+        
+        return cell ?? UITableViewCell(style: .default, reuseIdentifier: "cell")
     }
     
-    func fetchRuns() {
-        guard let url = URL(string: baseURL+"runs/") else { return }
-
-        var data: Data?
-        do {
-            data = try Data(contentsOf: url)
-        } catch {
-            print("Data could not be retrieved from URL")
-        }
-
-        do {
-            if data != nil {
-                let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [[String:Any]]
-                if json != nil {
-                    for j in json! {
-                        
-                        var runStartDateString = j["date"] as? String
-                        runStartDateString = runStartDateString?.replacingOccurrences(of: "T", with: " ")
-                        runStartDateString = runStartDateString?.replacingOccurrences(of: "Z", with: "")
-                        
-                        
-                        print(runStartDateString)
-                        let runStartDate = formatter.date(from: runStartDateString!)
-                        print(runStartDate)
-                        
-                        let run = Run(id: j["id"] as? Int, location: j["location"] as? String, startDate: runStartDate, endDate: j["end"] as? String, description: j["description"] as? String, type: j["type"] as? String)
-                        runs.append(run)
-                    }
-                }
-            }
-        } catch {
-            print("API results could not be decoded")
-        }
+    func collapsibleTableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1.0
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return runs.count
+    func collapsibleTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // get the run details
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        if let date = runs[indexPath.row].startDate {
-            cell.textLabel?.text = formatter.string(from: runs[indexPath.row].startDate!)
-
-        }
-        return cell
+    func collapsibleTableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].location
     }
     
+    func shouldCollapseByDefault(_ tableView: UITableView) -> Bool {
+        return true
+    }
+    
+    func shouldCollapseOthers(_ tableView: UITableView) -> Bool {
+        return true
+    }
 }
 
 

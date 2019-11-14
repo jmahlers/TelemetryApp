@@ -23,6 +23,9 @@
 		236AC4902376387100014AA1 /* GraphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */; };
 		236AC49223763CD400014AA1 /* DatasetSetUpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236AC49123763CD400014AA1 /* DatasetSetUpUtils.swift */; };
 		2384239D2375FEA600BD2DC2 /* SmallTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */; };
+		2398B040237CE5BD006C69D9 /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398B03F237CE5BD006C69D9 /* CollapsibleTableViewHeader.swift */; };
+		2398B042237CE7D1006C69D9 /* CollapsibleTableSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398B041237CE7D1006C69D9 /* CollapsibleTableSectionViewController.swift */; };
+		2398B044237CF877006C69D9 /* LoadCollapsibleDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398B043237CF877006C69D9 /* LoadCollapsibleDataVC.swift */; };
 		239981F82378F6B7002AEEC9 /* SmallLiveSciChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981F72378F6B7002AEEC9 /* SmallLiveSciChart.swift */; };
 		23E37373237C860600E0A500 /* DatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E37372237C860600E0A500 /* DatabaseViewController.swift */; };
 		23EB4A972375033A0061A700 /* DetailTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB4A962375033A0061A700 /* DetailTelemetryChartView.swift */; };
@@ -102,6 +105,9 @@
 		236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCollectionViewCell.swift; sourceTree = "<group>"; };
 		236AC49123763CD400014AA1 /* DatasetSetUpUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetSetUpUtils.swift; sourceTree = "<group>"; };
 		2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTelemetryChartView.swift; sourceTree = "<group>"; };
+		2398B03F237CE5BD006C69D9 /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
+		2398B041237CE7D1006C69D9 /* CollapsibleTableSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableSectionViewController.swift; sourceTree = "<group>"; };
+		2398B043237CF877006C69D9 /* LoadCollapsibleDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCollapsibleDataVC.swift; sourceTree = "<group>"; };
 		239981F72378F6B7002AEEC9 /* SmallLiveSciChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallLiveSciChart.swift; sourceTree = "<group>"; };
 		23E37372237C860600E0A500 /* DatabaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseViewController.swift; sourceTree = "<group>"; };
 		23EB4A962375033A0061A700 /* DetailTelemetryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTelemetryChartView.swift; sourceTree = "<group>"; };
@@ -218,6 +224,9 @@
 			isa = PBXGroup;
 			children = (
 				23E37372237C860600E0A500 /* DatabaseViewController.swift */,
+				2398B03F237CE5BD006C69D9 /* CollapsibleTableViewHeader.swift */,
+				2398B041237CE7D1006C69D9 /* CollapsibleTableSectionViewController.swift */,
+				2398B043237CF877006C69D9 /* LoadCollapsibleDataVC.swift */,
 			);
 			path = "Database View";
 			sourceTree = "<group>";
@@ -507,6 +516,7 @@
 				A0398BED2374F679005454E2 /* WebsiteController.swift in Sources */,
 				2384239D2375FEA600BD2DC2 /* SmallTelemetryChartView.swift in Sources */,
 				A0F4A83423713D480025CAA1 /* LivestreamView.swift in Sources */,
+				2398B044237CF877006C69D9 /* LoadCollapsibleDataVC.swift in Sources */,
 				239981F82378F6B7002AEEC9 /* SmallLiveSciChart.swift in Sources */,
 				A08290F72375546F00AF0E20 /* HeaderView.swift in Sources */,
 				A011942F2373FAB2002625C5 /* DockExpandedView.swift in Sources */,
@@ -517,6 +527,7 @@
 				2314FB9523736AAF005ACD79 /* LargeValueFormatter.swift in Sources */,
 				2314FB9223736AAF005ACD79 /* IntAxisValueFormatter.swift in Sources */,
 				2314FB8023736933005ACD79 /* OldRollingAverageUtils.swift in Sources */,
+				2398B042237CE7D1006C69D9 /* CollapsibleTableSectionViewController.swift in Sources */,
 				A0764E43237B49170077FB88 /* SettingsModalController.swift in Sources */,
 				A0CC52EB237C70BD0022E1EC /* WeatherViewController.swift in Sources */,
 				A073C3EB2375D8C500BDB7CD /* DraggableDock.swift in Sources */,
@@ -533,6 +544,7 @@
 				A073C3F12376335600BDB7CD /* OverallTabViewController.swift in Sources */,
 				23173121237BEA5D00BE6483 /* TelemetrySCIChartSurface.swift in Sources */,
 				A0E2701023768F0800440719 /* DockExpandedCell.swift in Sources */,
+				2398B040237CE5BD006C69D9 /* CollapsibleTableViewHeader.swift in Sources */,
 				A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */,
 				23E37373237C860600E0A500 /* DatabaseViewController.swift in Sources */,
 				2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */,

@@ -19,7 +19,7 @@ class DetailLiveSciChartVC : UIViewController, TelemetryDelegate {
     
     func manageMessage(key: String, dataPoint: DataPoint) {
         if key == self.key {
-            graph?.updateWithNewMessage(dataPoint: dataPoint)
+            graph?.appendDataPointToDataSeries(dataPoint: dataPoint)
         }
     }
     

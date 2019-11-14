@@ -14,7 +14,7 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
     
     var timer: Timer?
     
-    let graphUpdatePeriod:Double = 2 // in seconds
+    let graphUpdatePeriod:Double = 1 // in seconds
     var mostRecentTime:Double = 0
     
     @IBOutlet weak var dockOutlet: DockManager!
@@ -77,7 +77,7 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
         
         Telemetry.shared.delegate = self
         
-        if time == nil {
+        if timer == nil {
             timer = Timer.scheduledTimer(withTimeInterval: graphUpdatePeriod, repeats: true, block: updateAllChartsWithBufferedData)
         }
     }

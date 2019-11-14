@@ -11,7 +11,10 @@ import SciChart
 
 class DetailLiveSciChart : TelemetrySCIChartSurface {
     
-    var largestValueForScaling: Float = 10
+    var largestValueForYScaling: Float = 0
+    var largestValueForXScaling: Float = 0
+    var counter = 0
+    let updateFreq = 50
     
     func initialize(key: String) {
         self.key = key
@@ -39,27 +42,36 @@ class DetailLiveSciChart : TelemetrySCIChartSurface {
         
     }
     
-    func updateWithNewMessage(dataPoint: DataPoint) {
+    func appendDataPointToDataSeries(dataPoint: DataPoint) {
 
         scatterDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
         let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: self, point: dataPoint)
         lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(avgPoint))
         
+        largestValueForXScaling = Float(dataPoint.time + (0.1*self.secondsInPastToPlot))
+        
+        if (dataPoint.value > largestValueForYScaling) {
+            largestValueForYScaling = dataPoint.value + (0.2*dataPoint.value)
+        }
+        
         let visibleXRange = self.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
         visibleXRange.min = SCIGeneric(0)
-        visibleXRange.max = SCIGeneric(dataPoint.time + (0.1*self.secondsInPastToPlot))
+        visibleXRange.max = SCIGeneric(largestValueForXScaling)
         
         let visibleYRange = self.yAxes.item(at: 0)?.visibleRange as! SCIDoubleRange
         visibleYRange.min = SCIGeneric(0)
-//        let max = visibleYRange.max.floatData
+        //        let max = visibleYRange.max.floatData
         
-        if (dataPoint.value > largestValueForScaling) {
-            largestValueForScaling = dataPoint.value + (0.2*dataPoint.value)
-        }
-        visibleYRange.max = SCIGeneric(largestValueForScaling)
+        visibleYRange.max = SCIGeneric(largestValueForYScaling)
         
         self.invalidateElement()
         
+    }
+    
+    func refreshGraph() {
+        
+        
+
     }
     
     func clearData() {
@@ -110,8 +122,8 @@ class DetailLiveSciChart : TelemetrySCIChartSurface {
             visibleYRange.min = SCIGeneric(0)
 //            let max = visibleYRange.max.floatData
             
-            if (point.value > largestValueForScaling) {
-                largestValueForScaling = point.value + (0.2*point.value)
+            if (point.value > largestValueForYScaling) {
+                largestValueForYScaling = point.value + (0.2*point.value)
             }
         }
         
@@ -119,7 +131,7 @@ class DetailLiveSciChart : TelemetrySCIChartSurface {
         visibleXRange.min = SCIGeneric(0)
         visibleXRange.max = SCIGeneric(points.last?.time ?? 10 + (0.1*self.secondsInPastToPlot))
         
-        visibleYRange.max = SCIGeneric(largestValueForScaling)
+        visibleYRange.max = SCIGeneric(largestValueForYScaling)
         
     }
     
