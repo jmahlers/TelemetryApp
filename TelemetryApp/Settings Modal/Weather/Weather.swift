@@ -19,7 +19,7 @@ struct DataBlock: Decodable {
     
     /// A human-readable text summary.
     public let summary: String?
-
+   
     /// `DataPoint`s ordered by time, which describe the weather conditions at the requested location over time.
     public let data: [WeatherDataPoint]
     
@@ -36,5 +36,6 @@ struct WeatherDataPoint : Decodable {
     let windBearing: Int?
     let windGust: Float?
     let windSpeed: Float?
+    let icon: String?
     
 }
