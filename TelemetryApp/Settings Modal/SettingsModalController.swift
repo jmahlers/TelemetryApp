@@ -5,7 +5,7 @@ class SettingsModalController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var settingsTable: UITableView!
     var fromView:UIViewController?
-    var height = CGFloat(350)
+    var height = CGFloat(235)
     var width = CGFloat(190)
     var settings:[String] = ["Bug Report", "Console","Dock Options","Favorites","Settings"]
     override func viewDidLoad() {

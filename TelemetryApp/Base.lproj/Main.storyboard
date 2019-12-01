@@ -58,8 +58,16 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="01k-JC-3kK">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                        <color key="barTintColor" red="0.1803921568627451" green="0.22352941176470587" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.87450980392156863" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="MVX-3v-Bt9"/>
@@ -101,7 +109,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nIp-Y6-TFw"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Website" id="foU-1E-7Tc"/>
+                    <tabBarItem key="tabBarItem" title="Website" image="websiteIcon" id="foU-1E-7Tc"/>
                     <connections>
                         <outlet property="website" destination="j3s-b9-O2c" id="gPR-2X-Lk4"/>
                     </connections>
@@ -120,7 +128,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cPD-qE-JPv"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Database" id="1rm-Vr-qIY"/>
+                    <tabBarItem key="tabBarItem" title="Database" image="libraryIcon" id="1rm-Vr-qIY"/>
                     <connections>
                         <segue destination="mqO-6U-ngF" kind="show" identifier="doneLoading" id="nTj-wm-b9k"/>
                     </connections>
@@ -134,11 +142,11 @@
             <objects>
                 <viewController id="sgO-W4-Uen" customClass="TelemetryViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G4g-ZK-r0Z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="729-1f-wCk" userLabel="Graph View">
-                                <rect key="frame" x="0.0" y="138" width="414" height="618"/>
+                                <rect key="frame" x="0.0" y="50" width="414" height="624.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8fl-rz-xDc">
                                     <size key="itemSize" width="198" height="169"/>
@@ -186,18 +194,21 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flZ-jR-p4G" customClass="DockManager" customModule="TelemetryApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="769.5" width="414" height="43.5"/>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flZ-jR-p4G" customClass="DockManager" customModule="TelemetryApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="681.5" width="414" height="43.5"/>
                                 <subviews>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPg-8b-TVV">
+                                    <visualEffectView opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPg-8b-TVV">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uHu-YY-Ose">
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uHu-YY-Ose">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <blurEffect style="regular"/>
                                     </visualEffectView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="VPg-8b-TVV" firstAttribute="leading" secondItem="flZ-jR-p4G" secondAttribute="leading" id="520-jl-5Xc"/>
                                     <constraint firstAttribute="bottom" secondItem="VPg-8b-TVV" secondAttribute="bottom" id="9Te-C4-1LM"/>
@@ -206,31 +217,41 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73v-t5-sHD">
-                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAa-Sv-Vkl">
-                                        <rect key="frame" x="344" y="10" width="60" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="0M5-Ur-FLd"/>
-                                        </constraints>
-                                        <state key="normal" title="Settings"/>
-                                        <connections>
-                                            <action selector="showSettings:" destination="sgO-W4-Uen" eventType="primaryActionTriggered" id="ixM-nX-wbZ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XI2-48-FuP">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XI2-48-FuP">
                                         <rect key="frame" x="10" y="10" width="60" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="8KK-ZB-QEO"/>
                                             <constraint firstAttribute="width" constant="60" id="hmz-IC-B4P"/>
                                         </constraints>
-                                        <state key="normal" title="Weather"/>
+                                        <state key="normal" image="rainButton"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="showWeather:" destination="sgO-W4-Uen" eventType="primaryActionTriggered" id="HQD-Bs-WEb"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAa-Sv-Vkl">
+                                        <rect key="frame" x="344" y="10" width="60" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="0M5-Ur-FLd"/>
+                                        </constraints>
+                                        <state key="normal" image="settings"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showSettings:" destination="sgO-W4-Uen" eventType="primaryActionTriggered" id="ixM-nX-wbZ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.87450980392156863" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="EAa-Sv-Vkl" firstAttribute="top" secondItem="73v-t5-sHD" secondAttribute="top" constant="10" id="3fN-uv-bDk"/>
                                     <constraint firstItem="XI2-48-FuP" firstAttribute="top" secondItem="73v-t5-sHD" secondAttribute="top" constant="10" id="BqA-Ij-mvp"/>
@@ -343,7 +364,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qtp-Om-SCS"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Livestream" id="cmx-l3-DRO"/>
+                    <tabBarItem key="tabBarItem" title="Livestream" image="livestreamIcon" id="cmx-l3-DRO"/>
                     <connections>
                         <outlet property="livestream" destination="hT5-rw-bQW" id="yJD-ua-C6k"/>
                     </connections>
@@ -356,11 +377,12 @@
         <scene sceneID="eJc-oJ-NvX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yZg-Fh-gh3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Telemetry" id="OjB-ib-pZc"/>
+                    <tabBarItem key="tabBarItem" title="Telemetry" image="telemetryIcon" id="OjB-ib-pZc"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cUS-7U-XW5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="cUS-7U-XW5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.87450980392156863" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -372,4 +394,12 @@
             <point key="canvasLocation" x="547.82608695652175" y="-58.258928571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="libraryIcon" width="32" height="32"/>
+        <image name="livestreamIcon" width="32" height="32"/>
+        <image name="rainButton" width="32" height="32"/>
+        <image name="settings" width="32" height="32"/>
+        <image name="telemetryIcon" width="32" height="32"/>
+        <image name="websiteIcon" width="32" height="32"/>
+    </resources>
 </document>

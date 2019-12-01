@@ -195,7 +195,7 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
             
             let detailLiveGraphVC = segue.destination as? DetailLiveSciChartVC
             let cell = sender as! GraphCollectionViewCell
-            let indexPath = self.graphView.indexPath(for: cell)
+            //let indexPath = self.graphView.indexPath(for: cell)
             
             if cell.label.text != nil {
                 detailLiveGraphVC?.key = cell.label.text!

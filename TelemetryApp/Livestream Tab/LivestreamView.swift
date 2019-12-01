@@ -22,7 +22,7 @@ class LivestreamView: UIViewController, TelemetryDelegate, UIScrollViewDelegate{
         super.viewDidLoad()
         //Using pokemon as placeholder for now
         //I have absolutely no fucking idea why the 1.17 factor works but it does
-        let iframe = "<iframe src=\"https://player.twitch.tv/?channel=summit1g\" frameborder=\"0\" allowfullscreen=\"true\" scrolling=\"no\" height=\"100%\" width=\"100%\"></iframe>"
+        let iframe = "<iframe src=\"https://player.twitch.tv/?channel=washuracing\" frameborder=\"0\" allowfullscreen=\"true\" scrolling=\"no\" height=\"100%\" width=\"100%\"></iframe>"
         livestream.loadHTMLString(iframe, baseURL: nil)
     }
     

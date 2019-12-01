@@ -33,7 +33,8 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
         if (collectionView == self.dockOutlet.expandedView.expandedDockCollection) {
             let sensor = ((indexPath.section == 0) ? Telemetry.shared.getFavoriteSensors()[indexPath.row] : Telemetry.shared.getGeneralSensors()[indexPath.row])
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DockExpandedCell", for: indexPath) as! DockExpandedCell
-            cell.setCellValue(data: Telemetry.shared.dataSource[sensor]!.last!)
+            let dummyDataPoint = DataPoint(time: 0.0, sensorReading: SensorReading(key: "N/A", value: 0.0, unit: "N/A", description: "N/A", system: "N/A"))
+            cell.setCellValue(data: Telemetry.shared.dataSource[sensor]!.last ?? dummyDataPoint)
             return cell
             
         } else {
@@ -72,6 +73,11 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "myView", for: indexPath) as! HeaderView
+        if(indexPath.section == 0){
+            headerView.headerLabel.text = "Favorites"
+        }else if(indexPath.section == 1){
+            headerView.headerLabel.text = "General"
+        }
         return headerView
     }
     

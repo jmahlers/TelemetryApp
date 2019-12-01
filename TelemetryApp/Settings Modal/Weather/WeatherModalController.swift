@@ -12,7 +12,7 @@ class WeatherModalController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var weatherTable: UITableView!
     var fromView:UIViewController?
-    var height = CGFloat(350)
+    var height = CGFloat(185)
     var width = CGFloat(190)
     var locations:[String] = ["Emerson","Gateway", "Michigan Int. Speedway", "Mohela"]
     

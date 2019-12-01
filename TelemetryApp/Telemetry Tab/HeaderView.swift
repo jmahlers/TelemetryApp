@@ -10,6 +10,7 @@ import UIKit
 class HeaderView: UICollectionReusableView {
     
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var headerLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
