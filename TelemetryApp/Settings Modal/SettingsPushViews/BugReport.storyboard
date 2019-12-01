@@ -28,7 +28,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report Bug:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2L6-Fx-elu">
-                                <rect key="frame" x="10" y="232" width="394" height="24"/>
+                                <rect key="frame" x="15" y="232" width="384" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bug Report:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVW-MA-db6">
-                                <rect key="frame" x="30" y="59" width="153" height="36"/>
+                                <rect key="frame" x="15" y="59" width="153" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,7 +51,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="E8k-8b-7E8"/>
                                 </constraints>
-                                <state key="normal" title="Commit Bug Report"/>
+                                <state key="normal" title="Commit Bug Report">
+                                    <color key="titleColor" red="0.87450980392156863" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="commitButton:" destination="aPf-9I-1Fr" eventType="primaryActionTriggered" id="qmb-9b-57A"/>
                                 </connections>
@@ -69,10 +71,10 @@
                             <constraint firstItem="PUO-gr-sYq" firstAttribute="trailing" secondItem="zQF-Kq-70f" secondAttribute="trailing" constant="30" id="Nnu-LW-jXJ"/>
                             <constraint firstItem="NqZ-Hj-qMT" firstAttribute="width" secondItem="sf1-rU-2kj" secondAttribute="width" multiplier="0.9" id="bay-lL-7ek"/>
                             <constraint firstItem="PUO-gr-sYq" firstAttribute="trailing" secondItem="2Mz-Do-e1B" secondAttribute="trailing" constant="10" id="dU1-N6-fA5"/>
-                            <constraint firstItem="2L6-Fx-elu" firstAttribute="leading" secondItem="PUO-gr-sYq" secondAttribute="leading" constant="10" id="hT7-VH-dLj"/>
+                            <constraint firstItem="2L6-Fx-elu" firstAttribute="leading" secondItem="PUO-gr-sYq" secondAttribute="leading" constant="15" id="hT7-VH-dLj"/>
                             <constraint firstItem="NqZ-Hj-qMT" firstAttribute="top" secondItem="jVW-MA-db6" secondAttribute="bottom" constant="5" id="hTU-ja-fK6"/>
                             <constraint firstItem="2Mz-Do-e1B" firstAttribute="top" secondItem="2L6-Fx-elu" secondAttribute="bottom" constant="10" id="max-50-V6v"/>
-                            <constraint firstItem="jVW-MA-db6" firstAttribute="leading" secondItem="PUO-gr-sYq" secondAttribute="leading" constant="30" id="nSY-aj-XEd"/>
+                            <constraint firstItem="jVW-MA-db6" firstAttribute="leading" secondItem="PUO-gr-sYq" secondAttribute="leading" constant="15" id="nSY-aj-XEd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PUO-gr-sYq"/>
                     </view>

@@ -17,7 +17,8 @@ class WebsiteController: UIViewController, WKNavigationDelegate{
         super.viewDidLoad()
         website.navigationDelegate = self
         self.showSpinner(onView: self.website)
-        let urlString = "https://sae.wustl.edu/login.html"
+        //let urlString = "https://sae.wustl.edu/login.html"
+        let urlString = "https://sae.wustl.edu/"
         let url = URL(string: urlString)!
         let urlRequest = URLRequest(url: url)
         website.load(urlRequest)
@@ -25,5 +26,7 @@ class WebsiteController: UIViewController, WKNavigationDelegate{
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.removeSpinner()
+        let scrollPoint = CGPoint(x: 0, y: webView.scrollView.contentSize.height - webView.frame.size.height)
+        webView.scrollView.setContentOffset(scrollPoint, animated: false)
     }
 }

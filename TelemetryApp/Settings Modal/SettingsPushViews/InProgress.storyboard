@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,20 +15,35 @@
             <objects>
                 <viewController storyboardIdentifier="InProgressController" id="fWm-FY-qNE" customClass="InProgress" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oBj-Dl-ynv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This feature is currently a work in progress. Check back later!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyt-mT-7EQ">
-                                <rect key="frame" x="20.5" y="422" width="373" height="62.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TP3-Zg-E9l">
+                                <rect key="frame" x="15.5" y="287.5" width="344" height="112.5"/>
+                                <color key="backgroundColor" red="0.1803921568627451" green="0.22352941176470587" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This feature is currently a work in progress. Check back later!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iyt-mT-7EQ" userLabel="ExplanationText">
+                                <rect key="frame" x="28" y="312.5" width="319" height="62.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="iyt-mT-7EQ" firstAttribute="width" secondItem="oBj-Dl-ynv" secondAttribute="width" multiplier="0.9" id="aVI-F7-mNw"/>
+                            <constraint firstItem="TP3-Zg-E9l" firstAttribute="width" secondItem="iyt-mT-7EQ" secondAttribute="width" constant="25" id="3JO-a4-HaN"/>
+                            <constraint firstItem="iyt-mT-7EQ" firstAttribute="width" secondItem="oBj-Dl-ynv" secondAttribute="width" multiplier="0.85" id="aVI-F7-mNw"/>
+                            <constraint firstItem="TP3-Zg-E9l" firstAttribute="centerY" secondItem="iyt-mT-7EQ" secondAttribute="centerY" id="cH9-gE-N6i"/>
                             <constraint firstItem="iyt-mT-7EQ" firstAttribute="centerY" secondItem="pXb-LU-wd5" secondAttribute="centerY" id="jsc-J4-nWu"/>
+                            <constraint firstItem="TP3-Zg-E9l" firstAttribute="height" secondItem="iyt-mT-7EQ" secondAttribute="height" constant="50" id="qnN-zG-uYs"/>
+                            <constraint firstItem="TP3-Zg-E9l" firstAttribute="centerX" secondItem="iyt-mT-7EQ" secondAttribute="centerX" id="wMA-9d-cZ3"/>
                             <constraint firstItem="iyt-mT-7EQ" firstAttribute="centerX" secondItem="pXb-LU-wd5" secondAttribute="centerX" id="x9A-or-8Nd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pXb-LU-wd5"/>
