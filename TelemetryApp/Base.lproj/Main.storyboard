@@ -307,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGs-nM-0qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1320" y="-58"/>
+            <point key="canvasLocation" x="1318.840579710145" y="-58.258928571428569"/>
         </scene>
         <!--WeatherViewController-->
         <scene sceneID="ZTP-j3-M7c">

@@ -22,7 +22,6 @@ class ViewController: UIViewController, TelemetryDelegate, ChartViewDelegate {
         
         Telemetry.shared.delegate = self
         
-        
     }
     
     //Triggers on received message

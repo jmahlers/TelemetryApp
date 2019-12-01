@@ -9,23 +9,31 @@
 import UIKit
 import WebKit
 
-class LivestreamView: UIViewController, TelemetryDelegate, UIScrollViewDelegate{
+class LivestreamView: UIViewController, TelemetryDelegate, UIScrollViewDelegate, WKNavigationDelegate{
     
     @IBOutlet weak var livestream: WKWebView!
     
     override func viewWillAppear(_ animated: Bool) {
         Telemetry.shared.delegate = self
         livestream.scrollView.isScrollEnabled=false
+        livestream.navigationDelegate = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Using pokemon as placeholder for now
-        //I have absolutely no fucking idea why the 1.17 factor works but it does
+       /* let child = SpinnerViewController()
+        addChild(child)
+        child.view.frame = view.frame
+        view.addSubview(child.view)
+        child.didMove(toParent: self)
+ */
+        self.showSpinner(onView: self.livestream)
         let iframe = "<iframe src=\"https://player.twitch.tv/?channel=washuracing\" frameborder=\"0\" allowfullscreen=\"true\" scrolling=\"no\" height=\"100%\" width=\"100%\"></iframe>"
-        livestream.loadHTMLString(iframe, baseURL: nil)
+        self.livestream.loadHTMLString(iframe, baseURL: nil)
     }
-    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.removeSpinner()
+    }
     func manageMessage(key: String, dataPoint: DataPoint) {
     }
     func manageOpen() {
