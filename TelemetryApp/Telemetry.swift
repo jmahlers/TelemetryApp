@@ -31,11 +31,16 @@ class Telemetry: EventSource {
     var favoriteCharts: [SmallLiveSciChart] = []
     var generalCharts: [SmallLiveSciChart] = []
     var numConnection = 0
+    let userSave = UserDefaults.standard
     
     ///Singleton of Telemetry that connects to the telemetry server
     static let shared = Telemetry()
     
     private init(){
+        if let savedFavorites = userSave.array(forKey: "favoriteSensors") as? [Sensor] {
+            favoriteSensors.append(contentsOf: savedFavorites)
+        }
+        
         //Initializing instance variables
         let urlString =  "https://jksites.dev/api/telemetry"
         let url = URL(string: urlString)
@@ -120,6 +125,7 @@ extension Sensor{
         }
     }
     func saveFavorites(){
-        //TODO
+        let userSave = UserDefaults.standard
+         userSave.set(Telemetry.shared.favoriteSensors, forKey: "favoriteSensors")
     }
 }

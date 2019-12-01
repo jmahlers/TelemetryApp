@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AT7-AP-fcC">
-                                <rect key="frame" x="177" y="199" width="78" height="30"/>
+                                <rect key="frame" x="177" y="155" width="78" height="30"/>
                                 <state key="normal" title="Disconnect"/>
                                 <connections>
                                     <action selector="disconnectButton:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="N2p-gI-NnL"/>
@@ -48,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1135" y="-1058"/>
+            <point key="canvasLocation" x="1319" y="851"/>
         </scene>
         <!--Overall Tab View Controller-->
         <scene sceneID="W32-QP-iUx">
@@ -70,7 +70,6 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="MVX-3v-Bt9"/>
                         <segue destination="wxF-gs-8Am" kind="relationship" relationship="viewControllers" id="5OG-WP-wOq"/>
                         <segue destination="Ys6-4b-QNE" kind="relationship" relationship="viewControllers" id="fLe-1b-8QI"/>
                         <segue destination="yZg-Fh-gh3" kind="relationship" relationship="viewControllers" id="PXq-ii-PLB"/>
@@ -291,6 +290,8 @@
                         <segue destination="M9T-He-S3i" kind="show" identifier="showBugReport" id="EKH-sC-heO"/>
                         <segue destination="Cc8-Bw-wHI" kind="show" identifier="showWeather" id="IZ9-jj-gGa"/>
                         <segue destination="gnK-rn-LBj" kind="show" identifier="detailLiveGraph" id="CtW-a7-zj4"/>
+                        <segue destination="Ab7-TB-OlM" kind="show" identifier="showInProgress" id="vEh-94-Usf"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showConsole" id="Tac-0h-Ia1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGs-nM-0qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -303,7 +304,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="Weather" storyboardName="Weather" referencedIdentifier="WeatherViewController" id="Cc8-Bw-wHI" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yia-IH-s9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="985" y="415"/>
+            <point key="canvasLocation" x="891" y="415"/>
         </scene>
         <!--Database View Controller-->
         <scene sceneID="VI2-i9-Mm7">
@@ -326,7 +327,15 @@
                 <viewControllerPlaceholder storyboardIdentifier="BugReport" storyboardName="BugReport" referencedIdentifier="BugReportController" id="M9T-He-S3i" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUT-dm-XwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1322" y="415"/>
+            <point key="canvasLocation" x="1186" y="415"/>
+        </scene>
+        <!--InProgressController-->
+        <scene sceneID="Ywk-6A-Sat">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="InProgress" storyboardName="InProgress" referencedIdentifier="InProgressController" id="Ab7-TB-OlM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qtK-K6-3Zc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1480" y="415"/>
         </scene>
         <!--DetailLiveSciChartVC-->
         <scene sceneID="j8s-iK-tPm">
@@ -334,7 +343,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="DetailLiveSciChart" storyboardName="DetailLiveSciChart" referencedIdentifier="DetailLiveSciChartVC" id="gnK-rn-LBj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4F-9U-apN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1632" y="415"/>
+            <point key="canvasLocation" x="1817" y="415"/>
         </scene>
         <!--Livestream-->
         <scene sceneID="EhX-SY-J7K">

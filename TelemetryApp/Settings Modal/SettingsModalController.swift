@@ -5,9 +5,10 @@ class SettingsModalController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var settingsTable: UITableView!
     var fromView:UIViewController?
-    var height = CGFloat(235)
-    var width = CGFloat(190)
-    var settings:[String] = ["Bug Report", "Console","Dock Options","Favorites","Settings"]
+    let height = CGFloat(235)
+    let width = CGFloat(190)
+    let settings:[String] = ["Bug Report", "Console", "Dock Options","Favorites","Settings"]
+    let segueIdentifiers = ["Bug Report":"showBugReport", "Console":"showConsole"]
     override func viewDidLoad() {
         super.viewDidLoad()
         settingsTable.dataSource = self
@@ -29,7 +30,8 @@ class SettingsModalController: UIViewController, UITableViewDelegate, UITableVie
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.dismiss(animated: true, completion: nil)
-        self.fromView?.performSegue(withIdentifier: "showBugReport", sender: self)
+        let identifier = segueIdentifiers[settings[indexPath.row]] ?? "showInProgress"
+        self.fromView?.performSegue(withIdentifier: identifier, sender: self)
         self.fromView?.removeBlurs()
         //        switch indexPath.row{
         //        case 1:

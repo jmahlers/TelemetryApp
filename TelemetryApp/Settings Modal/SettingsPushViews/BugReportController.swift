@@ -10,21 +10,21 @@ import UIKit
 
 class BugReportController: UIViewController {
 
+    @IBOutlet weak var textField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
 
-        // Do any additional setup after loading the view.
+    @IBAction func returnPressed(_ sender: Any) {
+        commitBugReport()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func commitButton(_ sender: Any) {
+        commitBugReport()
     }
-    */
-
+    func commitBugReport(){
+        //This requires team sign-off for google account access. Will implement in the future using the google sheets api
+        textField.text = ""
+    }
 }

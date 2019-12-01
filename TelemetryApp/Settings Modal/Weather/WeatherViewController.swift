@@ -11,6 +11,8 @@ import UIKit
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var Summary: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    
     var timeArray: [Int] = []
       var iconArray: [String] = []
       var temperatureArray: [Float] = []
@@ -71,6 +73,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationLabel.text = location
         if(location=="Mohela"){
           urlAddress = "https://api.darksky.net/forecast/8b65e35335318ac7aedbdf595b9d8c0d/38.668321,-90.629687";
         }

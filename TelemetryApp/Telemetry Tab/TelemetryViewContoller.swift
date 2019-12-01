@@ -180,7 +180,6 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
     }
     
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-        print("dismissed")
     }
     
     func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
@@ -205,6 +204,8 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
             let destinationVC = segue.destination as! WeatherViewController
             let destinationLocation = sender as! String
             destinationVC.location = destinationLocation
+        }else if(segue.identifier == "showInProgress"){
+        
         }
     }
 }
