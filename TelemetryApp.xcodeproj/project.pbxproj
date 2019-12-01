@@ -68,6 +68,9 @@
 		A0CC52EE237C72410022E1EC /* DetailLiveSciChart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0CC52ED237C72410022E1EC /* DetailLiveSciChart.storyboard */; };
 		A0CC52F1237C7D140022E1EC /* WeatherModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CC52EF237C7D140022E1EC /* WeatherModalController.swift */; };
 		A0CC52F2237C7D140022E1EC /* WeatherModalController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0CC52F0237C7D140022E1EC /* WeatherModalController.xib */; };
+		A0DB467D2394813700ADD41D /* FavoritesSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0DB467C2394813700ADD41D /* FavoritesSettings.storyboard */; };
+		A0DB467F2394815A00ADD41D /* FavoritesSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB467E2394815A00ADD41D /* FavoritesSettingsController.swift */; };
+		A0DB4681239483E200ADD41D /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB4680239483E200ADD41D /* FavoritesCell.swift */; };
 		A0E2701023768F0800440719 /* DockExpandedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E2700E23768F0800440719 /* DockExpandedCell.swift */; };
 		A0E2701123768F0800440719 /* DockExpandedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0E2700F23768F0800440719 /* DockExpandedCell.xib */; };
 		A0F3D86223721AFD00D10CF8 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3D86123721AFD00D10CF8 /* Sensor.swift */; };
@@ -164,6 +167,9 @@
 		A0CC52ED237C72410022E1EC /* DetailLiveSciChart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailLiveSciChart.storyboard; sourceTree = "<group>"; };
 		A0CC52EF237C7D140022E1EC /* WeatherModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModalController.swift; sourceTree = "<group>"; };
 		A0CC52F0237C7D140022E1EC /* WeatherModalController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherModalController.xib; sourceTree = "<group>"; };
+		A0DB467C2394813700ADD41D /* FavoritesSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesSettings.storyboard; sourceTree = "<group>"; };
+		A0DB467E2394815A00ADD41D /* FavoritesSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSettingsController.swift; sourceTree = "<group>"; };
+		A0DB4680239483E200ADD41D /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		A0E2700E23768F0800440719 /* DockExpandedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockExpandedCell.swift; sourceTree = "<group>"; };
 		A0E2700F23768F0800440719 /* DockExpandedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DockExpandedCell.xib; sourceTree = "<group>"; };
 		A0F3D86123721AFD00D10CF8 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
@@ -392,6 +398,9 @@
 			children = (
 				A0AA6908237A6EA800AB795B /* BugReportController.swift */,
 				A0764E3F237B445A0077FB88 /* BugReport.storyboard */,
+				A0DB467E2394815A00ADD41D /* FavoritesSettingsController.swift */,
+				A0DB467C2394813700ADD41D /* FavoritesSettings.storyboard */,
+				A0DB4680239483E200ADD41D /* FavoritesCell.swift */,
 				A01D976E2393A4A700E33A72 /* InProgress.swift */,
 				A01D976C2393A48800E33A72 /* InProgress.storyboard */,
 			);
@@ -508,6 +517,7 @@
 				A01CA527236A3D02007B6713 /* Main.storyboard in Resources */,
 				A0764E44237B49170077FB88 /* SettingsModalController.xib in Resources */,
 				B92D3A69238F9FF1009DD817 /* wind.png in Resources */,
+				A0DB467D2394813700ADD41D /* FavoritesSettings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,8 +604,10 @@
 				230A0CD5237A77E3002A208C /* RollingAverageUtils.swift in Sources */,
 				A01C1E49236A47770026D76F /* Telemetry.swift in Sources */,
 				23EB4A972375033A0061A700 /* DetailTelemetryChartView.swift in Sources */,
+				A0DB4681239483E200ADD41D /* FavoritesCell.swift in Sources */,
 				7093A1A1237C7EAC00098486 /* Weather.swift in Sources */,
 				A01194312373FB9B002625C5 /* DockManager.swift in Sources */,
+				A0DB467F2394815A00ADD41D /* FavoritesSettingsController.swift in Sources */,
 				A073C3F12376335600BDB7CD /* OverallTabViewController.swift in Sources */,
 				23173121237BEA5D00BE6483 /* TelemetrySCIChartSurface.swift in Sources */,
 				A0E2701023768F0800440719 /* DockExpandedCell.swift in Sources */,
