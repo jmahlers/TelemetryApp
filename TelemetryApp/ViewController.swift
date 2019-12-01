@@ -33,7 +33,7 @@ class ViewController: UIViewController, TelemetryDelegate, ChartViewDelegate {
     
     //Triggers when the connection opens
     func manageOpen() {
-       console.text = "Open"
+       console.text = "Connected"
     }
     
     //Triggers when the connection closes
@@ -43,6 +43,9 @@ class ViewController: UIViewController, TelemetryDelegate, ChartViewDelegate {
     func newSensor(sensor: Sensor) {
     }
     
+    @IBAction func connectButton(_ sender: Any) {
+        Telemetry.shared.connect()
+    }
     @IBAction func disconnectButton(_ sender: Any) {
         Telemetry.shared.disconnect()
     }

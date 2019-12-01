@@ -19,25 +19,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AT7-AP-fcC">
-                                <rect key="frame" x="177" y="155" width="78" height="30"/>
+                                <rect key="frame" x="168" y="150" width="78" height="30"/>
                                 <state key="normal" title="Disconnect"/>
                                 <connections>
                                     <action selector="disconnectButton:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="N2p-gI-NnL"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bnQ-8I-ZFE">
-                                <rect key="frame" x="89" y="287" width="238" height="167"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" scrollEnabled="NO" editable="NO" text="No connection!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnQ-8I-ZFE">
+                                <rect key="frame" x="50" y="230" width="314" height="495"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5m-nO-bQx">
+                                <rect key="frame" x="177.5" y="100" width="59" height="30"/>
+                                <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="connectButton:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="37Y-CW-Ljh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AT7-AP-fcC" secondAttribute="trailing" constant="159" id="Hgw-QD-OHC"/>
-                            <constraint firstItem="AT7-AP-fcC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="155" id="hXm-bR-W6p"/>
-                            <constraint firstItem="AT7-AP-fcC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pR6-J8-OWC"/>
+                            <constraint firstItem="bnQ-8I-ZFE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="0GL-uf-TdD"/>
+                            <constraint firstItem="C5m-nO-bQx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="17b-qX-KIk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bnQ-8I-ZFE" secondAttribute="trailing" constant="50" id="BaA-b2-qUD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bnQ-8I-ZFE" secondAttribute="bottom" id="Hq7-Ug-L3c"/>
+                            <constraint firstItem="AT7-AP-fcC" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="U6Q-aq-YRi"/>
+                            <constraint firstItem="C5m-nO-bQx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="jWC-vz-Fm3"/>
+                            <constraint firstItem="AT7-AP-fcC" firstAttribute="top" secondItem="C5m-nO-bQx" secondAttribute="bottom" constant="20" id="kGD-fp-7Hc"/>
+                            <constraint firstItem="bnQ-8I-ZFE" firstAttribute="top" secondItem="AT7-AP-fcC" secondAttribute="bottom" constant="50" id="uwQ-13-Bp5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -48,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1319" y="851"/>
+            <point key="canvasLocation" x="1318.840579710145" y="850.44642857142856"/>
         </scene>
         <!--Overall Tab View Controller-->
         <scene sceneID="W32-QP-iUx">
