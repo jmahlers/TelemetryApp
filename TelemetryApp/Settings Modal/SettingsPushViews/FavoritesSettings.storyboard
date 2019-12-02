@@ -29,12 +29,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sensor Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWB-Cg-Q5U">
-                                                    <rect key="frame" x="30" y="2" width="145" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rix-3L-SBN">
                                                     <rect key="frame" x="344" y="5" width="52" height="35"/>
                                                     <constraints>
@@ -45,13 +39,19 @@
                                                         <action selector="flippedSwitch:" destination="lmZ-Z9-amS" eventType="valueChanged" id="RKY-vu-i3B"/>
                                                     </connections>
                                                 </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sensor Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWB-Cg-Q5U">
+                                                    <rect key="frame" x="10" y="0.0" width="145" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="FWB-Cg-Q5U" firstAttribute="top" secondItem="BoO-da-w8E" secondAttribute="top" constant="2" id="1Ie-Jd-Bl9"/>
                                                 <constraint firstItem="Rix-3L-SBN" firstAttribute="top" secondItem="BoO-da-w8E" secondAttribute="top" constant="5" id="34X-ee-CB2"/>
-                                                <constraint firstItem="FWB-Cg-Q5U" firstAttribute="leading" secondItem="BoO-da-w8E" secondAttribute="leadingMargin" constant="10" id="muw-3r-KYK"/>
+                                                <constraint firstItem="FWB-Cg-Q5U" firstAttribute="leading" secondItem="BoO-da-w8E" secondAttribute="leading" constant="10" id="7W0-by-PPw"/>
                                                 <constraint firstAttribute="trailing" secondItem="Rix-3L-SBN" secondAttribute="trailing" constant="20" id="p4C-Lj-AfD"/>
-                                                <constraint firstAttribute="bottom" secondItem="FWB-Cg-Q5U" secondAttribute="bottom" constant="2" id="sjM-ib-Wfc"/>
+                                                <constraint firstAttribute="bottom" secondItem="FWB-Cg-Q5U" secondAttribute="bottom" id="pxU-3b-Bqb"/>
+                                                <constraint firstItem="FWB-Cg-Q5U" firstAttribute="top" secondItem="BoO-da-w8E" secondAttribute="top" id="uRy-1S-FMs"/>
                                                 <constraint firstAttribute="bottom" secondItem="Rix-3L-SBN" secondAttribute="bottom" constant="5" id="vf6-KP-f2z"/>
                                             </constraints>
                                         </tableViewCellContentView>
