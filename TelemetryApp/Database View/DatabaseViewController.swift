@@ -139,7 +139,7 @@ class DatabaseViewController : CollapsibleTableSectionViewController {
     func setupActivityIndicator() {
         indicator = UIActivityIndicatorView(frame: self.view.frame)
         indicator.style = UIActivityIndicatorView.Style.whiteLarge
-        indicator.backgroundColor = UIColor(displayP3Red: 100, green: 100, blue: 100, alpha: 1)
+        indicator.backgroundColor = UIColor(displayP3Red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
         indicator.hidesWhenStopped = true
         self.view.addSubview(indicator)
     }
