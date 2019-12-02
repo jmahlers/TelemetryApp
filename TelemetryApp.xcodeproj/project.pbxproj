@@ -248,6 +248,7 @@
 		72B096A68E3FC05641DA99CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0B9D3862395AFA800E92AB5 /* SciChartsLicense.swift */,
 				A0F4A835237142420025CAA1 /* WebKit.framework */,
 				6B22950E09878D842173933E /* Pods_TelemetryApp.framework */,
 			);
@@ -334,7 +335,6 @@
 				2317311A237BDB7400BE6483 /* Website Tab */,
 				23173119237BDB4400BE6483 /* SciChart Graphing */,
 				A01CA521236A3D02007B6713 /* AppDelegate.swift */,
-				A0B9D3862395AFA800E92AB5 /* SciChartsLicense.swift */,
 				A01CA523236A3D02007B6713 /* ConsoleViewController.swift */,
 				A073C3F02376335600BDB7CD /* OverallTabViewController.swift */,
 				A01CA525236A3D02007B6713 /* Main.storyboard */,
