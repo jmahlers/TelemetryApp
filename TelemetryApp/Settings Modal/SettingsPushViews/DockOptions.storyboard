@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Section Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1g5-RY-Nzg">
-                                                    <rect key="frame" x="30" y="13" width="151.5" height="18"/>
+                                                    <rect key="frame" x="30" y="0.0" width="151.5" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -45,8 +45,8 @@
                                             <constraints>
                                                 <constraint firstItem="1g5-RY-Nzg" firstAttribute="leading" secondItem="auZ-qo-hwv" secondAttribute="leadingMargin" constant="10" id="05w-74-bEh"/>
                                                 <constraint firstItem="h2a-8g-fMd" firstAttribute="top" secondItem="auZ-qo-hwv" secondAttribute="top" constant="5" id="HU8-C8-Mi4"/>
-                                                <constraint firstItem="1g5-RY-Nzg" firstAttribute="top" secondItem="auZ-qo-hwv" secondAttribute="topMargin" constant="2" id="LoX-pN-Axe"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="1g5-RY-Nzg" secondAttribute="bottom" constant="2" id="V9T-KO-hsz"/>
+                                                <constraint firstItem="1g5-RY-Nzg" firstAttribute="top" secondItem="auZ-qo-hwv" secondAttribute="top" id="LoX-pN-Axe"/>
+                                                <constraint firstAttribute="bottom" secondItem="1g5-RY-Nzg" secondAttribute="bottom" id="V9T-KO-hsz"/>
                                                 <constraint firstAttribute="bottom" secondItem="h2a-8g-fMd" secondAttribute="bottom" constant="5" id="nOP-PA-wbZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="h2a-8g-fMd" secondAttribute="trailing" constant="20" id="pYx-Jt-L8Y"/>
                                             </constraints>

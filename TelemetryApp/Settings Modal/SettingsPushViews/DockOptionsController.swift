@@ -37,12 +37,12 @@ class DockOptionsController: UIViewController, UITableViewDataSource, UITableVie
         let generalSensors = Telemetry.shared.getGeneralSensors()
         let cell =  tableView.dequeueReusableCell(withIdentifier: "myDockOptionsCell") as! DockOptionsCell
         let sensor = (indexPath.section == 0 ? favoriteSensors[indexPath.row]:generalSensors[indexPath.row])
+        let pinnedState = Telemetry.shared.pinnedSensors.contains(sensor)
         if(indexPath.section == 0){
-            
-            cell.isPinned.isOn = true
+            cell.isPinned.isOn = pinnedState
             cell.sensorLabel.text = favoriteSensors[indexPath.row].key
         }else{
-            cell.isPinned.isOn = false
+            cell.isPinned.isOn = pinnedState
             cell.sensorLabel.text = generalSensors[indexPath.row].key
         }
         return cell
