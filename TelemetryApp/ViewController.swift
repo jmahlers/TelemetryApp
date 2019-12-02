@@ -50,8 +50,14 @@ class ViewController: UIViewController, TelemetryDelegate, ChartViewDelegate {
     }
     
     @IBAction func clearUserData(_ sender: Any) {
+        for sensor in Telemetry.shared.getFavoriteSensors(){
+            sensor.removeFavorite()
+        }
         let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "favoriteSensors")
+        defaults.removeObject(forKey: "favoritesSensors")
+        defaults.removeObject(forKey: "pinnedSensors")
+        Telemetry.shared.favoritesDelegate?.favoritesChanged()
+        Telemetry.shared.pinnedDelegate?.pinnedChanged()
     }
 }
 
