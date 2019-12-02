@@ -114,8 +114,6 @@ class DetailPlotViewController : UIViewController {
                 print("API results could not be decoded")
             }
         }
-        
-        
     }
     
     var indicator = UIActivityIndicatorView()
