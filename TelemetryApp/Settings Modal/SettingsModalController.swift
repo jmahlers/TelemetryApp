@@ -8,7 +8,7 @@ class SettingsModalController: UIViewController, UITableViewDelegate, UITableVie
     let height = CGFloat(235)
     let width = CGFloat(190)
     let settings:[String] = ["Bug Report", "Console", "Dock Options","Favorites","Settings"]
-    let segueIdentifiers = ["Bug Report":"showBugReport", "Console":"showConsole", "Favorites":"showFavoritesSettings"]
+    let segueIdentifiers = ["Bug Report":"showBugReport", "Console":"showConsole", "Dock Options":"showDockOptions","Favorites":"showFavoritesSettings"]
     override func viewDidLoad() {
         super.viewDidLoad()
         settingsTable.dataSource = self

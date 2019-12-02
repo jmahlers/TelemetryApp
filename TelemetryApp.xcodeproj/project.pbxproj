@@ -53,6 +53,9 @@
 		A0398BED2374F679005454E2 /* WebsiteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0398BEC2374F679005454E2 /* WebsiteController.swift */; };
 		A04A3E892394C6AD004F2423 /* DockHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04A3E872394C6AD004F2423 /* DockHeaderView.swift */; };
 		A04A3E8A2394C6AD004F2423 /* DockHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04A3E882394C6AD004F2423 /* DockHeaderView.xib */; };
+		A04A3E8C2394DC47004F2423 /* DockOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04A3E8B2394DC47004F2423 /* DockOptionsController.swift */; };
+		A04A3E902394DDB5004F2423 /* DockOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04A3E8F2394DDB5004F2423 /* DockOptionsCell.swift */; };
+		A04A3E922394E24C004F2423 /* DockOptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A04A3E912394E24C004F2423 /* DockOptions.storyboard */; };
 		A04D5D252376A7EE00B07241 /* TelemetryChartUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04D5D242376A7EE00B07241 /* TelemetryChartUpdates.swift */; };
 		A073C3EB2375D8C500BDB7CD /* DraggableDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073C3EA2375D8C500BDB7CD /* DraggableDock.swift */; };
 		A073C3EF2375F43200BDB7CD /* TelemetryCollectionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073C3EE2375F43200BDB7CD /* TelemetryCollectionViews.swift */; };
@@ -158,6 +161,9 @@
 		A0398BEC2374F679005454E2 /* WebsiteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteController.swift; sourceTree = "<group>"; };
 		A04A3E872394C6AD004F2423 /* DockHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockHeaderView.swift; sourceTree = "<group>"; };
 		A04A3E882394C6AD004F2423 /* DockHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DockHeaderView.xib; sourceTree = "<group>"; };
+		A04A3E8B2394DC47004F2423 /* DockOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockOptionsController.swift; sourceTree = "<group>"; };
+		A04A3E8F2394DDB5004F2423 /* DockOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockOptionsCell.swift; sourceTree = "<group>"; };
+		A04A3E912394E24C004F2423 /* DockOptions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DockOptions.storyboard; sourceTree = "<group>"; };
 		A04D5D242376A7EE00B07241 /* TelemetryChartUpdates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryChartUpdates.swift; sourceTree = "<group>"; };
 		A073C3EA2375D8C500BDB7CD /* DraggableDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableDock.swift; sourceTree = "<group>"; };
 		A073C3EE2375F43200BDB7CD /* TelemetryCollectionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryCollectionViews.swift; sourceTree = "<group>"; };
@@ -413,6 +419,9 @@
 				A0DB467E2394815A00ADD41D /* FavoritesSettingsController.swift */,
 				A0DB467C2394813700ADD41D /* FavoritesSettings.storyboard */,
 				A0DB4680239483E200ADD41D /* FavoritesCell.swift */,
+				A04A3E8B2394DC47004F2423 /* DockOptionsController.swift */,
+				A04A3E912394E24C004F2423 /* DockOptions.storyboard */,
+				A04A3E8F2394DDB5004F2423 /* DockOptionsCell.swift */,
 				A01D976E2393A4A700E33A72 /* InProgress.swift */,
 				A01D976C2393A48800E33A72 /* InProgress.storyboard */,
 			);
@@ -504,6 +513,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A04A3E922394E24C004F2423 /* DockOptions.storyboard in Resources */,
 				B92D3A61238F9F3B009DD817 /* clear-night.png in Resources */,
 				A0CC52EE237C72410022E1EC /* DetailLiveSciChart.storyboard in Resources */,
 				A01CA52C236A3D03007B6713 /* LaunchScreen.storyboard in Resources */,
@@ -584,6 +594,7 @@
 				A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */,
 				2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */,
 				A0188D36237A30CE00D95F00 /* ModalCell.swift in Sources */,
+				A04A3E902394DDB5004F2423 /* DockOptionsCell.swift in Sources */,
 				A01CA524236A3D02007B6713 /* ViewController.swift in Sources */,
 				A0AA6909237A6EA800AB795B /* BugReportController.swift in Sources */,
 				A011941A23738470002625C5 /* Protocols.swift in Sources */,
@@ -596,6 +607,7 @@
 				2398B044237CF877006C69D9 /* LoadCollapsibleDataVC.swift in Sources */,
 				239981F82378F6B7002AEEC9 /* SmallLiveSciChart.swift in Sources */,
 				A08290F72375546F00AF0E20 /* HeaderView.swift in Sources */,
+				A04A3E8C2394DC47004F2423 /* DockOptionsController.swift in Sources */,
 				A011942F2373FAB2002625C5 /* DockExpandedView.swift in Sources */,
 				23268AB72394D864006D1238 /* DetailSciChart.swift in Sources */,
 				2314FBA323736B08005ACD79 /* XYMarkerView.swift in Sources */,
