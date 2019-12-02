@@ -112,9 +112,21 @@ extension Sensor{
     func addFavorite(){
         if(!Telemetry.shared.favoriteSensors.contains(self)){
             Telemetry.shared.favoriteSensors.append(self)
+            if let chartFrom = Telemetry.shared.generalCharts.first(where: {(chart) in
+                return chart.key == self.key
+            }){
+                Telemetry.shared.generalCharts.removeAll(where: {(chart) in
+                    return chart.key == self.key
+                })
+                Telemetry.shared.favoriteCharts.append(chartFrom)
+            }
             Telemetry.shared.generalSensors.removeAll(where: {(sensor) in
                 return sensor == self
             })
+            Telemetry.shared.generalCharts.removeAll(where: {(chart) in
+                return chart.key == self.key
+            })
+            Telemetry.shared.favoriteCharts.sort()
             Telemetry.shared.favoriteSensors.sort()
             saveFavorites()
         }
@@ -125,18 +137,36 @@ extension Sensor{
             Telemetry.shared.favoriteSensors.removeAll(where: {(sensor) in
                 return sensor == self
             })
+            if let chartFrom = Telemetry.shared.favoriteCharts.first(where: {(chart) in
+                return chart.key == self.key
+            }){
+                Telemetry.shared.favoriteCharts.removeAll(where: {(chart) in
+                    return chart.key == self.key
+                })
+                Telemetry.shared.generalCharts.append(chartFrom)
+            }
+            Telemetry.shared.favoriteCharts.sort()
+            Telemetry.shared.generalCharts.sort()
             Telemetry.shared.favoriteSensors.sort()
             Telemetry.shared.generalSensors.sort()
             saveFavorites()
         }
     }
     func saveFavorites(){
+        print("Favorite Charts:")
+        for chart in Telemetry.shared.favoriteCharts {
+            print(chart.key)
+        }
+        print("General Charts:")
+        for chart in Telemetry.shared.generalCharts {
+            print(chart.key)
+        }
         let userSave = UserDefaults.standard
         var favoriteKeys:[String] = []
         for sensor in Telemetry.shared.favoriteSensors{
             favoriteKeys.append(sensor.key)
         }
         favoriteKeys.sort()
-         userSave.set(favoriteKeys, forKey: "favoriteSensors")
+        userSave.set(favoriteKeys, forKey: "favoriteSensors")
     }
 }
