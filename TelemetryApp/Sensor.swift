@@ -30,7 +30,7 @@ struct DataPoint {
 }
 
 ///Struct for for sensors. Contains key, unit, description, and system
-struct Sensor: Comparable, Hashable{
+struct Sensor: Comparable, Codable, Hashable{
     let key: String
     let unit: String
     let description: String
@@ -88,3 +88,4 @@ struct Sensor: Comparable, Hashable{
     }
     
 }
+

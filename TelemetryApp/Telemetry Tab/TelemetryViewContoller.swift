@@ -59,7 +59,8 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
         let cellNib = UINib(nibName: "DockExpandedCell", bundle: nil)
         dockOutlet.expandedView.expandedDockCollection.register(cellNib, forCellWithReuseIdentifier: "DockExpandedCell")
         graphView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "myView")
-        dockOutlet.expandedView.expandedDockCollection.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "myView")
+       let dockHeaderNib = UINib(nibName: "DockHeaderView", bundle: nil)
+        dockOutlet.expandedView.expandedDockCollection.register(dockHeaderNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "myDockView")
         dockOutlet.setUp(dockOutlet.minimizedView)
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(TelemetryViewController.draggedView(_:)))
                 
@@ -78,6 +79,8 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
         Telemetry.shared.delegate = self
         
         graphView.reloadData()
+        dockOutlet.expandedView.expandedDockCollection.reloadData()
+        
         if timer == nil {
             timer = Timer.scheduledTimer(withTimeInterval: graphUpdatePeriod, repeats: true, block: updateAllChartsWithBufferedData)
         }

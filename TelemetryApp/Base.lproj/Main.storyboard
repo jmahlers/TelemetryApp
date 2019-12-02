@@ -380,6 +380,7 @@
                         <segue destination="Ab7-TB-OlM" kind="show" identifier="showInProgress" id="vEh-94-Usf"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="showConsole" id="Tac-0h-Ia1"/>
                         <segue destination="E1I-eo-Eoq" kind="show" identifier="showFavoritesSettings" id="6Ai-f1-FNL"/>
+                        <segue destination="rzX-4M-zRB" kind="show" identifier="showDockOptions" id="JHt-TZ-yKI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGs-nM-0qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -417,6 +418,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtK-K6-3Zc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1689" y="415"/>
+        </scene>
+        <!--DockOptionsController-->
+        <scene sceneID="105-Ju-9GP">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DockOptions" storyboardName="DockOptions" referencedIdentifier="DockOptionsController" id="rzX-4M-zRB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vww-2U-4gG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1887" y="505"/>
         </scene>
         <!--DetailLiveSciChartVC-->
         <scene sceneID="j8s-iK-tPm">

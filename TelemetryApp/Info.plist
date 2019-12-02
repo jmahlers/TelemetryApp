@@ -23,15 +23,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoadsInWebContent</key>
-		<false/>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>sae.wustl.edu/</key>
-			<string></string>
-		</dict>
-	</dict>
+	<dict/>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

@@ -39,8 +39,6 @@ extension TelemetryViewController{
             break
             
         case .changed:
-            print(dockDidTransition)
-            print(upwardState)
             let translation = sender.translation(in: self.view).y*1.3
             if(dockHeight.constant - translation >= upwardHeight){
                 dockHeight.constant = upwardHeight
@@ -55,7 +53,6 @@ extension TelemetryViewController{
                     dockDidTransition = true
                     dockOutlet.expandDock(time: 0.0)
                 }else if(dockDidTransition && dockHeight.constant<transitionHeight){
-                    //print("here")
                     dockDidTransition = false
                     dockOutlet.minimizeDock(time: 0.0)
                 }

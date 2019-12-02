@@ -33,17 +33,23 @@ class Telemetry: EventSource {
     var generalCharts: [SmallLiveSciChart] = []
     var numConnection = 0
     let userSave = UserDefaults.standard
-    
+    var pinnedSensors:[Sensor] = []
     ///Singleton of Telemetry that connects to the telemetry server
     static let shared = Telemetry()
     
     private init(){
-        if let savedFavorites = userSave.array(forKey: "favoriteSensors") as? [String] {
-            for sensorString in savedFavorites {
-                favoriteSensors.append(Sensor(key: sensorString))
+        //Reading plist for chart favorites
+        if let favoritesData = userSave.value(forKey:"favoritesSensors") as? Data {
+            if let savedFavorites = try? PropertyListDecoder().decode(Array<Sensor>.self, from: favoritesData) {
+                favoriteSensors.append(contentsOf: savedFavorites)
             }
         }
-        
+        //Reading plist for sensors pinned to dock
+        if let pinnedData = userSave.value(forKey:"pinnedSensors") as? Data {
+            if let savedPinnedSensors = try? PropertyListDecoder().decode(Array<Sensor>.self, from: pinnedData) {
+                pinnedSensors.append(contentsOf: savedPinnedSensors)
+            }
+        }
         //Initializing instance variables
         let urlString =  "https://jksites.dev/api/telemetry"
         let url = URL(string: urlString)
@@ -55,7 +61,7 @@ class Telemetry: EventSource {
             print("Connection to " + urlString + " open")
             self.delegate?.manageOpen()
             self.numConnection += 1
-            print(self.numConnection)
+            print(String(self.numConnection)+" connection")
         }
         
         self.onMessage{ (id, event, data) in
@@ -91,10 +97,6 @@ class Telemetry: EventSource {
         }
         
         self.onComplete{ (status, shouldReconnect, netLayer) in
-            //print("Data source at connection close was:")
-            //print(self.dataSource)
-            //print(self.favoriteSensors)
-            //print(self.generalSensors)
             self.delegate?.manageComplete()
         }
         
@@ -153,20 +155,26 @@ extension Sensor{
         }
     }
     func saveFavorites(){
-        print("Favorite Charts:")
-        for chart in Telemetry.shared.favoriteCharts {
-            print(chart.key)
-        }
-        print("General Charts:")
-        for chart in Telemetry.shared.generalCharts {
-            print(chart.key)
-        }
         let userSave = UserDefaults.standard
-        var favoriteKeys:[String] = []
-        for sensor in Telemetry.shared.favoriteSensors{
-            favoriteKeys.append(sensor.key)
+        userSave.set(try? PropertyListEncoder().encode(Telemetry.shared.favoriteSensors), forKey:"favoritesSensors")
+    }
+    func pin()->Bool{
+        if(Telemetry.shared.pinnedSensors.count >= 4){
+            return false
+        }else{
+            if(!Telemetry.shared.pinnedSensors.contains(self)){
+                Telemetry.shared.pinnedSensors.append(self)
+            }
+            return true
         }
-        favoriteKeys.sort()
-        userSave.set(favoriteKeys, forKey: "favoriteSensors")
+    }
+    func unpin(){
+        Telemetry.shared.pinnedSensors.removeAll(where: {(sensor) in
+            return sensor == self
+        })
+    }
+    func savePins(){
+        let userSave = UserDefaults.standard
+        userSave.set(try? PropertyListEncoder().encode(Telemetry.shared.pinnedSensors), forKey:"pinnedSensors")
     }
 }

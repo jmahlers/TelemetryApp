@@ -56,7 +56,6 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
                 return cell
             } else {
                 cell.graphContainer.subviews.forEach({ $0.removeFromSuperview() })
-                print(indexPath.row)
                 let key = Telemetry.shared.getGeneralSensors()[indexPath.row].key
                 cell.label.text = key
                 
@@ -72,18 +71,25 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "myView", for: indexPath) as! HeaderView
-        if(indexPath.section == 0){
-            headerView.headerLabel.text = "Favorites"
-        }else if(indexPath.section == 1){
-            headerView.headerLabel.text = "General"
+        if(collectionView == self.graphView){
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "myView", for: indexPath) as! HeaderView
+            if(indexPath.section == 0){
+                headerView.headerLabel.text = "Favorites"
+            }else if(indexPath.section == 1){
+                headerView.headerLabel.text = "General"
+            }
+            return headerView
+        }else{
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "myDockView", for: indexPath) as! DockHeaderView
+            headerView.sectionLabel.text = (indexPath.section==0 ? "Favorites":"General")
+            return headerView
         }
-        return headerView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if collectionView == self.dockOutlet.expandedView.expandedDockCollection{
-            return .zero
+            let size = CGSize(width: view.frame.width, height: 50.0)
+            return size
         }else{
             let size = CGSize(width: view.frame.width, height: 50.0)
             return size
