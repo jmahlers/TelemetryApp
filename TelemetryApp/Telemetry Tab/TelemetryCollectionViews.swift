@@ -56,7 +56,6 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
                 return cell
             } else {
                 cell.graphContainer.subviews.forEach({ $0.removeFromSuperview() })
-                print(indexPath.row)
                 let key = Telemetry.shared.getGeneralSensors()[indexPath.row].key
                 cell.label.text = key
                 
