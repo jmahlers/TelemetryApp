@@ -265,11 +265,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhx-hX-i0H">
-                                                    <rect key="frame" x="0.0" y="34" width="198" height="135"/>
+                                                    <rect key="frame" x="0.0" y="29" width="198" height="140"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sensor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="xre-s0-s2T">
-                                                    <rect key="frame" x="20" y="0.0" width="158" height="26"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sensor" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xre-s0-s2T">
+                                                    <rect key="frame" x="5" y="0.0" width="188" height="26"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -280,8 +280,8 @@
                                             <constraint firstAttribute="bottom" secondItem="hhx-hX-i0H" secondAttribute="bottom" id="6wk-rD-uGz"/>
                                             <constraint firstItem="xre-s0-s2T" firstAttribute="top" secondItem="DXf-X0-gNY" secondAttribute="top" id="Aa3-g4-YhN"/>
                                             <constraint firstAttribute="trailing" secondItem="hhx-hX-i0H" secondAttribute="trailing" id="DdU-c2-4h2"/>
-                                            <constraint firstItem="hhx-hX-i0H" firstAttribute="top" secondItem="xre-s0-s2T" secondAttribute="bottom" constant="8" id="TEX-uQ-e5x"/>
-                                            <constraint firstItem="xre-s0-s2T" firstAttribute="width" secondItem="DXf-X0-gNY" secondAttribute="width" multiplier="0.8" id="X5F-TU-UDo"/>
+                                            <constraint firstItem="hhx-hX-i0H" firstAttribute="top" secondItem="xre-s0-s2T" secondAttribute="bottom" constant="3" id="TEX-uQ-e5x"/>
+                                            <constraint firstItem="xre-s0-s2T" firstAttribute="width" secondItem="DXf-X0-gNY" secondAttribute="width" multiplier="0.95" id="X5F-TU-UDo"/>
                                             <constraint firstItem="xre-s0-s2T" firstAttribute="centerX" secondItem="DXf-X0-gNY" secondAttribute="centerX" id="ot9-Lr-U59"/>
                                             <constraint firstItem="hhx-hX-i0H" firstAttribute="leading" secondItem="DXf-X0-gNY" secondAttribute="leading" id="wsn-Lr-oTo"/>
                                         </constraints>
