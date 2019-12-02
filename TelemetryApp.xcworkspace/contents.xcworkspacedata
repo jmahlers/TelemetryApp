@@ -4,13 +4,6 @@
    <FileRef
       location = "group:TelemetryApp.xcodeproj">
    </FileRef>
-   <Group
-      location = "container:"
-      name = "SciChartsLicense">
-      <FileRef
-         location = "group:SciChartsLicense.swift">
-      </FileRef>
-   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
