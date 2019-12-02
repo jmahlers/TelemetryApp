@@ -31,7 +31,6 @@ class SmallLiveSciChart : TelemetrySCIChartSurface {
         // Apply theme before this line!
         createDataSeries()
         createRenderableSeries()
-        addModifiers()
         
         self.isUserInteractionEnabled = false
         
