@@ -7,7 +7,6 @@
 //
 
 import IKEventSource
-import Charts
 
 //Any use of Telemetry must use the format Telemetry.shared._
 //It is a singleton to ensure there is only ever one Telemetry object

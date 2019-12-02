@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Charts
 import SciChart
 
 class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPresentationControllerDelegate {
