@@ -15,8 +15,9 @@ class DetailPlotViewController : UIViewController {
     var end: String?
     var varId: String?
     var varName: String?
-    
+    var varUnits: String?
     @IBOutlet weak var chart: DetailSciChart!
+    @IBOutlet weak var plotTitle: UINavigationItem!
     var points:[DataPoint] = []
     
     let baseURL = "https://api.data.wuracing.com/api/"
@@ -26,10 +27,21 @@ class DetailPlotViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if varName != nil && varUnits != nil {
+            plotTitle.title = varName! + " (" + varUnits! + " vs. s)"
+        } else if varName != nil {
+            plotTitle.title = varName! + " (? vs. s)"
+        } else {
+            plotTitle.title = "?"
+        }
+        
+        setupActivityIndicator()
+        indicator.startAnimating()
+        
+        
+        
         print("in here")
         parseFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
-        
-       
         
         DispatchQueue.global().async {
             self.fetchPoints()
@@ -42,6 +54,8 @@ class DetailPlotViewController : UIViewController {
                         self.chart.appendDataPointToDataSeries(dataPoint: point)
                     }
                 }
+                
+                self.indicator.stopAnimating()
                 
             }
         }
@@ -102,6 +116,16 @@ class DetailPlotViewController : UIViewController {
         }
         
         
+    }
+    
+    var indicator = UIActivityIndicatorView()
+    
+    func setupActivityIndicator() {
+        indicator = UIActivityIndicatorView(frame: self.view.frame)
+        indicator.style = UIActivityIndicatorView.Style.whiteLarge
+        indicator.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.5)
+        indicator.hidesWhenStopped = true
+        self.view.addSubview(indicator)
     }
     
 }
