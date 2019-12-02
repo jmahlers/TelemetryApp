@@ -11,25 +11,9 @@ import SciChart
 
 class SmallLiveSciChart : TelemetrySCIChartSurface {
     
-//    var key:String = ""
-//    var secondsInPastToPlot:Double = 120
-//    static let frequency:Double = 4 // Hz
-//    
-//    var rollAvgStorage: [Float] = []
-//    let avgPeriod = 10 // Number of points
-//    var rollingIndex = 0
-//    
-//    var lineDataSeries: SCIXyDataSeries!
-//    var scatterDataSeries: SCIXyDataSeries!
-//    
-//    var lineRenderableSeries: SCIFastLineRenderableSeries!
-//    var scatterRenderableSeries: SCIXyScatterRenderableSeries!
-    
     func initialize(key: String) {
         self.key = key
 
-        
-        
         self.translatesAutoresizingMaskIntoConstraints = true
         self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     
@@ -77,25 +61,6 @@ class SmallLiveSciChart : TelemetrySCIChartSurface {
     func clearData() {
         lineDataSeries.clear()
         scatterDataSeries.clear()
-    }
-    
-    private func addModifiers(){
-//        let xAxisDragmodifier = SCIXAxisDragModifier()
-//        xAxisDragmodifier.dragMode = .pan
-//        xAxisDragmodifier.clipModeX = .none
-//
-//        let yAxisDragmodifier = SCIYAxisDragModifier()
-//        yAxisDragmodifier.dragMode = .pan
-//
-//        let extendZoomModifier = SCIZoomExtentsModifier()
-//        let pinchZoomModifier = SCIPinchZoomModifier()
-//
-//        let rolloverModifier = SCIRolloverModifier()
-//        let legend = SCILegendModifier()
-//
-//        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, legend, rolloverModifier])
-//
-//        chart.chartModifiers = groupModifier
     }
     
     private func createDataSeries() {

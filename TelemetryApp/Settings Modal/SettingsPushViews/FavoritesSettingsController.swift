@@ -15,7 +15,6 @@ class FavoritesSettingsController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
         favoritesTable.dataSource = self
         favoritesTable.delegate = self
-        //favoritesTable.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
         
         // Do any additional setup after loading the view.
     }

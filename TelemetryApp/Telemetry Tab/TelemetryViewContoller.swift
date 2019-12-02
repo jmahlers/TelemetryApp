@@ -149,10 +149,6 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
     }
     
     @IBAction func showSettings(_ sender: Any) {
-//        let blurEffect = UIBlurEffect(style: .light)
-//        self.settingsBlur = UIVisualEffectView(effect: blurEffect)
-//        self.settingsBlur!.frame = self.view.frame
-//        //self.view.addSubview(self.settingsBlur!)
         let settingsViewController: SettingsModalController = SettingsModalController(nibName: "SettingsModalController", bundle: nil)
         settingsViewController.modalPresentationStyle = .popover
         settingsViewController.modalTransitionStyle = .crossDissolve

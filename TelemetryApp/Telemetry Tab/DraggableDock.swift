@@ -48,7 +48,7 @@ extension TelemetryViewController{
                 dockHeight.constant -= translation
             }
             if(!upwardState){
-
+                
                 if(!dockDidTransition && dockHeight.constant > transitionHeight){
                     dockDidTransition = true
                     dockOutlet.expandDock(time: 0.0)
@@ -89,7 +89,6 @@ extension TelemetryViewController{
                 let duration:CGFloat = 0.35
                 UIView.animate(withDuration: Double(duration*(1-transitionHeight/upwardHeight)), delay: 0.0, options: .curveLinear, animations: {
                     self.dockOutlet.setAlpha(0)
-                    //(self.dockHeight.constant-transitionHeight)*(self.dockHeight.constant-transitionHeight)/((upwardHeight-transitionHeight)*(upwardHeight-transitionHeight))
                     self.dockHeight.constant = transitionHeight
                     self.view.layoutIfNeeded()
                 }, completion: {(_) in
@@ -109,11 +108,11 @@ extension TelemetryViewController{
                     dockOutlet.minimizeDock(time: 0.2)
                 }
                 UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseIn, animations: {
-
+                    
                     self.dockOutlet.setAlpha(1)
                     self.view.layoutIfNeeded()
                 }, completion:  {(_) in
-
+                    
                 })
             }
             break

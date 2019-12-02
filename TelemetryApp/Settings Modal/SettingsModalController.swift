@@ -2,7 +2,6 @@ import UIKit
 
 class SettingsModalController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    
     @IBOutlet weak var settingsTable: UITableView!
     var fromView:UIViewController?
     let height = CGFloat(235)
@@ -33,19 +32,5 @@ class SettingsModalController: UIViewController, UITableViewDelegate, UITableVie
         let identifier = segueIdentifiers[settings[indexPath.row]] ?? "showInProgress"
         self.fromView?.performSegue(withIdentifier: identifier, sender: self)
         self.fromView?.removeBlurs()
-        //        switch indexPath.row{
-        //        case 1:
-        //            self.presentingViewController?.performSegue(withIdentifier: "bug2", sender: self)
-        //            break
-        //        default:
-        //            self.presentingViewController?.performSegue(withIdentifier: "bug2", sender: self)
-        //            break
-        //        }
     }
-    
-    // This function is called before the segue
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     segue.destination.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height);
-     }
-     */
 }

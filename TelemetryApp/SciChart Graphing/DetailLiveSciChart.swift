@@ -27,7 +27,6 @@ class DetailLiveSciChart : TelemetrySCIChartSurface {
         self.xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
-//        yAxis.growBy = SCIDoubleRange(min: SCIGeneric(1), max: SCIGeneric(1))
         self.yAxes.add(yAxis)
         yAxis.autoRange = .never
         
@@ -36,7 +35,6 @@ class DetailLiveSciChart : TelemetrySCIChartSurface {
         // Apply theme before this line!
         createDataSeries()
         createRenderableSeries()
-        addModifiers()
         
         self.isUserInteractionEnabled = false
         
@@ -60,7 +58,6 @@ class DetailLiveSciChart : TelemetrySCIChartSurface {
         
         let visibleYRange = self.yAxes.item(at: 0)?.visibleRange as! SCIDoubleRange
         visibleYRange.min = SCIGeneric(0)
-        //        let max = visibleYRange.max.floatData
         
         visibleYRange.max = SCIGeneric(largestValueForYScaling)
         
@@ -79,29 +76,9 @@ class DetailLiveSciChart : TelemetrySCIChartSurface {
         scatterDataSeries.clear()
     }
     
-    private func addModifiers(){
-        //        let xAxisDragmodifier = SCIXAxisDragModifier()
-        //        xAxisDragmodifier.dragMode = .pan
-        //        xAxisDragmodifier.clipModeX = .none
-        //
-        //        let yAxisDragmodifier = SCIYAxisDragModifier()
-        //        yAxisDragmodifier.dragMode = .pan
-        //
-        //        let extendZoomModifier = SCIZoomExtentsModifier()
-        //        let pinchZoomModifier = SCIPinchZoomModifier()
-        //
-        //        let rolloverModifier = SCIRolloverModifier()
-        //        let legend = SCILegendModifier()
-        //
-        //        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, legend, rolloverModifier])
-        //
-        //        chart.chartModifiers = groupModifier
-    }
-    
     private func createDataSeries() {
         // Init line data series
         lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
-//        lineDataSeries.fifoCapacity = Int32(self.secondsInPastToPlot*SmallLiveSciChart.frequency+Double(self.avgPeriod))
         lineDataSeries.seriesName = "line series"
         
         // Init scatter data series
@@ -120,7 +97,6 @@ class DetailLiveSciChart : TelemetrySCIChartSurface {
             lineDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(avgPoint))
             
             visibleYRange.min = SCIGeneric(0)
-//            let max = visibleYRange.max.floatData
             
             if (point.value > largestValueForYScaling) {
                 largestValueForYScaling = point.value + (0.2*point.value)
