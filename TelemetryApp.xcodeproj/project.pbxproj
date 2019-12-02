@@ -8,15 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		230A0CD5237A77E3002A208C /* RollingAverageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0CD4237A77E3002A208C /* RollingAverageUtils.swift */; };
-		2314FB8023736933005ACD79 /* OldRollingAverageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FB7F23736933005ACD79 /* OldRollingAverageUtils.swift */; };
-		2314FB8223736955005ACD79 /* BaseChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FB8123736954005ACD79 /* BaseChartViewController.swift */; };
-		2314FB9223736AAF005ACD79 /* IntAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FB8E23736AAF005ACD79 /* IntAxisValueFormatter.swift */; };
-		2314FB9323736AAF005ACD79 /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FB8F23736AAF005ACD79 /* DayAxisValueFormatter.swift */; };
-		2314FB9423736AAF005ACD79 /* DateValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FB9023736AAF005ACD79 /* DateValueFormatter.swift */; };
-		2314FB9523736AAF005ACD79 /* LargeValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FB9123736AAF005ACD79 /* LargeValueFormatter.swift */; };
-		2314FBA323736B08005ACD79 /* XYMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA023736B08005ACD79 /* XYMarkerView.swift */; };
-		2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA123736B08005ACD79 /* BalloonMarker.swift */; };
-		2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314FBA223736B08005ACD79 /* RadarMarkerView.swift */; };
 		2317311D237BE91600BE6483 /* DetailLiveSciChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317311C237BE91600BE6483 /* DetailLiveSciChartVC.swift */; };
 		2317311F237BE9B500BE6483 /* DetailLiveSciChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317311E237BE9B500BE6483 /* DetailLiveSciChart.swift */; };
 		23173121237BEA5D00BE6483 /* TelemetrySCIChartSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23173120237BEA5D00BE6483 /* TelemetrySCIChartSurface.swift */; };
@@ -24,14 +15,11 @@
 		23268AB72394D864006D1238 /* DetailSciChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23268AB62394D864006D1238 /* DetailSciChart.swift */; };
 		23268AB92394DA1C006D1238 /* DetailPlotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23268AB82394DA1C006D1238 /* DetailPlotViewController.swift */; };
 		236AC4902376387100014AA1 /* GraphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */; };
-		236AC49223763CD400014AA1 /* DatasetSetUpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236AC49123763CD400014AA1 /* DatasetSetUpUtils.swift */; };
-		2384239D2375FEA600BD2DC2 /* SmallTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */; };
 		2398B040237CE5BD006C69D9 /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398B03F237CE5BD006C69D9 /* CollapsibleTableViewHeader.swift */; };
 		2398B042237CE7D1006C69D9 /* CollapsibleTableSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398B041237CE7D1006C69D9 /* CollapsibleTableSectionViewController.swift */; };
 		2398B044237CF877006C69D9 /* LoadCollapsibleDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398B043237CF877006C69D9 /* LoadCollapsibleDataVC.swift */; };
 		239981F82378F6B7002AEEC9 /* SmallLiveSciChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981F72378F6B7002AEEC9 /* SmallLiveSciChart.swift */; };
 		23E37373237C860600E0A500 /* DatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E37372237C860600E0A500 /* DatabaseViewController.swift */; };
-		23EB4A972375033A0061A700 /* DetailTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB4A962375033A0061A700 /* DetailTelemetryChartView.swift */; };
 		7093A1A1237C7EAC00098486 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7093A1A0237C7EAC00098486 /* Weather.swift */; };
 		835B3677A0C5E7B384A972AE /* Pods_TelemetryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B22950E09878D842173933E /* Pods_TelemetryApp.framework */; };
 		A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011940F237380B7002625C5 /* TelemetryViewContoller.swift */; };
@@ -48,7 +36,6 @@
 		A01CA524236A3D02007B6713 /* ConsoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA523236A3D02007B6713 /* ConsoleViewController.swift */; };
 		A01CA527236A3D02007B6713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01CA525236A3D02007B6713 /* Main.storyboard */; };
 		A01CA529236A3D03007B6713 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A01CA528236A3D03007B6713 /* Assets.xcassets */; };
-		A01CA52C236A3D03007B6713 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */; };
 		A01D976D2393A48800E33A72 /* InProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01D976C2393A48800E33A72 /* InProgress.storyboard */; };
 		A01D976F2393A4A700E33A72 /* InProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01D976E2393A4A700E33A72 /* InProgress.swift */; };
 		A0398BED2374F679005454E2 /* WebsiteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0398BEC2374F679005454E2 /* WebsiteController.swift */; };
@@ -115,15 +102,6 @@
 /* Begin PBXFileReference section */
 		144BD5E6415349B6695AAAEF /* Pods-TelemetryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelemetryApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TelemetryApp/Pods-TelemetryApp.debug.xcconfig"; sourceTree = "<group>"; };
 		230A0CD4237A77E3002A208C /* RollingAverageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollingAverageUtils.swift; sourceTree = "<group>"; };
-		2314FB7F23736933005ACD79 /* OldRollingAverageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldRollingAverageUtils.swift; sourceTree = "<group>"; };
-		2314FB8123736954005ACD79 /* BaseChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChartViewController.swift; sourceTree = "<group>"; };
-		2314FB8E23736AAF005ACD79 /* IntAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntAxisValueFormatter.swift; sourceTree = "<group>"; };
-		2314FB8F23736AAF005ACD79 /* DayAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayAxisValueFormatter.swift; sourceTree = "<group>"; };
-		2314FB9023736AAF005ACD79 /* DateValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateValueFormatter.swift; sourceTree = "<group>"; };
-		2314FB9123736AAF005ACD79 /* LargeValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeValueFormatter.swift; sourceTree = "<group>"; };
-		2314FBA023736B08005ACD79 /* XYMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYMarkerView.swift; sourceTree = "<group>"; };
-		2314FBA123736B08005ACD79 /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
-		2314FBA223736B08005ACD79 /* RadarMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarMarkerView.swift; sourceTree = "<group>"; };
 		2317311C237BE91600BE6483 /* DetailLiveSciChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLiveSciChartVC.swift; sourceTree = "<group>"; };
 		2317311E237BE9B500BE6483 /* DetailLiveSciChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLiveSciChart.swift; sourceTree = "<group>"; };
 		23173120237BEA5D00BE6483 /* TelemetrySCIChartSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetrySCIChartSurface.swift; sourceTree = "<group>"; };
@@ -131,14 +109,11 @@
 		23268AB62394D864006D1238 /* DetailSciChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSciChart.swift; sourceTree = "<group>"; };
 		23268AB82394DA1C006D1238 /* DetailPlotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlotViewController.swift; sourceTree = "<group>"; };
 		236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCollectionViewCell.swift; sourceTree = "<group>"; };
-		236AC49123763CD400014AA1 /* DatasetSetUpUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetSetUpUtils.swift; sourceTree = "<group>"; };
-		2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTelemetryChartView.swift; sourceTree = "<group>"; };
 		2398B03F237CE5BD006C69D9 /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
 		2398B041237CE7D1006C69D9 /* CollapsibleTableSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableSectionViewController.swift; sourceTree = "<group>"; };
 		2398B043237CF877006C69D9 /* LoadCollapsibleDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCollapsibleDataVC.swift; sourceTree = "<group>"; };
 		239981F72378F6B7002AEEC9 /* SmallLiveSciChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallLiveSciChart.swift; sourceTree = "<group>"; };
 		23E37372237C860600E0A500 /* DatabaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseViewController.swift; sourceTree = "<group>"; };
-		23EB4A962375033A0061A700 /* DetailTelemetryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTelemetryChartView.swift; sourceTree = "<group>"; };
 		6B22950E09878D842173933E /* Pods_TelemetryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TelemetryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7093A1A0237C7EAC00098486 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		A011940F237380B7002625C5 /* TelemetryViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryViewContoller.swift; sourceTree = "<group>"; };
@@ -156,7 +131,6 @@
 		A01CA523236A3D02007B6713 /* ConsoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleViewController.swift; sourceTree = "<group>"; };
 		A01CA526236A3D02007B6713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A01CA528236A3D03007B6713 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A01CA52B236A3D03007B6713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A01CA52D236A3D03007B6713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A01D976C2393A48800E33A72 /* InProgress.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InProgress.storyboard; sourceTree = "<group>"; };
 		A01D976E2393A4A700E33A72 /* InProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InProgress.swift; sourceTree = "<group>"; };
@@ -221,27 +195,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2314FB8D23736AAF005ACD79 /* Formatters */ = {
-			isa = PBXGroup;
-			children = (
-				2314FB8E23736AAF005ACD79 /* IntAxisValueFormatter.swift */,
-				2314FB8F23736AAF005ACD79 /* DayAxisValueFormatter.swift */,
-				2314FB9023736AAF005ACD79 /* DateValueFormatter.swift */,
-				2314FB9123736AAF005ACD79 /* LargeValueFormatter.swift */,
-			);
-			path = Formatters;
-			sourceTree = "<group>";
-		};
-		2314FB9F23736B08005ACD79 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				2314FBA023736B08005ACD79 /* XYMarkerView.swift */,
-				2314FBA123736B08005ACD79 /* BalloonMarker.swift */,
-				2314FBA223736B08005ACD79 /* RadarMarkerView.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		23173119237BDB4400BE6483 /* SciChart Graphing */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,21 +253,6 @@
 				6B22950E09878D842173933E /* Pods_TelemetryApp.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A011940E23737113002625C5 /* (Deprecated Graphs) */ = {
-			isa = PBXGroup;
-			children = (
-				2314FB8123736954005ACD79 /* BaseChartViewController.swift */,
-				A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */,
-				2314FB7F23736933005ACD79 /* OldRollingAverageUtils.swift */,
-				236AC49123763CD400014AA1 /* DatasetSetUpUtils.swift */,
-				23EB4A962375033A0061A700 /* DetailTelemetryChartView.swift */,
-				2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */,
-				2314FB9F23736B08005ACD79 /* Components */,
-				2314FB8D23736AAF005ACD79 /* Formatters */,
-			);
-			path = "(Deprecated Graphs)";
 			sourceTree = "<group>";
 		};
 		A0119412237380D8002625C5 /* Telemetry Tab */ = {
@@ -396,7 +334,6 @@
 				23E37371237C85EE00E0A500 /* Database View */,
 				2317311A237BDB7400BE6483 /* Website Tab */,
 				23173119237BDB4400BE6483 /* SciChart Graphing */,
-				A011940E23737113002625C5 /* (Deprecated Graphs) */,
 				A01CA521236A3D02007B6713 /* AppDelegate.swift */,
 				A01CA523236A3D02007B6713 /* ConsoleViewController.swift */,
 				A073C3F02376335600BDB7CD /* OverallTabViewController.swift */,
@@ -519,7 +456,6 @@
 				A04A3E922394E24C004F2423 /* DockOptions.storyboard in Resources */,
 				B92D3A61238F9F3B009DD817 /* clear-night.png in Resources */,
 				A0CC52EE237C72410022E1EC /* DetailLiveSciChart.storyboard in Resources */,
-				A01CA52C236A3D03007B6713 /* LaunchScreen.storyboard in Resources */,
 				A01194282373EFA6002625C5 /* DockMinimizedView.xib in Resources */,
 				B92D3A6B238F9FF9009DD817 /* sleet.png in Resources */,
 				A0CC52F2237C7D140022E1EC /* WeatherModalController.xib in Resources */,
@@ -595,7 +531,6 @@
 				A077D988237938F500250EC6 /* SCIGenericWrapper.swift in Sources */,
 				A04D5D252376A7EE00B07241 /* TelemetryChartUpdates.swift in Sources */,
 				A0119410237380B7002625C5 /* TelemetryViewContoller.swift in Sources */,
-				2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */,
 				A0188D36237A30CE00D95F00 /* ModalCell.swift in Sources */,
 				A04A3E902394DDB5004F2423 /* DockOptionsCell.swift in Sources */,
 				A01CA524236A3D02007B6713 /* ConsoleViewController.swift in Sources */,
@@ -605,7 +540,6 @@
 				A0F3D86223721AFD00D10CF8 /* Sensor.swift in Sources */,
 				236AC4902376387100014AA1 /* GraphCollectionViewCell.swift in Sources */,
 				A0398BED2374F679005454E2 /* WebsiteController.swift in Sources */,
-				2384239D2375FEA600BD2DC2 /* SmallTelemetryChartView.swift in Sources */,
 				A0F4A83423713D480025CAA1 /* LivestreamView.swift in Sources */,
 				2398B044237CF877006C69D9 /* LoadCollapsibleDataVC.swift in Sources */,
 				239981F82378F6B7002AEEC9 /* SmallLiveSciChart.swift in Sources */,
@@ -613,27 +547,19 @@
 				A04A3E8C2394DC47004F2423 /* DockOptionsController.swift in Sources */,
 				A011942F2373FAB2002625C5 /* DockExpandedView.swift in Sources */,
 				23268AB72394D864006D1238 /* DetailSciChart.swift in Sources */,
-				2314FBA323736B08005ACD79 /* XYMarkerView.swift in Sources */,
-				2314FB9423736AAF005ACD79 /* DateValueFormatter.swift in Sources */,
 				23268AB52394B982006D1238 /* SelectSensorViewController.swift in Sources */,
 				A01D976F2393A4A700E33A72 /* InProgress.swift in Sources */,
 				2317311D237BE91600BE6483 /* DetailLiveSciChartVC.swift in Sources */,
 				A0FE983B2374A8D20033F6E6 /* Extensions.swift in Sources */,
-				2314FB9523736AAF005ACD79 /* LargeValueFormatter.swift in Sources */,
-				2314FB9223736AAF005ACD79 /* IntAxisValueFormatter.swift in Sources */,
-				2314FB8023736933005ACD79 /* OldRollingAverageUtils.swift in Sources */,
 				2398B042237CE7D1006C69D9 /* CollapsibleTableSectionViewController.swift in Sources */,
 				A0764E43237B49170077FB88 /* SettingsModalController.swift in Sources */,
 				A0CC52EB237C70BD0022E1EC /* WeatherViewController.swift in Sources */,
 				A073C3EB2375D8C500BDB7CD /* DraggableDock.swift in Sources */,
-				2314FB8223736955005ACD79 /* BaseChartViewController.swift in Sources */,
 				A0CC52F1237C7D140022E1EC /* WeatherModalController.swift in Sources */,
-				2314FB9323736AAF005ACD79 /* DayAxisValueFormatter.swift in Sources */,
 				A011942C2373EFC6002625C5 /* DockMinimizedView.swift in Sources */,
 				A073C3EF2375F43200BDB7CD /* TelemetryCollectionViews.swift in Sources */,
 				230A0CD5237A77E3002A208C /* RollingAverageUtils.swift in Sources */,
 				A01C1E49236A47770026D76F /* Telemetry.swift in Sources */,
-				23EB4A972375033A0061A700 /* DetailTelemetryChartView.swift in Sources */,
 				A0DB4681239483E200ADD41D /* FavoritesCell.swift in Sources */,
 				7093A1A1237C7EAC00098486 /* Weather.swift in Sources */,
 				23268AB92394DA1C006D1238 /* DetailPlotViewController.swift in Sources */,
@@ -646,8 +572,6 @@
 				A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */,
 				23E37373237C860600E0A500 /* DatabaseViewController.swift in Sources */,
 				A04A3E892394C6AD004F2423 /* DockHeaderView.swift in Sources */,
-				2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */,
-				236AC49223763CD400014AA1 /* DatasetSetUpUtils.swift in Sources */,
 				B92D3A57238F5812009DD817 /* CustomTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,14 +585,6 @@
 				A01CA526236A3D02007B6713 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A01CA52B236A3D03007B6713 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

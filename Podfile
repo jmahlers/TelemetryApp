@@ -4,8 +4,6 @@ use_frameworks!
 source 'https://github.com/ABTSoftware/PodSpecs.git'
 
 target 'TelemetryApp' do
-
-    pod 'Charts', '~> 3.3.0'
     pod 'IKEventSource'
     pod 'SciChart'
 end
