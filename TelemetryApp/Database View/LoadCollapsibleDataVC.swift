@@ -9,28 +9,7 @@
 import Foundation
 import UIKit
 
-struct Run : Decodable {
-    let id : Int!
-    var location: String?
-    var startDate: Date?
-    var endDate: String?
-    var description: String?
-    var type: String?
-}
 
-struct DaySection {
-    var location: String!
-    var date: Date!
-    var runs: [Run]!
-    var collapsed: Bool
-    
-    init(location: String, date: Date, runs: [Run], collapsed: Bool = false) {
-        self.location = location
-        self.date = date
-        self.runs = runs
-        self.collapsed = collapsed
-    }
-}
 
 class LoadCollapsibleDataVC : UIViewController {
     

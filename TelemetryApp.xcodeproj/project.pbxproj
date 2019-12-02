@@ -20,6 +20,7 @@
 		2317311D237BE91600BE6483 /* DetailLiveSciChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317311C237BE91600BE6483 /* DetailLiveSciChartVC.swift */; };
 		2317311F237BE9B500BE6483 /* DetailLiveSciChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317311E237BE9B500BE6483 /* DetailLiveSciChart.swift */; };
 		23173121237BEA5D00BE6483 /* TelemetrySCIChartSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23173120237BEA5D00BE6483 /* TelemetrySCIChartSurface.swift */; };
+		23268AB52394B982006D1238 /* SelectSensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23268AB42394B982006D1238 /* SelectSensorViewController.swift */; };
 		236AC4902376387100014AA1 /* GraphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */; };
 		236AC49223763CD400014AA1 /* DatasetSetUpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236AC49123763CD400014AA1 /* DatasetSetUpUtils.swift */; };
 		2384239D2375FEA600BD2DC2 /* SmallTelemetryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */; };
@@ -121,6 +122,7 @@
 		2317311C237BE91600BE6483 /* DetailLiveSciChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLiveSciChartVC.swift; sourceTree = "<group>"; };
 		2317311E237BE9B500BE6483 /* DetailLiveSciChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLiveSciChart.swift; sourceTree = "<group>"; };
 		23173120237BEA5D00BE6483 /* TelemetrySCIChartSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetrySCIChartSurface.swift; sourceTree = "<group>"; };
+		23268AB42394B982006D1238 /* SelectSensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSensorViewController.swift; sourceTree = "<group>"; };
 		236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCollectionViewCell.swift; sourceTree = "<group>"; };
 		236AC49123763CD400014AA1 /* DatasetSetUpUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetSetUpUtils.swift; sourceTree = "<group>"; };
 		2384239C2375FEA600BD2DC2 /* SmallTelemetryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTelemetryChartView.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				2398B03F237CE5BD006C69D9 /* CollapsibleTableViewHeader.swift */,
 				2398B041237CE7D1006C69D9 /* CollapsibleTableSectionViewController.swift */,
 				2398B043237CF877006C69D9 /* LoadCollapsibleDataVC.swift */,
+				23268AB42394B982006D1238 /* SelectSensorViewController.swift */,
 			);
 			path = "Database View";
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				A011942F2373FAB2002625C5 /* DockExpandedView.swift in Sources */,
 				2314FBA323736B08005ACD79 /* XYMarkerView.swift in Sources */,
 				2314FB9423736AAF005ACD79 /* DateValueFormatter.swift in Sources */,
+				23268AB52394B982006D1238 /* SelectSensorViewController.swift in Sources */,
 				A01D976F2393A4A700E33A72 /* InProgress.swift in Sources */,
 				2317311D237BE91600BE6483 /* DetailLiveSciChartVC.swift in Sources */,
 				A0FE983B2374A8D20033F6E6 /* Extensions.swift in Sources */,
