@@ -34,9 +34,17 @@ class SelectSensorViewController : UIViewController, UITableViewDelegate, UITabl
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        self.performSegue(withIdentifier: "detailGraph", sender: cell)
+    }
 
     var runId: String?
     var variables:[Variable]?
+    var allRuns:[Run]?
+
+    let dateFormatter = DateFormatter()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -47,6 +55,7 @@ class SelectSensorViewController : UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
         
         print("loaded select sensor view")
         
@@ -87,9 +96,22 @@ class SelectSensorViewController : UIViewController, UITableViewDelegate, UITabl
                 print("API results could not be decoded")
             }
         }
-       
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailPlotVC = segue.destination as? DetailPlotViewController
+        let cell = sender as! UITableViewCell
         
+        if cell.textLabel?.text != nil {
+            let variable = variables?.first(where: { $0.name == cell.textLabel?.text })
+            detailPlotVC?.varId = variable?.id.description
+            detailPlotVC?.varName = variable?.name
+            if let currRun: Run = allRuns?.first(where: { $0.id == Int(runId!) }) {
+                detailPlotVC?.start = dateFormatter.string(from: currRun.startDate ?? Date())
+                detailPlotVC?.end = dateFormatter.string(from: currRun.endDate ?? Date())
+            }
+        }
     }
     
 }

@@ -23,79 +23,40 @@ class DetailSciChart : TelemetrySCIChartSurface {
         self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
         let xAxis = SCINumericAxis()
-        xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.05), max: SCIGeneric(0.05))
         self.xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
-        //        yAxis.growBy = SCIDoubleRange(min: SCIGeneric(1), max: SCIGeneric(1))
+        yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.05), max: SCIGeneric(0.05))
         self.yAxes.add(yAxis)
-        yAxis.autoRange = .never
+        yAxis.autoRange = .always
+        
         
         SCIThemeManager.applyTheme(toThemeable: self, withThemeKey: SCIChart_Bright_SparkStyleKey)
         
         // Apply theme before this line!
         createDataSeries()
         createRenderableSeries()
-        addModifiers()
         
-        self.isUserInteractionEnabled = false
+        self.isUserInteractionEnabled = true
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        pinchZoomModifier.modifierName = "PinchZoomModifierName"
+        self.chartModifiers.add(pinchZoomModifier)
         
     }
     
     func appendDataPointToDataSeries(dataPoint: DataPoint) {
-        
         scatterDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(dataPoint.value))
         let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: self, point: dataPoint)
         lineDataSeries.appendX(SCIGeneric(dataPoint.time), y: SCIGeneric(avgPoint))
         
-        largestValueForXScaling = Float(dataPoint.time + (0.1*self.secondsInPastToPlot))
-        
-        if (dataPoint.value > largestValueForYScaling) {
-            largestValueForYScaling = dataPoint.value + (0.2*dataPoint.value)
-        }
-        
-        let visibleXRange = self.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
-        visibleXRange.min = SCIGeneric(0)
-        visibleXRange.max = SCIGeneric(largestValueForXScaling)
-        
-        let visibleYRange = self.yAxes.item(at: 0)?.visibleRange as! SCIDoubleRange
-        visibleYRange.min = SCIGeneric(0)
-        //        let max = visibleYRange.max.floatData
-        
-        visibleYRange.max = SCIGeneric(largestValueForYScaling)
-        
         self.invalidateElement()
-        
-    }
-    
-    func refreshGraph() {
-        
-        
-        
     }
     
     func clearData() {
         lineDataSeries.clear()
         scatterDataSeries.clear()
-    }
-    
-    private func addModifiers(){
-        //        let xAxisDragmodifier = SCIXAxisDragModifier()
-        //        xAxisDragmodifier.dragMode = .pan
-        //        xAxisDragmodifier.clipModeX = .none
-        //
-        //        let yAxisDragmodifier = SCIYAxisDragModifier()
-        //        yAxisDragmodifier.dragMode = .pan
-        //
-        //        let extendZoomModifier = SCIZoomExtentsModifier()
-        //        let pinchZoomModifier = SCIPinchZoomModifier()
-        //
-        //        let rolloverModifier = SCIRolloverModifier()
-        //        let legend = SCILegendModifier()
-        //
-        //        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, legend, rolloverModifier])
-        //
-        //        chart.chartModifiers = groupModifier
     }
     
     private func createDataSeries() {
@@ -109,27 +70,9 @@ class DetailSciChart : TelemetrySCIChartSurface {
         scatterDataSeries.fifoCapacity = 25
         scatterDataSeries.seriesName = "scatter series"
         
-        let sensor = Sensor(key: self.key)
-        guard let points = Telemetry.shared.dataSource[sensor] else { return }
-        
         let visibleYRange = self.yAxes.item(at: 0)?.visibleRange as! SCIDoubleRange
         
-        for point in points {
-            scatterDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(point.value))
-            let avgPoint = RollingAverageUtils.computeRollingAverageForDataPoint(chart: self, point: point)
-            lineDataSeries.appendX(SCIGeneric(point.time), y: SCIGeneric(avgPoint))
-            
-            visibleYRange.min = SCIGeneric(0)
-            //            let max = visibleYRange.max.floatData
-            
-            if (point.value > largestValueForYScaling) {
-                largestValueForYScaling = point.value + (0.2*point.value)
-            }
-        }
-        
         let visibleXRange = self.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
-        visibleXRange.min = SCIGeneric(0)
-        visibleXRange.max = SCIGeneric(points.last?.time ?? 10 + (0.1*self.secondsInPastToPlot))
         
         visibleYRange.max = SCIGeneric(largestValueForYScaling)
         

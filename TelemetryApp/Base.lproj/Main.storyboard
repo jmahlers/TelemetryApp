@@ -201,23 +201,31 @@
             </objects>
             <point key="canvasLocation" x="-833.33333333333337" y="820.98214285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Plot View Controller-->
         <scene sceneID="Wiw-Yo-Q7n">
             <objects>
-                <viewController id="iva-m2-xg6" sceneMemberID="viewController">
+                <viewController id="iva-m2-xg6" customClass="DetailPlotViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tbL-1P-y3G">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MFN-js-ben" customClass="DetailSciChart" customModule="TelemetryApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFN-js-ben" customClass="DetailSciChart" customModule="TelemetryApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="406" height="717"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MFN-js-ben" firstAttribute="bottom" secondItem="5xa-4e-Iz9" secondAttribute="bottom" constant="-8" id="0rJ-f0-eZh"/>
+                            <constraint firstItem="MFN-js-ben" firstAttribute="trailing" secondItem="5xa-4e-Iz9" secondAttribute="trailing" constant="-8" id="XWH-4Q-0Ko"/>
+                            <constraint firstItem="MFN-js-ben" firstAttribute="top" secondItem="5xa-4e-Iz9" secondAttribute="top" id="ZHY-8P-938"/>
+                            <constraint firstItem="MFN-js-ben" firstAttribute="leading" secondItem="5xa-4e-Iz9" secondAttribute="leading" id="lE6-XP-4pM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5xa-4e-Iz9"/>
                     </view>
+                    <connections>
+                        <outlet property="chart" destination="MFN-js-ben" id="Tqx-Oi-eF3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2l-bq-2iQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
