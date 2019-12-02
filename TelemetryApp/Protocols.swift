@@ -19,3 +19,6 @@ protocol TelemetryDelegate: AnyObject {
     ///Triggers when a sensor is added
     func newSensor(sensor: Sensor)
 }
+protocol  FavoritesDelegate: AnyObject {
+    func favoritesChanged()
+}

@@ -48,5 +48,10 @@ class ViewController: UIViewController, TelemetryDelegate, ChartViewDelegate {
     @IBAction func disconnectButton(_ sender: Any) {
         Telemetry.shared.disconnect()
     }
+    
+    @IBAction func clearUserData(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "favoriteSensors")
+    }
 }
 

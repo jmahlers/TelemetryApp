@@ -8,10 +8,7 @@
 
 import UIKit
 
-class FavoritesSettingsController: UIViewController, UITableViewDataSource, UITableViewDelegate,TelemetryDelegate {
-   
-    
-    
+class FavoritesSettingsController: UIViewController, UITableViewDataSource, UITableViewDelegate,TelemetryDelegate, FavoritesDelegate {
     @IBOutlet weak var favoritesTable: UITableView!
     
     override func viewDidLoad() {
@@ -24,6 +21,7 @@ class FavoritesSettingsController: UIViewController, UITableViewDataSource, UITa
     }
     override func viewWillAppear(_ animated: Bool) {
         Telemetry.shared.delegate = self
+        Telemetry.shared.favoritesDelegate = self
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -69,6 +67,9 @@ class FavoritesSettingsController: UIViewController, UITableViewDataSource, UITa
     }
     
     func newSensor(sensor: Sensor) {
+        favoritesTable.reloadData()
+    }
+    func favoritesChanged() {
         favoritesTable.reloadData()
     }
 }

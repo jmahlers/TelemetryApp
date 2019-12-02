@@ -19,7 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AT7-AP-fcC">
-                                <rect key="frame" x="168" y="150" width="78" height="30"/>
+                                <rect key="frame" x="157.5" y="131" width="99" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Disconnect">
                                     <color key="titleColor" red="0.87450980392156863" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -28,18 +29,29 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" scrollEnabled="NO" editable="NO" text="No connection!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnQ-8I-ZFE">
-                                <rect key="frame" x="50" y="230" width="314" height="495"/>
+                                <rect key="frame" x="50" y="263" width="314" height="462"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5m-nO-bQx">
-                                <rect key="frame" x="177.5" y="100" width="59" height="30"/>
+                                <rect key="frame" x="169.5" y="75" width="75" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Connect">
                                     <color key="titleColor" red="0.87450980392156863" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="connectButton:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="37Y-CW-Ljh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeR-ot-IfS">
+                                <rect key="frame" x="138.5" y="187" width="137" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Clear User Data">
+                                    <color key="titleColor" red="0.87450980392156863" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearUserData:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="URX-k7-w7n"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -50,9 +62,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bnQ-8I-ZFE" secondAttribute="trailing" constant="50" id="BaA-b2-qUD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bnQ-8I-ZFE" secondAttribute="bottom" id="Hq7-Ug-L3c"/>
                             <constraint firstItem="AT7-AP-fcC" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="U6Q-aq-YRi"/>
-                            <constraint firstItem="C5m-nO-bQx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="jWC-vz-Fm3"/>
+                            <constraint firstItem="C5m-nO-bQx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="jWC-vz-Fm3"/>
                             <constraint firstItem="AT7-AP-fcC" firstAttribute="top" secondItem="C5m-nO-bQx" secondAttribute="bottom" constant="20" id="kGD-fp-7Hc"/>
-                            <constraint firstItem="bnQ-8I-ZFE" firstAttribute="top" secondItem="AT7-AP-fcC" secondAttribute="bottom" constant="50" id="uwQ-13-Bp5"/>
+                            <constraint firstItem="VeR-ot-IfS" firstAttribute="top" secondItem="AT7-AP-fcC" secondAttribute="bottom" constant="20" id="pl9-dQ-Urs"/>
+                            <constraint firstItem="bnQ-8I-ZFE" firstAttribute="top" secondItem="VeR-ot-IfS" secondAttribute="bottom" constant="40" id="zJO-Mh-T6U"/>
+                            <constraint firstItem="VeR-ot-IfS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zTm-Ft-J4E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

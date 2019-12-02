@@ -25,8 +25,13 @@ class FavoritesCell: UITableViewCell {
     }
 
     @IBAction func flippedSwitch(_ sender: Any) {
-        
+        //Behavior is flipped from expected since isOn is measured after the switch flips
+        let sensor = Sensor(key: sensorLabel.text ?? "Error Occured")
         if(isFavorite.isOn){
+            sensor.addFavorite()
+        }else{
+            sensor.removeFavorite()
         }
+        Telemetry.shared.favoritesDelegate?.favoritesChanged()
     }
 }

@@ -18,6 +18,7 @@ import Charts
 class Telemetry: EventSource {
     ///Delegate to process protocol methods
     weak var delegate:TelemetryDelegate?
+    weak var favoritesDelegate:FavoritesDelegate?
     ///Dictionary of received messages
     var dataSource:[Sensor: [DataPoint]] = [:]
     ///Buffer for messages that haven't been plotted yet
@@ -37,8 +38,10 @@ class Telemetry: EventSource {
     static let shared = Telemetry()
     
     private init(){
-        if let savedFavorites = userSave.array(forKey: "favoriteSensors") as? [Sensor] {
-            favoriteSensors.append(contentsOf: savedFavorites)
+        if let savedFavorites = userSave.array(forKey: "favoriteSensors") as? [String] {
+            for sensorString in savedFavorites {
+                favoriteSensors.append(Sensor(key: sensorString))
+            }
         }
         
         //Initializing instance variables
@@ -126,6 +129,10 @@ extension Sensor{
     }
     func saveFavorites(){
         let userSave = UserDefaults.standard
-         userSave.set(Telemetry.shared.favoriteSensors, forKey: "favoriteSensors")
+        var favoriteKeys:[String] = []
+        for sensor in Telemetry.shared.favoriteSensors{
+            favoriteKeys.append(sensor.key)
+        }
+         userSave.set(favoriteKeys, forKey: "favoriteSensors")
     }
 }
