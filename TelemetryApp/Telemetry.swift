@@ -59,7 +59,7 @@ class Telemetry: EventSource {
             print("Connection to " + urlString + " open")
             self.delegate?.manageOpen()
             self.numConnection += 1
-            print(self.numConnection)
+            print(String(self.numConnection)+" connection")
         }
         
         self.onMessage{ (id, event, data) in
@@ -95,10 +95,6 @@ class Telemetry: EventSource {
         }
         
         self.onComplete{ (status, shouldReconnect, netLayer) in
-            //print("Data source at connection close was:")
-            //print(self.dataSource)
-            //print(self.favoriteSensors)
-            //print(self.generalSensors)
             self.delegate?.manageComplete()
         }
         
