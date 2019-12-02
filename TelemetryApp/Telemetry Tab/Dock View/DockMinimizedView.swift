@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class DockMinimizedView: UIView, TelemetryDelegate{
+class DockMinimizedView: UIView, TelemetryDelegate, PinnedDelegate{
 
     @IBOutlet var contentView: UIView!
     @IBOutlet var dragBar: UIView!
@@ -20,6 +20,8 @@ class DockMinimizedView: UIView, TelemetryDelegate{
     @IBOutlet weak var TwoUnit: UILabel!
     @IBOutlet weak var ThreeNum: UILabel!
     @IBOutlet weak var ThreeUnit: UILabel!
+    
+    var pinnedSensors: [Sensor]?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,9 +39,32 @@ class DockMinimizedView: UIView, TelemetryDelegate{
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        pinnedSensors = Telemetry.shared.pinnedSensors
+        updateLabels()
+        Telemetry.shared.pinnedDelegate = self
     }
     
     func manageMessage(key: String, dataPoint: DataPoint) {
+        let sensor = Sensor(key: key )
+        let value = String(format: "%.2f", dataPoint.value)
+        if(pinnedSensors?.contains(sensor) ?? false){
+            switch pinnedSensors?.firstIndex(of: sensor){
+            case 0:
+                ZeroNum.text = value
+                return
+            case 1:
+                OneNum.text = value
+                return
+            case 2:
+                TwoNum.text = value
+                return
+            case 3:
+                ThreeNum.text = value
+                return
+            default:
+                return
+            }
+        }
     }
     
     func manageOpen() {
@@ -48,6 +73,10 @@ class DockMinimizedView: UIView, TelemetryDelegate{
     func manageComplete() {
     }
     func newSensor(sensor: Sensor) {
+    }
+    func pinnedChanged() {
+        pinnedSensors = Telemetry.shared.pinnedSensors
+        updateLabels()
     }
     func setAlpha(_ alpha: CGFloat){
         ZeroNum.alpha = alpha
@@ -59,4 +88,55 @@ class DockMinimizedView: UIView, TelemetryDelegate{
         ThreeNum.alpha = alpha
         ThreeUnit.alpha = alpha
     }
+    func updateLabels(){
+        switch pinnedSensors?.count {
+        case 1:
+            ZeroNum.text = ""
+            OneNum.text = ""
+            TwoNum.text = ""
+            ThreeNum.text = ""
+            
+            ZeroUnit.text = pinnedSensors?[0].unit
+            OneUnit.text = ""
+            TwoUnit.text = ""
+            ThreeUnit.text = ""
+            return
+        case 2:
+            ZeroNum.text = ""
+            OneNum.text = ""
+            TwoNum.text = ""
+            ThreeNum.text = ""
+            
+            ZeroUnit.text = pinnedSensors?[0].unit
+            OneUnit.text = pinnedSensors?[1].unit
+            TwoUnit.text = ""
+            ThreeUnit.text = ""
+            return
+        case 3:
+            ZeroNum.text = ""
+            OneNum.text = ""
+            TwoNum.text = ""
+            ThreeNum.text = ""
+            
+            ZeroUnit.text = pinnedSensors?[0].unit
+            OneUnit.text = pinnedSensors?[1].unit
+            TwoUnit.text = pinnedSensors?[2].unit
+            ThreeUnit.text = ""
+            return
+        case 4:
+            ZeroNum.text = ""
+            OneNum.text = ""
+            TwoNum.text = ""
+            ThreeNum.text = ""
+            
+            ZeroUnit.text = pinnedSensors?[0].unit
+            OneUnit.text = pinnedSensors?[1].unit
+            TwoUnit.text = pinnedSensors?[2].unit
+            ThreeUnit.text = pinnedSensors?[3].unit
+            return
+        default:
+            return
+        }
+    }
+    
 }

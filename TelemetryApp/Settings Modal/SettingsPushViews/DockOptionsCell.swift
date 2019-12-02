@@ -22,5 +22,14 @@ class DockOptionsCell: UITableViewCell {
     }
     
     @IBAction func flippedSwitch(_ sender: Any) {
+        let sensor = Sensor(key: sensorLabel.text ?? "Error Occured")
+        if(isPinned.isOn){
+            let successful = sensor.pin()
+            if(!successful){
+                isPinned.isOn = false
+            }
+        }else{
+            sensor.unpin()
+        }
     }
 }

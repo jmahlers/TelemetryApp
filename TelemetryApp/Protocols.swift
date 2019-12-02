@@ -22,3 +22,6 @@ protocol TelemetryDelegate: AnyObject {
 protocol  FavoritesDelegate: AnyObject {
     func favoritesChanged()
 }
+protocol PinnedDelegate: AnyObject {
+    func pinnedChanged()
+}
