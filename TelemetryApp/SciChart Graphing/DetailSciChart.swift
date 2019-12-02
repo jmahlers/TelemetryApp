@@ -33,7 +33,7 @@ class DetailSciChart : TelemetrySCIChartSurface {
         yAxis.autoRange = .always
         
         
-        SCIThemeManager.applyTheme(toThemeable: self, withThemeKey: SCIChart_ExpressionDarkStyleKey)
+        SCIThemeManager.applyTheme(toThemeable: self, withThemeKey: SCIChart_Bright_SparkStyleKey)
         
         // Apply theme before this line!
         createDataSeries()
