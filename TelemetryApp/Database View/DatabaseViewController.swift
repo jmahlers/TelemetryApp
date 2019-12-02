@@ -38,14 +38,18 @@ class DatabaseViewController : CollapsibleTableSectionViewController {
         
     let baseURL = "https://api.data.wuracing.com/api/"
     let queue = DispatchQueue(label: "async", qos: .userInitiated)
-    let formatter = DateFormatter()
+    let parseFormatter = DateFormatter()
+    let dateFormatter = DateFormatter()
+    let hourFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
 
         self.reloadData()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
+        parseFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        hourFormatter.dateFormat = "HH:mm:ss"
         
         DispatchQueue.global().async {
             self.fetchRuns()
@@ -97,7 +101,7 @@ class DatabaseViewController : CollapsibleTableSectionViewController {
                         runStartDateString = runStartDateString?.replacingOccurrences(of: "T", with: " ")
                         runStartDateString = runStartDateString?.replacingOccurrences(of: "Z", with: "")
 
-                        let runStartDate = formatter.date(from: runStartDateString!)
+                        let runStartDate = parseFormatter.date(from: runStartDateString!)
 
                         let run = Run(id: j["id"] as? Int, location: j["location"] as? String, startDate: runStartDate, endDate: j["end"] as? String, description: j["description"] as? String, type: j["type"] as? String)
                         allRuns.append(run)
@@ -110,15 +114,13 @@ class DatabaseViewController : CollapsibleTableSectionViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         let selectSensorVC = segue.destination as? SelectSensorViewController
         let cell = sender as! UITableViewCell
         
         if cell.textLabel?.text != nil {
-            let runId = allRuns.first(where: { $0.startDate?.description == cell.textLabel?.text })?.id
+            let runId = allRuns.first(where: { hourFormatter.string(from: $0.startDate!) == cell.textLabel?.text })?.id
             selectSensorVC?.runId = runId?.description
         }
-            
     }
     
 }
@@ -139,7 +141,10 @@ extension DatabaseViewController : CollapsibleTableSectionDelegate {
         
         let run : Run = sections[(indexPath as NSIndexPath).section].runs[(indexPath as NSIndexPath).row]
         
-        cell?.textLabel?.text = run.startDate?.description
+        if run.startDate != nil {
+            
+            cell?.textLabel?.text = hourFormatter.string(from: run.startDate!)
+        }
         
         return cell ?? UITableViewCell(style: .default, reuseIdentifier: "cell")
     }
@@ -154,7 +159,7 @@ extension DatabaseViewController : CollapsibleTableSectionDelegate {
     }
     
     func collapsibleTableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section].location
+        return sections[section].location + " - " + dateFormatter.string(from: sections[section].date)
     }
     
     func shouldCollapseByDefault(_ tableView: UITableView) -> Bool {

@@ -194,7 +194,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="2pC-pC-pF4" id="qQb-eu-y0L"/>
-                        <segue destination="iva-m2-xg6" kind="show" id="3HU-e6-vPj"/>
+                        <segue destination="iva-m2-xg6" kind="show" identifier="detailGraph" id="3HU-e6-vPj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNb-UA-nQM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -208,13 +208,20 @@
                     <view key="view" contentMode="scaleToFill" id="tbL-1P-y3G">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MFN-js-ben" customClass="DetailSciChart" customModule="TelemetryApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="5xa-4e-Iz9"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2l-bq-2iQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23" y="821"/>
+            <point key="canvasLocation" x="-23.188405797101453" y="820.98214285714278"/>
         </scene>
         <!--Telemetry View Controller-->
         <scene sceneID="yWA-Mh-zTb">
