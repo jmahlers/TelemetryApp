@@ -86,8 +86,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         if(location=="Gateway"){
         urlAddress = "https://api.darksky.net/forecast/8b65e35335318ac7aedbdf595b9d8c0d/38.645869,-90.134260";
         }
-        
-        var url: URL =  URL(string: urlAddress!)!
+        let url: URL =  URL(string: urlAddress!)!
         let data = try! Data(contentsOf: url)
         
         let JSON = try! JSONDecoder().decode(Weather.self, from: data)
@@ -95,17 +94,17 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Do any additional setup after loading the view.
         var countValue = 0;
         var currentHour = Calendar.current.component(.hour, from: Date())
-        Summary.text = "Current Weather Description: " + JSON.hourly.summary! ?? "Not Found"
+        Summary.text = "Current Weather Description: " + JSON.hourly.summary! 
         
        while countValue<24 {
-            let convertedTime = (Double)(JSON.hourly.data[countValue].time)
+            //let convertedTime = (Double)(JSON.hourly.data[countValue].time)
         
         
                 
         timeArray.append(Int(currentHour))
             iconArray.append(JSON.hourly.data[countValue].icon ?? "0")
-            temperatureArray.append(JSON.hourly.data[countValue].temperature! ?? 0)
-            windSpeedArray.append(JSON.hourly.data[countValue].windSpeed! ?? 0)
+        temperatureArray.append(JSON.hourly.data[countValue].temperature! )
+        windSpeedArray.append(JSON.hourly.data[countValue].windSpeed! )
             countValue = countValue+1
             if currentHour<23{
                 currentHour = currentHour+1
