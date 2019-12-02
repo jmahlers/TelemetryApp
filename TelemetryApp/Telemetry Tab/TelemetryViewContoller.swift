@@ -77,6 +77,7 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
         
         Telemetry.shared.delegate = self
         
+        graphView.reloadData()
         if timer == nil {
             timer = Timer.scheduledTimer(withTimeInterval: graphUpdatePeriod, repeats: true, block: updateAllChartsWithBufferedData)
         }
