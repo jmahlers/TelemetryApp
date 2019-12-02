@@ -9,10 +9,10 @@
 import UIKit
 
 struct Run : Decodable {
-    let id : Int!
+    let id: Int!
     var location: String?
     var startDate: Date?
-    var endDate: String?
+    var endDate: Date?
     var description: String?
     var type: String?
 }
@@ -103,7 +103,13 @@ class DatabaseViewController : CollapsibleTableSectionViewController {
 
                         let runStartDate = parseFormatter.date(from: runStartDateString!)
 
-                        let run = Run(id: j["id"] as? Int, location: j["location"] as? String, startDate: runStartDate, endDate: j["end"] as? String, description: j["description"] as? String, type: j["type"] as? String)
+                        var runEndDateString = j["end"] as? String
+                        runEndDateString = runEndDateString?.replacingOccurrences(of: "T", with: " ")
+                        runEndDateString = runEndDateString?.replacingOccurrences(of: "Z", with: "")
+                        
+                        let runEndDate = parseFormatter.date(from: runEndDateString!)
+                        
+                        let run = Run(id: j["id"] as? Int, location: j["location"] as? String, startDate: runStartDate, endDate: runEndDate, description: j["description"] as? String, type: j["type"] as? String)
                         allRuns.append(run)
                     }
                 }
@@ -120,6 +126,7 @@ class DatabaseViewController : CollapsibleTableSectionViewController {
         if cell.textLabel?.text != nil {
             let runId = allRuns.first(where: { hourFormatter.string(from: $0.startDate!) == cell.textLabel?.text })?.id
             selectSensorVC?.runId = runId?.description
+            selectSensorVC?.allRuns = allRuns
         }
     }
     

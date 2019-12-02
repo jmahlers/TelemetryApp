@@ -201,10 +201,10 @@
             </objects>
             <point key="canvasLocation" x="-833.33333333333337" y="820.98214285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Plot View Controller-->
         <scene sceneID="Wiw-Yo-Q7n">
             <objects>
-                <viewController id="iva-m2-xg6" sceneMemberID="viewController">
+                <viewController id="iva-m2-xg6" customClass="DetailPlotViewController" customModule="TelemetryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tbL-1P-y3G">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
