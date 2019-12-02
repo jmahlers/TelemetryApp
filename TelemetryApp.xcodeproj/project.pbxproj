@@ -17,7 +17,6 @@
 		236AC4902376387100014AA1 /* GraphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */; };
 		2398B040237CE5BD006C69D9 /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398B03F237CE5BD006C69D9 /* CollapsibleTableViewHeader.swift */; };
 		2398B042237CE7D1006C69D9 /* CollapsibleTableSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398B041237CE7D1006C69D9 /* CollapsibleTableSectionViewController.swift */; };
-		2398B044237CF877006C69D9 /* LoadCollapsibleDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398B043237CF877006C69D9 /* LoadCollapsibleDataVC.swift */; };
 		239981F82378F6B7002AEEC9 /* SmallLiveSciChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239981F72378F6B7002AEEC9 /* SmallLiveSciChart.swift */; };
 		23E37373237C860600E0A500 /* DatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E37372237C860600E0A500 /* DatabaseViewController.swift */; };
 		7093A1A1237C7EAC00098486 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7093A1A0237C7EAC00098486 /* Weather.swift */; };
@@ -111,7 +110,6 @@
 		236AC48F2376387100014AA1 /* GraphCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCollectionViewCell.swift; sourceTree = "<group>"; };
 		2398B03F237CE5BD006C69D9 /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
 		2398B041237CE7D1006C69D9 /* CollapsibleTableSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableSectionViewController.swift; sourceTree = "<group>"; };
-		2398B043237CF877006C69D9 /* LoadCollapsibleDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCollapsibleDataVC.swift; sourceTree = "<group>"; };
 		239981F72378F6B7002AEEC9 /* SmallLiveSciChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallLiveSciChart.swift; sourceTree = "<group>"; };
 		23E37372237C860600E0A500 /* DatabaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseViewController.swift; sourceTree = "<group>"; };
 		6B22950E09878D842173933E /* Pods_TelemetryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TelemetryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,7 +228,6 @@
 				23E37372237C860600E0A500 /* DatabaseViewController.swift */,
 				2398B03F237CE5BD006C69D9 /* CollapsibleTableViewHeader.swift */,
 				2398B041237CE7D1006C69D9 /* CollapsibleTableSectionViewController.swift */,
-				2398B043237CF877006C69D9 /* LoadCollapsibleDataVC.swift */,
 				23268AB42394B982006D1238 /* SelectSensorViewController.swift */,
 				23268AB82394DA1C006D1238 /* DetailPlotViewController.swift */,
 			);
@@ -541,7 +538,6 @@
 				236AC4902376387100014AA1 /* GraphCollectionViewCell.swift in Sources */,
 				A0398BED2374F679005454E2 /* WebsiteController.swift in Sources */,
 				A0F4A83423713D480025CAA1 /* LivestreamView.swift in Sources */,
-				2398B044237CF877006C69D9 /* LoadCollapsibleDataVC.swift in Sources */,
 				239981F82378F6B7002AEEC9 /* SmallLiveSciChart.swift in Sources */,
 				A08290F72375546F00AF0E20 /* HeaderView.swift in Sources */,
 				A04A3E8C2394DC47004F2423 /* DockOptionsController.swift in Sources */,
