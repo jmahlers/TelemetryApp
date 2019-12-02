@@ -49,7 +49,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             myCell.label2.text = temperatureArray[indexPath.row].description
             myCell.label3.text = windSpeedArray[indexPath.row].description
             
-            print(iconArray[indexPath.row])
             if iconArray[indexPath.row] == "0"{
                 myCell.image1.image = UIImage(named: "question-mark" + ".png")
             }
