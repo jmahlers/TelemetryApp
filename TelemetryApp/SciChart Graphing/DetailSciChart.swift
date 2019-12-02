@@ -73,7 +73,7 @@ class DetailSciChart : TelemetrySCIChartSurface {
         
         let visibleYRange = self.yAxes.item(at: 0)?.visibleRange as! SCIDoubleRange
         
-        let visibleXRange = self.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+        //let visibleXRange = self.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
         
         visibleYRange.max = SCIGeneric(largestValueForYScaling)
         
