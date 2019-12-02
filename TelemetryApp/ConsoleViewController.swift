@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class ViewController: UIViewController, TelemetryDelegate, ChartViewDelegate {
+class ConsoleViewController: UIViewController, TelemetryDelegate, ChartViewDelegate {
 
     @IBOutlet weak var console: UITextView!
     

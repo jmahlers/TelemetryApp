@@ -45,7 +45,7 @@
 		A0188D37237A30CE00D95F00 /* ModalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0188D35237A30CE00D95F00 /* ModalCell.xib */; };
 		A01C1E49236A47770026D76F /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C1E48236A47770026D76F /* Telemetry.swift */; };
 		A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA521236A3D02007B6713 /* AppDelegate.swift */; };
-		A01CA524236A3D02007B6713 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA523236A3D02007B6713 /* ViewController.swift */; };
+		A01CA524236A3D02007B6713 /* ConsoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA523236A3D02007B6713 /* ConsoleViewController.swift */; };
 		A01CA527236A3D02007B6713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01CA525236A3D02007B6713 /* Main.storyboard */; };
 		A01CA529236A3D03007B6713 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A01CA528236A3D03007B6713 /* Assets.xcassets */; };
 		A01CA52C236A3D03007B6713 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01CA52A236A3D03007B6713 /* LaunchScreen.storyboard */; };
@@ -153,7 +153,7 @@
 		A01C1E48236A47770026D76F /* Telemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
 		A01CA51E236A3D02007B6713 /* TelemetryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelemetryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01CA521236A3D02007B6713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A01CA523236A3D02007B6713 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A01CA523236A3D02007B6713 /* ConsoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleViewController.swift; sourceTree = "<group>"; };
 		A01CA526236A3D02007B6713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A01CA528236A3D03007B6713 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A01CA52B236A3D03007B6713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -398,7 +398,7 @@
 				23173119237BDB4400BE6483 /* SciChart Graphing */,
 				A011940E23737113002625C5 /* (Deprecated Graphs) */,
 				A01CA521236A3D02007B6713 /* AppDelegate.swift */,
-				A01CA523236A3D02007B6713 /* ViewController.swift */,
+				A01CA523236A3D02007B6713 /* ConsoleViewController.swift */,
 				A073C3F02376335600BDB7CD /* OverallTabViewController.swift */,
 				A01CA525236A3D02007B6713 /* Main.storyboard */,
 				A011941923738470002625C5 /* Protocols.swift */,
@@ -598,7 +598,7 @@
 				2314FBA523736B08005ACD79 /* RadarMarkerView.swift in Sources */,
 				A0188D36237A30CE00D95F00 /* ModalCell.swift in Sources */,
 				A04A3E902394DDB5004F2423 /* DockOptionsCell.swift in Sources */,
-				A01CA524236A3D02007B6713 /* ViewController.swift in Sources */,
+				A01CA524236A3D02007B6713 /* ConsoleViewController.swift in Sources */,
 				A0AA6909237A6EA800AB795B /* BugReportController.swift in Sources */,
 				A011941A23738470002625C5 /* Protocols.swift in Sources */,
 				2317311F237BE9B500BE6483 /* DetailLiveSciChart.swift in Sources */,
