@@ -18,7 +18,7 @@ class WebsiteController: UIViewController, WKNavigationDelegate{
         website.navigationDelegate = self
         self.showSpinner(onView: self.website)
         //let urlString = "https://sae.wustl.edu/login.html"
-        let urlString = "https://sae.wustl.edu/"
+        let urlString = "http://sae.wustl.edu/"
         let url = URL(string: urlString)!
         let urlRequest = URLRequest(url: url)
         website.load(urlRequest)

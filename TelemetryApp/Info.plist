@@ -24,9 +24,11 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<false/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>http://sae.wustl.edu/</key>
+			<key>sae.wustl.edu/</key>
 			<string></string>
 		</dict>
 	</dict>

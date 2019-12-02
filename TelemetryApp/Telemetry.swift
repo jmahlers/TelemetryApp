@@ -115,6 +115,7 @@ extension Sensor{
             Telemetry.shared.generalSensors.removeAll(where: {(sensor) in
                 return sensor == self
             })
+            Telemetry.shared.favoriteSensors.sort()
             saveFavorites()
         }
     }
@@ -124,6 +125,8 @@ extension Sensor{
             Telemetry.shared.favoriteSensors.removeAll(where: {(sensor) in
                 return sensor == self
             })
+            Telemetry.shared.favoriteSensors.sort()
+            Telemetry.shared.generalSensors.sort()
             saveFavorites()
         }
     }
@@ -133,6 +136,7 @@ extension Sensor{
         for sensor in Telemetry.shared.favoriteSensors{
             favoriteKeys.append(sensor.key)
         }
+        favoriteKeys.sort()
          userSave.set(favoriteKeys, forKey: "favoriteSensors")
     }
 }
