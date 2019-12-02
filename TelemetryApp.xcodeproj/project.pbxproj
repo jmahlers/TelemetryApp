@@ -49,6 +49,8 @@
 		A01D976D2393A48800E33A72 /* InProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01D976C2393A48800E33A72 /* InProgress.storyboard */; };
 		A01D976F2393A4A700E33A72 /* InProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01D976E2393A4A700E33A72 /* InProgress.swift */; };
 		A0398BED2374F679005454E2 /* WebsiteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0398BEC2374F679005454E2 /* WebsiteController.swift */; };
+		A04A3E892394C6AD004F2423 /* DockHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04A3E872394C6AD004F2423 /* DockHeaderView.swift */; };
+		A04A3E8A2394C6AD004F2423 /* DockHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04A3E882394C6AD004F2423 /* DockHeaderView.xib */; };
 		A04D5D252376A7EE00B07241 /* TelemetryChartUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04D5D242376A7EE00B07241 /* TelemetryChartUpdates.swift */; };
 		A073C3EB2375D8C500BDB7CD /* DraggableDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073C3EA2375D8C500BDB7CD /* DraggableDock.swift */; };
 		A073C3EF2375F43200BDB7CD /* TelemetryCollectionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073C3EE2375F43200BDB7CD /* TelemetryCollectionViews.swift */; };
@@ -150,6 +152,8 @@
 		A01D976C2393A48800E33A72 /* InProgress.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InProgress.storyboard; sourceTree = "<group>"; };
 		A01D976E2393A4A700E33A72 /* InProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InProgress.swift; sourceTree = "<group>"; };
 		A0398BEC2374F679005454E2 /* WebsiteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteController.swift; sourceTree = "<group>"; };
+		A04A3E872394C6AD004F2423 /* DockHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockHeaderView.swift; sourceTree = "<group>"; };
+		A04A3E882394C6AD004F2423 /* DockHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DockHeaderView.xib; sourceTree = "<group>"; };
 		A04D5D242376A7EE00B07241 /* TelemetryChartUpdates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryChartUpdates.swift; sourceTree = "<group>"; };
 		A073C3EA2375D8C500BDB7CD /* DraggableDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableDock.swift; sourceTree = "<group>"; };
 		A073C3EE2375F43200BDB7CD /* TelemetryCollectionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryCollectionViews.swift; sourceTree = "<group>"; };
@@ -332,6 +336,8 @@
 				A01194292373EFB2002625C5 /* DockExpandedView.xib */,
 				A0E2700E23768F0800440719 /* DockExpandedCell.swift */,
 				A0E2700F23768F0800440719 /* DockExpandedCell.xib */,
+				A04A3E872394C6AD004F2423 /* DockHeaderView.swift */,
+				A04A3E882394C6AD004F2423 /* DockHeaderView.xib */,
 			);
 			path = "Dock View";
 			sourceTree = "<group>";
@@ -511,6 +517,7 @@
 				A011942A2373EFB2002625C5 /* DockExpandedView.xib in Resources */,
 				A01D976D2393A48800E33A72 /* InProgress.storyboard in Resources */,
 				B92D3A6D238FA04E009DD817 /* rain.png in Resources */,
+				A04A3E8A2394C6AD004F2423 /* DockHeaderView.xib in Resources */,
 				B92D3A5B238F9B61009DD817 /* snow.png in Resources */,
 				A0CC52E9237C70B00022E1EC /* Weather.storyboard in Resources */,
 				B92D3A6F238FA271009DD817 /* question-mark.png in Resources */,
@@ -614,6 +621,7 @@
 				2398B040237CE5BD006C69D9 /* CollapsibleTableViewHeader.swift in Sources */,
 				A01CA522236A3D02007B6713 /* AppDelegate.swift in Sources */,
 				23E37373237C860600E0A500 /* DatabaseViewController.swift in Sources */,
+				A04A3E892394C6AD004F2423 /* DockHeaderView.swift in Sources */,
 				2314FBA423736B08005ACD79 /* BalloonMarker.swift in Sources */,
 				236AC49223763CD400014AA1 /* DatasetSetUpUtils.swift in Sources */,
 				B92D3A57238F5812009DD817 /* CustomTable.swift in Sources */,
