@@ -135,6 +135,15 @@ class DockMinimizedView: UIView, TelemetryDelegate, PinnedDelegate{
             ThreeUnit.text = pinnedSensors?[3].unit
             return
         default:
+            ZeroNum.text = ""
+            OneNum.text = ""
+            TwoNum.text = ""
+            ThreeNum.text = ""
+            
+            ZeroUnit.text = ""
+            OneUnit.text = ""
+            TwoUnit.text = ""
+            ThreeUnit.text = ""
             return
         }
     }
