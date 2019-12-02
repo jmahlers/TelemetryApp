@@ -27,6 +27,12 @@ struct DataPoint {
         self.time = time
         self.value = sensorReading.value
     }
+    
+    init(key: String, time: Double, value: Float){
+        self.key = key
+        self.time = time
+        self.value = value
+    }
 }
 
 ///Struct for for sensors. Contains key, unit, description, and system

@@ -104,8 +104,9 @@ class SelectSensorViewController : UIViewController, UITableViewDelegate, UITabl
         let cell = sender as! UITableViewCell
         
         if cell.textLabel?.text != nil {
-            let varId = variables?.first(where: { $0.name == cell.textLabel?.text })?.id
-            detailPlotVC?.varId = varId?.description
+            let variable = variables?.first(where: { $0.name == cell.textLabel?.text })
+            detailPlotVC?.varId = variable?.id.description
+            detailPlotVC?.varName = variable?.name
             if let currRun: Run = allRuns?.first(where: { $0.id == Int(runId!) }) {
                 detailPlotVC?.start = dateFormatter.string(from: currRun.startDate ?? Date())
                 detailPlotVC?.end = dateFormatter.string(from: currRun.endDate ?? Date())

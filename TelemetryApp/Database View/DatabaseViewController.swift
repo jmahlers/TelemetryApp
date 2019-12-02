@@ -68,8 +68,7 @@ class DatabaseViewController : CollapsibleTableSectionViewController {
                         let daySection = DaySection(location: run.location ?? "", date: run.startDate ?? Date(), runs: [run])
                         self.sections.append(daySection)
                     }
-                }
-
+                }                
                 print("done sorting")
                 self.reloadData()
             }
