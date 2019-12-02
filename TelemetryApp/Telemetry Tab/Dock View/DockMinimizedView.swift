@@ -9,11 +9,17 @@
 import UIKit
 class DockMinimizedView: UIView, TelemetryDelegate{
 
-    
-    
-    @IBOutlet var label: UILabel!
     @IBOutlet var contentView: UIView!
     @IBOutlet var dragBar: UIView!
+    
+    @IBOutlet weak var ZeroNum: UILabel!
+    @IBOutlet weak var ZeroUnit: UILabel!
+    @IBOutlet weak var OneNum: UILabel!
+    @IBOutlet weak var OneUnit: UILabel!
+    @IBOutlet weak var TwoNum: UILabel!
+    @IBOutlet weak var TwoUnit: UILabel!
+    @IBOutlet weak var ThreeNum: UILabel!
+    @IBOutlet weak var ThreeUnit: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,6 +50,13 @@ class DockMinimizedView: UIView, TelemetryDelegate{
     func newSensor(sensor: Sensor) {
     }
     func setAlpha(_ alpha: CGFloat){
-        label.alpha = alpha
+        ZeroNum.alpha = alpha
+        ZeroUnit.alpha = alpha
+        OneNum.alpha = alpha
+        OneUnit.alpha = alpha
+        TwoNum.alpha = alpha
+        TwoUnit.alpha = alpha
+        ThreeNum.alpha = alpha
+        ThreeUnit.alpha = alpha
     }
 }

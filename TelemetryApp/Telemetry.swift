@@ -38,12 +38,16 @@ class Telemetry: EventSource {
     static let shared = Telemetry()
     
     private init(){
-        if let savedFavorites = userSave.array(forKey: "favoriteSensors") as? [String] {
-            for sensorString in savedFavorites {
-                favoriteSensors.append(Sensor(key: sensorString))
+//        if let savedFavorites = userSave.array(forKey: "favoriteSensors") as? [] {
+//            for sensorString in savedFavorites {
+//                favoriteSensors.append(Sensor(key: sensorString))
+//            }
+//        }
+        if let favoritesData = userSave.value(forKey:"favoritesSensors") as? Data {
+            if let savedFavorites = try? PropertyListDecoder().decode(Array<Sensor>.self, from: favoritesData) {
+                favoriteSensors.append(contentsOf: savedFavorites)
             }
         }
-        
         //Initializing instance variables
         let urlString =  "https://jksites.dev/api/telemetry"
         let url = URL(string: urlString)
@@ -153,20 +157,7 @@ extension Sensor{
         }
     }
     func saveFavorites(){
-        print("Favorite Charts:")
-        for chart in Telemetry.shared.favoriteCharts {
-            print(chart.key)
-        }
-        print("General Charts:")
-        for chart in Telemetry.shared.generalCharts {
-            print(chart.key)
-        }
         let userSave = UserDefaults.standard
-        var favoriteKeys:[String] = []
-        for sensor in Telemetry.shared.favoriteSensors{
-            favoriteKeys.append(sensor.key)
-        }
-        favoriteKeys.sort()
-        userSave.set(favoriteKeys, forKey: "favoriteSensors")
+        userSave.set(try? PropertyListEncoder().encode(Telemetry.shared.favoriteSensors), forKey:"favoritesSensors")
     }
 }
