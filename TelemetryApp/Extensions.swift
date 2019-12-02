@@ -24,7 +24,7 @@ extension UIView {
         self.clipsToBounds = true
         self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
-    //https://stackoverflow.com/questions/17355280/how-to-add-a-border-just-on-the-top-side-of-a-uiview
+    // from https://stackoverflow.com/questions/17355280/how-to-add-a-border-just-on-the-top-side-of-a-uiview
     @discardableResult
     func addBorders(edges: UIRectEdge,
                     color: UIColor,
@@ -77,7 +77,8 @@ extension UIViewController{
             }
         }
     }
-    //http://brainwashinc.com/2017/07/21/loading-activity-indicator-ios-swift/
+    
+    // from http://brainwashinc.com/2017/07/21/loading-activity-indicator-ios-swift/
     func showSpinner(onView : UIView) {
         let spinnerView = UIView.init(frame: onView.bounds)
         spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)

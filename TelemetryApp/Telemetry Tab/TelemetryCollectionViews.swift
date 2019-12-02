@@ -105,10 +105,6 @@ extension TelemetryViewController: UICollectionViewDataSource, UICollectionViewD
         }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//
-//    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = graphView.cellForItem(at: indexPath)
         self.performSegue(withIdentifier: "detailLiveGraph", sender: cell)

@@ -63,7 +63,6 @@ class DetailSciChart : TelemetrySCIChartSurface {
     private func createDataSeries() {
         // Init line data series
         lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
-        //        lineDataSeries.fifoCapacity = Int32(self.secondsInPastToPlot*SmallLiveSciChart.frequency+Double(self.avgPeriod))
         lineDataSeries.seriesName = "line series"
         
         // Init scatter data series
@@ -72,9 +71,6 @@ class DetailSciChart : TelemetrySCIChartSurface {
         scatterDataSeries.seriesName = "scatter series"
         
         let visibleYRange = self.yAxes.item(at: 0)?.visibleRange as! SCIDoubleRange
-        
-        //let visibleXRange = self.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
-        
         visibleYRange.max = SCIGeneric(largestValueForYScaling)
         
     }
