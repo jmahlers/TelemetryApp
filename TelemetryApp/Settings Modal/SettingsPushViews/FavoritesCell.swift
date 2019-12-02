@@ -32,6 +32,5 @@ class FavoritesCell: UITableViewCell {
         }else{
             sensor.removeFavorite()
         }
-        Telemetry.shared.favoritesDelegate?.favoritesChanged()
     }
 }

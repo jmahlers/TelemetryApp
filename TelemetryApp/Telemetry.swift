@@ -19,6 +19,7 @@ class Telemetry: EventSource {
     ///Delegate to process protocol methods
     weak var delegate:TelemetryDelegate?
     weak var favoritesDelegate:FavoritesDelegate?
+    weak var pinnedDelegate:PinnedDelegate?
     ///Dictionary of received messages
     var dataSource:[Sensor: [DataPoint]] = [:]
     ///Buffer for messages that haven't been plotted yet
@@ -157,6 +158,7 @@ extension Sensor{
     func saveFavorites(){
         let userSave = UserDefaults.standard
         userSave.set(try? PropertyListEncoder().encode(Telemetry.shared.favoriteSensors), forKey:"favoritesSensors")
+        Telemetry.shared.favoritesDelegate?.favoritesChanged()
     }
     func pin()->Bool{
         if(Telemetry.shared.pinnedSensors.count >= 4){
@@ -164,17 +166,22 @@ extension Sensor{
         }else{
             if(!Telemetry.shared.pinnedSensors.contains(self)){
                 Telemetry.shared.pinnedSensors.append(self)
+                Telemetry.shared.pinnedSensors.sort()
             }
+            savePins()
             return true
         }
+       
     }
     func unpin(){
         Telemetry.shared.pinnedSensors.removeAll(where: {(sensor) in
             return sensor == self
         })
+        savePins()
     }
     func savePins(){
         let userSave = UserDefaults.standard
         userSave.set(try? PropertyListEncoder().encode(Telemetry.shared.pinnedSensors), forKey:"pinnedSensors")
+        Telemetry.shared.pinnedDelegate?.pinnedChanged()
     }
 }

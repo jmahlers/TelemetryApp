@@ -106,6 +106,7 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
                 dockOutlet.expandedView.expandedDockCollection.reloadItems(at: [indexPath])
             }
         } else {
+            dockOutlet.manageMessage(key: key, dataPoint: dataPoint)
             mostRecentTime = dataPoint.time
         }
     }
