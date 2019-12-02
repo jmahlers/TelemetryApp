@@ -57,7 +57,7 @@
 		A08290F72375546F00AF0E20 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08290F62375546F00AF0E20 /* HeaderView.swift */; };
 		A08290F92375592B00AF0E20 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A08290F82375592B00AF0E20 /* HeaderView.xib */; };
 		A0AA6909237A6EA800AB795B /* BugReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA6908237A6EA800AB795B /* BugReportController.swift */; };
-		A0B9D3852395A4B200E92AB5 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9D3842395A4B200E92AB5 /* License.swift */; };
+		A0B9D3872395AFA800E92AB5 /* SciChartsLicense.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9D3862395AFA800E92AB5 /* SciChartsLicense.swift */; };
 		A0CC52E9237C70B00022E1EC /* Weather.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0CC52E8237C70B00022E1EC /* Weather.storyboard */; };
 		A0CC52EB237C70BD0022E1EC /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CC52EA237C70BD0022E1EC /* WeatherViewController.swift */; };
 		A0CC52EE237C72410022E1EC /* DetailLiveSciChart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0CC52ED237C72410022E1EC /* DetailLiveSciChart.storyboard */; };
@@ -151,7 +151,7 @@
 		A08290F62375546F00AF0E20 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A08290F82375592B00AF0E20 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		A0AA6908237A6EA800AB795B /* BugReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugReportController.swift; sourceTree = "<group>"; };
-		A0B9D3842395A4B200E92AB5 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		A0B9D3862395AFA800E92AB5 /* SciChartsLicense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciChartsLicense.swift; sourceTree = "<group>"; };
 		A0CC52E8237C70B00022E1EC /* Weather.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Weather.storyboard; sourceTree = "<group>"; };
 		A0CC52EA237C70BD0022E1EC /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		A0CC52ED237C72410022E1EC /* DetailLiveSciChart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailLiveSciChart.storyboard; sourceTree = "<group>"; };
@@ -334,7 +334,7 @@
 				2317311A237BDB7400BE6483 /* Website Tab */,
 				23173119237BDB4400BE6483 /* SciChart Graphing */,
 				A01CA521236A3D02007B6713 /* AppDelegate.swift */,
-				A0B9D3842395A4B200E92AB5 /* License.swift */,
+				A0B9D3862395AFA800E92AB5 /* SciChartsLicense.swift */,
 				A01CA523236A3D02007B6713 /* ConsoleViewController.swift */,
 				A073C3F02376335600BDB7CD /* OverallTabViewController.swift */,
 				A01CA525236A3D02007B6713 /* Main.storyboard */,
@@ -544,8 +544,8 @@
 				239981F82378F6B7002AEEC9 /* SmallLiveSciChart.swift in Sources */,
 				A08290F72375546F00AF0E20 /* HeaderView.swift in Sources */,
 				A04A3E8C2394DC47004F2423 /* DockOptionsController.swift in Sources */,
+				A0B9D3872395AFA800E92AB5 /* SciChartsLicense.swift in Sources */,
 				A011942F2373FAB2002625C5 /* DockExpandedView.swift in Sources */,
-				A0B9D3852395A4B200E92AB5 /* License.swift in Sources */,
 				23268AB72394D864006D1238 /* DetailSciChart.swift in Sources */,
 				23268AB52394B982006D1238 /* SelectSensorViewController.swift in Sources */,
 				A01D976F2393A4A700E33A72 /* InProgress.swift in Sources */,
