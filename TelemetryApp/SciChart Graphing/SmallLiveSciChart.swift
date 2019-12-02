@@ -123,7 +123,7 @@ class SmallLiveSciChart : TelemetrySCIChartSurface {
     private func createRenderableSeries(){
         lineRenderableSeries = SCIFastLineRenderableSeries()
         lineRenderableSeries.dataSeries = lineDataSeries
-        lineRenderableSeries.strokeStyle = SCISolidPenStyle(color: UIColor.blue, withThickness: 2)
+        lineRenderableSeries.strokeStyle = SCISolidPenStyle(color: UIColor.red, withThickness: 2)
         
         scatterRenderableSeries = SCIXyScatterRenderableSeries()
         scatterRenderableSeries.dataSeries = scatterDataSeries

@@ -18,15 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let licence:String = "<LicenseContract>" +
-        "<Customer>jake.kendrick@gmail.com</Customer>" +
-        "<OrderId>Trial</OrderId>" +
-        "<LicenseCount>1</LicenseCount>" +
-        "<IsTrialLicense>true</IsTrialLicense>" +
-        "<SupportExpires>12/11/2019 00:00:00</SupportExpires>" +
-        "<ProductCode>SC-IOS-2D-ENTERPRISE-SRC</ProductCode>" +
-        "<KeyCode>80b07ea46beaf563312e32edc4d6b9dd2d92b9aad1b9d601aca8bf958360d36979b7eec003211d1f0dd3e343a74e47d26f813f7b8ba3b428ffee0ec565fe3b50c9dfb348171d2742fa3970961cdd1680f123eecea0a750e740f2ab601a76409101d0a51d69172520a5ff8b12148019b88490cf4caab899c85b96326f660622dea1d6465223614c5e9dcf6076babf072afb9ed66936d05c5fa5f15b1d5cd0411e9d48588d3cc8f68055790f400f</KeyCode>" +
-        "</LicenseContract>"
+        let licence:String = "<LicenseContract>"+"<Customer>Washington University</Customer>"+"<OrderId>EDUCATIONAL-USE-0125</OrderId>"+"<LicenseCount>2</LicenseCount>"+"<IsTrialLicense>false</IsTrialLicense>"+"<SupportExpires>02/12/2020 00:00:00</SupportExpires>"+"<ProductCode>SC-IOS-2D-PRO</ProductCode>"+"<KeyCode>3e1fb899760442100fcf1dadf2cf09fa54b05a19e02de51a9217f4daede19c2e2e507e08ff7938ef9ebb813ae7a21492c6ec29ebd05963e806d603aa7ce2f04eec43401c341c92b538aa104b7f79ce6ecceab51379dde9fb3c7ef5ce56de3e7b4960972a66b019f28bdf9ec1b394513ecab2b9091496e51bf47724ecd189955c10e66b8cbb322fbf940aa6424c3cce05774561696287875b4f1ca854607b75930006dc5f1cceccfdec659bac177f</KeyCode>"+"</LicenseContract>"
         
         SCIChartSurface.setRuntimeLicenseKey(licence)
         

@@ -17,6 +17,7 @@ class DetailSciChart : TelemetrySCIChartSurface {
     let updateFreq = 50
     
     func initialize(key: String) {
+        
         self.key = key
         
         self.translatesAutoresizingMaskIntoConstraints = true
@@ -32,7 +33,7 @@ class DetailSciChart : TelemetrySCIChartSurface {
         yAxis.autoRange = .always
         
         
-        SCIThemeManager.applyTheme(toThemeable: self, withThemeKey: SCIChart_Bright_SparkStyleKey)
+        SCIThemeManager.applyTheme(toThemeable: self, withThemeKey: SCIChart_ExpressionDarkStyleKey)
         
         // Apply theme before this line!
         createDataSeries()
@@ -81,7 +82,7 @@ class DetailSciChart : TelemetrySCIChartSurface {
     private func createRenderableSeries(){
         lineRenderableSeries = SCIFastLineRenderableSeries()
         lineRenderableSeries.dataSeries = lineDataSeries
-        lineRenderableSeries.strokeStyle = SCISolidPenStyle(color: UIColor.blue, withThickness: 2)
+        lineRenderableSeries.strokeStyle = SCISolidPenStyle(color: UIColor.red, withThickness: 2)
         
         scatterRenderableSeries = SCIXyScatterRenderableSeries()
         scatterRenderableSeries.dataSeries = scatterDataSeries

@@ -44,6 +44,10 @@ class DatabaseViewController : CollapsibleTableSectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupActivityIndicator()
+        indicator.startAnimating()
+
         self.delegate = self
 
         self.reloadData()
@@ -71,6 +75,7 @@ class DatabaseViewController : CollapsibleTableSectionViewController {
                 }                
                 print("done sorting")
                 self.reloadData()
+                self.indicator.stopAnimating()
             }
         }
     }
@@ -127,6 +132,16 @@ class DatabaseViewController : CollapsibleTableSectionViewController {
             selectSensorVC?.runId = runId?.description
             selectSensorVC?.allRuns = allRuns
         }
+    }
+    
+    var indicator = UIActivityIndicatorView()
+    
+    func setupActivityIndicator() {
+        indicator = UIActivityIndicatorView(frame: self.view.frame)
+        indicator.style = UIActivityIndicatorView.Style.whiteLarge
+        indicator.backgroundColor = UIColor(displayP3Red: 100, green: 100, blue: 100, alpha: 1)
+        indicator.hidesWhenStopped = true
+        self.view.addSubview(indicator)
     }
     
 }

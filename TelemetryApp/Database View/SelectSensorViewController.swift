@@ -53,6 +53,9 @@ class SelectSensorViewController : UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupActivityIndicator()
+        indicator.startAnimating()
+        
         tableView.delegate = self
         tableView.dataSource = self
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
@@ -64,7 +67,7 @@ class SelectSensorViewController : UIViewController, UITableViewDelegate, UITabl
             
             DispatchQueue.main.sync {
                 self.tableView.reloadData()
-
+                self.indicator.stopAnimating()
             }
         }
         
@@ -99,6 +102,16 @@ class SelectSensorViewController : UIViewController, UITableViewDelegate, UITabl
         
     }
     
+    var indicator = UIActivityIndicatorView()
+    
+    func setupActivityIndicator() {
+        indicator = UIActivityIndicatorView(frame: self.view.frame)
+        indicator.style = UIActivityIndicatorView.Style.whiteLarge
+        indicator.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.5)
+        indicator.hidesWhenStopped = true
+        self.view.addSubview(indicator)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailPlotVC = segue.destination as? DetailPlotViewController
         let cell = sender as! UITableViewCell
@@ -107,6 +120,7 @@ class SelectSensorViewController : UIViewController, UITableViewDelegate, UITabl
             let variable = variables?.first(where: { $0.name == cell.textLabel?.text })
             detailPlotVC?.varId = variable?.id.description
             detailPlotVC?.varName = variable?.name
+            detailPlotVC?.varUnits = variable?.units
             if let currRun: Run = allRuns?.first(where: { $0.id == Int(runId!) }) {
                 detailPlotVC?.start = dateFormatter.string(from: currRun.startDate ?? Date())
                 detailPlotVC?.end = dateFormatter.string(from: currRun.endDate ?? Date())
