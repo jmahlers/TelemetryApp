@@ -28,6 +28,8 @@ class SmallLiveSciChart : TelemetrySCIChartSurface {
     func initialize(key: String) {
         self.key = key
 
+        
+        
         self.translatesAutoresizingMaskIntoConstraints = true
         self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     
@@ -117,7 +119,6 @@ class SmallLiveSciChart : TelemetrySCIChartSurface {
         }
         
         Telemetry.shared.dataToPlot[sensor]?.removeAll()
-        
     }
     
     private func createRenderableSeries(){
