@@ -51,7 +51,7 @@ class DatabaseViewController : CollapsibleTableSectionViewController {
         self.delegate = self
 
         self.reloadData()
-        parseFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
+        parseFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.dateFormat = "MM/dd/yyyy"
         hourFormatter.dateFormat = "HH:mm:ss"
         
@@ -86,7 +86,7 @@ class DatabaseViewController : CollapsibleTableSectionViewController {
     }
     
     func fetchRuns() {
-        guard let url = URL(string: baseURL+"runs/") else { return }
+        guard let url = URL(string: baseURL+"runs") else { return }
 
         var data: Data?
         do {
@@ -100,20 +100,24 @@ class DatabaseViewController : CollapsibleTableSectionViewController {
                 let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [[String:Any]]
                 if json != nil {
                     for j in json! {
-
                         var runStartDateString = j["date"] as? String
-                        runStartDateString = runStartDateString?.replacingOccurrences(of: "T", with: " ")
+                        print(runStartDateString == nil)
+                        print("Run is" + runStartDateString!)
+                        runStartDateString = runStartDateString?.replacingOccurrences(of: "T", with: " ") //I got this to work after a whole day. dont fucking touch the formats
                         runStartDateString = runStartDateString?.replacingOccurrences(of: "Z", with: "")
 
                         let runStartDate = parseFormatter.date(from: runStartDateString!)
-
+                        print("RunstartDate is")
+                        print(runStartDate)
                         var runEndDateString = j["end"] as? String
-                        runEndDateString = runEndDateString?.replacingOccurrences(of: "T", with: " ")
+                        runEndDateString = runEndDateString?.replacingOccurrences(of: "T", with: " ") //I got this to work after a whole day. dont fucking touch the formats
                         runEndDateString = runEndDateString?.replacingOccurrences(of: "Z", with: "")
                         
                         let runEndDate = parseFormatter.date(from: runEndDateString!)
                         
                         let run = Run(id: j["id"] as? Int, location: j["location"] as? String, startDate: runStartDate, endDate: runEndDate, description: j["description"] as? String, type: j["type"] as? String)
+                        print("run is")
+                        print(run)
                         allRuns.append(run)
                     }
                 }
@@ -128,7 +132,7 @@ class DatabaseViewController : CollapsibleTableSectionViewController {
         let cell = sender as! UITableViewCell
         
         if cell.textLabel?.text != nil {
-            let runId = allRuns.first(where: { hourFormatter.string(from: $0.startDate!) == cell.textLabel?.text })?.id
+            let runId = allRuns.first(where: { hourFormatter.string(from: $0.startDate ?? Date()) == cell.textLabel?.text })?.id
             selectSensorVC?.runId = runId?.description
             selectSensorVC?.allRuns = allRuns
         }

@@ -58,7 +58,7 @@ class SelectSensorViewController : UIViewController, UITableViewDelegate, UITabl
         
         tableView.delegate = self
         tableView.dataSource = self
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'" //I got this to work after a whole day. dont fucking touch the formats
         
         print("loaded select sensor view")
         
@@ -81,7 +81,7 @@ class SelectSensorViewController : UIViewController, UITableViewDelegate, UITabl
     func fetchSensors() {
         
         if runId != nil {
-            guard let url = URL(string: baseURL+"runs/"+runId!+"/details/") else { return }
+            guard let url = URL(string: baseURL+"runs/"+runId!+"/details") else { return }
             
             var data: Data?
             do {

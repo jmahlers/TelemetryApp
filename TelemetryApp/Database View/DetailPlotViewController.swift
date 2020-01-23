@@ -40,8 +40,8 @@ class DetailPlotViewController : UIViewController {
         
         
         
-        print("in here")
-        parseFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
+        print("in here Detail")
+        parseFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'" //I got this to work after a whole day. dont fucking touch the formats
         
         DispatchQueue.global().async {
             self.fetchPoints()
@@ -68,7 +68,7 @@ class DetailPlotViewController : UIViewController {
     }
     
     func fetchPoints() {
-        
+        print("fetchingPoints")
         if varId != nil && start != nil && end != nil {
             var urlString = baseURL+"runs/points/"
             urlString += start!+"/"+end!
@@ -76,7 +76,7 @@ class DetailPlotViewController : UIViewController {
             guard let url = URL(string: urlString) else { return }
             
             print(urlString)
-            print("in here")
+            print("in here fetching points")
             
             var data: Data?
             do {
@@ -93,7 +93,7 @@ class DetailPlotViewController : UIViewController {
                         var timeScaleFactor: Double = 0.0
                         for j in json {
                             var time = j["time"] as? String
-                            time = time?.replacingOccurrences(of: "T", with: " ")
+                            //I got this to work after a whole day. dont fucking touch the formats
                             time = time?.replacingOccurrences(of: "Z", with: "")
                             let timeDate = parseFormatter.date(from: time!)
                             

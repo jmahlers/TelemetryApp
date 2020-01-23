@@ -40,10 +40,12 @@ class DockOptionsController: UIViewController, UITableViewDataSource, UITableVie
         let pinnedState = Telemetry.shared.pinnedSensors.contains(sensor)
         if(indexPath.section == 0){
             cell.isPinned.isOn = pinnedState
-            cell.sensorLabel.text = favoriteSensors[indexPath.row].key
+            cell.sensorLabel.text = sensor.key
+            cell.cellSensor = sensor
         }else{
             cell.isPinned.isOn = pinnedState
-            cell.sensorLabel.text = generalSensors[indexPath.row].key
+            cell.sensorLabel.text = sensor.key
+            cell.cellSensor = sensor
         }
         return cell
     }

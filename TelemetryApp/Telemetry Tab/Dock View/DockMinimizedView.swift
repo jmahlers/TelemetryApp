@@ -96,7 +96,8 @@ class DockMinimizedView: UIView, TelemetryDelegate, PinnedDelegate{
             TwoNum.text = ""
             ThreeNum.text = ""
             
-            ZeroUnit.text = pinnedSensors?[0].unit
+            //ZeroUnit.text = pinnedSensors?[0].unit
+            ZeroUnit.text = "V"
             OneUnit.text = ""
             TwoUnit.text = ""
             ThreeUnit.text = ""
@@ -107,8 +108,10 @@ class DockMinimizedView: UIView, TelemetryDelegate, PinnedDelegate{
             TwoNum.text = ""
             ThreeNum.text = ""
             
-            ZeroUnit.text = pinnedSensors?[0].unit
-            OneUnit.text = pinnedSensors?[1].unit
+           // ZeroUnit.text = pinnedSensors?[0].unit
+          //  OneUnit.text = pinnedSensors?[1].unit
+            ZeroUnit.text = "V"
+            OneUnit.text = "mm"
             TwoUnit.text = ""
             ThreeUnit.text = ""
             return
@@ -118,9 +121,13 @@ class DockMinimizedView: UIView, TelemetryDelegate, PinnedDelegate{
             TwoNum.text = ""
             ThreeNum.text = ""
             
-            ZeroUnit.text = pinnedSensors?[0].unit
-            OneUnit.text = pinnedSensors?[1].unit
-            TwoUnit.text = pinnedSensors?[2].unit
+            
+            //ZeroUnit.text = pinnedSensors?[0].unit
+            //OneUnit.text = pinnedSensors?[1].unit
+            //TwoUnit.text = pinnedSensors?[2].unit
+            ZeroUnit.text = "V"
+            OneUnit.text = "mm"
+            TwoUnit.text = "N"
             ThreeUnit.text = ""
             return
         case 4:
@@ -129,10 +136,14 @@ class DockMinimizedView: UIView, TelemetryDelegate, PinnedDelegate{
             TwoNum.text = ""
             ThreeNum.text = ""
             
-            ZeroUnit.text = pinnedSensors?[0].unit
-            OneUnit.text = pinnedSensors?[1].unit
-            TwoUnit.text = pinnedSensors?[2].unit
-            ThreeUnit.text = pinnedSensors?[3].unit
+            ZeroUnit.text = "V"
+            OneUnit.text = "mm"
+            TwoUnit.text = "N"
+            ThreeUnit.text = "C"
+            //ZeroUnit.text = pinnedSensors?[0].unit
+            //OneUnit.text = pinnedSensors?[1].unit
+            //TwoUnit.text = pinnedSensors?[2].unit
+            //ThreeUnit.text = pinnedSensors?[3].unit
             return
         default:
             ZeroNum.text = ""

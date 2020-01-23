@@ -13,7 +13,7 @@ class TelemetryViewController : UIViewController, TelemetryDelegate, UIPopoverPr
     
     var timer: Timer?
     
-    let graphUpdatePeriod:Double = 1 // in seconds
+    let graphUpdatePeriod:Double = 0.5 // in seconds
     var mostRecentTime:Double = 0
     
     @IBOutlet weak var dockOutlet: DockManager!
