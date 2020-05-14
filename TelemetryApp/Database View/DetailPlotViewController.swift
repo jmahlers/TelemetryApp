@@ -120,7 +120,7 @@ class DetailPlotViewController : UIViewController {
     
     func setupActivityIndicator() {
         indicator = UIActivityIndicatorView(frame: self.view.frame)
-        indicator.style = UIActivityIndicatorView.Style.whiteLarge
+        indicator.style = UIActivityIndicatorView.Style.large
         indicator.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.5)
         indicator.hidesWhenStopped = true
         self.view.addSubview(indicator)

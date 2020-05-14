@@ -50,8 +50,6 @@
 		A0764E40237B445A0077FB88 /* BugReport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0764E3F237B445A0077FB88 /* BugReport.storyboard */; };
 		A0764E43237B49170077FB88 /* SettingsModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0764E41237B49170077FB88 /* SettingsModalController.swift */; };
 		A0764E44237B49170077FB88 /* SettingsModalController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0764E42237B49170077FB88 /* SettingsModalController.xib */; };
-		A077D984237938D400250EC6 /* SciChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A077D983237938D300250EC6 /* SciChart.framework */; };
-		A077D985237938D400250EC6 /* SciChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A077D983237938D300250EC6 /* SciChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A077D988237938F500250EC6 /* SCIGenericWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A077D987237938F500250EC6 /* SCIGenericWrapper.swift */; };
 		A077D9892379CC9800250EC6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F4A835237142420025CAA1 /* WebKit.framework */; };
 		A08290F72375546F00AF0E20 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08290F62375546F00AF0E20 /* HeaderView.swift */; };
@@ -68,6 +66,8 @@
 		A0DB4681239483E200ADD41D /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB4680239483E200ADD41D /* FavoritesCell.swift */; };
 		A0E2701023768F0800440719 /* DockExpandedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E2700E23768F0800440719 /* DockExpandedCell.swift */; };
 		A0E2701123768F0800440719 /* DockExpandedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0E2700F23768F0800440719 /* DockExpandedCell.xib */; };
+		A0E2B5AE23D9417200A63C46 /* SciChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E2B5AA23D9412500A63C46 /* SciChart.framework */; };
+		A0E2B5AF23D9417200A63C46 /* SciChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0E2B5AA23D9412500A63C46 /* SciChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A0F3D86223721AFD00D10CF8 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3D86123721AFD00D10CF8 /* Sensor.swift */; };
 		A0F4A83423713D480025CAA1 /* LivestreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F4A83323713D480025CAA1 /* LivestreamView.swift */; };
 		A0FE983B2374A8D20033F6E6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE983A2374A8D20033F6E6 /* Extensions.swift */; };
@@ -86,13 +86,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A077D986237938D400250EC6 /* Embed Frameworks */ = {
+		A0E2B5AD23D9412600A63C46 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A077D985237938D400250EC6 /* SciChart.framework in Embed Frameworks */,
+				A0E2B5AF23D9417200A63C46 /* SciChart.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 1;
@@ -146,7 +146,6 @@
 		A0764E3F237B445A0077FB88 /* BugReport.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BugReport.storyboard; sourceTree = "<group>"; };
 		A0764E41237B49170077FB88 /* SettingsModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModalController.swift; sourceTree = "<group>"; };
 		A0764E42237B49170077FB88 /* SettingsModalController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsModalController.xib; sourceTree = "<group>"; };
-		A077D983237938D300250EC6 /* SciChart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SciChart.framework; sourceTree = "<group>"; };
 		A077D987237938F500250EC6 /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCIGenericWrapper.swift; sourceTree = "<group>"; };
 		A08290F62375546F00AF0E20 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A08290F82375592B00AF0E20 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
@@ -162,6 +161,7 @@
 		A0DB4680239483E200ADD41D /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		A0E2700E23768F0800440719 /* DockExpandedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockExpandedCell.swift; sourceTree = "<group>"; };
 		A0E2700F23768F0800440719 /* DockExpandedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DockExpandedCell.xib; sourceTree = "<group>"; };
+		A0E2B5AA23D9412500A63C46 /* SciChart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SciChart.framework; path = ../SciChart.framework; sourceTree = "<group>"; };
 		A0F3D86123721AFD00D10CF8 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
 		A0F4A83323713D480025CAA1 /* LivestreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivestreamView.swift; sourceTree = "<group>"; };
 		A0F4A835237142420025CAA1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -186,9 +186,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0E2B5AE23D9417200A63C46 /* SciChart.framework in Frameworks */,
 				A077D9892379CC9800250EC6 /* WebKit.framework in Frameworks */,
 				835B3677A0C5E7B384A972AE /* Pods_TelemetryApp.framework in Frameworks */,
-				A077D984237938D400250EC6 /* SciChart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +248,7 @@
 		72B096A68E3FC05641DA99CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0E2B5AA23D9412500A63C46 /* SciChart.framework */,
 				A0F4A835237142420025CAA1 /* WebKit.framework */,
 				6B22950E09878D842173933E /* Pods_TelemetryApp.framework */,
 			);
@@ -311,7 +312,6 @@
 			isa = PBXGroup;
 			children = (
 				A077D987237938F500250EC6 /* SCIGenericWrapper.swift */,
-				A077D983237938D300250EC6 /* SciChart.framework */,
 				A01CA520236A3D02007B6713 /* TelemetryApp */,
 				A01CA51F236A3D02007B6713 /* Products */,
 				69FC17B818426CF39FED3FDC /* Pods */,
@@ -412,7 +412,7 @@
 				A01CA51B236A3D02007B6713 /* Frameworks */,
 				A01CA51C236A3D02007B6713 /* Resources */,
 				75A90B1FA7D352775B17FF51 /* [CP] Embed Pods Frameworks */,
-				A077D986237938D400250EC6 /* Embed Frameworks */,
+				A0E2B5AD23D9412600A63C46 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
