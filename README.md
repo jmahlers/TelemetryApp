@@ -1,5 +1,5 @@
 # TelemetryApp 
-Team website: http://sae.wustl.edu/
+Team website: https://sae.wustl.edu/
 
 Wash U Racing is Washington University in St. Louis' Formula SAE team. We design, build, and compete a formula style race car every year.
 
