@@ -6,7 +6,8 @@ Wash U Racing is Washington University in St. Louis' Formula SAE team. We design
 ## About
 This serves as a iOS telemetry client for the WashU Racing sensor suite written in Swift. It features live graphing of telemetry data and graphing of previous runs from the sensor database using the iOS Charts framework. Telemetry data is ingressed from the existing WashU Racing SSE server using the EventSource library. Dynamic sensor additions and removals are supported in addition to a sensor favoriting system. The most important sensors can be pinned to a dock which can be expanded to show the current raw value of each sensor.
 
-![App Gif](https://github.com/jmahlers/TelemetryApp/blob/Beta/ReadmeAssets/WashuRacingTelemetry_1.gif)
+<img src="https://github.com/jmahlers/TelemetryApp/blob/Beta/ReadmeAssets/WashuRacingTelemetry_1.gif" width="250"/> <img src="https://github.com/jmahlers/TelemetryApp/blob/Beta/ReadmeAssets/dockView.gif" width="250"/> 
+
 ## Live Telemetry Graphing
 
 * Using iOS Charts, the live telemetry graphs updated at up to 10 Hz.
