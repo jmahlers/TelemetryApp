@@ -4,6 +4,7 @@
 
 ## User settings
 xcuserdata/
-SciChartsLicense/
+SciChart.framework/
 TelemetryApp/SciChartsLicense/
 ReadmeAssets/
+Pods/
