@@ -36,7 +36,8 @@ This serves as a iOS telemetry client for the WashU Racing sensor suite written 
 The library for SciCharts can be found at <https://www.scichart.com/>.
 
 For WashU racing members, it is on the 2020 Grabcad under /Frame/TelemetryApp.
-<img width="100" alt="portfolio_view" style="padding: 20px;" src="https://github.com/jmahlers/TelemetryApp/blob/Beta/ReadmeAssets/ecuDB.PNG"> <img width="250" alt="portfolio_view" style="padding: 20px;" src="https://raw.githubusercontent.com/jmahlers/TelemetryApp/Beta/filestructure.png">
+
+<img width="100" alt="portfolio_view" style="padding: 20px;" src="https://raw.githubusercontent.com/jmahlers/TelemetryApp/Beta/ReadmeAssets/filestructure.png">
 
 ## Authors
 
