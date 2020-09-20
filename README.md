@@ -33,7 +33,7 @@ This serves as a iOS telemetry client for the WashU Racing sensor suite written 
     pod 'SciChart'
 The library for SciCharts can be found at <https://www.scichart.com/>. You will also need a SciCharts license.
 
-For WashU racing members, it is on the 2020 Grabcad under /Frame/TelemetryApp. There is also a copy of my SciCharts license; the license is in perpetuity for the version 2.0.
+For WashU racing members, the library is on the 2020 Grabcad under Frame/TelemetryApp/. There is also a copy of my SciCharts license; the license is in perpetuity for the version 2.0.
 Contact Jeff Ahlers or Jake Kendrick in order to transfer one of our licenses.
 
 <img width="200" alt="filestructure" style="padding: 20px;" src="https://raw.githubusercontent.com/jmahlers/TelemetryApp/Beta/ReadmeAssets/filestructure.png">
